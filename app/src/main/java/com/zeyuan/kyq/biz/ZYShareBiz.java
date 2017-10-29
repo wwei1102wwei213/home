@@ -48,7 +48,7 @@ public class ZYShareBiz {
         WXMediaMessage msg = new WXMediaMessage(webpage);
         msg.title = shareTitle;
         msg.description = shareContent;
-        //这里替换一张自己工程里的图片资源
+
         if(json!=null){
             msg.thumbData = json;
         }else{
