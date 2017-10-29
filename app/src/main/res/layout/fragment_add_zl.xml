@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/main_color"
+        android:orientation="vertical">
+
+        <include layout="@layout/toorbar" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/white"
+            android:gravity="center"
+            android:padding="@dimen/small_margin"
+            android:text="资料越新，可参考的方案越精准"
+            android:textColor="@color/text_color3"
+            android:textSize="@dimen/front14" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/main_height2"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:background="@color/white">
+
+            <TextView
+                style="@style/patient_detail_left_textview_style"
+                android:text="@string/cancer_type" />
+
+            <TextView
+                android:id="@+id/cancer_type"
+                style="@style/patient_detail_right_textview_style"
+                android:drawableRight="@mipmap/right" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/main_height2"
+            android:layout_marginTop="@dimen/small_margin"
+            android:background="@color/white">
+
+            <TextView
+                style="@style/patient_detail_left_textview_style"
+                android:text="当前治疗方式" />
+
+            <TextView
+                android:id="@+id/cure_case"
+                style="@style/patient_detail_right_textview_style"
+                android:drawableRight="@mipmap/right" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/main_height2"
+            android:layout_marginTop="@dimen/small_margin"
+            android:background="@color/white">
+
+            <TextView
+                style="@style/patient_detail_left_textview_style"
+                android:text="请选择分期" />
+
+            <TextView
+                android:id="@+id/digit"
+                style="@style/patient_detail_right_textview_style"
+                android:drawableRight="@mipmap/right" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="#F8F8F8">
+
+                <TextView
+                    style="@style/patient_detail_left_textview_style"
+                    android:text="原发肿瘤情况" />
+
+                <TextView
+                    android:id="@+id/period_start"
+                    android:drawableRight="@mipmap/right"
+                    style="@style/patient_detail_right_textview_style"
+                    android:text="" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/line_color" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="#F8F8F8">
+
+                <TextView
+                    style="@style/patient_detail_left_textview_style"
+                    android:text="区域淋巴结情况" />
+
+                <TextView
+                    android:id="@+id/linba"
+                    android:drawableRight="@mipmap/right"
+                    style="@style/patient_detail_right_textview_style"
+                    android:text="" />
+            </LinearLayout>
+
+
+            <View style="@style/line_style" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="#F8F8F8">
+
+                <TextView
+                    style="@style/patient_detail_left_textview_style"
+                    android:text="远处转移情况" />
+
+                <TextView
+                    android:id="@+id/far_trsnsfo_case"
+                    android:drawableRight="@mipmap/right"
+                    style="@style/patient_detail_right_textview_style"
+                    android:text="" />
+            </LinearLayout>
+
+            <View style="@style/line_style" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <View style="@style/line_style" />
+
+    <Button
+        android:id="@+id/save"
+        style="@style/bottom_button"
+        android:text="@string/confirm_lastest" />
+
+</LinearLayout>

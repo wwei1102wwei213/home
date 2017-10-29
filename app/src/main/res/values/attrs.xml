@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CircleImageView">
+        <attr name="border_width" format="dimension" />
+        <attr name="border_color" format="color" />
+        <attr name="border_overlay" format="boolean" />
+    </declare-styleable>
+
+    <!--    -->
+    <declare-styleable name="ButtonBarContainerTheme">
+        <attr name="metaButtonBarStyle" format="reference" />
+        <attr name="metaButtonBarButtonStyle" format="reference" />
+    </declare-styleable>
+
+    <!---->
+    <declare-styleable name="slideswitch">
+        <attr name="themeColor" format="color" />
+        <attr name="isOpen" format="boolean" />
+        <attr name="shape">
+            <enum name="rect" value="1" />
+            <enum name="circle" value="2" />
+        </attr>
+    </declare-styleable>
+
+    <!--可以折叠的textview-->
+    <declare-styleable name="ExpandableTextViewToggle">
+        <attr name="collapsibleTextView" format="reference" />
+        <attr name="expandText" format="string" />
+        <attr name="expandDrawable" format="reference" />
+        <attr name="collapseText" format="string" />
+        <attr name="collapseDrawable" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="FlowLayout">
+        <attr name="horizontal_spacing" format="dimension" />
+        <attr name="vertical_spacing" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="double_tv_layout">
+        <attr name="left_txt" format="string"></attr>
+        <attr name="right_txt" format="string"></attr>
+    </declare-styleable>
+
+    <!--滑动选择器-->
+    <declare-styleable name="WheelView">
+        <attr name="normalTextColor" format="color" />
+        <attr name="normalTextSize" format="dimension" />
+        <attr name="selectedTextColor" format="color" />
+        <attr name="selectedTextSize" format="dimension" />
+        <attr name="unitHight" format="dimension" />
+        <attr name="itemNumber" format="integer" />
+        <attr name="lineColor" format="color" />
+        <attr name="lineHeight" format="dimension" />
+        <attr name="maskHight" format="dimension" />
+        <attr name="noEmpty" format="boolean" />
+        <attr name="isEnable" format="boolean" />
+    </declare-styleable>
+
+    <attr name="entrySummaries" format="reference" />
+
+    <declare-styleable name="UListPreference">
+        <attr name="entrySummaries" />
+    </declare-styleable>
+
+    <declare-styleable name="MyCircleProgressBar">
+        <attr name="borderWidth_circle" format="dimension" />
+        <attr name="unprogresColor_circle" format="color" />
+        <attr name="progressColor_circle" format="color" />
+        <attr name="tickWidth_circle" format="dimension" />
+        <attr name="tickDensity_circle" format="integer" />
+        <attr name="bgShow_circle" format="boolean" />
+        <attr name="radius_circle" format="dimension" />
+        <attr name="arcbgColor_circle" format="color" />
+        <attr name="degree_circle" format="integer" />
+        <attr name="arcCapRound_circle" format="boolean" />
+        <attr name="progressStyle_circle" format="enum">
+            <enum name="tick" value="1" />
+            <enum name="arc" value="0" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="ExpandableTextView">
+        <attr name="maxCollapsedLines" format="integer" />
+        <attr name="animDuration" format="integer" />
+        <attr name="animAlphaStart" format="float" />
+
+        <!-- 点击事件的触发方式 -->
+        <attr name="clickListenerType">
+
+            <!-- 点击区域为全部区域,包括TextView和图标 -->
+            <enum name="all" value="0"></enum>
+
+            <!-- 点击区域仅为图标区域 -->
+            <enum name="footer" value="1"></enum>
+        </attr>
+    </declare-styleable>
+    <!--扩散圆颜色-->
+    <attr name="diffuse_color" format="color" />
+    <!--中心圆颜色-->
+    <attr name="diffuse_coreColor" format="color" />
+    <!--中心圆图片-->
+    <attr name="diffuse_coreImage" format="reference" />
+    <!--中心圆半径-->
+    <attr name="diffuse_coreRadius" format="float" />
+    <!--扩散圆宽度,值越小越宽-->
+    <attr name="diffuse_width" format="integer" />
+    <!--最大扩散宽度-->
+    <attr name="diffuse_maxWidth" format="integer" />
+
+    <declare-styleable name="DiffuseView">
+        <attr name="diffuse_color" />
+        <attr name="diffuse_coreColor" />
+        <attr name="diffuse_coreImage" />
+        <attr name="diffuse_coreRadius" />
+        <attr name="diffuse_width" />
+        <attr name="diffuse_maxWidth" />
+    </declare-styleable>
+    <declare-styleable name="RippleBackground">
+        <attr name="rb_color" format="color" />
+        <attr name="rb_strokeWidth" format="dimension"/>
+        <attr name="rb_radius" format="dimension"/>
+        <attr name="rb_duration" format="integer"/>
+        <attr name="rb_rippleAmount" format="integer"/>
+        <attr name="rb_scale" format="float"/>
+        <attr name="rb_type" format="enum">
+            <enum name="fillRipple" value="0"/>
+            <enum name="strokeRipple" value="1"/>
+        </attr>
+    </declare-styleable>
+    <!--直播提醒的心形动画-->
+    <declare-styleable name="HeartLayout">
+        <attr name="initX" format="dimension" />
+        <attr name="initY" format="dimension" />
+        <attr name="xRand" format="dimension" />
+        <attr name="animLengthRand" format="dimension" />
+        <attr name="xPointFactor" format="dimension" />
+        <attr name="animLength" format="dimension" />
+        <attr name="heart_width" format="dimension" />
+        <attr name="heart_height" format="dimension" />
+        <attr name="bezierFactor" format="integer" />
+        <attr name="anim_duration" format="integer" />
+    </declare-styleable>
+    <!-- circular cover view -->
+    <declare-styleable name="CircularCoverView">
+        <attr name="radius" format="dimension" />
+        <attr name="cover_color" format="color" />
+    </declare-styleable>
+</resources>

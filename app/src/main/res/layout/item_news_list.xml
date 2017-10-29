@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="62dp"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/padding15"
+        android:paddingRight="@dimen/padding15"
+        android:background="@color/white"
+        >
+
+        <View
+            android:id="@+id/is_read"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:background="@drawable/bg_btn_point"
+            android:layout_marginTop="17dp"
+            />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical">
+            <TextView
+                android:id="@+id/tv_news_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/font12"
+                android:textColor="@color/text_color3"
+                android:paddingLeft="@dimen/padding10"
+                android:paddingRight="@dimen/padding10"
+                android:paddingTop="@dimen/padding15"
+                android:singleLine="true"
+                android:layout_alignParentRight="true"
+                android:text="时间"
+                />
+            <TextView
+                android:id="@+id/tv_news_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/font15"
+                android:textColor="@color/text_color2"
+                android:paddingLeft="@dimen/padding12"
+                android:paddingTop="@dimen/padding12"
+                android:layout_toLeftOf="@+id/tv_news_time"
+                android:singleLine="true"
+                android:text="消息标题"
+                />
+            <TextView
+                android:id="@+id/tv_news_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/font13"
+                android:textColor="@color/text_color3"
+                android:paddingLeft="@dimen/padding12"
+                android:paddingBottom="@dimen/padding12"
+                android:layout_marginTop="@dimen/margin4"
+                android:layout_below="@+id/tv_news_item"
+                android:ellipsize="end"
+                android:text="消息内容"
+                />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+    <View
+        android:id="@+id/line"
+        style="@style/line_horizontal_e2_1dp"
+        android:layout_marginLeft="40dp"/>
+
+</LinearLayout>

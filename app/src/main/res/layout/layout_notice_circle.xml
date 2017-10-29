@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="32dp"
+    android:id="@+id/notice_circle"
+    android:visibility="gone"
+    android:background="@color/no_step_hint_bg"
+    >
+    <TextView
+        android:id="@+id/tv_notice_circle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:drawableRight="@mipmap/to_right_blue2"
+        android:drawableLeft="@mipmap/to_left_orange"
+        android:drawablePadding="@dimen/padding5"
+        android:text="公告：加入QQ群：284445750，我们会第一时间为您解答。加入QQ群：284445750，我们会第一时间为您解答。"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/padding15"
+        android:paddingRight="@dimen/padding15"
+        android:layout_alignParentRight="true"
+        android:singleLine="true"
+        />
+</RelativeLayout>

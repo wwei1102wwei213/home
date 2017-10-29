@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/whole_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/toorbar" />
+
+        <com.zeyuan.kyq.widget.CustomScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fadingEdge="none"
+            android:overScrollMode="never"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:id="@+id/content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/drug_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginTop="@dimen/small_margin"
+                    android:paddingBottom="@dimen/small_margin"
+                    android:paddingTop="@dimen/small_margin"
+                    android:text="@string/case_js"
+                    android:textColor="@color/text_color_1"
+                    android:textSize="@dimen/front18"
+                    android:textStyle="bold" />
+
+                <!--<View style="@style/line_style" />-->
+
+
+                <RelativeLayout
+                    android:id="@+id/ll_dy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/small_margin"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:id="@+id/img_usage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        android:background="@mipmap/pink_prismatic"
+                        android:gravity="center"
+                        android:text="@string/usage"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/front10" />
+
+                    <com.zeyuan.kyq.widget.expandabletextview.ExpandableTextView
+                        android:id="@+id/tv_usage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        android:text=" "
+                        android:layout_toRightOf="@+id/img_usage"
+                        android:textColor="@color/item_forum_title"
+                        android:textSize="@dimen/front16"
+                        />
+
+                    <com.zeyuan.kyq.widget.expandabletextview.ExpandableTextViewToggle
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@+id/tv_usage"
+                        android:layout_gravity="end"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        android:drawablePadding="4dp"
+                        android:textSize="@dimen/front16"
+                        app:collapseDrawable="@android:drawable/arrow_up_float"
+                        app:collapseText="@string/close"
+                        app:collapsibleTextView="@+id/tv_usage"
+                        app:expandDrawable="@android:drawable/arrow_down_float"
+                        app:expandText="@string/open" />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/ll_tip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/img_tip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="17dp"
+                        android:background="@mipmap/green_prismatic"
+                        android:gravity="center"
+                        android:text="@string/case_tips"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/front10" />
+
+                    <com.zeyuan.kyq.widget.expandabletextview.ExpandableTextView
+                        android:id="@+id/tv_tip"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        android:layout_toRightOf="@+id/img_tip"
+                        android:textColor="@color/item_forum_title"
+                        android:text=" "
+                        android:textSize="@dimen/front16" />
+
+
+                    <com.zeyuan.kyq.widget.expandabletextview.ExpandableTextViewToggle
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@+id/tv_tip"
+                        android:layout_gravity="end"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        android:drawablePadding="4dp"
+                        android:textSize="@dimen/front16"
+                        app:collapseDrawable="@android:drawable/arrow_up_float"
+                        app:collapseText="@string/close"
+                        app:collapsibleTextView="@+id/tv_tip"
+                        app:expandDrawable="@android:drawable/arrow_down_float"
+
+                        app:expandText="@string/open" />
+
+                </RelativeLayout>
+
+
+
+
+            </LinearLayout>
+        </com.zeyuan.kyq.widget.CustomScrollView>
+
+        <View
+            android:id="@+id/line1"
+            style="@style/line_style"
+            android:layout_below="@+id/whole_content" />
+
+        <Button
+            android:id="@+id/add_paln_drugs"
+            style="@style/bottom_button"
+            android:text="添加到计划用药"
+            android:textSize="@dimen/front18" />
+    </LinearLayout>
+
+
+</FrameLayout>

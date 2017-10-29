@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="0dp"
+    android:layout_weight="1"
+    android:layout_height="160dp"
+    >
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="135dp"
+        android:background="@drawable/bg_diag"
+        android:layout_centerVertical="true">
+
+        <TextView
+            android:id="@+id/tv_title_abc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/margin30"
+            android:textSize="@dimen/font11"
+            android:textStyle="bold"
+            android:textColor="@color/text_color333"
+            />
+        <LinearLayout
+            android:id="@+id/v_temp1"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="60dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="61.4"
+                android:textColor="@color/light_green2"
+                android:textSize="@dimen/font18"
+                android:textStyle="bold"
+                />
+            <TextView
+                android:id="@+id/tv_unit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="%"
+                android:layout_marginLeft="@dimen/margin4"
+                android:textSize="@dimen/font13"
+                android:textColor="@color/text_color999"
+                />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/tv_hint_abc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="阿法替尼"
+            android:layout_below="@+id/v_temp1"
+            android:textColor="@color/text_color999"
+            android:textSize="@dimen/font12"
+            />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/iv_abc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin10"
+        android:src="@mipmap/text_a"/>
+
+    <TextView
+        android:id="@+id/v_look"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/look_case_abc"
+        android:text="查看"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:paddingBottom="@dimen/padding6"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="@dimen/font13"
+        />
+
+</RelativeLayout>

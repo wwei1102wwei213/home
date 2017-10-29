@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_color"
+    android:orientation="horizontal">
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/small_margin"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/red_line1"
+                android:layout_width="1dp"
+                android:layout_height="@dimen/activity_horizontal_margin"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/light_red" />
+
+            <ImageView
+                android:id="@+id/img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/stepdetail_time" />
+
+            <TextView
+                android:id="@+id/red_line2"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/img"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/light_red" />
+        </LinearLayout>
+
+    </FrameLayout>
+
+
+    <LinearLayout
+        android:id="@+id/add_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:layout_weight="5"
+        android:orientation="vertical"
+        android:paddingRight="@dimen/small_margin">
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/main_color" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height32"
+            android:layout_marginTop="@dimen/small_margin"
+            android:background="@drawable/ba_step_zhibiao">
+
+            <!--<ImageView-->
+            <!--android:id="@+id/img2"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginLeft="15dp"-->
+            <!--android:src="@mipmap/zhibiao" />-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/small_margin"
+                android:drawableLeft="@mipmap/zhibiao"
+                android:drawablePadding="@dimen/drawable_padding"
+                android:gravity="center"
+                android:text="@string/index_record"
+                android:textColor="@color/white"
+                android:textSize="@dimen/front14" />
+
+            <ImageView
+                android:id="@+id/update2"
+                android:layout_width="@dimen/height32"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/small_margin"
+                android:scaleType="centerInside"
+                android:src="@drawable/red_edit" />
+
+            <ImageView
+                android:id="@+id/delete2"
+                android:layout_width="@dimen/height32"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/update2"
+                android:scaleType="centerInside"
+                android:src="@drawable/red_delete" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/step_detail_left_txt"
+                android:text="@string/cea" />
+
+            <TextView
+                android:id="@+id/cea_record"
+                style="@style/step_detail_right_txt" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/line_color" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/step_detail_left_txt"
+                android:text="@string/main_cancer_pos" />
+
+            <TextView
+                android:id="@+id/main_length"
+                style="@style/step_detail_right_txt" />
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/line_color" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/step_detail_left_txt"
+
+                android:text="@string/transpos_status" />
+
+            <TextView
+                android:id="@+id/transfer_pos"
+                style="@style/step_detail_right_txt" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/line_color" />
+    </LinearLayout>
+</LinearLayout>

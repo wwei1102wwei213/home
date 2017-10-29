@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.zeyuan.kyq.widget.CustomView.InsideRecyclerView
+        android:id="@+id/rv"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:background="@color/white"
+        android:visibility="gone"
+        />
+
+    <ProgressBar
+        android:id="@+id/pb_service"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:minHeight="1dp"
+        android:maxHeight="1dp"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:max="100"
+        android:progressDrawable="@drawable/seekbar_drawable"
+        android:visibility="gone"
+        />
+
+    <com.youzan.sdk.web.plugin.YouzanBrowser
+        android:id="@+id/wv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

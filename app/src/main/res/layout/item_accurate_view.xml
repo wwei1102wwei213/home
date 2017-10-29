@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:paddingBottom="@dimen/font15"
+    android:background="@color/color_blue_bg"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="2.5dp"
+            android:layout_height="18dp"
+            android:background="@color/text_blue" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="精准查看"
+            android:textColor="@color/text_blue"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <com.zeyuan.kyq.widget.MyGridView
+        android:id="@+id/gv_taste"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="10dp"
+        android:numColumns="4" />
+
+    <TextView
+        android:id="@+id/tv_more"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="22dp"
+        android:background="@drawable/tv_blue_stroke_4"
+        android:drawablePadding="8dp"
+        android:drawableRight="@drawable/look_more_case_selector"
+        android:gravity="center"
+        android:paddingLeft="90dp"
+        android:paddingRight="90dp"
+        android:text="展开更多内容"
+        android:textColor="@color/text_blue"
+        android:textSize="12sp" />
+</LinearLayout>

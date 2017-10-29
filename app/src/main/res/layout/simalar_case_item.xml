@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="165dp"
+    android:layout_height="235dp"
+    android:background="@color/main_color"
+    android:paddingLeft="@dimen/padding5"
+    android:paddingRight="@dimen/padding5"
+    android:paddingBottom="@dimen/padding10"
+    android:paddingTop="@dimen/padding10"
+    >
+<!--android:background="@drawable/releaseforum_top_radiobutton_shape_default"-->
+    <RelativeLayout
+        android:layout_width="155dp"
+        android:layout_height="210dp"
+
+        android:background="@drawable/bg_cash_white_r8"
+        >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="149dp"
+            android:layout_height="204dp"
+            android:layout_centerInParent="true"
+            >
+            <com.zeyuan.kyq.widget.CircleImageView
+                android:id="@+id/civ_avatar"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/margin12"
+                android:src="@mipmap/default_avatar"
+                />
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:paddingTop="@dimen/padding5"
+                android:text="因为热爱"
+                android:textColor="@color/text_normal"
+                android:textSize="@dimen/font12" />
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_gravity="center_horizontal"
+                >
+                <TextView
+                    android:id="@+id/tv_temp_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="已成功抗癌"
+                    android:textSize="@dimen/font11"
+                    android:textColor="@color/text_normal"
+                    android:gravity="center_vertical"
+                    />
+                <TextView
+                    android:id="@+id/tv_day"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text=""
+                    android:textSize="@dimen/font15"
+                    android:textColor="@color/light_green"
+                    android:layout_toRightOf="@+id/tv_temp_left"
+                    android:gravity="center_vertical"
+                    />
+                <TextView
+                    android:id="@+id/tv_temp_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="天"
+                    android:layout_toRightOf="@+id/tv_day"
+                    android:textSize="@dimen/font11"
+                    android:textColor="@color/text_normal"
+                    android:gravity="center_vertical"
+                    />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_cancer"
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:text="肺腺癌 IV期"
+                android:textSize="@dimen/font11"
+                android:textColor="@color/text_color2"
+                android:paddingLeft="@dimen/padding8"
+                android:paddingRight="@dimen/padding8"
+                android:maxWidth="120dp"
+                android:singleLine="true"
+                android:gravity="center"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/bg_main_color_r10"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal"
+                android:layout_gravity="center_horizontal"
+                >
+                <TextView
+                    style="@style/tv_from_circle_style"
+                    android:text="靶向药"
+                    />
+                <TextView
+                    style="@style/tv_from_circle_style"
+                    android:text="放疗"
+                    android:layout_marginLeft="@dimen/margin5"
+                    android:layout_marginRight="@dimen/margin5"
+                    />
+                <TextView
+                    style="@style/tv_from_circle_style"
+                    android:text="手术"
+                    />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="＋ 加关注"
+                    android:textColor="@color/green_white_selector"
+                    android:paddingLeft="@dimen/padding15"
+                    android:paddingRight="@dimen/padding15"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"
+                    android:layout_centerInParent="true"
+                    android:textSize="@dimen/font13"
+                    android:background="@drawable/bg_cash_white_rg"
+                    />
+            </RelativeLayout>
+
+        </LinearLayout>
+        </RelativeLayout>
+</LinearLayout>

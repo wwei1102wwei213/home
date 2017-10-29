@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <include
+        android:id="@+id/circle_name"
+        layout="@layout/item_find_circle_new"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        />
+    <View
+        style="@style/line_horizontal_e2"/>
+
+    <RelativeLayout
+        android:id="@+id/rl_rv_circle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_circle"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height48"
+            android:background="@color/white"
+            android:paddingRight="@dimen/padding5"
+            android:paddingLeft="@dimen/padding5"
+            />
+        <View
+            style="@style/line_horizontal_e2"
+            android:layout_below="@+id/rv_circle"
+            />
+    </RelativeLayout>
+</LinearLayout>

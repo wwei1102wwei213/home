@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/white_title_bar"/>
+    <View style="@style/line_horizontal_normol"/>
+    <!--<include layout="@layout/search_column"/>-->
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.zeyuan.kyq.widget.CustomView.BounceScrollView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fadingEdge="none"
+            android:overScrollMode="never"
+            android:scrollbars="none">
+            <com.zeyuan.kyq.widget.MyListView
+                android:id="@+id/lv_search_drug_left"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@null"
+                android:fadingEdge="none"
+                android:overScrollMode="never"
+                />
+        </com.zeyuan.kyq.widget.CustomView.BounceScrollView>
+        <com.zeyuan.kyq.widget.CustomView.BounceScrollView
+            android:id="@+id/rsv"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:fadingEdge="none"
+            android:overScrollMode="never"
+            android:scrollbars="none">
+            <com.zeyuan.kyq.widget.MyListView
+                android:id="@+id/lv_search_drug_right"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="@null"
+                android:fadingEdge="none"
+                android:overScrollMode="never"/>
+        </com.zeyuan.kyq.widget.CustomView.BounceScrollView>
+
+    </LinearLayout>
+
+</LinearLayout>

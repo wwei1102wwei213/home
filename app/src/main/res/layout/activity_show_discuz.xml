@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <!--<include layout="@layout/other_title"/>-->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/white">
+
+            <ImageView
+                android:id="@+id/iv_share"
+                android:layout_width="@dimen/height50"
+                android:layout_height="match_parent"
+                android:src="@mipmap/share_step_def"
+                android:scaleType="centerInside"
+                android:padding="@dimen/padding12"
+                android:layout_alignParentRight="true"
+                />
+            <LinearLayout
+                android:id="@+id/v_close"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="关闭"
+                    android:textSize="@dimen/font13"
+                    android:textColor="@color/light_green"
+                    android:paddingLeft="@dimen/padding12"
+                    android:paddingRight="@dimen/padding12"
+                    android:gravity="center"
+                    />
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="20dp"
+                    android:background="@color/light_green"
+                    android:layout_gravity="center_vertical"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:textColor="@color/text_color2"
+                android:textSize="@dimen/front16"
+                android:gravity="center"
+                android:singleLine="true"
+                android:layout_toLeftOf="@+id/iv_share"
+                android:layout_toRightOf="@+id/v_close"
+                android:paddingLeft="@dimen/padding10"
+                android:paddingRight="@dimen/padding4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/line_ccc"/>
+
+        <ProgressBar
+            android:id="@+id/sb_wv"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:minHeight="1dp"
+            android:maxHeight="1dp"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:max="100"
+            android:progressDrawable="@drawable/seekbar_drawable"
+            />
+
+        <!--<com.zeyuan.kyq.widget.CustomScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fadingEdge="none"
+            android:overScrollMode="never"
+            >-->
+        <com.youzan.sdk.web.plugin.YouzanBrowser
+            android:id="@+id/webview_show_discuz"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hardwareAccelerated="true"
+            android:visibility="visible"
+            />
+        <!--</com.zeyuan.kyq.widget.CustomScrollView>-->
+
+
+
+    </LinearLayout>
+    <ProgressBar
+        android:id="@+id/pbar"
+        android:layout_width="21dp"
+        android:layout_height="21dp"
+        android:layout_centerInParent="true"
+        android:indeterminateDrawable="@drawable/custom_progress_bar"
+        android:visibility="gone"
+        />
+</RelativeLayout>
+
+

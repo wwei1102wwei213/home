@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/v_body"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:background="@color/color_record_main_bg">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!--底部UI-->
+            <LinearLayout
+                android:id="@+id/temp_bottom"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_alignParentBottom="true"
+                android:background="@color/white"
+                android:layout_height="@dimen/height48">
+                <include layout="@layout/line_view_ddd"/>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white">
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:paddingLeft="@dimen/padding12"
+                        android:paddingRight="@dimen/padding12"
+                        android:paddingTop="@dimen/padding6"
+                        android:paddingBottom="@dimen/padding6"
+                        >
+                        <RelativeLayout
+                            android:id="@+id/v_edit_step"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bg_save_for_edit_step">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/btn_edit_step"
+                                android:textSize="@dimen/font14"
+                                android:textColor="@color/light_green2"
+                                android:gravity="center"
+                                android:layout_centerInParent="true"
+                                />
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:paddingLeft="@dimen/padding12"
+                        android:paddingRight="@dimen/padding12"
+                        android:paddingTop="@dimen/padding6"
+                        android:paddingBottom="@dimen/padding6">
+                        <RelativeLayout
+                            android:id="@+id/v_to_record"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bg_add_step_for_edit_step">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/btn_record_medical"
+                                android:textSize="@dimen/font14"
+                                android:textColor="@color/white"
+                                android:gravity="center"
+                                android:layout_centerInParent="true"
+                                android:drawableLeft="@mipmap/record_patient_left"
+                                android:drawablePadding="@dimen/padding4"
+                                />
+                        </RelativeLayout>
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--整体UI-->
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_above="@+id/temp_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:id="@+id/v_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height48"
+                    android:background="@color/white">
+
+                    <TextView
+                        android:id="@+id/tv_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_centerHorizontal="true"
+                        android:gravity="center"
+                        android:text="@string/title_medical_record"
+                        android:textColor="@color/text_color333"
+                        android:textSize="@dimen/font18"
+                        android:textStyle="bold"
+                        />
+                    <ImageView
+                        android:id="@+id/iv_back"
+                        android:layout_width="@dimen/status_title_height"
+                        android:src="@mipmap/top_btn_back_blue"
+                        android:scaleType="center"
+                        android:layout_height="match_parent"/>
+                    <RelativeLayout
+                        android:id="@+id/v_save"
+                        android:layout_width="@dimen/height48"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/share_default"
+                            android:layout_centerInParent="true"
+                            />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <include layout="@layout/line_view_ddd"/>
+
+                <com.zeyuan.kyq.widget.MyScrollView
+                    android:id="@+id/sv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fillViewport="true">
+                    
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="@dimen/padding10"
+                        android:paddingRight="@dimen/padding10">
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:background="@drawable/bg_medical_record_item_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin10"
+                            android:paddingTop="@dimen/padding10"
+                            android:paddingBottom="@dimen/padding10"
+                            android:paddingLeft="@dimen/padding8"
+                            android:paddingRight="@dimen/padding8"
+                            >
+
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/height32">
+                                <View style="@style/patient_left_green"/>
+                                <TextView
+                                    style="@style/patient_msg_item_title"
+                                    android:text="@string/text_patient_message"
+                                    />
+                                <TextView
+                                    android:id="@+id/tv_edit_patient_msg"
+                                    style="@style/patient_msg_tv_right"
+                                    android:text="@string/text_wrong_message"
+                                    android:textColor="@color/light_green"
+                                    android:drawableLeft="@mipmap/edit_patient_left"
+                                    android:drawablePadding="@dimen/padding4"
+                                    />
+                            </LinearLayout>
+                            <include layout="@layout/line_view_ddd"/>
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/padding8"
+                                android:paddingTop="@dimen/padding8"
+                                android:paddingBottom="@dimen/padding8">
+                                <TextView style="@style/patient_msg_text_left"
+                                    android:text="@string/text_patient_exp"/>
+                                <TextView android:id="@+id/tv_patient_detail"
+                                    style="@style/patient_msg_text_right"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/v_basic_detail"
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="@dimen/padding8"
+                                android:paddingBottom="@dimen/padding8">
+
+                                <TextView style="@style/patient_msg_text_left"
+                                    android:text="@string/text_basic_msg"/>
+
+                                <TextView
+                                    android:id="@+id/tv_basic_detail"
+                                    style="@style/patient_msg_text_right" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/v_status"
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="@dimen/padding8"
+                                android:paddingBottom="@dimen/padding8">
+
+                                <TextView
+                                    style="@style/patient_msg_text_left"
+                                    android:text="@string/text_physical_status_colon"
+                                    />
+
+                                <TextView
+                                    android:id="@+id/tv_status"
+                                    style="@style/patient_msg_text_right"
+                                    />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/v_other_stricken"
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="@dimen/padding8"
+                                android:paddingBottom="@dimen/padding8">
+
+                                <TextView
+                                    style="@style/patient_msg_text_left"
+                                    android:text="@string/text_other_stricken_colon"
+                                    />
+
+                                <TextView
+                                    android:id="@+id/tv_other_stricken"
+                                    style="@style/patient_msg_text_right"/>
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="@dimen/padding8"
+                                android:paddingBottom="@dimen/padding8">
+                                <TextView
+                                    style="@style/patient_msg_text_left"
+                                    android:text="@string/text_translate_colon"
+                                    />
+                                <TextView
+                                    android:id="@+id/tv_translate"
+                                    style="@style/patient_msg_text_right"
+                                    />
+                            </LinearLayout>
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="@dimen/padding8"
+                                android:paddingBottom="@dimen/padding8">
+                                <TextView
+                                    style="@style/patient_msg_text_left"
+                                    android:text="@string/text_gene_mutation_patient"
+                                    />
+                                <TextView
+                                    android:id="@+id/tv_gene"
+                                    style="@style/patient_msg_text_right"
+                                    />
+                            </LinearLayout>
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_marginTop="@dimen/margin10"
+                                android:layout_height="@dimen/height32">
+                                <View style="@style/patient_left_green"/>
+                                <TextView
+                                    style="@style/patient_msg_item_title"
+                                    android:text="@string/text_cancer_size_patient"
+                                    />
+                                <TextView
+                                    android:id="@+id/tv_look_all_cancer_size"
+                                    style="@style/patient_msg_tv_right"
+                                    android:text="@string/btn_look_all"
+                                    android:textColor="@color/text_color999"
+                                    android:drawableRight="@mipmap/right_gray"
+                                    android:drawablePadding="@dimen/padding2"
+                                    />
+                            </LinearLayout>
+                            <LinearLayout
+                                android:id="@+id/v_chart_cancer_size"
+                                android:orientation="vertical"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_marginTop="@dimen/margin10"
+                                android:layout_height="@dimen/height32">
+                                <View style="@style/patient_left_green"/>
+                                <TextView
+                                    style="@style/patient_msg_item_title"
+                                    android:text="@string/text_quota_msg_patient"
+                                    />
+                                <TextView
+                                    android:id="@+id/tv_look_all_quota_change"
+                                    style="@style/patient_msg_tv_right"
+                                    android:text="@string/btn_look_all"
+                                    android:textColor="@color/text_color999"
+                                    android:drawableRight="@mipmap/right_gray"
+                                    android:drawablePadding="@dimen/padding2"
+                                    />
+                            </LinearLayout>
+                            <LinearLayout
+                                android:id="@+id/v_chart_quota_change"
+                                android:orientation="vertical"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_marginTop="@dimen/margin10"
+                                android:layout_height="@dimen/height32">
+                                <View style="@style/patient_left_green"/>
+                                <TextView
+                                    style="@style/patient_msg_item_title"
+                                    android:text="@string/text_record_type_1"
+                                    />
+                                <TextView
+                                    android:id="@+id/tv_look_all_diagnosis"
+                                    style="@style/patient_msg_tv_right"
+                                    android:text="@string/btn_look_all"
+                                    android:textColor="@color/text_color999"
+                                    android:drawableRight="@mipmap/right_gray"
+                                    android:drawablePadding="@dimen/padding2"
+                                    />
+                            </LinearLayout>
+                            <LinearLayout
+                                android:id="@+id/v_diagnosis"
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone">
+                                <RelativeLayout
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp">
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerInParent="true"
+                                        android:src="@mipmap/record_pic_type_3"/>
+                                </RelativeLayout>
+                                <com.zeyuan.kyq.widget.MyListView
+                                    android:id="@+id/lv_diagnosis"
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="wrap_content"
+                                    android:divider="@color/line_ddd"
+                                    android:dividerHeight="1px">
+
+                                </com.zeyuan.kyq.widget.MyListView>
+                            </LinearLayout>
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_marginTop="@dimen/margin10"
+                                android:layout_height="@dimen/height32">
+                                <View style="@style/patient_left_green"/>
+                                <TextView
+                                    style="@style/patient_msg_item_title"
+                                    android:text="@string/text_record_type_8"
+                                    />
+                                <TextView
+                                    android:id="@+id/tv_look_all_pathology"
+                                    style="@style/patient_msg_tv_right"
+                                    android:text="@string/btn_look_all"
+                                    android:textColor="@color/text_color999"
+                                    android:drawableRight="@mipmap/right_gray"
+                                    android:drawablePadding="@dimen/padding2"
+                                    />
+                            </LinearLayout>
+                            <LinearLayout
+                                android:id="@+id/v_pathology"
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone">
+                                <RelativeLayout
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp">
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerInParent="true"
+                                        android:src="@mipmap/record_pic_type_4"/>
+                                </RelativeLayout>
+                                <com.zeyuan.kyq.widget.MyListView
+                                    android:id="@+id/lv_pathology"
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="wrap_content"
+                                    android:divider="@color/line_ddd"
+                                    android:dividerHeight="1px">
+
+                                </com.zeyuan.kyq.widget.MyListView>
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:descendantFocusability="blocksDescendants">
+                            <com.zeyuan.kyq.widget.MyListView
+                                android:id="@+id/lv"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/margin8"
+                                android:divider="@null"
+                                android:dividerHeight="0dp"
+                                android:visibility="visible"/>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_medical_record_item_3">
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="56dp"
+                                >
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@mipmap/discover_time_for_medical"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="@dimen/margin8"
+                                    />
+                                <LinearLayout
+                                    android:orientation="vertical"
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:paddingLeft="@dimen/padding8">
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/text_discover_time"
+                                        android:textSize="@dimen/font12"
+                                        android:textColor="@color/text_color333"/>
+                                    <LinearLayout
+                                        android:orientation="horizontal"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/margin2"
+                                        android:gravity="center_vertical">
+                                        <TextView
+                                            android:id="@+id/tv_discover_time"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text=""
+                                            android:textColor="@color/text_color333"
+                                            android:textSize="@dimen/font16"
+                                            android:textStyle="bold"
+                                            />
+                                        <TextView
+                                            android:id="@+id/tv_discover_days"
+                                            android:layout_width="0dp"
+                                            android:layout_weight="1"
+                                            android:layout_height="wrap_content"
+                                            android:text=""
+                                            android:paddingLeft="@dimen/padding6"
+                                            android:textSize="@dimen/font12"
+                                            android:textColor="@color/text_color999"
+                                            />
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </LinearLayout>
+                        </RelativeLayout>
+
+                        <TextView
+                            android:id="@+id/tv_help"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/height48"
+                            android:text="@string/text_help_for_medical_record"
+                            android:layout_marginTop="@dimen/margin8"
+                            android:gravity="center"
+                            android:textSize="@dimen/font12"
+                            android:textColor="@color/text_color999"
+                            />
+
+                    </LinearLayout>
+
+
+                </com.zeyuan.kyq.widget.MyScrollView>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/v_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:visibility="visible"
+        >
+        <RelativeLayout
+            android:layout_width="149dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/loading_medical_record_bg"/>
+            <ImageView
+                android:id="@+id/iv_move"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:src="@mipmap/loading_miedica_record_move"/>
+        </RelativeLayout>
+    </FrameLayout>
+
+</FrameLayout>

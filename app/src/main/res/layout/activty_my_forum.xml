@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/main_color">
+
+    <RelativeLayout
+        android:id="@+id/titles"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white">
+        <TextView
+            android:id="@+id/tv_white_title"
+            android:textColor="@color/text_color2"
+            android:textSize="@dimen/front18"
+            android:gravity="center"
+            android:singleLine="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:id="@+id/iv_white_title_back"
+            android:layout_width="@dimen/height50"
+            android:layout_height="match_parent"
+            android:src="@mipmap/top_btn_back_blue"
+            android:scaleType="centerInside"
+            />
+    </RelativeLayout>
+    <View
+        android:id="@+id/line_temp"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line_ec"
+        android:layout_below="@+id/titles"
+        />
+    <com.zeyuan.kyq.widget.CustomScrollView
+        android:id="@+id/sv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/line_temp"
+        android:overScrollMode="never"
+        android:fadingEdge="none"
+        android:fillViewport="true">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="@dimen/padding4"
+            android:paddingBottom="@dimen/padding4"
+            >
+            <com.zeyuan.kyq.widget.MyListView
+                android:id="@+id/listview"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="@null"
+                android:overScrollMode="never"
+                android:fadingEdge="none"
+                android:dividerHeight="0dp"/>
+            <FrameLayout
+                android:id="@+id/fl"
+                android:layout_below="@+id/listview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/other_title"
+                />
+        </RelativeLayout>
+    </com.zeyuan.kyq.widget.CustomScrollView>
+
+
+    <ProgressBar
+        android:id="@+id/pd"
+        style="@style/progressbar_style" />
+
+
+
+</RelativeLayout>

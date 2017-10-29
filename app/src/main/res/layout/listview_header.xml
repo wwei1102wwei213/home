@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/line_e2"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+        android:layout_centerInParent="true"
+        >
+        <ProgressBar
+            android:id="@+id/pb_listview_header"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="60dp"
+            android:indeterminateDrawable="@drawable/common_progressbar"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/ll_state_ll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_listview_header_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="下拉刷新"
+                />
+            <TextView
+                android:id="@+id/tv_listview_header_last_update_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="最后刷新时间: 2014-10-10 12:56:12"
+                android:paddingTop="4dp"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="130dp"
+    android:layout_height="45dp">
+
+    <ImageView
+        android:id="@+id/iv_item_zm"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@mipmap/cancer_fei"
+        android:scaleType="centerInside"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/margin5"
+        />
+    <TextView
+        android:id="@+id/tv_item_zm"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:gravity="center_vertical"
+        android:layout_toRightOf="@+id/iv_item_zm"
+        android:text=""
+        android:layout_centerVertical="true"
+        android:textSize="@dimen/front14"
+        android:textColor="@color/text_color2"
+        android:layout_marginLeft="@dimen/margin5"
+        />
+</RelativeLayout>

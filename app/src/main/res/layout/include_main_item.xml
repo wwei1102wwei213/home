@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="8dp"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp">
+
+
+    <View
+        android:id="@+id/view"
+        style="@style/line_style"
+        android:layout_marginBottom="8dp" />
+    <!--这个是主页中的文章项 一张图片和一个标题-->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view"
+        android:layout_marginRight="16dp"
+        android:layout_toLeftOf="@+id/img"
+        android:layout_toStartOf="@+id/img"
+        android:lines="2"
+        android:padding="4dp"
+        android:text=""
+        android:textColor="#434343"
+        android:textSize="@dimen/font16" />
+
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/view"
+        android:layout_marginRight="4dp"
+        android:layout_marginTop="4dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/default_img" />
+
+
+    <TextView
+        android:id="@+id/watch"
+        android:layout_width="wrap_content"
+        android:layout_height="16dp"
+        android:layout_alignBottom="@+id/img"
+        android:layout_below="@+id/title"
+        android:layout_marginLeft="4dp"
+        android:drawableLeft="@mipmap/watch"
+        android:drawablePadding="4dp"
+        android:gravity="center_vertical"
+        android:text=""
+        android:textColor="#a0a0a0"
+        android:textSize="@dimen/front10" />
+
+
+</RelativeLayout>

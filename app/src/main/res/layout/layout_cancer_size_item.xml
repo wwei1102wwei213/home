@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="@color/main_color"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height48"
+
+        android:paddingLeft="@dimen/padding12">
+
+        <EditText
+            android:id="@+id/et1"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="32dp"
+            android:textSize="@dimen/font14"
+            android:background="@null"
+            android:layout_gravity="center_vertical"
+            android:text=""
+            android:textColor="@color/text_color333"
+            android:drawableRight="@mipmap/cancer_size_name_right"
+            android:paddingRight="@dimen/padding2"
+            android:singleLine="true"
+            android:ellipsize="end"
+            />
+        <EditText
+            android:id="@+id/et2"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="32dp"
+            android:background="@drawable/bg_r5_main_color_no_stroke"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/margin8"
+            android:layout_marginRight="@dimen/margin8"
+            android:textColor="@color/text_color333"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textSize="@dimen/font14"
+            android:inputType="number"
+            android:hint="肿瘤长度"
+            android:textColorHint="@color/text_color999"
+            android:paddingLeft="@dimen/padding8"
+            android:paddingRight="@dimen/padding8"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="×"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/font20"
+            android:textColor="@color/text_color999"
+            />
+        <EditText
+            android:id="@+id/et3"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="32dp"
+            android:background="@drawable/bg_r5_main_color_no_stroke"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/margin8"
+
+            android:textColor="@color/text_color333"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textSize="@dimen/font14"
+            android:inputType="number"
+            android:hint="肿瘤宽度"
+            android:textColorHint="@color/text_color999"
+            android:paddingLeft="@dimen/padding8"
+            android:paddingRight="@dimen/padding8"
+            />
+        <TextView
+            android:id="@+id/tv_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="删除"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/font14"
+            android:textColor="@color/light_green"
+            android:paddingLeft="@dimen/padding8"
+            android:paddingRight="@dimen/padding12"
+            />
+    </LinearLayout>
+    <include layout="@layout/line_view_ddd"/>
+
+    <RelativeLayout
+        android:id="@+id/v_chart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/padding12"
+        android:paddingRight="@dimen/padding12"
+        android:paddingTop="@dimen/padding10"
+        android:paddingBottom="@dimen/padding16"
+        android:visibility="gone">
+        <include layout="@layout/layout_chart"/>
+    </RelativeLayout>
+
+</LinearLayout>

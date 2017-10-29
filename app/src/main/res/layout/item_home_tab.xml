@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="38dp"
+    android:paddingRight="@dimen/padding4"
+    android:paddingLeft="@dimen/padding4"
+    android:paddingTop="@dimen/padding8"
+    >
+
+    <TextView
+        android:id="@+id/tv_item_rv"
+        android:layout_width="wrap_content"
+        android:layout_height="22dp"
+        android:text="测试"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/padding8"
+        android:paddingRight="@dimen/padding8"
+        android:textSize="@dimen/font13"
+        android:textColor="@color/no_select_333_select_white"
+        android:background="@drawable/bg_tab_selector"
+        />
+
+</RelativeLayout>

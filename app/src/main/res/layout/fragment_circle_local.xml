@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_color">
+
+
+    <LinearLayout
+        android:id="@+id/body"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <com.andview.refreshview.XRefreshView
+            android:id="@+id/xrv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="vertical" />
+
+        </com.andview.refreshview.XRefreshView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="80dp"
+            android:drawableTop="@mipmap/ic_friend_none"
+            android:text="该地域圈暂无帖子~~"
+            android:textColor="@color/text_color666"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/btn_to_post"
+            android:layout_width="126dp"
+            android:layout_height="36dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/btn_green_normal"
+            android:text="发布帖子"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font18" />
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/pd"
+        style="@style/progressbar_style"
+        android:indeterminate="false" />
+
+    <LinearLayout
+        android:id="@+id/view_select_local"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="40dp"
+            android:text="填写所在地，加入同城圈"
+            android:textColor="@color/text_color333"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:drawableBottom="@mipmap/img_select_city"
+            android:drawablePadding="10dp"
+            android:gravity="center_horizontal"
+            android:text="结识同城好友，交流医患信息"
+            android:textColor="@color/text_color666"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_select_city"
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btn_solid_empty_stroke_line_radius_25"
+            android:drawableLeft="@mipmap/ic_local"
+            android:gravity="center"
+            android:paddingLeft="75dp"
+            android:paddingRight="75dp"
+            android:text="填写所在地址 >"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_finish_select"
+            android:layout_width="280dp"
+            android:layout_height="42dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="45dp"
+            android:background="@drawable/btn_radius_24"
+            android:gravity="center"
+            android:text="@string/finish"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </LinearLayout>
+</FrameLayout>

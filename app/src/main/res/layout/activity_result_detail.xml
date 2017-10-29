@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/line_color"
+    android:orientation="vertical">
+
+    <include layout="@layout/toorbar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/white">
+
+        <TextView
+            style="@style/patient_detail_left_textview_style"
+            android:text="转移情况" />
+
+        <TextView
+            android:id="@+id/gene"
+            style="@style/patient_detail_right_textview_style"
+            android:drawableRight="@mipmap/right"
+            android:text="未知" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/transfer_pos"
+            style="@style/patient_detail_left_textview_style"
+            android:text="突变情况情况" />
+
+        <TextView
+            style="@style/patient_detail_right_textview_style"
+            android:drawableRight="@mipmap/right"
+            android:text="未知" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/white">
+
+        <TextView
+            style="@style/patient_detail_left_textview_style"
+            android:text="曾经有效药物" />
+
+        <TextView
+            android:id="@+id/vailid_medic"
+            style="@style/patient_detail_right_textview_style"
+            android:drawableRight="@mipmap/right"
+            android:text="未知" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/period_case"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/white">
+
+        <TextView
+            style="@style/patient_detail_left_textview_style"
+            android:text="分期情况" />
+
+
+        <TextView
+            style="@style/patient_detail_right_textview_style"
+            android:paddingRight="5dp"
+            android:text="IIA(TLANOMO)"            />
+
+        <TextView
+            android:id="@+id/展开"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="收起"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:textColor="@color/light_red"
+            android:background="@drawable/zhankai"
+            android:textSize="@dimen/front12" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="#F8F8F8">
+
+        <TextView
+            style="@style/patient_detail_left_textview_style"
+            android:text="原发肿瘤情况" />
+
+        <TextView
+            android:id="@+id/period_start"
+            style="@style/patient_detail_right_textview_style"
+            android:text="TLa" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line_color" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="#F8F8F8">
+
+        <TextView
+            style="@style/patient_detail_left_textview_style"
+            android:text="区域淋巴结情况" />
+
+        <TextView
+            android:id="@+id/linba"
+            style="@style/patient_detail_right_textview_style"
+            android:text="NO" />
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line_color" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="#F8F8F8">
+
+        <TextView
+            style="@style/patient_detail_left_textview_style"
+            android:text="远处转移情况" />
+
+        <TextView
+            android:id="@+id/far_trsnsfo_case"
+            style="@style/patient_detail_right_textview_style"
+            android:text="NO" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="25dp"
+        android:text="注意！资料越完整，可参考的药物越精准！"
+        android:textColor="@color/light_red" />
+
+
+    <Button
+        android:id="@+id/confirm_lastest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:background="@color/white"
+        android:text="确认为最新"
+        android:textColor="@color/light_green" />
+</LinearLayout>

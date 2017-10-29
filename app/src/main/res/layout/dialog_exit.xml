@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/transparent"
+    android:padding="10dp"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="是否退出登录？"
+        android:padding="@dimen/padding15"
+        android:textSize="@dimen/font14"
+        android:textColor="@color/text_color3"
+        android:gravity="center"
+        android:background="@drawable/frame_top_only"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line_e2"/>
+    <TextView
+        android:id="@+id/tv_exit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:text="确定"
+        android:gravity="center"
+        android:textColor="@color/light_green"
+        android:textSize="@dimen/font16"
+        android:background="@drawable/frame_bottom_only"/>
+
+    <TextView
+        android:id="@+id/tv_exit_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding15"
+        android:background="@drawable/frame_all"
+        android:layout_marginTop="@dimen/margin10"
+        android:gravity="center"
+        android:textSize="@dimen/font16"
+        android:textColor="@color/light_green"
+        android:text="取消"/>
+</LinearLayout>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_color"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height50"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/tv_white_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:maxLines="1"
+            android:textColor="@color/text_color2"
+            android:textSize="@dimen/front18" />
+
+        <ImageView
+            android:id="@+id/iv_white_title_back"
+            android:layout_width="@dimen/height50"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
+            android:src="@mipmap/top_btn_back_blue" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line_ddd" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="66dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/white">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/line_ddd" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:text="有人@我"
+            android:textColor="@color/text_color333"
+            android:textSize="16sp" />
+
+        <Switch
+            android:id="@+id/switch_msg_remind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|right"
+            android:layout_marginRight="10dp"
+            android:switchMinWidth="40dp"
+            android:textOff=""
+            android:textOn=""
+            android:thumb="@drawable/thumb"
+            android:thumbTextPadding="@dimen/font10"
+            android:track="@drawable/track" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_gravity="bottom"
+            android:background="@color/line_ddd" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="66dp"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:text="有新的评论"
+            android:textColor="@color/text_color333"
+            android:textSize="16sp" />
+
+        <Switch
+            android:id="@+id/switch_msg_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|right"
+            android:layout_marginRight="10dp"
+            android:switchMinWidth="40dp"
+            android:textOff=""
+            android:textOn=""
+            android:thumb="@drawable/thumb"
+            android:thumbTextPadding="@dimen/font10"
+            android:track="@drawable/track" />
+
+
+    </FrameLayout>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="66dp"
+        android:background="@color/white">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/line_ddd" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:text="有新的粉丝"
+            android:textColor="@color/text_color333"
+            android:textSize="16sp" />
+
+        <Switch
+            android:id="@+id/switch_msg_fans"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|right"
+            android:layout_marginRight="10dp"
+            android:switchMinWidth="40dp"
+            android:textOff=""
+            android:textOn=""
+            android:thumb="@drawable/thumb"
+            android:thumbTextPadding="@dimen/font10"
+            android:track="@drawable/track" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_gravity="bottom"
+            android:background="@color/line_ddd" />
+    </FrameLayout>
+
+</LinearLayout>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <ImageView
+            android:id="@+id/iv_back_search_article"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="12dp"
+            android:src="@mipmap/top_btn_back_blue"
+            android:scaleType="centerInside"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:layout_marginLeft="55dp"
+            android:layout_marginRight="55dp"
+            android:background="@drawable/search_type_bg"
+            >
+
+            <EditText
+                android:id="@+id/et_search_article"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:textSize="@dimen/front12"
+                android:textColor="@color/white"
+                android:background="@null"
+                android:drawableLeft="@mipmap/search_small"
+                android:drawablePadding="4dp"
+                android:hint="@string/search_hint"
+                android:textColorHint="@color/darker_gray"
+                />
+            <ImageView
+                android:id="@+id/back_search_article_text"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_alignParentRight="true"
+                android:scaleType="fitXY"
+                android:padding="12dp"
+                android:src="@mipmap/ssdk_oks_skyblue_editpage_close"
+                android:visibility="gone"
+                />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_dismiss_input"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="取消"
+            android:textColor="@color/white"
+            android:textSize="@dimen/front18"
+            android:layout_alignParentRight="true"
+            android:visibility="gone"
+            />
+
+    </RelativeLayout>
+    <View
+        style="@style/line_horizontal_normol"/>
+    <RelativeLayout
+        android:id="@+id/ll_record_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/search_article_title_rl"
+        android:visibility="gone"
+        >
+        <ListView
+            android:id="@+id/lv_record_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="@null"
+            android:dividerHeight="1px"
+            />
+
+        <Button
+            android:id="@+id/btn_clear_search"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/height36"
+            android:layout_below="@id/lv_record_search"
+            android:background="@drawable/btn_clear_search_symptom"
+            android:text="@string/search_sym_clear"
+            android:paddingLeft="50dp"
+            android:paddingRight="50dp"
+            android:textColor="@color/text_color2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            />
+    </RelativeLayout>
+    <ListView
+        android:id="@+id/lv_search_article"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        />
+</LinearLayout>

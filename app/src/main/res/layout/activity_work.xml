@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_color">
+
+    <include layout="@layout/other_title"/>
+
+    <View style="@style/line_horizontal_e2"/>
+
+    <com.zeyuan.kyq.widget.MyScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fadingEdge="none"
+        android:overScrollMode="never">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/padding12">
+
+            <Button android:id="@+id/bt1"
+                style="@style/work_data_style"
+                android:text="用户信息数据"/>
+
+            <Button android:id="@+id/bt2"
+                style="@style/work_data_style"
+                android:text="用阶段ID取阶段Name"/>
+
+            <Button android:id="@+id/bt3"
+                style="@style/work_data_style"
+                android:text="用阶段类型ID取阶段类型Name"/>
+
+            <Button android:id="@+id/bt4"
+                style="@style/work_data_style"
+                android:text="用癌种ID取癌种Name"/>
+
+            <Button android:id="@+id/bt5"
+                style="@style/work_data_style"
+                android:text="用圈子ID取圈子Name"/>
+
+            <Button android:id="@+id/bt6"
+                style="@style/work_data_style"
+                android:text="用症状ID取症状Name"/>
+
+            <Button android:id="@+id/bt7"
+                style="@style/work_data_style"
+                android:text="用身体部位ID取身体部位Name"/>
+
+            <Button android:id="@+id/bt8"
+                style="@style/work_data_style"
+                android:text="用基因ID取基因Name"/>
+
+            <Button android:id="@+id/bt9"
+                style="@style/work_data_style"
+                android:text="用分期ID取分期Name"/>
+
+            <Button android:id="@+id/bt10"
+                style="@style/work_data_style"
+                android:text="用转移部位ID取转移部位Name"/>
+
+            <Button android:id="@+id/bt11"
+                style="@style/work_data_style"
+                android:text="用城市ID取城市Name"/>
+
+            <Button android:id="@+id/bt12"
+                style="@style/work_data_style"
+                android:text="配置数据及转换类型"/>
+
+        </LinearLayout>
+    </com.zeyuan.kyq.widget.MyScrollView>
+</LinearLayout>

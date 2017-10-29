@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/custom_dialog_white_half"
+    android:layout_gravity="center_horizontal"
+    android:gravity="center_horizontal"
+    android:paddingRight="@dimen/padding20"
+    android:paddingLeft="@dimen/padding20"
+    android:paddingTop="@dimen/padding15"
+    android:paddingBottom="@dimen/padding15"
+    >
+
+    <TextView
+        android:id="@+id/dialog_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text_check"
+        android:textSize="@dimen/font16"
+        android:text="签到成功！"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/margin15"
+        />
+
+    <TextView
+        android:id="@+id/message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="坚持签到好运到来，增加20积分\n已经连续签到5天"
+        android:textSize="@dimen/font15"
+        android:textColor="@color/text_color2"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        />
+
+
+    <Button
+        android:id="@+id/positiveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:text="知道了"
+        android:textColor="@color/light_green"
+        android:textSize="@dimen/font15"
+        android:background="@drawable/biankuang_green_btn_5"
+        android:layout_marginBottom="@dimen/margin12"
+        android:layout_marginTop="@dimen/margin15"
+        android:paddingLeft="48dp"
+        android:paddingRight="48dp"
+        android:layout_gravity="center_horizontal"
+        />
+
+</LinearLayout>

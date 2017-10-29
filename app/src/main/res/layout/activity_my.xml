@@ -1,0 +1,264 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:apps="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.zeyuan.kyq.view.MyActivity">
+
+    <include
+        android:id="@+id/toorbar"
+        layout="@layout/toorbar" />
+
+    <com.zeyuan.kyq.widget.CustomScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fadingEdge="none"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/my_top_backgroud"
+                android:layout_below="@id/toorbar"
+                android:background="@mipmap/mine"
+                android:paddingBottom="@dimen/activity_horizontal_margin">
+
+                <com.zeyuan.kyq.widget.CircleImageView
+                    android:id="@+id/avatar"
+                    android:layout_width="@dimen/my_avatar_radius"
+                    android:layout_height="@dimen/my_avatar_radius"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/activity_horizontal_margin"
+                    android:src="@mipmap/default_avatar"
+                    apps:border_color="@color/white"
+                    apps:border_width="1dp" />
+
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/avatar"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/small_margin"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/front18" />
+
+                <!--<TextView-->
+                <!--android:id="@+id/loc"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_below="@id/name"-->
+                <!--android:layout_centerHorizontal="true"-->
+                <!--android:layout_marginTop="@dimen/margintop10"-->
+                <!--android:drawableLeft="@mipmap/loc"-->
+                <!--android:drawablePadding="@dimen/drawpadding10"-->
+                <!--android:text="广东 深圳"-->
+                <!--android:textColor="@color/white"/>-->
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/circle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/my_height"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/my_title_left"
+
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:drawableLeft="@mipmap/my_circle_left"
+                    android:text="@string/circle" />
+
+
+                <TextView
+                    android:id="@+id/circle_number"
+                    style="@style/my_title_right" />
+
+            </RelativeLayout>
+
+            <View
+                style="@style/line_style"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:paddingBottom="10dp"
+                android:paddingRight="15dp">
+
+                <TextView
+                    android:id="@+id/circle1"
+                    style="@style/my_button_style" />
+
+                <TextView
+                    android:id="@+id/circle2"
+                    style="@style/my_button_style" />
+
+                <TextView
+                    android:id="@+id/circle3"
+                    style="@style/my_button_style" />
+
+                <TextView
+                    android:id="@+id/circle4"
+                    style="@style/my_button_style" />
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/small_margin"
+                android:background="@color/main_color" />
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="vertical"-->
+            <!--android:paddingBottom="@dimen/paddingbottom15"-->
+            <!--android:paddingLeft="@dimen/paddingleft15">-->
+
+            <RelativeLayout
+                android:id="@+id/forum"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/my_height">
+
+                <TextView
+                    style="@style/my_title_left"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:drawableLeft="@mipmap/forum_left"
+                    android:text="@string/forum" />
+
+                <TextView
+                    android:id="@+id/forum_number"
+                    style="@style/my_title_right" />
+            </RelativeLayout>
+
+            <View
+                style="@style/line_style"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin" />
+
+            <TextView
+                android:id="@+id/forum_des"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:ellipsize="end"
+                android:maxLength="18"
+                android:singleLine="true"
+                android:textColor="@color/text_color4" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/small_margin"
+                android:layout_marginTop="15dp"
+                android:background="@color/main_color" />
+
+            <RelativeLayout
+                android:id="@+id/reply"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/my_height">
+
+                <TextView
+                    style="@style/my_title_left"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:drawableLeft="@mipmap/my_reply"
+                    android:text="@string/comment_reply" />
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    >
+                    <TextView
+                        android:id="@+id/reply_number"
+                        style="@style/my_title_left"
+                        android:drawableRight="@mipmap/right"
+                        android:text="4" />
+                    <ImageView
+                        android:id="@+id/reply_redpoint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/redpoint2"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignRight="@id/reply_number"
+                        android:layout_marginRight="@dimen/center_margin"
+                        android:visibility="gone"
+                        />
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <View
+                style="@style/line_style"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin" />
+
+            <TextView
+                android:id="@+id/reply_des"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:ellipsize="end"
+                android:maxLength="18"
+                android:singleLine="true"
+                android:textColor="@color/text_color4" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/small_margin"
+                android:layout_marginTop="15dp"
+                android:background="@color/main_color" />
+
+            <RelativeLayout
+                android:id="@+id/collection"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/my_height">
+
+                <TextView
+                    style="@style/my_title_left"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:drawableLeft="@mipmap/my_connection"
+                    android:text="@string/collection" />
+
+                <TextView
+                    android:id="@+id/collection_num"
+                    style="@style/my_title_right"
+                    android:text="4" />
+            </RelativeLayout>
+
+            <View
+                style="@style/line_style"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin" />
+
+            <TextView
+                android:id="@+id/collection_des"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:ellipsize="end"
+                android:maxLength="18"
+                android:singleLine="true"
+                android:textColor="@color/text_color4" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:background="@color/main_color" />
+        </LinearLayout>
+    </com.zeyuan.kyq.widget.CustomScrollView>
+</LinearLayout>

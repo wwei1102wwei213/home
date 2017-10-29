@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:apps="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_centerVertical="true"
+        >
+        <com.zeyuan.kyq.widget.CircleImageView
+            android:id="@+id/avatar"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            apps:border_color="@color/white"
+            apps:border_width="1dp"
+            android:src="@mipmap/default_avatar"/>
+        <ImageView
+            android:id="@+id/redpoint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@id/avatar"
+            android:layout_alignParentTop="true"
+            android:src="@mipmap/redpoint2"
+            android:visibility="gone"
+            />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/title"
+        android:textColor="@color/text_color2"
+        android:textSize="25sp"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="标题" />
+
+        <ImageView
+            android:id="@+id/add_circle"
+            android:padding="10dp"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/more_circles"
+            android:layout_width="60dp"
+            android:layout_centerInParent="true"
+            android:scaleType="centerInside"
+            android:layout_height="match_parent" />
+</RelativeLayout>

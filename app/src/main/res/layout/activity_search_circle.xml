@@ -1,0 +1,49 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/toorbar" />
+    <RadioGroup
+        android:id="@+id/circle"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="215dp"
+        android:layout_height="@dimen/height32"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/kangai"
+            style="@style/search_circle_top_radiobutton"
+            android:background="@drawable/left_radiobutton_selector"
+            android:text="@string/cancer_circle"
+            />
+
+        <RadioButton
+            android:id="@+id/tongcheng"
+            style="@style/search_circle_top_radiobutton"
+            android:background="@drawable/right_radiobutton_selector"
+            android:text="@string/city_circle"
+            />
+    </RadioGroup>
+
+
+    <View
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@color/line_e2" />
+
+
+    <ListView
+        android:id="@+id/listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/circle"
+        android:fadingEdge="none"
+        android:overScrollMode="never"
+        />
+
+
+</LinearLayout>

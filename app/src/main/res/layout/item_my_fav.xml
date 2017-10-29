@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="@dimen/padding10"
+    android:paddingRight="@dimen/padding10"
+    android:paddingBottom="@dimen/padding4"
+    android:paddingTop="@dimen/padding4"
+    android:background="@color/main_color"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/padding8"
+        android:background="@drawable/forum_card_bg">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:orientation="horizontal"
+            android:paddingTop="@dimen/padding5"
+            android:paddingBottom="@dimen/padding5"
+            >
+
+            <ImageView
+                android:id="@+id/img"
+                android:layout_width="62dp"
+                android:layout_height="62dp"
+                android:layout_marginLeft="2dp"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="@dimen/padding10"
+                >
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:text=""
+                    android:lineSpacingExtra="2dp"
+                    android:lineSpacingMultiplier="1.1"
+                    android:textColor="@color/text_color2"
+                    android:maxLines="2"
+                    android:ellipsize="end"
+                    android:textSize="@dimen/font14" />
+
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="2dp"
+                    >
+                    <TextView
+                        android:id="@+id/tv_author"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/item_forum_name"
+                        android:text="抗癌圈"
+                        android:textSize="@dimen/font11" />
+                    <TextView
+                        android:id="@+id/tv_view_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/item_forum_name"
+                        android:text="234浏览"
+                        android:paddingLeft="@dimen/padding12"
+                        android:textSize="@dimen/font11" />
+                    <TextView
+                        android:id="@+id/tv_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/item_forum_name"
+                        android:text="2015/5/1 15:38"
+                        android:paddingLeft="@dimen/padding12"
+                        android:textSize="@dimen/font11" />
+                </LinearLayout>
+            </RelativeLayout>
+
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/line_ddd"/>
+            <TextView
+                android:id="@+id/tv_fav_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin8"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/text_color3"
+                android:textSize="@dimen/font10"
+                android:text="收藏于2002-2-2"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

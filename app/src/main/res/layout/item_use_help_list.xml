@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+
+    >
+    <View style="@style/line_style" />
+    <RelativeLayout
+        android:id="@+id/rl_help_symptom_list_item"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:background="@color/white"
+        >
+
+        <ImageView
+            android:id="@+id/iv_help_symptom_list_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin15"
+            android:src="@mipmap/help54"
+            android:layout_centerVertical="true"
+            />
+
+
+        <TextView
+            android:id="@+id/tv_help_num_list_item"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:gravity="center_vertical"
+            android:textColor="@color/text_color3"
+            android:text=""
+             />
+        <TextView
+            android:id="@+id/tv_help_symptom_list_item"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/iv_help_symptom_list_item"
+            android:layout_toLeftOf="@id/tv_help_num_list_item"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/margin8"
+            android:textSize="@dimen/front14"
+            android:textColor="@color/text_color2"
+            />
+    </RelativeLayout>
+
+    <View style="@style/line_style" />
+
+</LinearLayout>

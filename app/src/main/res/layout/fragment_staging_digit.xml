@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_marginTop="25dp"-->
+    <!--android:layout_weight="10"-->
+    <!--android:orientation="vertical">-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/tv_selected_staging"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="center_horizontal"-->
+    <!--android:text=""-->
+    <!--android:textColor="#565656"-->
+    <!--android:textSize="18sp"-->
+    <!--android:textStyle="bold"-->
+    <!--tool:text="肺腺癌 IIB" />-->
+
+    <!--<ImageView-->
+    <!--android:id="@+id/iv_body"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="234dp"-->
+    <!--android:layout_gravity="center_horizontal"-->
+    <!--android:layout_marginTop="12dp"-->
+
+    <!--/>-->
+    <!--</LinearLayout>-->
+
+    <!--<ImageView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:src="@mipmap/ic_wheel_view_indicator"-->
+    <!--/>-->
+    <!--<com.zeyuan.kyq.widget.WheelView-->
+    <!--android:id="@+id/zwv_digit_staging"-->
+    <!--android:layout_width="42dp"-->
+    <!--android:layout_height="293dp"-->
+    <!--app:itemNumber="7"-->
+    <!--app:lineColor="@color/transparent"-->
+    <!--app:lineHeight="0dp"-->
+    <!--app:maskHight="30dp"-->
+    <!--app:noEmpty="true"-->
+    <!--app:normalTextColor="#8a8a8a"-->
+    <!--app:normalTextSize="14sp"-->
+    <!--app:selectedTextColor="@color/light_green"-->
+    <!--app:selectedTextSize="18sp"-->
+    <!--app:unitHight="40dp"-->
+    <!--/>-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/textView"-->
+    <!--android:layout_width="0dp"-->
+    <!--android:layout_height="293dp"-->
+    <!--android:layout_weight="3"-->
+    <!--android:gravity="center"-->
+    <!--android:text="@string/text_scroll_select_staging"-->
+    <!--android:textColor="@color/text_color666"-->
+    <!--android:textSize="13sp" />-->
+    <ImageView
+        android:id="@+id/iv_body"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:src="@mipmap/decision_29" />
+
+    <TextView
+        android:id="@+id/tv_selected_staging"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:text=""
+        android:textColor="#565656"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tool:text="肺腺癌 IIB" />
+
+    <View
+        android:layout_width="260dp"
+        android:layout_height="0.5dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:background="@color/line_color" />
+
+    <TextView
+        android:id="@+id/tv_select_period"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:paddingBottom="15dp"
+        android:gravity="center"
+        android:paddingTop="15dp"
+        android:text="请选择数字分期 >"
+        android:textColor="@color/text_color999"
+        android:textSize="16sp" />
+
+    <View
+        android:layout_width="260dp"
+        android:layout_height="0.5dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/line_color" />
+</LinearLayout>

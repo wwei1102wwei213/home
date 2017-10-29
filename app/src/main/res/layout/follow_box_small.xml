@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zeyuan.kyq.widget.CircleFollowCheckBox xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="44dp"
+    android:layout_height="20dp"
+    android:layout_alignParentLeft="true"
+    android:layout_centerVertical="true"
+    android:gravity="center"
+    android:background="@drawable/circle_follow_change_selector"
+    android:layout_gravity="center_horizontal"
+    android:button="@null"
+    android:checked="false"
+    android:focusable="false"
+    android:text="@string/is_follow"
+    android:textColor="@color/white_black2_selector"
+    android:textSize="@dimen/font12" />

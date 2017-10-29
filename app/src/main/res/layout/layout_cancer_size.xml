@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/fu_name"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@null"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:text="转移灶（点击可修改）"
+        android:textColor="@color/text_color2"
+        android:textSize="@dimen/front14" />
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/slave_len"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/main_height"
+            android:layout_marginLeft="1dp"
+            android:layout_weight="1"
+            android:background="@color/main_color"
+            android:gravity="center_vertical"
+            android:hint="肿瘤长度"
+            android:numeric="integer"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:textSize="@dimen/front18" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="×" />
+
+        <EditText
+            android:id="@+id/slave_width"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/main_height"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="1dp"
+            android:layout_weight="1"
+            android:background="@color/main_color"
+            android:gravity="center_vertical"
+            android:hint="肿瘤宽度"
+            android:numeric="integer"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:textSize="@dimen/front18" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/tv_search_symtom_text"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height55"
+        android:textSize="@dimen/front14"
+        android:textColor="@color/text_normal"
+        android:gravity="center_vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="38dp"
+        />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/height55"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="25dp"
+        android:src="@mipmap/right" />
+    <View
+        style="@style/line_style"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_alignParentBottom="true"
+        />
+</RelativeLayout>

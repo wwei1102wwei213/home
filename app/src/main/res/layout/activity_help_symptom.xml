@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <RelativeLayout
+        android:id="@+id/rl_help_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height60"
+        android:layout_alignParentBottom="true"
+        >
+        <ImageView
+            android:id="@+id/iv_help_bom_menu"
+            android:layout_width="@dimen/height60"
+            android:layout_height="@dimen/height60"
+            android:src="@mipmap/help02"
+            android:scaleType="centerInside"
+            />
+        <ImageView
+            android:id="@+id/iv_help_bom_share"
+            android:layout_width="@dimen/height60"
+            android:layout_height="@dimen/height60"
+            android:src="@mipmap/help01"
+            android:scaleType="centerInside"
+            android:layout_alignParentRight="true"
+            android:visibility="invisible"
+            />
+
+        <TextView
+            android:id="@+id/tv_help_bom_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#C4C4C4"
+            android:textSize="@dimen/front20"
+            android:text=""
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            />
+        <com.zeyuan.kyq.widget.DrawCircleView
+            android:id="@+id/dcv_help"
+            android:layout_width="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_height="30dp"
+            android:layout_toRightOf="@id/iv_help_bom_menu"
+            android:layout_toLeftOf="@id/iv_help_bom_share"
+            />
+
+    </RelativeLayout>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_help_symptom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/rl_help_bottom"
+        >
+    </android.support.v4.view.ViewPager>
+
+</RelativeLayout>

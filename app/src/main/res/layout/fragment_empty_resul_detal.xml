@@ -1,0 +1,100 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/padding30"
+    android:paddingRight="@dimen/padding30"
+    android:background="@color/other_title"
+    tools:context="com.zeyuan.kyq.fragment.empty.EmptyResulDetalFragment">
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/height62"
+        android:src="@mipmap/no_cancer_relust" />
+
+
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/img"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="12dp"
+        android:text="非常抱歉，暂时没有找到肿瘤发展相关的解决办法您可以："
+        android:textColor="@color/text_color3"
+        android:textSize="@dimen/font15"
+        />
+
+    <RelativeLayout
+        android:id="@+id/fl2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv1"
+        android:layout_below="@+id/tv1"
+        android:layout_marginTop="@dimen/activity_horizontal_margin">
+
+        <TextView
+            android:id="@+id/tv2"
+            style="@style/empty_result_detail_tv"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:text="1.确认所填写的资料为最新" />
+
+
+        <TextView
+            android:id="@+id/update_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/tv2"
+            android:layout_marginLeft="@dimen/small_margin"
+            style="@style/empty_lightgreen_textview"
+            android:layout_toRightOf="@+id/tv2"
+            android:paddingBottom="@dimen/little_margin"
+            android:paddingLeft="@dimen/small_margin"
+            android:paddingRight="@dimen/small_margin"
+            android:paddingTop="@dimen/little_margin"
+            android:drawableRight="@mipmap/to_right_jiantou"
+            android:drawablePadding="@dimen/padding5"
+            android:text="更新资料" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv1"
+        android:layout_below="@+id/fl2"
+        android:layout_marginTop="@dimen/small_margin">
+
+        <TextView
+            android:id="@+id/tv3"
+            style="@style/empty_result_detail_tv"
+            android:layout_centerVertical="true"
+            android:text="2.在圈子中发帖询问" />
+
+        <TextView
+            android:id="@+id/to_circle"
+            style="@style/empty_lightgreen_textview"
+            android:layout_alignTop="@+id/tv3"
+            android:layout_marginLeft="@dimen/small_margin"
+            android:layout_toRightOf="@+id/tv3"
+            android:drawableRight="@mipmap/to_right_jiantou"
+            android:drawablePadding="@dimen/padding5"
+            android:text="去发帖" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv4"
+        style="@style/empty_result_detail_tv"
+        android:layout_alignLeft="@+id/tv1"
+        android:layout_below="@+id/rl_2"
+        android:layout_marginTop="@dimen/small_margin"
+        android:text="3.如遇到重大病情请就医" />
+
+</RelativeLayout>

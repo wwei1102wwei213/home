@@ -1,0 +1,41 @@
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:oneshot="false">
+<!--小医生的动画-->
+    <!--<item android:drawable="@mipmap/pull_refresh1" android:duration="100" />
+    <item android:drawable="@mipmap/pull_refresh2" android:duration="100" />
+    <item android:drawable="@mipmap/pull_refresh3" android:duration="100" />
+    <item android:drawable="@mipmap/pull_refresh4" android:duration="100" />
+    <item android:drawable="@mipmap/pull_refresh5" android:duration="100" />
+    <item android:drawable="@mipmap/pull_refresh6" android:duration="100" />
+    <item android:drawable="@mipmap/pull_refresh7" android:duration="100" />
+    <item android:drawable="@mipmap/pull_refresh8" android:duration="100" />
+    <item android:drawable="@mipmap/pull_refresh9" android:duration="100" />
+    <item android:drawable="@mipmap/pull_refresh10" android:duration="100" />
+    <item android:drawable="@mipmap/pull_refresh11" android:duration="100" />
+    <item android:drawable="@mipmap/pull_refresh12" android:duration="100" />
+    <item android:drawable="@mipmap/pull_refresh13" android:duration="100" />
+    <item android:drawable="@mipmap/pull_refresh14" android:duration="100" />
+    <item android:drawable="@mipmap/pull_refresh15" android:duration="100" />
+    <item android:drawable="@mipmap/pull_refresh16" android:duration="100" />
+    <item android:drawable="@mipmap/pull_refresh17" android:duration="100" />
+    <item android:drawable="@mipmap/pull_refresh18" android:duration="100" />
+    <item android:drawable="@mipmap/pull_refresh19" android:duration="100" />
+    <item android:drawable="@mipmap/pull_refresh20" android:duration="100" />
+    <item android:drawable="@mipmap/pull_refresh21" android:duration="100" />
+    <item android:drawable="@mipmap/pull_refresh22" android:duration="100" />
+    <item android:drawable="@mipmap/pull_refresh23" android:duration="100" />
+    <item android:drawable="@mipmap/pull_refresh24" android:duration="100" />
+    <item android:drawable="@mipmap/pull_refresh25" android:duration="100" />
+    <item android:drawable="@mipmap/pull_refresh26" android:duration="100" />
+    <item android:drawable="@mipmap/pull_refresh27" android:duration="100" />
+    <item android:drawable="@mipmap/pull_refresh28" android:duration="100" />
+    <item android:drawable="@mipmap/pull_refresh29" android:duration="100" />
+    <item android:drawable="@mipmap/pull_refresh30" android:duration="100" />
+    <item android:drawable="@mipmap/pull_refresh31" android:duration="100" />
+    <item android:drawable="@mipmap/pull_refresh32" android:duration="100" />
+    <item android:drawable="@mipmap/pull_refresh33" android:duration="100" />-->
+
+
+
+</animation-list>

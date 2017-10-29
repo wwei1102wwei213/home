@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="@dimen/padding8"
+    android:paddingRight="@dimen/padding8"
+    android:paddingTop="@dimen/padding8"
+    >
+
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/forum_card_bg"
+        android:padding="@dimen/padding8"
+        >
+
+        <RelativeLayout
+            android:id="@+id/v_civ"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_centerVertical="true">
+            <com.zeyuan.kyq.widget.CircleImageView
+                android:id="@+id/civ"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                />
+            <ImageView
+                android:id="@+id/iv_big"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@mipmap/big_v_red"
+                android:visibility="gone"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/cb"
+            android:layout_width="65dp"
+            android:layout_height="24dp"
+            android:background="@drawable/circle_follow_change_selector"
+            android:text="＋关注"
+
+            android:gravity="center"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:textSize="@dimen/font13"
+            android:textColor="@color/white_black2_selector"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/padding6"
+            android:paddingRight="@dimen/padding6"
+            android:layout_toLeftOf="@+id/cb"
+            android:layout_toRightOf="@+id/v_civ">
+            
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="24dp">
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text=""
+                    android:gravity="center_vertical"
+                    android:textSize="@dimen/font14"
+                    android:textColor="@color/text_color2"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_cancer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/light_green"
+                    android:textSize="@dimen/font11"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/margin8"
+                    android:paddingTop="1dp"
+                    android:paddingBottom="1dp"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:background="@drawable/green_cancer_bg"
+                    />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_wish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:gravity="center_vertical"
+                android:textSize="@dimen/font11"
+                android:textColor="@color/text_color666"
+                android:lineSpacingExtra="1dp"
+                android:lineSpacingMultiplier="1.05"
+                android:singleLine="true"
+                android:visibility="visible"
+                android:paddingTop="@dimen/padding4"
+                android:paddingBottom="@dimen/padding4"
+                />
+
+            <TextView
+                android:id="@+id/step_and_day"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_color666"
+                android:text=""
+                android:textSize="@dimen/font11"
+                android:singleLine="true"
+                android:gravity="center_vertical"
+                android:lineSpacingExtra="1dp"
+                android:lineSpacingMultiplier="1.05"
+                android:ellipsize="middle"
+                android:paddingTop="@dimen/padding4"
+                android:paddingBottom="@dimen/padding4"
+                android:visibility="gone"
+                />
+
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+</LinearLayout>

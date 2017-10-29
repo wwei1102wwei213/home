@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/main_color"
+    android:paddingBottom="@dimen/small_margin">
+
+    <RelativeLayout
+        android:id="@+id/step_item_temp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        >
+
+
+    <View
+        android:id="@+id/empty_view"
+        style="@style/empty_layout"
+        android:background="@color/main_color"
+        android:layout_height="@dimen/small_margin" />
+
+    <View
+        android:id="@+id/green_line"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@+id/empty_view"
+        android:background="@color/light_green" />
+    <!--<TextView-->
+    <!--android:id="@+id/step_number"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_centerVertical="true"-->
+    <!--android:layout_margin="8dp"-->
+    <!--android:text="第1阶段" />-->
+
+
+    <include
+        android:id="@+id/step_number"
+        layout="@layout/layout_step_number_view"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/green_line"
+        android:layout_marginLeft="@dimen/small_margin"
+        android:layout_marginTop="@dimen/small_margin" />
+
+    <TextView
+        android:id="@+id/step_medica"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/step_number"
+        android:layout_marginLeft="@dimen/small_margin"
+        android:layout_marginTop="@dimen/little_margin"
+        android:layout_toRightOf="@id/step_number"
+        android:text="易瑞沙+1992"
+        android:textColor="@color/text_color_1"
+        android:textSize="@dimen/front18" />
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/step_number"
+        android:layout_alignLeft="@id/step_medica"
+
+        android:layout_marginBottom="@dimen/little_margin"
+        android:text="2015-6-07 到至今"
+        android:textSize="@dimen/front12" />
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginLeft="10dp"-->
+    <!--android:layout_toRightOf="@id/step_medica"-->
+    <!--android:background="@drawable/circle_shape"-->
+    <!--android:paddingLeft="4dp"-->
+    <!--android:paddingRight="4dp"-->
+    <!--android:text="药物治疗"-->
+    <!--android:textColor="@color/white"-->
+    <!--android:textSize="@dimen/front12" />-->
+
+    <ImageView
+        android:id="@+id/indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/small_margin" />
+    </RelativeLayout>
+    <ListView
+        android:id="@+id/lv_step_child"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/step_item_temp"
+        android:visibility="gone"
+        />
+
+</RelativeLayout>

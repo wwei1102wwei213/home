@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/layout_search_input"
+        android:id="@+id/temp_title"/>
+
+    <View
+        android:id="@+id/top_line"
+        android:layout_below="@+id/temp_title"
+        style="@style/line_horizontal_normol"
+        />
+
+        <RelativeLayout
+            android:id="@+id/ll_record_search_symptom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_below="@+id/top_line"
+            >
+            <ListView
+                android:id="@+id/lv_record_search_symptom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@null"
+                android:dividerHeight="0dp"
+                />
+
+            <Button
+                android:id="@+id/btn_clear_search_symptom"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/height36"
+                android:layout_below="@id/lv_record_search_symptom"
+                android:background="@drawable/btn_clear_search_symptom"
+                android:text="@string/search_sym_clear"
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp"
+                android:textColor="@color/text_color2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                />
+
+        </RelativeLayout>
+
+        <ListView
+            android:id="@+id/lv_search_symtom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/temp_title"
+            android:fadingEdge="none"
+            android:overScrollMode="never"
+            android:divider="@null"
+            android:dividerHeight="0dp"
+            />
+
+    </RelativeLayout>
+
+
+

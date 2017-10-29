@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fagment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.zeyuan.kyq.view.WSZLActivity">
+
+    <include
+        android:id="@+id/titles"
+        layout="@layout/toorbar" />
+
+    <ScrollView
+        android:background="@color/daf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/line1"
+        android:layout_below="@+id/titles">
+
+        <LinearLayout
+            android:id="@+id/contents"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/white"
+                android:gravity="center"
+                android:padding="@dimen/small_margin"
+                android:text="@string/wszl_txt"
+                android:textColor="@color/text_color3"
+                android:textSize="@dimen/front14" />
+
+            <RelativeLayout
+                android:id="@+id/ll_gene"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:background="@color/white"
+                android:clickable="true"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tv_tb"
+                    style="@style/patient_detail_left_textview_style"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="突变情况(未检测可不选)" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:text="@string/wszl_gene"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/front12" />
+
+                <TextView
+                    android:id="@+id/tv_gene"
+                    style="@style/patient_detail_right_textview_style"
+                    android:layout_alignParentRight="true"
+                    android:drawableRight="@mipmap/right"
+                    android:layout_centerVertical="true"
+                    android:ellipsize="none"
+                    android:text="未确认" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_effect_case"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/main_height2"
+                android:layout_marginTop="@dimen/small_margin"
+                android:clickable="true"
+                android:background="@color/white"
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/patient_detail_left_textview_style"
+                    android:text="@string/end_first_drugs" />
+
+                <TextView
+                    android:id="@+id/cure_case"
+                    style="@style/patient_detail_right_textview_style"
+                    android:drawableRight="@mipmap/right" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_second_drugs"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/main_height2"
+                android:layout_marginTop="@dimen/small_margin"
+                android:background="@color/white"
+                android:clickable="true"
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/patient_detail_left_textview_style"
+                    android:text="@string/end_second_drugs" />
+
+                <TextView
+                    android:id="@+id/tv_second_drugs"
+                    style="@style/patient_detail_right_textview_style"
+                    android:drawableRight="@mipmap/right" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/ll_body"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/main_height2"
+                android:layout_marginTop="@dimen/small_margin"
+                android:background="@color/white"
+                android:clickable="true"
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/patient_detail_left_textview_style"
+                    android:text="@string/body_status" />
+
+                <TextView
+                    android:id="@+id/body_status"
+                    style="@style/patient_detail_right_textview_style"
+                    android:drawableRight="@mipmap/right" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/ll_gan"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/main_height2"
+                android:layout_marginTop="@dimen/small_margin"
+                android:background="@color/white"
+                android:clickable="true"
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/patient_detail_left_textview_style"
+                    android:text="肝功能评分" />
+
+                <TextView
+                    android:id="@+id/gangg"
+                    style="@style/patient_detail_right_textview_style"
+                    android:drawableRight="@mipmap/right" />
+            </LinearLayout>
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="60dp"-->
+            <!--android:layout_marginTop="@dimen/small_margin"-->
+            <!--android:background="@color/white">-->
+
+            <!--<TextView-->
+            <!--style="@style/patient_detail_left_textview_style"-->
+            <!--android:text="自定义文本"/>-->
+
+            <!--<TextView-->
+            <!--style="@style/patient_detail_right_textview_style"-->
+            <!--android:drawableRight="@mipmap/right"/>-->
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="60dp"-->
+            <!--android:layout_marginTop="@dimen/small_margin"-->
+            <!--android:background="@color/white">-->
+
+            <!--<TextView-->
+            <!--style="@style/patient_detail_left_textview_style"-->
+            <!--android:text="单选"/>-->
+
+            <!--<TextView-->
+            <!--style="@style/patient_detail_right_textview_style"-->
+            <!--android:drawableRight="@mipmap/right"/>-->
+            <!--</LinearLayout>-->
+        </LinearLayout>
+
+    </ScrollView>
+
+    <View
+        android:id="@+id/line1"
+        android:layout_above="@+id/finish"
+        style="@style/line_style" />
+
+    <Button
+        android:id="@+id/finish"
+        style="@style/bottom_button"
+        android:text="@string/confirm_lastest"
+        android:visibility="visible" />
+</RelativeLayout>

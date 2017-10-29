@@ -1,0 +1,217 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/line_color"
+    >
+
+    <include
+        android:id="@+id/title1"
+        layout="@layout/toorbar" />
+
+    <RelativeLayout
+        android:id="@+id/ll_step_other_mid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/rl1"
+        android:layout_below="@id/title1"
+        android:visibility="gone"
+
+        >
+        <ImageView
+            android:id="@+id/iv_blur"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/step_add_bg"
+            />
+        <TextView
+            android:id="@+id/tv_blur"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:id="@+id/ll_step_other_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:gravity="center_horizontal"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical">
+
+            <View
+                android:id="@+id/line1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/light_red" />
+
+            <RelativeLayout
+                android:id="@+id/update_step"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_marginBottom="@dimen/margin15"
+                android:gravity="center"
+                >
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/height60"
+                    android:background="@color/white"
+                    android:drawableLeft="@drawable/home_gxjd_selector2"
+                    android:drawablePadding="8dp"
+                    android:gravity="center_vertical"
+                    android:text="添加阶段"
+                    android:textColor="#ff898c"
+                    android:textSize="@dimen/front18" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/light_yellow" />
+
+            <RelativeLayout
+                android:id="@+id/add_symptom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_marginBottom="@dimen/margin15"
+                android:gravity="center"
+                >
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/height60"
+                    android:drawableLeft="@drawable/step_detal_add_symtom_selector"
+                    android:drawablePadding="8dp"
+                    android:gravity="center_vertical"
+                    android:text="添加症状"
+                    android:textColor="#f5c048"
+                    android:textSize="@dimen/front18"
+                    />
+            </RelativeLayout>
+
+
+
+            <View
+                android:id="@+id/line2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#cb73c0" />
+
+            <RelativeLayout
+                android:id="@+id/zhibiao_record"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_marginBottom="@dimen/margin15"
+                android:gravity="center"
+                >
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/height60"
+                    android:drawableLeft="@drawable/home_zbjl_selector2"
+                    android:drawablePadding="8dp"
+                    android:gravity="center_vertical"
+                    android:text="指标记录"
+                    android:textColor="#cb73c0"
+                    android:textSize="@dimen/front18"
+                    />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_step_other_hint"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/ll_step_other_bottom"
+            android:gravity="center"
+            android:text="为了对患者负责\n\n我们需要更加详细的信息"
+            android:textSize="@dimen/front18"
+            android:textColor="@color/text_normal"
+            />
+
+    </RelativeLayout>
+
+    <ExpandableListView
+        android:background="@color/listview_dv_item"
+        android:id="@+id/expendlist"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/rl1"
+        android:layout_below="@id/title1"
+        android:divider="@null"
+        android:scrollbars="none" />
+
+    <RelativeLayout
+        android:id="@+id/rl1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height60"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/tv_edit_step_detail"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:text="编辑"
+                android:textColor="@color/light_green"
+                android:gravity="center_horizontal"
+                android:drawableTop="@mipmap/edit_step_def"
+                />
+
+            <TextView
+                android:id="@+id/tv_share_step_detail"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:text="分享"
+                android:textColor="@color/light_green"
+                android:gravity="center_horizontal"
+                android:drawableTop="@mipmap/forum_share"
+                />
+
+        </LinearLayout>
+
+        <View style="@style/line_style" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="15dp">
+
+        <ImageView
+            android:id="@+id/show_dialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/step_details" />
+
+        <ImageView
+            android:id="@+id/inside_imageview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/rotate_step" />
+    </RelativeLayout>
+
+    <ProgressBar
+        android:id="@+id/pb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
+</RelativeLayout>

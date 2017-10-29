@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <com.zeyuan.kyq.widget.CircleImageView
+        android:id="@+id/host_avatar"
+        android:layout_width="@dimen/button_height"
+        android:layout_height="@dimen/button_height"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:src="@mipmap/default_avatar" />
+
+
+    <TextView
+        android:id="@+id/release_forum_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:layout_toRightOf="@+id/host_avatar"
+        android:text=""
+        android:textColor="@color/item_forum_name" />
+
+    <TextView
+        android:id="@+id/release_forum_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/host_avatar"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/time_color"
+        android:layout_toRightOf="@id/host_avatar"
+        android:text="2015/5/1 15:38"
+        android:textSize="@dimen/front10" />
+
+
+    <ImageView
+        android:id="@+id/is_host"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:layout_toRightOf="@id/release_forum_name"
+        android:src="@mipmap/release_forum_host" />
+
+    <TextView
+        android:id="@+id/reply_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+        android:layout_marginRight="20dp"
+        android:drawableLeft="@mipmap/reply"
+        android:drawablePadding="5dp"
+        android:text="回复"
+        android:textColor="@color/light_green"
+        android:textSize="@dimen/front12" />
+</RelativeLayout>

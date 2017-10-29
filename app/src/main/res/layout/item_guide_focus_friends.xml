@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/fl_avatar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.zeyuan.kyq.widget.CircleImageView
+            android:id="@+id/civ_avatar"
+            android:layout_width="68dp"
+            android:layout_height="68dp"
+            android:src="@mipmap/default_avatar" />
+
+        <CheckBox
+            android:id="@+id/cb_select"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:button="@drawable/bg_cb_show_records"
+            android:checked="true" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tv_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:ellipsize="end"
+        android:maxLength="8"
+        android:maxLines="1"
+        android:textColor="@color/text_color999"
+        android:textSize="13sp"
+        tools:text="花猫毛" />
+</LinearLayout>

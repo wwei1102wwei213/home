@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="280dp"
+    android:orientation="vertical"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/v_temp_all"
+            style="@style/drug_detail_title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="你的病情总体情况" />
+
+        <TextView
+            android:id="@+id/tv_fight_days"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/v_temp_all"
+            android:paddingLeft="@dimen/padding6"
+            android:paddingTop="3dp"
+            android:text="(成功抗癌100天)"
+            android:textColor="@color/text_color999"
+            android:textSize="@dimen/font12" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp">
+
+        <ImageView
+            android:id="@+id/iv_body"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:src="@mipmap/decision_29"
+
+            />
+
+        <TextView
+            android:id="@+id/tv_cancer_left_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/margin12"
+            android:gravity="center_horizontal"
+            android:text="" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:gravity="right"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            android:weightSum="2">
+
+            <LinearLayout
+                android:layout_width="25dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingRight="@dimen/padding8">
+
+                <View
+                    android:layout_width="5dp"
+                    android:layout_height="5dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/margin15"
+                    android:background="@mipmap/ic_sanjiao_down" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/margin15"
+                    android:src="@mipmap/decision_now_step" />
+
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="1dp"
+                    android:background="@color/decision_cure_yellow" />
+
+                <View
+                    android:layout_width="7dp"
+                    android:layout_height="7dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/bg_decision_cure_yellow" />
+
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="34dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@color/decision_cure_purple" />
+
+                <View
+                    android:layout_width="7dp"
+                    android:layout_height="7dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/bg_decision_cure_purple" />
+
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="34dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@color/decision_cure_green" />
+
+                <View
+                    android:layout_width="7dp"
+                    android:layout_height="7dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/bg_decision_cure_green" />
+
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="34dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@color/decision_cure_gray" />
+
+                <View
+                    android:layout_width="7dp"
+                    android:layout_height="7dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/bg_decision_cure_gray" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_medicalRecord"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+
+                >
+
+                <TextView
+                    android:id="@+id/tv_cancer_top"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:maxLines="2"
+                    android:textColor="@color/light_green2"
+                    android:textSize="@dimen/font11"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="16dp"
+                    android:text="当前阶段"
+                    android:textColor="@color/text_color999"
+                    android:textSize="@dimen/font10"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_now_step_day"
+                    android:layout_width="wrap_content"
+                    android:layout_height="45dp"
+                    android:lineSpacingExtra="2dp"
+                    android:lineSpacingMultiplier="1.05"
+                    android:maxLines="2"
+                    android:textColor="@color/text_color666"
+                    android:textSize="@dimen/font11"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="123dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="41dp"
+                        android:lineSpacingExtra="2dp"
+                        android:lineSpacingMultiplier="1.05"
+                        android:textColor="@color/text_color999"
+                        android:textSize="@dimen/font11"
+                        android:textStyle="bold"
+                        android:visibility="gone"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/tv2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="41dp"
+                        android:lineSpacingExtra="2dp"
+                        android:lineSpacingMultiplier="1.05"
+                        android:textColor="@color/text_color999"
+                        android:textSize="@dimen/font11"
+                        android:textStyle="bold"
+                        android:visibility="gone"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/tv3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="41dp"
+                        android:lineSpacingExtra="2dp"
+                        android:lineSpacingMultiplier="1.05"
+                        android:textColor="@color/text_color999"
+                        android:textSize="@dimen/font11"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_discover_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:text=""
+                    android:textColor="@color/text_color999"
+                    android:textSize="@dimen/font11"
+                    android:textStyle="bold"
+
+                    />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_look_change"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:paddingBottom="2dp"
+            android:paddingLeft="@dimen/padding5"
+            android:paddingRight="@dimen/padding5"
+            android:paddingTop="@dimen/padding5"
+            android:text="查看/点击修改 >"
+            android:textColor="@color/light_green2"
+            android:textSize="@dimen/font11"
+            android:textStyle="italic" />
+
+    </RelativeLayout>
+</LinearLayout>

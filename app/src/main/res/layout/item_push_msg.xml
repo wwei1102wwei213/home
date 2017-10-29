@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/main_color">
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="2016-8-8 12:55"
+        android:paddingTop="@dimen/padding8"
+        android:paddingBottom="@dimen/padding8"
+        />
+
+    <LinearLayout
+        android:id="@+id/v_click"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin10"
+        android:layout_marginRight="@dimen/margin10"
+        android:layout_marginBottom="@dimen/margin5"
+        android:paddingLeft="@dimen/padding8"
+        android:paddingRight="@dimen/padding8"
+        android:paddingTop="@dimen/padding16"
+        android:paddingBottom="@dimen/padding16"
+        android:background="@drawable/bg_push_msg_selector">
+
+        <com.zeyuan.kyq.widget.CircleImageView
+            android:id="@+id/head"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:src="@mipmap/default_avatar"
+            />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin8">
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="呢称"
+                android:textColor="@color/text_color999"
+                android:textSize="@dimen/font14"
+                />
+
+            <TextView
+                android:id="@+id/msg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_marginTop="@dimen/margin8"
+                android:textColor="@color/text_color333"
+                android:textSize="@dimen/font14"
+                android:lineSpacingExtra="2dp"
+                android:lineSpacingMultiplier="1.05"
+                />
+
+            <LinearLayout
+                android:id="@+id/v_title"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin8"
+                android:background="@color/main_color"
+                >
+
+                <ImageView
+                    android:id="@+id/pic"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="@dimen/padding6"
+                    android:visibility="visible"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding8"
+                    android:text=""
+                    android:textColor="@color/text_color999"
+                    android:textSize="@dimen/font13"
+                    android:lineSpacingExtra="2dp"
+                    android:lineSpacingMultiplier="1.05"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

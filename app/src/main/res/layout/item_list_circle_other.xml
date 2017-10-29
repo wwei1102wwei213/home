@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="55dp"
+    >
+    <ImageView
+        android:id="@+id/iv_circle_item"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_centerVertical="true"
+        android:scaleType="fitXY"
+        android:layout_marginLeft="@dimen/margin12"
+        />
+    <RelativeLayout
+        android:id="@+id/isfollowlayout"
+        android:layout_width="70dp"
+        android:layout_height="55dp"
+        android:layout_alignParentRight="true"
+        >
+        <com.zeyuan.kyq.widget.CircleFollowCheckBox
+            android:id="@+id/isfollow"
+            android:layout_width="58dp"
+            android:layout_height="26dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:background="@drawable/circle_follow_change_selector"
+            android:button="@null"
+            android:checked="false"
+            android:focusable="false"
+            android:text="@string/is_follow"
+            android:textColor="@color/white_black2_selector"
+            android:textSize="@dimen/font13" />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingRight="@dimen/padding5"
+        android:paddingLeft="@dimen/padding5"
+        android:layout_toRightOf="@+id/iv_circle_item"
+        android:layout_toLeftOf="@+id/isfollowlayout"
+        android:layout_centerVertical="true">
+        <TextView
+            android:id="@+id/tv_name_circle_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:textColor="@color/text_color2"
+            android:textSize="@dimen/font14"/>
+    </LinearLayout>
+
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line_ddd"
+        android:layout_marginLeft="@dimen/margin12"
+        android:layout_alignParentBottom="true"/>
+</RelativeLayout>

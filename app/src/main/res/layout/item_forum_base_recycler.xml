@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/main_color"
+    android:paddingLeft="@dimen/padding8"
+    android:paddingRight="@dimen/padding8"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="9dp"
+        android:paddingRight="@dimen/padding8"
+        android:paddingLeft="@dimen/padding8"
+        android:layout_marginTop="@dimen/margin8"
+        android:paddingBottom="9dp"
+        android:background="@drawable/forum_card_bg"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <com.zeyuan.kyq.widget.CircleImageView
+                android:id="@+id/civ"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:src="@mipmap/default_avatar"
+                android:layout_marginTop="@dimen/margin5"
+                />
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="45dp"
+                android:paddingLeft="@dimen/padding8"
+                android:layout_marginTop="@dimen/margin5">
+
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin5"
+                    android:text="昵称"
+                    android:textColor="@color/text_color999"
+                    android:textSize="@dimen/font13" />
+
+                <TextView
+                    android:id="@+id/time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/text_color999"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="@dimen/margin5"
+                    android:text=""
+                    android:textSize="@dimen/front10" />
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/iv_cream"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin8"
+                android:visibility="gone"
+                android:src="@mipmap/base_cream"/>
+            <ImageView
+                android:id="@+id/iv_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin8"
+                android:layout_marginLeft="@dimen/margin8"
+                android:visibility="visible"
+                android:src="@mipmap/base_top"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/padding8">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="测试标题测试标题"
+                android:singleLine="true"
+                android:textColor="@color/text_color333"
+                android:textSize="@dimen/font15" />
+
+            <TextView
+                android:id="@+id/content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="7dp"
+                android:text="是的广东省分行地方规划法规和法规和的风格和地爱上对方是的方式地方撒的方式方规划"
+                android:lineSpacingExtra="2dp"
+                android:lineSpacingMultiplier="1.1"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:textColor="@color/text_color666"
+                android:textSize="@dimen/font12" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout"
+            android:layout_marginTop="9dp"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <!--<include layout="@layout/item_forum_small_gv"/>
+            <include layout="@layout/item_forum_small_gv"/>
+            <include layout="@layout/item_forum_small_gv"/>-->
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginTop="9dp"
+
+            >
+
+            <RelativeLayout
+                android:id="@+id/v_circle"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/bg_f4_r10"
+                >
+                <ImageView
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:src="@mipmap/from_circle_list_gray"
+                    android:layout_centerInParent="true"
+                    android:scaleType="fitXY"
+                    />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/circle"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="20dp"
+                android:textSize="@dimen/font10"
+                android:textColor="@color/text_blue"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="@dimen/padding5"
+                android:text=""
+                android:singleLine="true"
+                android:ellipsize="end"
+                />
+
+
+            <TextView
+                android:id="@+id/like"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="25"
+                android:textSize="@dimen/font11"
+                android:textColor="@color/text_color999"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:drawableLeft="@mipmap/like_forum_base"
+                android:drawablePadding="2dp"
+                android:layout_marginLeft="@dimen/margin5"
+                />
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginLeft="@dimen/margin5"
+                >
+                <ImageView
+                    android:id="@+id/iv_temp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/reply_forum_base"
+
+                    android:layout_marginTop="4dp"
+                    />
+                <TextView
+                    android:id="@+id/reply"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="25"
+                    android:textSize="@dimen/font11"
+                    android:textColor="@color/text_color999"
+                    android:layout_toRightOf="@+id/iv_temp"
+                    android:layout_centerVertical="true"
+                    />
+            </RelativeLayout>
+
+
+        </LinearLayout>
+        <RelativeLayout
+            android:id="@+id/v_fav"
+            android:layout_marginTop="@dimen/margin8"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/line_ddd"/>
+            <TextView
+                android:id="@+id/tv_fav_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin8"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/text_color3"
+                android:textSize="@dimen/font10"
+                android:text="收藏于2002-2-2"/>
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

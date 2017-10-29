@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.zeyuan.kyq.view.AboutActivity">
+
+    <include layout="@layout/toorbar" />
+
+    <com.zeyuan.kyq.widget.MyScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fadingEdge="none"
+        android:overScrollMode="never"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="26dp"
+                android:src="@mipmap/ic_launcher" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/margin12"
+                android:text="@string/app_name"
+                android:textSize="@dimen/font16"
+                android:textColor="@color/text_color2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/margin8"
+                android:textColor="@color/text_check"
+                android:textSize="@dimen/font12"
+                android:text="@string/about_txt1" />
+
+            <TextView
+                android:id="@+id/version_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/margin8"
+                android:textColor="@color/text_check"
+                android:textSize="@dimen/font12"
+                android:text="v 1.0" />
+            <TextView
+                android:id="@+id/tv_login_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/margin8"
+                android:textColor="@color/text_check"
+                android:textSize="@dimen/font12"
+                android:text="ID: 9910(QQ账号登录)" />
+
+            <View
+                style="@style/line_style"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/margin12"
+                android:background="@color/line_ccc"
+                />
+
+            <TextView
+                style="@style/drug_detail_top_tv"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:text="@string/about_txt2" />
+
+
+            <TextView
+                style="@style/about_content_textstyle"
+                android:text="@string/about_txt3" />
+
+            <View
+                style="@style/line_style"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/margin12"
+                android:background="@color/line_ccc"
+                />
+
+            <TextView
+                style="@style/drug_detail_top_tv"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:text="@string/about_txt4" />
+
+            <TextView
+                style="@style/about_textview_style1"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:text="@string/about_txt5"
+                android:textColor="@color/text_color2"
+                android:textSize="@dimen/front14" />
+
+            <TextView
+                style="@style/about_content_textstyle"
+                android:text="@string/about_txt6" />
+
+            <TextView
+                style="@style/about_textview_style1"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:text="@string/about_txt7"
+                android:textColor="@color/text_color2"
+                android:textSize="@dimen/front14" />
+
+            <TextView
+                style="@style/about_content_textstyle"
+                android:text="@string/about_txt8" />
+
+            <TextView
+                style="@style/about_textview_style1"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:text="@string/about_txt9"
+                android:textColor="@color/text_color2"
+                android:textSize="@dimen/front14" />
+
+            <TextView
+                style="@style/about_content_textstyle"
+                android:text="@string/about_txt10" />
+
+            <TextView
+                style="@style/about_textview_style1"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:text="@string/about_txt11"
+                android:textColor="@color/text_color2"
+                android:textSize="@dimen/front14" />
+
+            <TextView
+                style="@style/about_content_textstyle"
+                android:text="@string/about_txt12" />
+
+            <TextView
+                style="@style/about_textview_style1"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:text="@string/about_txt13"
+                android:textColor="@color/text_color2"
+                android:textSize="@dimen/front14"/>
+
+            <TextView
+                style="@style/about_content_textstyle"
+                android:text="@string/about_txt14" />
+
+
+            <TextView
+                style="@style/about_textview_style1"
+                android:layout_marginTop="@dimen/margin8"
+                android:text="联系邮箱：lan@kaqcn.com" />
+
+
+            <View style="@style/empty_layout" />
+        </LinearLayout>
+    </com.zeyuan.kyq.widget.MyScrollView>
+
+    <TextView
+        android:id="@+id/work"
+        style="@style/about_content_textstyle"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/little_margin"
+        android:text="Copyright ©  2015-2017  抗癌圈  版权所有"
+        android:textColor="@color/text_color3"
+        android:textSize="@dimen/front12" />
+</LinearLayout>

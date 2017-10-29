@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingLeft="@dimen/padding15"
+    android:paddingRight="@dimen/padding15"
+    android:paddingTop="@dimen/padding10"
+    android:paddingBottom="@dimen/padding5"
+    android:background="?attr/actionBarItemBackground"
+    >
+    <ImageView
+        android:id="@+id/iv_circle_follow"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:scaleType="fitXY"
+        android:layout_centerHorizontal="true"/>
+    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/tv_rv_follow"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_below="@+id/iv_circle_follow"
+        android:text="测试"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:textSize="@dimen/font14"
+        android:textColor="@color/text_color2"
+
+        />
+</RelativeLayout>

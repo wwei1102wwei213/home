@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="baidu-site-verification" content="hdCBerulaW" />
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-control" content="max-age=600">
+		<meta http-equiv="Expires" content="0" />
+		<meta http-equiv="Cache" content="no-cache">
+		<meta name="description" content="抗癌圈是第一款将精准基因医学与国际最新肿瘤治疗方案完美结合，并免费服务于癌症患者的APP。由知名肿瘤医生、海外基因研究学者与民间抗癌高手共同打造而成。">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>Test</title>
+
+		
+		<title>sort</title>
+		
+	</head>
+	<body>
+		<br />
+		<br />
+		<div id="test" onclick="openApp()">
+		<a >测试</a>
+		
+		</div>
+		<br/>
+		<br/>
+		
+	<div id="testsort1">
+		<a href="zeyuankaq://start.app/test?type=1&value=2" style="font-family: '微软雅黑';">打开app</a>
+		<br/>
+	</div>
+	
+	
+	
+	<br />
+	<br />
+	<div id="testsort3"></div>
+	<div id="testsort4"></div>
+	<div id="testsort5"></div>
+	</body>
+	<script language="JavaScript" type="text/JavaScript">
+	
+		function openApp(){
+			if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+				document.getElementById('testsort3').innerHTML = '手机打开';
+	
+				var ua = window.navigator.userAgent.toLowerCase();
+
+				if(ua.match(/MicroMessenger/i)=="micromessenger") {  //是否微信打开
+
+
+			window.location.href =  'wx02cca444de652c20://openwebview/?ret=0';
+            		window.setTimeout(function () 					{
+	                       document.getElementById('testsort5').innerHTML = '微信链接超时';
+	                }, 800);
+
+
+            		document.getElementById('testsort4').innerHTML = '微信打开';//微信打开出浮层，微信暂不支持Scheme打开非企鹅应用
+        		}else {
+        			window.location.href = 'zeyuankaq://start.app/test?type=1&value=2';
+				window.setTimeout(function () {
+                       document.getElementById('testsort5').innerHTML = '未安装APP';
+                }, 800);
+        		}
+				
+			} else {
+				document.getElementById('testsort3').innerHTML = '判断失败';
+			}
+		}
+		
+		
+		
+		function open(){
+			window.location.href = 'zeyuankaq://start.app/test?type=1&value=2';
+		}
+		function openIF(){
+			if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+				if (/android/i.test(navigator.userAgent)) {
+                var isrefresh = getUrlParam('refresh'); // 获得refresh参数
+                if(isrefresh == 1) {
+                    return
+                }
+                window.location.href = 'zeyuankaq://start.app/test?type=1&value=2';
+                window.setTimeout(function () {
+                        window.location.href += '&refresh=1' // 附加一个特殊参数，用来标识这次刷新不要再调用myapp:// 了
+                }, 500);
+            }
+			}
+		}
+		</script>
+</html>
+
+

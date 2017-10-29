@@ -1,0 +1,197 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:flowlayout="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.zeyuan.kyq.widget.MyLayout
+        android:id="@+id/whole_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <include
+                android:id="@+id/v_top"
+                layout="@layout/other_title" />
+
+            <View
+                android:id="@+id/line"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_below="@+id/v_top"
+                android:background="@color/line_ddd" />
+
+            <include layout="@layout/view_edit_input" />
+
+            <com.zeyuan.kyq.widget.CustomView.LoadingScrollView
+                android:id="@+id/sv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/v_bottom"
+                android:layout_below="@id/line"
+                android:background="@color/main_color"
+                android:fadingEdge="none"
+                android:fillViewport="false"
+                android:overScrollMode="never"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:orientation="vertical">
+
+                    <View style="@style/line_horizontal_normol" />
+
+                    <com.youzan.sdk.web.plugin.YouzanBrowser
+                        android:id="@+id/wv_forum_detail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="invisible" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/main_color" />
+
+                    <LinearLayout
+                        android:id="@+id/v_from_circle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:orientation="vertical"
+                        android:paddingLeft="@dimen/padding16"
+                        android:paddingRight="@dimen/padding16"
+                        android:visibility="gone">
+
+                        <LinearLayout
+                            android:id="@+id/ll_reminded_friends_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingBottom="20dp"
+                            android:paddingTop="20dp"
+                            android:visibility="gone">
+
+                            <TextView
+                                android:id="@+id/tv_remind_tag"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingBottom="@dimen/padding10"
+                                android:paddingTop="@dimen/padding10"
+                                android:text="/@到的好友:"
+                                android:textColor="@color/text_color2"
+                                android:textSize="@dimen/font14" />
+
+                            <LinearLayout
+                                android:id="@+id/ll_reminded_friends"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="1dp">
+
+                            </LinearLayout>
+
+                            <ImageView
+                                android:id="@+id/iv_friends_more"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/ic_friends_more" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/main_color" />
+
+                        <TextView
+                            android:id="@+id/tv_from_circle_num"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="@dimen/padding10"
+                            android:paddingTop="@dimen/padding10"
+                            android:text="@string/about_tag"
+                            android:textColor="@color/text_color2"
+                            android:textSize="@dimen/font14" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:paddingBottom="14dp">
+
+
+                            <com.zeyuan.kyq.widget.FlowLayout
+                                android:id="@+id/fl_from_circle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="1dp"
+                                android:paddingRight="10dp"
+                                flowlayout:horizontal_spacing="8dp"
+                                flowlayout:vertical_spacing="8dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <include layout="@layout/ll_author_more_forum" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_repay_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="7dp"
+                        android:background="@drawable/bg_cash_white_r10"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/huifu_num"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="@dimen/font12"
+                            android:layout_marginTop="@dimen/font12"
+                            android:gravity="center_vertical|left"
+                            android:paddingLeft="@dimen/padding16"
+                            android:text=""
+                            android:textColor="@color/text_color2"
+                            android:textSize="@dimen/font16"
+                            android:visibility="visible" />
+
+
+                        <com.zeyuan.kyq.widget.CustomView.CustomLoadingListView
+                            android:id="@+id/listview"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:divider="@null"
+                            android:dividerHeight="0dp"
+                            android:visibility="gone" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </com.zeyuan.kyq.widget.CustomView.LoadingScrollView>
+
+            <View
+                android:id="@+id/v_half"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/v_bottom"
+                android:background="@color/half_alpha"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+    </com.zeyuan.kyq.widget.MyLayout>
+
+    <ProgressBar
+        android:id="@+id/pd"
+        style="@style/customProgressBar"
+        android:visibility="gone" />
+</FrameLayout>

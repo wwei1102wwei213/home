@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <include layout="@layout/toorbar" />
+
+
+    <RadioGroup
+        android:id="@+id/rg"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal">
+
+
+        <RadioButton
+            android:id="@+id/liver"
+            style="@style/main_more_topbutton"
+            android:text="肝毒性" />
+
+        <RadioButton
+            android:id="@+id/kidney"
+            style="@style/main_more_topbutton"
+            android:text="肾毒性" />
+
+        <RadioButton
+            android:id="@+id/heart"
+            style="@style/main_more_topbutton"
+            android:text="心毒性" />
+        <RadioButton
+            android:id="@+id/blood"
+            style="@style/main_more_topbutton"
+            android:text="脑血管意外" />
+    </RadioGroup>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="3dp">
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/light_green" />
+
+        <View
+            android:id="@+id/view2"
+
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/light_green"
+            android:visibility="invisible" />
+
+        <View
+            android:id="@+id/view3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/light_green"
+            android:visibility="invisible" />
+        <View
+            android:id="@+id/view4"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/light_green"
+            android:visibility="invisible" />
+    </LinearLayout>
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>

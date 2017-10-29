@@ -1,0 +1,741 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    >
+    <com.zeyuan.kyq.widget.PullToRefresh.PullToRefreshLayout
+        android:id="@+id/pull_layout_headline"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include layout="@layout/main_refresh_head" />
+
+        <com.zeyuan.kyq.widget.PullToRefresh.PullableScrollView
+            android:id="@+id/my_sv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none"
+            android:fadingEdge="none"
+            android:overScrollMode="never">
+
+            <RelativeLayout
+                android:id="@+id/child"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <View style="@style/line_horizontal_normol"
+                        android:background="@color/stat_bar_color"
+                        />
+                    <RelativeLayout
+                        android:id="@+id/rl_main_top_body"
+                        android:layout_width="match_parent"
+                        android:layout_height="165dp"
+                        android:visibility="visible"
+                        android:layout_gravity="center"
+                        >
+
+                        <com.zeyuan.kyq.widget.CustomView.InsideViewPager
+                            android:id="@+id/vp_main_top"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            />
+
+                        <com.zeyuan.kyq.widget.DrawCircleView
+                            android:id="@+id/dcv_main_top"
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignParentRight="true"
+                            />
+
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_step_and_days"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/padding10"
+                        android:background="@color/main_space_bg"
+                        >
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/now_step_img"
+                            android:layout_gravity="center_vertical"
+                            />
+                        <RelativeLayout
+                            android:id="@+id/rl_name_step"
+                            android:layout_width="0dp"
+                            android:layout_weight="3"
+                            android:layout_height="match_parent">
+                            <TextView
+                                android:id="@+id/tv_drug_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center_vertical"
+                                android:singleLine="true"
+                                android:textSize="13sp"
+                                android:paddingLeft="@dimen/padding5"
+                                android:textColor="@color/text_normal"
+                                android:visibility="visible"
+                                />
+                            <ImageView
+                                android:id="@+id/iv_main_to_write"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/tv_drug_name"
+                                android:layout_centerVertical="true"
+                                android:visibility="gone"
+                                android:src="@drawable/to_tianxie"/>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="2"
+                            android:layout_height="match_parent">
+                            <View
+                                android:id="@+id/tm_line"
+                                android:layout_width="1dp"
+                                android:layout_height="30dp"
+                                android:background="#E0E0E0"/>
+                            <TextView
+                                android:id="@+id/tv_discover_days"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_toRightOf="@+id/tm_line"
+                                android:gravity="center_vertical"
+                                android:paddingLeft="8dp"
+                                android:textSize="13sp"
+                                />
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_blur"
+                        android:layout_width="match_parent"
+                        android:layout_height="75dp"
+                        android:layout_marginRight="@dimen/margin10"
+                        android:layout_marginLeft="@dimen/margin10"
+
+                        >
+                        <RelativeLayout
+                            android:id="@+id/rl_main_head_img"
+                            android:layout_width="60dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/margin8"
+                            android:layout_centerVertical="true"
+                            >
+                            <com.zeyuan.kyq.widget.CircleImageView
+                                android:id="@+id/iv_main_head_img"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_centerInParent="true"
+                                />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_toRightOf="@id/rl_main_head_img"
+                            android:paddingLeft="@dimen/padding4"
+                            >
+
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="75dp"
+                                >
+                                <Button
+                                    android:id="@+id/tv_main_menu_bingli"
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/main_menu_bingli"
+                                    android:drawableTop="@mipmap/main_menu_bingli"
+                                    android:gravity="center_horizontal"
+                                    style="@style/main_menu"
+
+                                    android:background="@drawable/bg_btn_press_light"
+                                    android:paddingTop="@dimen/padding10"
+                                    />
+                                <Button
+                                    android:id="@+id/tv_main_menu_step"
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/main_menu_step"
+                                    android:drawableTop="@mipmap/main_menu_step"
+                                    android:gravity="center_horizontal"
+                                    style="@style/main_menu"
+                                    android:background="@drawable/bg_btn_press_light"
+                                    android:paddingTop="@dimen/padding10"
+                                    />
+                                <!--<Button
+                                    android:id="@+id/tv_main_menu_zhengzhuang"
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/main_menu_zhengzhuang"
+                                    android:drawableTop="@mipmap/main_menu_zhengzhuang"
+                                    android:gravity="center_horizontal"
+                                    style="@style/main_menu"
+                                    android:background="@drawable/bg_btn_press_light"
+                                    android:paddingTop="@dimen/padding10"
+                                    />-->
+
+                                <Button
+                                    android:id="@+id/tv_main_menu_jilu"
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="match_parent"
+                                    android:text="@string/main_menu_classify"
+                                    android:drawableTop="@mipmap/main_menu_jilu"
+                                    android:gravity="center_horizontal"
+                                    style="@style/main_menu"
+                                    android:background="@drawable/bg_btn_press_light"
+                                    android:paddingTop="@dimen/padding10"
+                                    />
+
+                            </LinearLayout>
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"
+                        android:background="@color/main_line" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp">
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                >
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    >
+                                    <Button
+                                        android:id="@+id/btn_main_zhinengwenzheng"
+                                        android:layout_width="165dp"
+                                        android:layout_height="62dp"
+                                        android:background="@mipmap/bg_btn_zhinengwenzheng"
+                                        android:layout_centerInParent="true"
+
+                                        android:textColor="@color/main_wenzheng"
+                                        />
+                                </RelativeLayout>
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    >
+                                    <Button
+                                        android:id="@+id/btn_main_chafuzuoyong"
+                                        android:layout_width="165dp"
+                                        android:layout_height="62dp"
+                                        android:background="@mipmap/bg_btn_chafuzuoyong"
+                                        android:layout_centerInParent="true"
+
+                                        android:textColor="@color/main_fuzuoyong"
+                                        />
+                                </RelativeLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                >
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    >
+                                    <Button
+                                        android:id="@+id/btn_main_chabingfazheng"
+                                        android:layout_width="165dp"
+                                        android:layout_height="62dp"
+                                        android:background="@mipmap/bg_btn_chabingfazheng"
+                                        android:layout_centerInParent="true"
+
+                                        android:textColor="@color/main_bingfazheng"
+                                        android:layout_alignParentStart="false" />
+                                </RelativeLayout>
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    >
+                                    <Button
+                                        android:id="@+id/btn_main_chazhibiao"
+                                        android:layout_width="165dp"
+                                        android:layout_height="62dp"
+                                        android:background="@mipmap/bg_btn_chazhibiao"
+                                        android:layout_centerInParent="true"
+
+                                        android:textColor="@color/main_zhibiao"
+                                        />
+                                </RelativeLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+                        <FrameLayout
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_centerInParent="true">
+                            <ImageButton
+                                android:id="@+id/btn_main_chazhengzhuang"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:src="@mipmap/bg_btn_chazhengzhuang"
+                                android:scaleType="centerInside"
+                                android:background="@drawable/bg_imgbtn_circle"
+                                />
+                        </FrameLayout>
+
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="90dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:visibility="gone"
+                        >
+
+                        <Button
+                            android:id="@+id/home_wdbl"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:drawablePadding="@dimen/drawable_padding"
+                            android:drawableTop="@drawable/home_wdbl_selector"
+                            android:gravity="center"
+                            android:text="我的病历"
+                            android:textColor="@color/text_color_1" />
+
+                        <Button
+                            android:id="@+id/home_gxjd"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:drawablePadding="@dimen/drawable_padding"
+
+                            android:drawableTop="@drawable/home_gxjd_selector"
+                            android:gravity="center"
+                            android:text="@string/change_step"
+                            android:textColor="@color/text_color_1" />
+
+                        <Button
+                            android:id="@+id/home_tjzz"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:drawablePadding="@dimen/drawable_padding"
+                            android:drawableTop="@drawable/home_tjzz_selector"
+                            android:gravity="center"
+                            android:text="@string/add_symptom"
+                            android:textColor="@color/text_color_1" />
+
+
+                        <Button
+                            android:id="@+id/home_zbjl"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:drawablePadding="@dimen/drawable_padding"
+                            android:drawableTop="@drawable/home_zbjl_selector"
+                            android:gravity="center"
+                            android:text="@string/index_record"
+                            android:textColor="@color/text_color_1" />
+                    </LinearLayout>
+
+                    <!--<LinearLayout
+                        android:id="@+id/v_user_pull"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        >
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="10dp"
+                            android:background="@color/main_line"
+                            />
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="120dp">
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="个性化推荐"
+                                android:textSize="@dimen/font16"
+                                android:textColor="@color/text_color333"
+                                android:gravity="center_vertical"
+                                android:drawablePadding="@dimen/padding8"
+                                android:layout_gravity="center_horizontal"
+                                android:drawableLeft="@mipmap/main_user_pull_left"
+                                android:layout_marginTop="@dimen/margin13"
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/main_user_pull_text"
+                                android:textSize="@dimen/font11"
+                                android:textColor="@color/text_color999"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="@dimen/margin8"
+                                />
+                            <TextView
+                                android:id="@+id/tv_user_pull"
+                                android:layout_width="match_parent"
+                                android:layout_height="32dp"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/font15"
+                                android:text="@string/main_open_user_pull"
+                                android:gravity="center"
+                                android:layout_marginTop="@dimen/margin12"
+                                android:layout_marginLeft="60dp"
+                                android:layout_marginRight="60dp"
+                                android:background="@drawable/bggreen_bdgreen_r15"
+                                />
+                        </LinearLayout>
+                    </LinearLayout>-->
+
+                    <LinearLayout
+                        android:id="@+id/v_help_action"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone">
+                        <View
+                            android:id="@+id/v_middle_line"
+                            android:layout_width="match_parent"
+                            android:layout_height="10dp"
+                            android:background="@color/main_line"
+                            android:visibility="visible"/>
+                        <RelativeLayout
+                            android:id="@+id/rl_main_middle_banner"
+                            android:layout_width="match_parent"
+                            android:layout_height="102dp"
+                            android:visibility="visible"
+                            android:layout_gravity="center"
+                            >
+
+                            <com.zeyuan.kyq.widget.CustomView.InsideViewPager
+                                android:id="@+id/vp_middle_banner"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                />
+
+                            <com.zeyuan.kyq.widget.DrawCircleView
+                                android:id="@+id/dcv_middle_banner"
+                                android:layout_width="match_parent"
+                                android:layout_height="20dp"
+                                android:layout_alignParentBottom="true"
+                                android:layout_alignParentRight="true"
+                                />
+
+                        </RelativeLayout>
+                    </LinearLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"
+                        android:background="@color/main_line" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="107dp"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="@dimen/margin15"
+                        >
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="33dp"
+                            android:text="@string/main_other_function"
+                            android:textSize="@dimen/front16"
+                            android:textColor="@color/text_normal"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="@dimen/padding10"
+                            android:drawableLeft="@mipmap/main_other_small"
+                            />
+                        <!--<View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/line_color"
+                            />-->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:layout_marginTop="3dp"
+                            >
+                            <RelativeLayout
+                                android:id="@+id/rl_linchuang_zhaomu"
+                                android:layout_width="107dp"
+                                android:layout_height="66dp"
+                                android:background="@mipmap/test_zhaomu"
+                                >
+                                <TextView
+                                    android:id="@+id/tv_temp_linchuang"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/test_zhaomu_main"
+                                    android:textSize="@dimen/front14"
+                                    android:layout_marginLeft="@dimen/margin8"
+                                    android:layout_marginTop="14dp"
+                                    android:textColor="#1da8b1"
+                                    />
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/ll_search_drug"
+                                android:layout_width="107dp"
+                                android:layout_height="66dp"
+                                android:background="@mipmap/search_drug"
+                                android:layout_marginRight="@dimen/margin8"
+                                android:layout_marginLeft="@dimen/margin8"
+                                >
+                                <TextView
+                                    android:id="@+id/tv_temp_search_drug"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/search_drug_main"
+                                    android:textSize="@dimen/font15"
+                                    android:layout_marginLeft="@dimen/margin15"
+                                    android:layout_marginTop="14dp"
+                                    android:textColor="@color/other_function"
+                                    />
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/ll_zhihuan"
+                                android:layout_width="107dp"
+                                android:layout_height="66dp"
+                                android:background="@mipmap/help_wenzheng"
+
+                                >
+                                <TextView
+                                    android:id="@+id/tv_temp_zhihuan"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/zhihuan_main"
+                                    android:textSize="@dimen/font15"
+                                    android:layout_marginLeft="@dimen/margin15"
+                                    android:layout_marginTop="14dp"
+                                    android:textColor="#16b381"
+                                    />
+
+                            </RelativeLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"
+                        android:background="@color/main_line" />
+
+                    <!--<LinearLayout
+                        android:id="@+id/v_bottom"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <LinearLayout
+                            android:id="@+id/v_main_zhongliutoutiao"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:background="@color/white"
+                            android:orientation="horizontal"
+                            >
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/main_cancer_top_img"
+                                android:layout_marginLeft="@dimen/padding10"
+                                android:layout_marginRight="@dimen/margin10"
+                                android:layout_gravity="center_vertical"
+                                />
+                            <View
+                                android:layout_width="1px"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="@dimen/margin10"
+                                android:layout_marginBottom="@dimen/margin10"
+                                android:background="@color/red"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center_vertical"
+                                android:paddingLeft="@dimen/padding10"
+                                android:paddingRight="@dimen/padding10"
+                                android:singleLine="true"
+                                android:text="最全最优质的肿瘤最新资讯"
+                                android:textColor="@color/text_color3"
+                                android:textSize="@dimen/font12"
+                                />
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/iv_tab"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:background="@color/bg_ec">
+                            <com.zeyuan.kyq.widget.CustomView.InsideRecyclerView
+                                android:id="@+id/rv_wz_main"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"/>
+                            <ImageView
+                                android:id="@+id/iv_edit_tab"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:src="@mipmap/alpha_add"
+                                android:layout_alignParentRight="true"
+                                />
+                        </RelativeLayout>
+                        &lt;!&ndash;<View
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:background="#ccc"
+                            android:layout_marginRight="@dimen/margin12"
+                            android:layout_marginLeft="@dimen/margin12"/>&ndash;&gt;
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            >
+                            <com.zeyuan.kyq.widget.MyListView
+                                android:id="@+id/lv_main_bottom1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:divider="@null"
+                                android:fadingEdge="none"
+                                android:overScrollMode="never"
+                                />
+                            <LinearLayout
+                                android:id="@+id/v_help"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:paddingTop="@dimen/padding8"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="5dp"
+                                >
+                                <com.zeyuan.kyq.widget.CustomView.InsideRecyclerView
+                                    android:id="@+id/rv_help_main"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="168dp"
+                                    android:fadingEdge="none"
+                                    android:overScrollMode="never"
+                                    >
+                                </com.zeyuan.kyq.widget.CustomView.InsideRecyclerView>
+                                <View
+                                    android:id="@+id/line_help"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1px"
+                                    android:background="#ccc"
+                                    android:layout_marginTop="@dimen/margin8"
+                                    android:layout_marginRight="7dp"
+                                    android:layout_marginLeft="7dp"/>
+                            </LinearLayout>
+
+                            <com.zeyuan.kyq.widget.MyListView
+                                android:id="@+id/lv_main_bottom2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:divider="@null"
+                                android:fadingEdge="none"
+                                android:overScrollMode="never"
+                                />
+                        </LinearLayout>
+                    </LinearLayout>-->
+
+                </LinearLayout>
+            </RelativeLayout>
+
+
+        </com.zeyuan.kyq.widget.PullToRefresh.PullableScrollView>
+
+        <include layout="@layout/load_more"/>
+
+    </com.zeyuan.kyq.widget.PullToRefresh.PullToRefreshLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <View
+            android:id="@+id/statusBar2"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/bg_ec"/>
+        <!--<RelativeLayout
+            android:id="@+id/v_tab_top"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/bg_ec"
+            android:visibility="gone"
+            >
+            <com.zeyuan.kyq.widget.CustomView.InsideRecyclerView
+                android:id="@+id/rv_wz_main_top"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+            <ImageView
+                android:id="@+id/iv_edit_tab_top"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@mipmap/alpha_add"
+                android:layout_alignParentRight="true"
+                />
+        </RelativeLayout>-->
+    </LinearLayout>
+
+    <View
+        android:id="@+id/statusBar1"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/text_color333"
+        />
+
+    <ProgressBar
+        android:id="@+id/pd"
+        style="@style/progressbar_style"
+        android:indeterminate="false" />
+</RelativeLayout>
+
+
+
+

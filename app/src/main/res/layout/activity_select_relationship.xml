@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="42dp"
+            android:text="选择您与患者的关系"
+            android:textColor="@color/text_color333"
+            android:textSize="21sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_similarity_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="8dp"
+            android:text=""
+            android:textColor="@color/text_color666"
+            android:textSize="13sp"
+            tool:text="同处于预防阶段的患者有12586位，一切都会好的" />
+
+        <TextView
+            android:id="@+id/tv_relation_relative"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:drawableTop="@drawable/relative"
+            android:gravity="center_horizontal"
+            android:text="家属亲戚"
+            android:textColor="@color/text_c7a"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_relation_self"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:drawableTop="@drawable/self"
+            android:gravity="center_horizontal"
+            android:text="本人"
+            android:textColor="@color/text_c7a"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_relation_not_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:drawableTop="@drawable/not_all"
+            android:gravity="center_horizontal"
+            android:text="都不是"
+            android:textColor="@color/text_c7a"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="45dp"
+            android:orientation="horizontal"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp">
+
+            <Button
+                android:id="@+id/btn_last_step"
+                android:layout_width="0dp"
+                android:layout_height="42dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:background="@drawable/btn_solid_empty_stroke_black_radius_24"
+                android:gravity="center"
+                android:text="@string/last_step"
+                android:textColor="@color/text_c7a"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/btn_finish"
+                android:layout_width="0dp"
+                android:layout_height="42dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="15dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_solid_empty_radius_24"
+                android:gravity="center"
+                android:text="@string/finish"
+                android:textColor="@color/text_blue"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

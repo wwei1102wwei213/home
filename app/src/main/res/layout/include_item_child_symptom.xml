@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_color"
+    android:orientation="horizontal">
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/small_margin"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/red_line1"
+                android:layout_width="1dp"
+                android:layout_height="@dimen/activity_horizontal_margin"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/light_red" />
+
+            <ImageView
+                android:id="@+id/img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/stepdetail_time" />
+
+            <TextView
+                android:id="@+id/red_line2"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/img"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/light_red" />
+        </LinearLayout>
+
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/add_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:layout_weight="5"
+        android:orientation="vertical"
+        android:paddingRight="@dimen/small_margin">
+
+        <TextView
+            android:id="@+id/symptom_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/main_color"
+            android:text="2015-5-31" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height32"
+            android:layout_marginTop="@dimen/small_margin"
+            android:background="@drawable/two_corner">
+
+            <!--<ImageView-->
+            <!--android:id="@+id/img"-->
+            <!--android:layout_marginLeft="15dp"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:src="@mipmap/symptom_result" />-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/small_margin"
+                android:drawableLeft="@mipmap/symptom_result"
+
+                android:gravity="center_vertical"
+                android:text="@string/symptom_record"
+                android:textColor="@color/white"
+                android:textSize="@dimen/front14" />
+
+            <ImageView
+                android:id="@+id/update"
+                android:layout_width="@dimen/height32"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/small_margin"
+                android:scaleType="centerInside"
+                android:src="@mipmap/update" />
+
+            <ImageView
+                android:id="@+id/delete"
+                android:layout_width="@dimen/height32"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/update"
+                android:scaleType="centerInside"
+                android:src="@mipmap/delete" />
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/step_detail_left_txt"
+                android:text="@string/symptom" />
+
+            <TextView
+                android:id="@+id/symptom"
+                style="@style/step_detail_right_txt" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/line_color" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/small_margin">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/small_margin"
+                android:text="@string/decribe" />
+
+            <TextView
+                android:id="@+id/gene_decr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/small_margin" />
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

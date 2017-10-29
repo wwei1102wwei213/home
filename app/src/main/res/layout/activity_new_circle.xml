@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/whole_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/main_color"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/tv_white_title"
+                android:textColor="@color/text_color2"
+                android:textSize="@dimen/front18"
+                android:gravity="center"
+                android:singleLine="true"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <ImageView
+                android:id="@+id/iv_white_title_back"
+                android:layout_width="@dimen/height50"
+                android:layout_height="match_parent"
+                android:src="@mipmap/top_btn_back_blue"
+                android:scaleType="centerInside"
+                />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/line_ccc"/>
+
+        <!--<com.zeyuan.kyq.widget.PullToRefresh.PullToRefreshLayout
+            android:id="@+id/layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <include layout="@layout/main_refresh_head" />
+
+            <com.zeyuan.kyq.widget.PullToRefresh.PullableScrollView
+                android:id="@+id/my_sv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="none"
+                android:fadingEdge="none"
+                android:overScrollMode="never">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <include
+                        android:id="@+id/circle_name"
+                        layout="@layout/item_find_circle_new"
+                        android:layout_width="match_parent"
+                        android:layout_height="72dp"
+                        />
+                    <View
+                        style="@style/line_horizontal_e2"/>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_rv_circle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="visible">
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/rv_circle"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/height48"
+                            android:background="@color/white"
+                            android:paddingRight="@dimen/padding5"
+                            android:paddingLeft="@dimen/padding5"
+                            />
+                        <View
+                            style="@style/line_horizontal_e2"
+                            android:layout_below="@+id/rv_circle"
+                            />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/v_lv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/padding4"
+                        android:paddingLeft="@dimen/padding10"
+                        android:paddingRight="@dimen/padding10"
+                        >
+                        <com.zeyuan.kyq.widget.MyListView
+                            android:id="@+id/listview"
+                            android:layout_width="match_parent"
+                            android:fadingEdge="none"
+                            android:overScrollMode="never"
+                            android:persistentDrawingCache="none"
+                            android:scrollingCache="false"
+                            android:smoothScrollbar="true"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_height="match_parent"
+                            android:divider="@null"
+                            />
+                    </RelativeLayout>
+
+                    <FrameLayout
+                        android:id="@+id/fl"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                    </FrameLayout>
+
+                </LinearLayout>
+            </com.zeyuan.kyq.widget.PullToRefresh.PullableScrollView>
+
+            <include layout="@layout/load_more"/>
+
+        </com.zeyuan.kyq.widget.PullToRefresh.PullToRefreshLayout>-->
+        <com.andview.refreshview.XRefreshView
+            android:id="@+id/xrv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#F0F0F0">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="vertical" />
+        </com.andview.refreshview.XRefreshView>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_frush"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="50dp"
+        android:layout_marginRight="@dimen/margin20"
+        android:src="@mipmap/iv_frush_gray"
+        />
+
+    <ImageView
+        android:id="@+id/iv_ft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="18dp"
+        android:src="@mipmap/iv_ft_green"
+        android:layout_above="@+id/iv_frush"
+        />
+
+    <ProgressBar
+        android:id="@+id/pd"
+        style="@style/progressbar_style" />
+</RelativeLayout>

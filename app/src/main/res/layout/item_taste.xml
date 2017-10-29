@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <TextView
+            android:id="@+id/tv_taste_name"
+            android:layout_width="72dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="@dimen/font12"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/taste_bg"
+            android:gravity="center"
+            android:text="同城交流"
+            android:maxLines="1"
+            android:ellipsize="middle"
+            android:textColor="@color/text_color666"
+            android:textSize="13sp" />
+
+        <ImageView
+            android:id="@+id/iv_tag"
+            android:layout_width="30dp"
+            android:layout_height="18dp"
+            android:layout_gravity="right"
+            android:src="@mipmap/ic_hot" />
+    </FrameLayout>
+</FrameLayout>

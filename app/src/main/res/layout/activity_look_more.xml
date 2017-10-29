@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/white_title_bar"/>
+    <View style="@style/line_horizontal_normol"/>
+
+    <com.zeyuan.kyq.widget.CustomScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fadingEdge="none"
+        android:overScrollMode="never"
+
+        android:background="@color/main_space_bg"
+        >
+        <com.zeyuan.kyq.widget.MyListView
+            android:id="@+id/lv_look_more"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fadingEdge="none"
+            android:overScrollMode="never"
+            android:divider="@null"
+            android:scrollbars="none"
+            android:layout_marginLeft="@dimen/padding12"
+            android:layout_marginRight="@dimen/padding12"
+            />
+    </com.zeyuan.kyq.widget.CustomScrollView>
+
+</LinearLayout>

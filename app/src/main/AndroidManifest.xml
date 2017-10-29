@@ -1,0 +1,629 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.zeyuan.kyq">
+
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <!-- 蓝牙分享所需的权限 -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <!-- 读写SD卡权限 相机权限 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- 录音权限 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <!-- 短信收发权限 -->
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <!-- 震动权限 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" />
+
+    <permission-group android:name="android.permission.WRITE_APN_SETTINGS" />
+    <!-- 0328 -->
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+
+    <!--为了更好的体验需要获取地理信息的权限(有赞) -->
+    <uses-permission android:name="android.permission.ACCESS_GPS" />
+    <uses-permission android:name="android.permission.ACCESS_ASSISTED_GPS" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <!-- 这3个是阿里云图片上传的 -->
+    <meta-data
+        android:name="com.alibaba.app.ossak"
+        android:value="jlovT26yDJA7WvsN" />
+    <meta-data
+        android:name="com.alibaba.app.osssk"
+        android:value="73FJdsSKCrGCa3c1dgxqJW3thQrHCX" />
+    <meta-data
+        android:name="com.alibaba.app.ossbucketname"
+        android:value="bucketn1" />
+
+    <application
+        android:name=".application.ZYApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:persistent="true"
+        android:screenOrientation="portrait"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:replace="android:allowBackup">
+        <activity
+            android:name="com.mob.tools.MobUIShell"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <intent-filter>
+                <data android:scheme="db-7janx53ilz11gbs" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- 初始页面 -->
+        <activity
+            android:name=".view.SplashActivity"
+            android:exported="true"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="start.app"
+                    android:scheme="zeyuankaq" />
+            </intent-filter>
+        </activity>
+        <!-- 主页 -->
+        <activity
+            android:name=".view.MainActivity"
+            android:screenOrientation="portrait" />
+        <!-- 患者详情 -->
+        <activity
+            android:name=".view.PatientDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeFull" />
+        <!-- 帖子详情页面 -->
+        <activity
+            android:name=".view.ForumDetailActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <!-- 图片显示页面 -->
+        <activity android:name=".view.PictureShowActivity" />
+        <!-- 发布帖子页面 -->
+        <activity
+            android:name=".view.ReleaseForumActivity"
+            android:label="@string/title_activity_release_forum"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <!-- 新更多圈子 -->
+        <activity
+            android:name=".view.MoreCircleNewActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <!-- 圈子帖子列表" -->
+        <activity
+            android:name=".view.CircleActivity"
+            android:label="@string/title_activity_circle"
+            android:screenOrientation="portrait" />
+        <!-- 我的帖子 -->
+        <activity
+            android:name=".view.MyForumActivity"
+            android:screenOrientation="portrait" />
+        <!-- 显示图片 -->
+        <activity android:name=".view.SelectPictureActivity" />
+        <!-- 显示图片 -->
+        <activity
+            android:name=".view.ShowPhotoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/OtherTitleAppTheme" />
+        <!-- 结果详情页面 -->
+        <activity
+            android:name=".view.ResultDetailActivity"
+            android:screenOrientation="portrait" />
+        <!-- 从主页中副作用进入的页面 -->
+        <activity
+            android:name=".view.SideEffectActivity"
+            android:screenOrientation="portrait" />
+        <!-- 方案详情 -->
+        <activity
+            android:name=".view.CaseDetailActivity"
+            android:screenOrientation="portrait" />
+        <!-- 建立档案 -->
+        <activity
+            android:name=".view.PatientInfoActivity"
+            android:screenOrientation="portrait" />
+        <!-- 这个是登录页 -->
+        <activity
+            android:name=".view.GuideActivity"
+            android:screenOrientation="portrait" />
+        <!-- qq登录配置 -->
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter>
+                <data android:scheme="tencent1104903720" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+        </activity>
+        <!-- qq登录配置 -->
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <data android:scheme="tencent1104903720" />
+        </activity>
+        <!-- 微信登录回调配置 -->
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="true"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait" />
+        <!-- 微信支付回调配置 -->
+        <activity
+            android:name=".wxapi.WXPayEntryActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <!-- 文章详情 -->
+        <activity
+            android:name=".view.ArticleDetailActivity"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.WSZLActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.DrugActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.ShowImageActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/GgzImageScale" />
+        <!-- 我的评论和回复 -->
+        <activity
+            android:name=".view.MyReplyActivity"
+            android:screenOrientation="portrait" />
+        <!-- 我的收藏 -->
+        <activity
+            android:name=".view.MyFlwForumActivity"
+            android:label="@string/title_activity_my_flw_forum"
+            android:screenOrientation="portrait" />
+        <!-- 我收藏的圈子 -->
+        <activity
+            android:name=".view.MyFosCircleActivity"
+            android:screenOrientation="portrait" />
+        <!-- 关于页面 -->
+        <activity
+            android:name=".view.AboutActivity"
+            android:label="@string/title_activity_about"
+            android:screenOrientation="portrait" />
+        <!-- 显示抗癌圈电子病历 -->
+        <activity
+            android:name=".view.ShowRecordsActivity"
+            android:screenOrientation="portrait" />
+        <!-- 帮助页面主页 -->
+        <activity
+            android:name=".view.UserHelperActivity"
+            android:screenOrientation="portrait" />
+        <!-- 帮助页面分页 -->
+        <activity
+            android:name=".view.HelpSymptomActivity"
+            android:screenOrientation="portrait" />
+        <!-- 文章页面 -->
+        <activity
+            android:name=".view.ShowDiscuzActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/OtherTitleAppTheme" />
+        <!-- 症状搜素页面 -->
+        <activity
+            android:name=".view.SearchSymtomActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <!-- 文章搜素页面 -->
+        <activity
+            android:name=".view.SearchArticleActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <!-- 圈子搜素页面 -->
+        <activity
+            android:name=".view.SearchCircleActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <!-- 阶段药物搜素页面 -->
+        <activity
+            android:name=".view.SearchTypeActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <!-- 搜索功能页面 -->
+        <activity
+            android:name=".view.SearchFunctionActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <!-- 肿瘤头条 -->
+        <activity
+            android:name=".view.HeadLineActivity"
+            android:theme="@style/OtherTitleAppTheme" />
+        <!-- 查副作用 -->
+        <activity
+            android:name=".view.SearchEffectActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/OtherTitleAppTheme" />
+        <!-- 查并发症 -->
+        <activity
+            android:name=".view.SearchComplicationActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/OtherTitleAppTheme" />
+        <!-- 查看更多副作用或并发症 -->
+        <activity
+            android:name=".view.LookMoreActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/OtherTitleAppTheme" />
+        <!-- 查指标 -->
+        <activity
+            android:name=".view.SearchQuotaActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/OtherTitleAppTheme" />
+        <!-- 完善资料页面 -->
+        <activity
+            android:name=".view.PerfectDataActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/OtherTitleAppTheme" />
+        <!-- 查药 -->
+        <activity
+            android:name=".view.SearchDrugActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@style/OtherTitleAppTheme"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <!-- 新副作用页面 -->
+        <activity android:name=".view.EffectNewActivity" />
+        <!-- 消息设置页面 -->
+        <activity android:name=".view.SettingNewsActivity" />
+        <!-- 消息中心页面 -->
+        <activity
+            android:name=".view.NewsCenterActivity"
+            android:screenOrientation="portrait" />
+        <!-- 新版单个圈子页面 -->
+        <activity
+            android:name=".view.NewCircleActivity"
+            android:screenOrientation="portrait" />
+        <!-- 提现页面 -->
+        <activity
+            android:name=".view.DrawCashActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <!-- 提现成功 -->
+        <activity android:name=".view.CashSuccessActivity" />
+        <!-- 个人中心 -->
+        <activity
+            android:name=".view.InfoCenterActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeFull" />
+        <!-- 绑定提现微信页面 -->
+        <activity
+            android:name=".view.BindWXActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <!-- 绑定手机页面 -->
+        <activity
+            android:name=".view.BindingPhoneActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <!--选择号码归属地页面-->
+        <activity
+            android:name=".view.SelectPhoneLocalActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+
+        <!-- 关注列表页面 -->
+        <activity
+            android:name=".view.CareListActivity"
+            android:screenOrientation="portrait" />
+        <!-- 文章评论 -->
+        <activity android:name=".view.ArticleCommentActivity" />
+        <!-- 新诊断结果页面 -->
+        <activity
+            android:name=".view.DiagnosisActivity"
+            android:screenOrientation="portrait" />
+        <!-- 症状百科页面 -->
+        <activity
+            android:name=".view.SymptomActivity"
+            android:screenOrientation="portrait" />
+        <!-- ***预后方案页面 -->
+        <activity
+            android:name=".view.PrognosisProgramActivity"
+            android:screenOrientation="portrait" />
+        <!-- ***数据来源页面 -->
+        <activity
+            android:name=".view.DataSourceActivity"
+            android:screenOrientation="portrait" />
+        <!-- ***新药物详情页面 -->
+        <activity
+            android:name=".view.DrugDetailActivity"
+            android:screenOrientation="portrait" />
+        <!-- ***相似案例页面 -->
+        <activity
+            android:name=".view.SimilarActivity"
+            android:screenOrientation="portrait" />
+        <!-- 活动列表页 -->
+        <activity
+            android:name=".view.AdverticingListActivity"
+            android:screenOrientation="portrait" />
+        <!-- 文章匹配页面 -->
+        <activity
+            android:name=".view.MatchArticleActivity"
+            android:screenOrientation="portrait" />
+        <!-- 新版查症状页面 -->
+        <activity
+            android:name=".view.HomeSymptomActivity"
+            android:screenOrientation="portrait" />
+        <!-- 症状分类页面 -->
+        <activity
+            android:name=".view.SymptomClassifyActivity"
+            android:screenOrientation="portrait" />
+        <!-- 新编辑阶段页面 -->
+        <activity
+            android:name=".view.EditStepNewActivity"
+            android:screenOrientation="portrait" />
+        <!-- 新增阶段页面 -->
+        <activity
+            android:name=".view.AddStepNewActivity"
+            android:screenOrientation="portrait" />
+        <!-- 记录常规指标 -->
+        <activity
+            android:name=".view.RecordRuleQuotaActivity"
+            android:screenOrientation="portrait" />
+        <!-- 记录分类选择 -->
+        <activity
+            android:name=".view.RecordClassifyActivity"
+            android:screenOrientation="portrait" />
+        <!-- 记录分类 -->
+        <activity
+            android:name=".view.RecordActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <!-- 病理报告 -->
+        <activity
+            android:name=".view.PathologyActivity"
+            android:screenOrientation="portrait" />
+        <!-- 编辑记录 -->
+        <activity
+            android:name=".view.EditRecordActivity"
+            android:screenOrientation="portrait" />
+        <!-- 个人资料 -->
+        <activity
+            android:name=".view.PersonalDataActivity"
+            android:screenOrientation="portrait" />
+        <!-- 患者资料 -->
+        <activity
+            android:name=".view.PatientDataActivity"
+            android:screenOrientation="portrait" />
+        <!-- 选择症状 -->
+        <activity
+            android:name=".view.ChooseSymptomActivity"
+            android:screenOrientation="portrait" />
+        <!-- 选择要记录的指标 -->
+        <activity
+            android:name=".view.ChooseQuotaTypeActivity"
+            android:screenOrientation="portrait" />
+        <!-- 新病历 -->
+        <activity
+            android:name=".view.MedicalRecordActivity"
+            android:screenOrientation="portrait" />
+        <!-- 肿瘤大小/指标变化 -->
+        <activity
+            android:name=".view.RecordChartActivity"
+            android:screenOrientation="portrait" />
+        <!-- 其他重疾 -->
+        <activity
+            android:name=".view.OtherStrickenActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <!-- 服务中心 -->
+        <activity
+            android:name=".view.ServiceCenterActivity"
+            android:screenOrientation="portrait" />
+        <!-- 全部功能 -->
+        <activity
+            android:name=".view.AllMenuActivity"
+            android:screenOrientation="portrait" />
+        <!-- 文章分类列表 -->
+        <activity
+            android:name=".view.ArticleTypeActivity"
+            android:screenOrientation="portrait" />
+        <!-- InKe支付过渡页面 -->
+        <activity
+            android:name=".view.InKePayActivity"
+            android:screenOrientation="portrait" />
+        <!-- 数据交接页面，该页面不展示给用户 -->
+        <activity android:name=".view.WorkActivity" />
+        <!-- 圈友列表页面 -->
+        <activity
+            android:name=".view.FocusFriendActivity"
+            android:screenOrientation="portrait" />
+        <!-- 帖子列表页 -->
+        <activity
+            android:name=".view.FourmListActivity"
+            android:screenOrientation="portrait" />
+        <!--帖子详情中@的好友-->
+        <activity
+            android:name=".view.RemindedFriendsListActivity"
+            android:screenOrientation="portrait" />
+        <!-- Service组件 -->
+        <service
+            android:name=".service.ZYKaqService"
+            android:enabled="true"
+            android:exported="true"
+            android:persistent="true">
+            <intent-filter android:priority="1000">
+                <action android:name="zy_service_start" />
+                <action android:name="zy_service_app_exit" />
+                <action android:name="zy_service_step_updata_start" />
+                <action android:name="zy_service_correct_head_img" />
+            </intent-filter>
+        </service>
+        <!-- 自定义推送Service -->
+        <service
+            android:name=".service.ZYPushIntentService"
+            android:enabled="true"
+            android:exported="true"
+            android:persistent="true"
+            android:process=":push">
+            <intent-filter>
+                <action android:name="zy_service_start" />
+            </intent-filter>
+        </service>
+        <!-- 自定义推送处理页面 -->
+        <activity android:name=".view.MessageDetailActivity" />
+        <!-- 广播 -->
+        <receiver android:name=".service.BootReceiver">
+            <intent-filter android:priority="2147483647"> <!-- 优先级加最高 -->
+                <!-- 系统启动完成后会调用 -->
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <!-- 解锁完成后会调用 -->
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <!-- 监听情景切换 -->
+                <action android:name="android.media.RINGER_MODE_CHANGED" />
+                <action android:name="android.intent.action.PACKAGE_RESTARTED" />
+            </intent-filter>
+        </receiver>
+
+        <!--
+        友盟设置
+        AppKey = 56fa439267e58e50ce00069c;
+        Umeng Message Secret = e63de9e7d9a6f9b5061d490ffb082926;
+        App Master Secret = ukp31pawez3fos3dehmenovlzfvqsh0o;
+        -->
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="56fa439267e58e50ce00069c" />
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="zeyuan" />
+        <!--
+            <meta-data android:name="UMENG_CHANNEL"
+            android:value="${UMENG_CHANNEL_VALUE}">
+            </meta-data>
+        -->
+        <meta-data
+            android:name="UMENG_MESSAGE_SECRET"
+            android:value="e63de9e7d9a6f9b5061d490ffb082926" />
+        <!-- 个性化推荐的列表页 -->
+        <activity
+            android:name=".view.PersonalizedRecommendActivity"
+            android:screenOrientation="portrait" />
+        <!-- 选择@的好友 -->
+        <activity
+            android:name=".view.SelectFriendsActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity android:name=".view.MedicalRecordDetailListActivity" />
+        <!--有赞页面-->
+        <activity
+            android:name=".view.YouzanActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <!--消息设置页面-->
+        <activity
+            android:name=".view.MessageSettingsActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <!--修改手机号码获取验证码-->
+        <activity
+            android:name=".view.ModifyPhoneGetCodeActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <!--修改手机号码确认页面-->
+        <activity
+            android:name=".view.ModifyPhoneConfirmActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <!--功能引导页面-->
+        <activity
+            android:name=".view.FunctionGuideActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/TranslucentTheme"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <!--关注好友提示页面-->
+        <activity
+            android:name=".view.FocusFriendGuideActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/TranslucentTheme"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <!--选择患者当前状态-->
+        <activity
+            android:name=".view.SelectCurrentStatusActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <!--选择与患者关系-->
+        <activity
+            android:name=".view.SelectRelationshipActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <!--个性化治疗选择癌种-->
+        <activity
+            android:name=".view.SelectCancerActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <!--选择确诊时间-->
+        <activity
+            android:name=".view.SelectDiagnosisTimeActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <!--选择癌症分期-->
+        <activity
+            android:name=".view.SelectCancerStagingActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <!--选择当前治疗方案-->
+        <activity
+            android:name=".view.SelectCurrentCaseActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
+    </application>
+
+</manifest>

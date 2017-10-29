@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@color/black"
+    >
+    <View
+        android:id="@+id/statusBar1"
+        android:layout_width="match_parent"
+        android:layout_height="1px"/>
+    <com.zeyuan.kyq.widget.HackyViewPager
+        android:id="@+id/vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        android:layout_below="@id/statusBar1"
+        android:orientation="vertical"/>
+
+    <com.zeyuan.kyq.widget.DrawCircleView
+        android:id="@+id/dcv_photo"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin30"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/margin30"
+        />
+
+</RelativeLayout>
+
+

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/main"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:flowlayout="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:background="@drawable/mains_shape"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/top_textview_shape"
+        android:gravity="center"
+        android:text="@string/choose_gene_title"
+        android:textColor="@color/white"
+        android:textSize="@dimen/front22"/>
+
+
+    <com.zeyuan.kyq.widget.FlowLayout
+        android:id="@+id/fl"
+        android:layout_width="330dp"
+        android:layout_height="@dimen/dialog_height"
+        android:layout_marginTop="15dp"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:orientation="horizontal"
+        flowlayout:horizontal_spacing="15dp"
+        flowlayout:vertical_spacing="20dp">
+
+
+    </com.zeyuan.kyq.widget.FlowLayout>
+
+    <View style="@style/line_style" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal"
+        android:paddingBottom="15dp"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp">
+
+        <Button
+            android:id="@+id/cancle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/cancel"
+            android:text="@string/cancle"/>
+
+        <Button
+            android:id="@+id/confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/dialog_confirm"
+            android:text="@string/confirm"
+            android:textColor="@color/white"/>
+    </LinearLayout>
+</LinearLayout>

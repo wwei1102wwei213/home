@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:gravity="bottom"
+    >
+    <TextView
+        android:id="@+id/tv_cancer_size"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:text=""
+        android:textSize="@dimen/font11"
+        android:gravity="center"
+        android:paddingLeft="@dimen/padding4"
+        android:paddingRight="@dimen/padding4"
+        android:layout_gravity="center_horizontal"/>
+    <View
+        android:id="@+id/v_long"
+        android:layout_width="14dp"
+        android:layout_height="20dp"
+        android:background="@drawable/bg_chart_green_not_now"
+        android:layout_gravity="center_horizontal"/>
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:text=""
+        android:textSize="@dimen/font10"
+        android:paddingLeft="@dimen/padding4"
+        android:paddingRight="@dimen/padding4"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"/>
+    <TextView
+        android:id="@+id/tv_year"
+        android:layout_width="wrap_content"
+        android:layout_height="15dp"
+        android:text=""
+        android:textColor="@color/light_green2"
+        android:textSize="@dimen/font10"
+        android:paddingLeft="@dimen/padding4"
+        android:paddingRight="@dimen/padding4"
+        android:gravity="top"
+        android:layout_gravity="center_horizontal"/>
+</LinearLayout>

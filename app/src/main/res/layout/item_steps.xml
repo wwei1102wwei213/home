@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/light_green" />
+
+    <include
+        android:id="@+id/step_number"
+        layout="@layout/layout_step_number_view"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="@dimen/small_margin"
+        android:layout_marginTop="@dimen/activity_horizontal_margin" />
+
+    <TextView
+        android:id="@+id/step_medica"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="@dimen/small_margin"
+        android:layout_marginRight="@dimen/small_margin"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:layout_toRightOf="@id/step_number"
+        android:background="@drawable/edit_step_shape"
+        android:drawableRight="@mipmap/step_up"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:hint="请选择药物"
+        android:paddingLeft="@dimen/small_margin"
+        android:paddingRight="@dimen/small_margin"
+        android:singleLine="true"
+        android:textSize="@dimen/front18" />
+
+
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_alignLeft="@id/step_medica"
+        android:layout_alignRight="@id/step_medica"
+        android:layout_below="@id/step_medica"
+        android:layout_marginTop="@dimen/small_margin"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/start_time"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:background="@drawable/edit_step_shape"
+            android:drawableRight="@mipmap/step_up"
+            android:gravity="center_vertical"
+            android:hint="开始时间"
+            android:paddingLeft="@dimen/small_margin"
+            android:paddingRight="@dimen/small_margin"
+            android:text=""
+            android:textSize="@dimen/front14" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="至"
+            android:textSize="@dimen/front14" />
+
+        <TextView
+            android:id="@+id/end_time"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="@dimen/small_margin"
+            android:layout_weight="1"
+            android:background="@drawable/edit_step_shape"
+            android:drawableRight="@mipmap/step_up"
+            android:gravity="center_vertical"
+            android:hint="结束时间"
+            android:paddingLeft="@dimen/small_margin"
+            android:paddingRight="@dimen/small_margin"
+            android:textSize="@dimen/front14" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/ll"
+        android:layout_below="@id/ll"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="12dp"
+        android:text="是否有效?"
+        android:textColor="@color/text_color3"
+        android:textSize="@dimen/front14" />
+
+    <RadioGroup
+        android:id="@+id/rg"
+        android:layout_width="110dp"
+        android:layout_height="25dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignRight="@id/ll"
+        android:layout_below="@id/ll"
+        android:layout_marginRight="@dimen/small_margin"
+        android:layout_marginTop="@dimen/small_margin"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/no_effective"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="-1dp"
+            android:layout_weight="1"
+            android:background="@drawable/left_radiobutton_selector"
+            android:button="@null"
+            android:gravity="center"
+            android:text="无效"
+            android:textColor="@color/green_white_selector" />
+
+        <RadioButton
+            android:id="@+id/effective"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/right_radiobutton_selector"
+            android:button="@null"
+            android:gravity="center"
+            android:text="有效"
+            android:textColor="@color/green_white_selector"
+            android:textSize="@dimen/front14" />
+    </RadioGroup>
+</RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/rl_step_remark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/step_number"
+        android:visibility="visible"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="@dimen/padding8"
+        android:layout_marginTop="@dimen/padding8"
+        android:layout_marginBottom="@dimen/padding8"
+        android:gravity="center_vertical"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/edit_steps"
+        >
+
+        <RelativeLayout
+            android:id="@+id/rl_temp"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true">
+            <View style="@style/line_ver_style"
+                android:id="@+id/ver_line"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_centerVertical="true"
+                android:background="@color/darker_gray"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="修改"
+                android:layout_toRightOf="@+id/ver_line"
+                android:textColor="@color/light_green"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="14dp"
+
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:layout_centerVertical="true"
+                />
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/tv_step_remark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="阶段说明：无"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:paddingLeft="@dimen/padding8"
+            android:paddingRight="@dimen/padding8"
+            android:layout_toLeftOf="@id/rl_temp"
+            android:layout_centerVertical="true"
+            />
+
+    </RelativeLayout>
+</LinearLayout>

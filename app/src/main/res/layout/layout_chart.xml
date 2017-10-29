@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="185dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/v_color_1"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="@drawable/bg_chart_green"
+            android:paddingRight="1px"
+            android:paddingLeft="1px"
+            android:paddingTop="1px">
+
+            <RelativeLayout
+                android:id="@+id/v_color_2"
+                android:layout_width="match_parent"
+                android:layout_height="28dp"
+                android:background="@color/color_chart_green_gray">
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/text_cancer_size_unit"
+                    android:textColor="@color/text_color333"
+                    android:textStyle="bold"
+                    android:paddingLeft="@dimen/padding12"
+                    android:textSize="@dimen/font12"
+                    android:gravity="center_vertical"
+                    />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:background="@drawable/dash_line_d3"
+                    android:layerType="software"
+                    android:layout_marginTop="30dp"
+                    />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:background="@drawable/dash_line_d3"
+                    android:layerType="software"
+                    android:layout_marginTop="60dp"
+                    />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:background="@drawable/dash_line_d3"
+                    android:layerType="software"
+                    android:layout_marginTop="90dp"
+                    />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="28dp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp">
+
+        </android.support.v7.widget.RecyclerView>
+    </RelativeLayout>
+</LinearLayout>

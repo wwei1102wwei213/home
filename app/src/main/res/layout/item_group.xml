@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+
+    >
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/padding8"
+    >
+
+    <View
+        android:id="@+id/empty_view"
+        style="@style/empty_layout"
+        android:background="@color/main_color"
+        android:layout_height="@dimen/small_margin" />
+
+    <View
+        android:id="@+id/green_line"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@+id/empty_view"
+        android:background="@color/light_green" />
+
+
+
+    <include
+        android:id="@+id/step_number"
+        layout="@layout/layout_step_number_view"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/green_line"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="@dimen/margin8" />
+
+    <TextView
+        android:id="@+id/step_medica"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/step_number"
+        android:layout_marginLeft="@dimen/small_margin"
+        android:layout_marginTop="@dimen/margin8"
+        android:layout_toRightOf="@id/step_number"
+        android:text="sdfsadf"
+        android:textColor="@color/text_color2"
+        android:textSize="@dimen/font16" />
+
+    <ImageView
+        android:id="@+id/indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/small_margin" />
+
+    <LinearLayout
+        android:id="@+id/ll_temp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_alignBottom="@+id/step_number"
+        android:layout_alignLeft="@id/step_medica"
+        android:layout_toLeftOf="@id/indicator"
+        >
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="0dp"
+            android:layout_weight="7"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:singleLine="true"
+            android:textSize="@dimen/font12" />
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/little_margin"
+            android:layout_marginLeft="3dp"
+            >
+            <TextView
+                android:id="@+id/tv_steps_drug_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:paddingRight="6dp"
+                android:paddingLeft="6dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:textColor="@color/white"
+                android:textSize="@dimen/front10" />
+        </RelativeLayout>
+
+    </LinearLayout>
+</RelativeLayout>
+    <View style="@style/line_horizontal_normol"/>
+    <RelativeLayout
+        android:id="@+id/rl_step_remark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:paddingLeft="@dimen/padding4"
+        android:paddingRight="@dimen/padding8"
+        android:paddingBottom="@dimen/padding8"
+        >
+
+        <TextView
+            android:id="@+id/tv_step_remark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="阶段说明：无"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:paddingLeft="@dimen/small_padding"
+            android:paddingRight="@dimen/small_padding"
+            android:paddingTop="@dimen/padding8"
+            />
+
+    </RelativeLayout>
+</LinearLayout>

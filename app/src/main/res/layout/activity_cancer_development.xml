@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/title1"
+        layout="@layout/white_title_bar" />
+
+    <ScrollView
+        android:id="@+id/whole_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/confirm"
+        android:layout_below="@+id/title1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/type_name"
+                android:layout_width="match_parent"
+                android:layout_height="34dp"
+                android:background="@color/daf"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:text="@string/illness_anz"
+                android:textColor="@color/text_color2"
+                android:textSize="@dimen/front18" />
+
+
+            <com.zeyuan.kyq.widget.expandabletextview.ExpandableTextView
+                android:id="@+id/cancel_decri"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/small_margin"
+                android:lineSpacingExtra="4dp"
+                android:lineSpacingMultiplier="1.0"
+                android:text=" "
+                android:textColor="@color/item_forum_title"
+                android:textSize="@dimen/font15" />
+
+            <TextView
+                android:id="@+id/tv_no_other"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/small_margin"
+                android:lineSpacingExtra="4dp"
+                android:lineSpacingMultiplier="1.0"
+                android:text=" "
+                android:textColor="@color/item_forum_title"
+                android:textSize="@dimen/font15" />
+
+            <com.zeyuan.kyq.widget.expandabletextview.ExpandableTextViewToggle
+                android:id="@+id/ett_temp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:drawablePadding="4dp"
+                android:textSize="@dimen/font15"
+                app:collapseDrawable="@android:drawable/arrow_up_float"
+                app:collapseText="@string/close"
+                app:collapsibleTextView="@+id/cancel_decri"
+                app:expandDrawable="@android:drawable/arrow_down_float"
+                app:expandText="@string/open" />
+
+            <LinearLayout
+                android:id="@+id/ll_suit"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <View
+                    android:id="@+id/line"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:layout_marginTop="@dimen/small_margin"
+                    android:background="@color/line_color" />
+
+                <TextView
+                    android:id="@+id/tv_spsuit_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:paddingBottom="@dimen/small_margin"
+                    android:paddingTop="@dimen/small_margin"
+                    android:text="@string/sp_suit"
+                    android:textColor="@color/text_color2"
+                    android:textSize="@dimen/front18" />
+
+                <TextView
+                    android:id="@+id/tv_spsuit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:paddingBottom="@dimen/small_margin"
+                    android:text=""
+                    android:textColor="@color/item_forum_title"
+                    android:lineSpacingExtra="4dp"
+                    android:lineSpacingMultiplier="1.0"
+                    android:textSize="@dimen/font15" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_condition"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:layout_marginTop="@dimen/small_margin"
+                    android:background="@color/line_color" />
+                <TextView
+                    android:id="@+id/confirm_condition"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:paddingBottom="@dimen/small_margin"
+                    android:paddingTop="@dimen/small_margin"
+                    android:text="@string/confirm_tiaojian"
+                    android:textColor="@color/text_color2"
+                    android:textSize="@dimen/front18" />
+
+                <TextView
+                    android:id="@+id/conclusion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:background="@drawable/confirm_sympton"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:text="PET_CT"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/front14" />
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/small_margin"
+                android:layout_marginTop="@dimen/small_margin"
+                android:background="@color/line_color" />
+
+
+            <TextView
+                android:id="@+id/pos_cure"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/small_margin"
+                android:text="@string/first_cure_case"
+                android:textSize="@dimen/front14" />
+
+            <LinearLayout
+                android:id="@+id/ll_policy_text"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                >
+                <View
+
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:layout_marginTop="@dimen/small_margin"
+                    android:background="@color/line_color" />
+
+                <TextView
+                    android:id="@+id/tv_policytext_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:paddingBottom="@dimen/small_margin"
+                    android:paddingTop="@dimen/small_margin"
+                    android:text="@string/pt_policytext"
+                    android:textColor="@color/text_color2"
+                    android:textSize="@dimen/front18" />
+
+                <TextView
+                    android:id="@+id/tv_policytext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+
+                    android:paddingBottom="@dimen/small_margin"
+                    android:text=""
+                    android:textColor="@color/item_forum_title"
+                    android:lineSpacingExtra="4dp"
+                    android:lineSpacingMultiplier="1.0"
+                    android:textSize="@dimen/font15" />
+
+            </LinearLayout>
+
+            <com.zeyuan.kyq.widget.CustomExpandableListView
+                android:id="@+id/top_listview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:divider="@color/white"
+                android:dividerHeight="1px"
+                android:listSelector="@android:color/transparent" />
+
+            <TextView
+                android:id="@+id/check_gene"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/small_margin"
+                android:background="@drawable/result_detail_more_case_shape"
+                android:gravity="center"
+                android:padding="@dimen/little_margin"
+                android:text="完成基因检测后可显示更多方案"
+                android:textColor="@color/text_color3"
+                android:textSize="@dimen/front14"
+                android:visibility="visible" />
+
+            <View
+                android:id="@+id/line2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
+                android:background="@color/line_color" />
+
+            <TextView
+                android:id="@+id/tv_tip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/small_margin"
+                android:text="@string/other_case" />
+
+
+            <com.zeyuan.kyq.widget.CustomExpandableListView
+                android:id="@+id/bottom_listview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/small_margin"
+                android:divider="@color/white"
+                android:dividerHeight="1px"
+                android:listSelector="@android:color/transparent" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/activity_horizontal_margin" />
+        </LinearLayout>
+    </ScrollView>
+
+    <View
+        android:id="@+id/line1"
+        style="@style/line_style"
+        android:layout_below="@+id/whole_content" />
+
+    <Button
+        android:id="@+id/confirm"
+        style="@style/bottom_button"
+        android:text="@string/choose_case"
+        android:textSize="@dimen/front18" />
+
+
+    <FrameLayout
+        android:id="@+id/fl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/title1" />
+</RelativeLayout>

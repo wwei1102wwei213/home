@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <include layout="@layout/other_title" />
+    <View
+        style="@style/line_horizontal_e2_1dp"
+        android:background="@color/line_e6"/>
+    <include layout="@layout/layout_no_step_hint"/>
+    <FrameLayout
+        android:id="@+id/fl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <com.zeyuan.kyq.widget.CustomView.CustomRefreshListView
+                android:id="@+id/listview"
+                android:layout_width="match_parent"
+                android:fadingEdge="none"
+                android:overScrollMode="never"
+                android:persistentDrawingCache="none"
+                android:scrollingCache="false"
+                android:smoothScrollbar="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="match_parent"
+                android:divider="@null"
+                />
+            <include layout="@layout/layout_no_result"/>
+        </RelativeLayout>
+
+
+    </FrameLayout>
+    <!---->
+
+</LinearLayout>

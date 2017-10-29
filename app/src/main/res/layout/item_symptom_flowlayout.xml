@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="测试呢"
+    android:gravity="center_vertical"
+    android:paddingLeft="@dimen/padding20"
+    android:paddingRight="@dimen/padding20"
+    android:paddingTop="@dimen/padding4"
+    android:paddingBottom="@dimen/padding4"
+    android:textSize="@dimen/font12"
+    android:textColor="@color/light_green2"
+    android:background="@drawable/bg_symptom_item_shape"
+    />

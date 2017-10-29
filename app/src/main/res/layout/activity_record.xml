@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.zeyuan.kyq.widget.MyLayout
+        android:id="@+id/my_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <RelativeLayout
+                android:id="@+id/v_title"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height48">
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="@color/text_color333"
+                    android:textSize="@dimen/font18"
+                    android:textStyle="bold"
+                    />
+                <ImageView
+                    android:id="@+id/iv_back"
+                    android:layout_width="@dimen/status_title_height"
+                    android:src="@mipmap/top_btn_back_blue"
+                    android:scaleType="center"
+                    android:layout_height="match_parent"/>
+                <TextView
+                    android:id="@+id/tv_save"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingRight="@dimen/padding12"
+                    android:paddingLeft="@dimen/padding12"
+                    android:text="@string/btn_save"
+                    android:textColor="@color/light_green2"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center_vertical"
+                    />
+            </RelativeLayout>
+
+            <!--<View
+                android:id="@+id/v_line_title"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/line_ddd"
+                />-->
+
+            <include layout="@layout/line_view_ddd"/>
+
+            <com.zeyuan.kyq.widget.CustomScrollView
+                android:id="@+id/sv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/main_color"
+                android:overScrollMode="never"
+                android:fadingEdge="none"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    >
+                    <LinearLayout
+                        android:id="@+id/v_choose_quota_type_patient"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/padding8"
+                        android:visibility="gone">
+                        <RelativeLayout
+                            android:id="@+id/v_choose_quota_type"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/choose_quota_type_2"
+                            android:layout_marginLeft="@dimen/margin8"
+                            android:layout_marginRight="@dimen/margin8">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/title_choose_quota_type"
+                                android:layout_centerInParent="true"
+                                android:drawableRight="@mipmap/to_right_to_small"
+                                android:gravity="center"
+                                android:textColor="@color/light_green"
+                                android:textSize="@dimen/font13"
+                                android:drawablePadding="@dimen/padding4"
+                                />
+                        </RelativeLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/v_cancer_size"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        android:background="@color/white"
+                        >
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/v_some"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height48"
+                        android:layout_marginTop="@dimen/margin8"
+                        android:background="@color/white"
+                        android:visibility="gone"
+                        >
+
+                        <TextView
+                            android:id="@+id/tv_some_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text=""
+                            android:textColor="@color/text_color333"
+                            android:textSize="@dimen/font14"
+                            android:paddingLeft="@dimen/padding12"
+                            android:paddingRight="@dimen/padding12"
+                            android:gravity="center_vertical"
+                            />
+
+                        <TextView
+                            android:id="@+id/tv_some"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical|right"
+                            android:textColor="@color/light_green2"
+                            android:textSize="@dimen/font13"
+                            android:drawableRight="@mipmap/to_right_to_small"
+                            android:drawablePadding="@dimen/padding8"
+                            android:paddingRight="@dimen/padding12"
+                            android:singleLine="true"
+                            android:ellipsize="middle"
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/v_hospital"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height48"
+                        android:layout_marginTop="@dimen/margin8"
+                        android:background="@color/white"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="@string/text_hospital"
+                            android:textColor="@color/text_color333"
+                            android:textSize="@dimen/font14"
+                            android:paddingLeft="@dimen/padding12"
+                            android:paddingRight="@dimen/padding12"
+                            android:gravity="center_vertical"
+                            />
+
+                        <EditText
+                            android:id="@+id/et_hospital"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical|right"
+                            android:hint="@string/hint_hospital"
+                            android:textColor="@color/light_green2"
+                            android:textSize="@dimen/font13"
+                            android:background="@null"
+                            android:drawableRight="@mipmap/to_right_to_small"
+                            android:drawablePadding="@dimen/padding8"
+                            android:paddingRight="@dimen/padding12"
+                            android:singleLine="true"
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/v_doctor"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height48"
+                        android:layout_marginTop="@dimen/margin8"
+                        android:background="@color/white"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="@string/text_doctor"
+                            android:textColor="@color/text_color333"
+                            android:textSize="@dimen/font14"
+                            android:paddingLeft="@dimen/padding12"
+                            android:paddingRight="@dimen/padding12"
+                            android:gravity="center_vertical"
+                            />
+
+                        <EditText
+                            android:id="@+id/et_doctor"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical|right"
+                            android:hint="@string/hint_doctor"
+                            android:textColor="@color/light_green2"
+                            android:textSize="@dimen/font13"
+                            android:background="@null"
+                            android:drawableRight="@mipmap/to_right_to_small"
+                            android:drawablePadding="@dimen/padding8"
+                            android:paddingRight="@dimen/padding12"
+                            android:singleLine="true"
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/v_record_time"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height48"
+                        android:layout_marginTop="@dimen/margin8"
+                        android:background="@color/white"
+
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="@string/text_record_time"
+                            android:textColor="@color/text_color333"
+                            android:textSize="@dimen/font14"
+                            android:paddingLeft="@dimen/padding12"
+                            android:paddingRight="@dimen/padding12"
+                            android:gravity="center_vertical"
+                            />
+
+                        <TextView
+                            android:id="@+id/tv_record_time"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical|right"
+                            android:hint="@string/hint_record_time"
+                            android:textColor="@color/light_green2"
+                            android:textSize="@dimen/font13"
+                            />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:src="@mipmap/to_right_to_small"
+                            android:paddingLeft="@dimen/padding8"
+                            android:paddingRight="@dimen/padding12"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin8"
+                        android:background="@color/white">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:text="备注"
+                            android:textColor="@color/text_color333"
+                            android:textSize="@dimen/font14"
+                            android:paddingLeft="@dimen/padding12"
+                            android:paddingRight="@dimen/padding12"
+                            android:paddingBottom="@dimen/padding4"
+                            android:gravity="bottom"/>
+
+                        <EditText
+                            android:id="@+id/et_remark"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="140dp"
+                            android:textColor="@color/text_color666"
+                            android:textSize="@dimen/font13"
+                            android:lineSpacingExtra="3dp"
+                            android:lineSpacingMultiplier="1.1"
+                            android:paddingLeft="@dimen/padding12"
+                            android:paddingRight="@dimen/padding12"
+                            android:paddingBottom="@dimen/padding12"
+                            android:gravity="left|top"
+                            android:background="@null"/>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/status_title_height"
+                        android:textSize="@dimen/font14"
+                        android:paddingLeft="@dimen/padding12"
+                        android:paddingRight="@dimen/padding12"
+                        android:hint="@string/hint_add_photo"
+                        android:gravity="center_vertical"
+                        />
+
+                    <com.zeyuan.kyq.widget.MyGridView
+                        android:id="@+id/gv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="@dimen/padding12"
+                        android:paddingRight="@dimen/padding12"
+                        android:paddingBottom="@dimen/padding12"
+                        android:horizontalSpacing="@dimen/small_margin"
+                        android:numColumns="4"
+                        android:verticalSpacing="@dimen/small_margin" />
+
+                </LinearLayout>
+
+            </com.zeyuan.kyq.widget.CustomScrollView>
+
+        </LinearLayout>
+
+    </com.zeyuan.kyq.widget.MyLayout>
+</FrameLayout>

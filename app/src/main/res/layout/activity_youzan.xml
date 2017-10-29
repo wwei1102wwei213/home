@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height50"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/tv_white_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:maxLines="1"
+            android:textColor="@color/text_color2"
+            android:textSize="@dimen/front18" />
+
+        <ImageView
+            android:id="@+id/iv_white_title_back"
+            android:layout_width="@dimen/height50"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
+            android:src="@mipmap/top_btn_back_blue" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/line_color" />
+
+        <ImageView
+            android:id="@+id/iv_other_title_share"
+            android:layout_width="@dimen/height48"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:padding="@dimen/padding10"
+            android:scaleType="centerInside"
+            android:src="@mipmap/share_step_def" />
+    </RelativeLayout>
+
+    <ProgressBar
+        android:id="@+id/pb_youzan"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:max="100"
+        android:maxHeight="1dp"
+        android:minHeight="1dp"
+        android:progressDrawable="@drawable/seekbar_drawable" />
+
+    <com.youzan.sdk.web.plugin.YouzanBrowser
+        android:id="@+id/yb_youzan"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </com.youzan.sdk.web.plugin.YouzanBrowser>
+</LinearLayout>

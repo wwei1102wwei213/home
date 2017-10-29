@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/body"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        >
+    <com.andview.refreshview.XRefreshView
+        android:id="@+id/xrv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:background="#F0F0F0">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical" />
+    </com.andview.refreshview.XRefreshView>
+        <FrameLayout
+            android:id="@+id/fl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            >
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical" android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/other_title">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="2">
+                    <ImageView
+                        android:id="@+id/iv_empty_photo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_alignParentBottom="true"
+                        android:src="@mipmap/no_froum_relust"
+                        />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="3">
+
+                    <TextView
+                        android:id="@+id/tv_empty_hint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin20"
+                        android:text="暂未发现任何动态\n关注更多好友发现新大陆"
+                        android:layout_centerHorizontal="true"
+                        android:lineSpacingExtra="3dp"
+                        android:lineSpacingMultiplier="1.1"
+                        android:layout_marginLeft="@dimen/margin20"
+                        android:layout_marginRight="@dimen/margin20"
+                        android:gravity="center"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_empty_btn"
+                        android:layout_width="125dp"
+                        android:layout_height="35dp"
+                        android:layout_marginTop="@dimen/margin30"
+                        android:background="@drawable/btn_light_green_r5"
+                        android:layout_below="@+id/tv_empty_hint"
+                        android:layout_centerHorizontal="true"
+                        android:text="去圈友"
+                        android:textSize="@dimen/front14"
+                        android:textColor="@color/white"
+                        android:gravity="center"
+                        />
+                </RelativeLayout>
+
+            </LinearLayout>
+        </FrameLayout>
+
+    </LinearLayout>
+
+
+    <ProgressBar
+        android:id="@+id/pd"
+        style="@style/progressbar_style"
+
+        android:indeterminate="false" />
+</FrameLayout>

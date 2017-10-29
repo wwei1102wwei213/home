@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="62dp">
+    <RelativeLayout
+        android:layout_width="62dp"
+        android:layout_height="62dp">
+        <ImageView
+            android:id="@+id/Umeng_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_launcher"
+            android:layout_centerVertical="true"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/push_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="推送标题"
+
+                android:textSize="@dimen/front14"
+                />
+            <TextView
+                android:id="@+id/push_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="推送内容"
+
+                android:textSize="@dimen/front12"
+                />
+        </LinearLayout>
+
+    </RelativeLayout>
+</LinearLayout>

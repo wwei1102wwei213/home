@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="@color/light_red">
+
+    <ImageView
+        android:id="@+id/btn_back"
+        android:layout_marginLeft="1dp"
+        android:layout_width="wrap_content"
+        android:src="@mipmap/top_btn_back"
+        android:layout_centerVertical="true"
+        android:layout_height="match_parent"/>
+
+    <TextView
+        android:id="@+id/text_back"
+        android:gravity="center_vertical"
+        android:textColor="@color/white"
+        android:visibility="gone"
+        android:textSize="@dimen/front14"
+        android:drawableLeft="@mipmap/top_btn_back"
+        android:text="@string/last_step"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/title"
+        android:textColor="#ffffff"
+        android:textSize="22sp"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="标题" />
+    
+    
+    <TextView
+        android:id="@+id/rigth_textview"
+        android:visibility="gone"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/front18"
+        android:gravity="center_vertical"
+        android:layout_marginRight="10dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+</RelativeLayout>

@@ -1,0 +1,76 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/light_green"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/toorbar"/>
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:src="@mipmap/doctor"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:text="从确诊之日起，我们开始了抗癌的第一天"
+        android:textColor="@color/white"
+        android:textSize="15sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        android:lineSpacingExtra="8dp"
+        android:maxEms="18"
+        android:text="即使再艰难，我们也要迎面挑战"
+        android:textColor="@color/white"
+        android:textSize="15sp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        android:lineSpacingExtra="8dp"
+        android:maxEms="18"
+        android:text="永远相信明天会更好"
+        android:textColor="@color/white"
+        android:textSize="15sp"/>
+
+    <!--<RelativeLayout-->
+    <!--android:layout_height="48dp"-->
+    <!--android:layout_marginRight="20dp"-->
+    <!--android:layout_marginLeft="20dp"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_marginTop="50dp">-->
+
+    <!--<Button-->
+        <!--android:id="@+id/time"-->
+        <!--style="@style/patient_info_button"-->
+        <!--android:layout_marginTop="50dp"-->
+        <!--android:text="请选择确诊时间"/>-->
+
+    <com.zeyuan.kyq.widget.DoubleTvLayout
+        android:id="@+id/time"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="48dp"
+        app:left_txt="@string/discovertime" />
+    <Button
+        android:id="@+id/next_step"
+        style="@style/patient_info"
+        android:layout_marginTop="65dp"
+        android:text="@string/next_step"/>
+</LinearLayout>

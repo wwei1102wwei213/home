@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="81dp"
+    android:layout_height="81dp"
+    android:layout_marginRight="-8dp"
+    android:background="?android:selectableItemBackground">
+    <TextView
+        android:id="@+id/tv_tab"
+        android:layout_width="81dp"
+        android:layout_height="81dp"
+        android:background="@drawable/selector_bg_tab_symptom"
+        android:text=""
+        android:gravity="center"
+        android:textSize="@dimen/font13"
+        android:paddingLeft="@dimen/padding18"
+        android:paddingRight="@dimen/padding18"
+        android:textColor="@color/selector_tab_symptom"
+        android:paddingBottom="@dimen/padding4"
+        />
+</LinearLayout>
+

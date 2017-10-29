@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <include layout="@layout/status_bg_view"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/status_title_height">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="@string/title_personal"
+            android:textColor="@color/text_color333"
+            android:textSize="@dimen/font18"
+            android:textStyle="bold"
+            />
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="@dimen/status_title_height"
+            android:src="@mipmap/top_btn_back_blue"
+            android:scaleType="center"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:id="@+id/tv_save"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingRight="@dimen/padding12"
+            android:paddingLeft="@dimen/padding12"
+            android:text="@string/btn_save"
+            android:textColor="@color/light_green2"
+            android:layout_alignParentRight="true"
+            android:gravity="center_vertical"
+            />
+    </RelativeLayout>
+
+    <include layout="@layout/line_view_ddd"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/main_color">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_marginTop="@dimen/margin8"
+            android:paddingLeft="@dimen/padding12"
+            >
+
+            <LinearLayout
+                android:id="@+id/v_head"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:background="?android:selectableItemBackground"
+                >
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:text="@string/text_head_image"
+                    android:textSize="@dimen/font15"
+                    android:textColor="@color/text_color333"
+                    android:gravity="center_vertical"
+                    />
+                <RelativeLayout
+                    android:id="@+id/v_head_url"
+                    android:layout_width="68dp"
+                    android:layout_height="match_parent">
+                    <com.zeyuan.kyq.widget.CircleImageView
+                        android:id="@+id/iv_head_url"
+                        android:layout_width="@dimen/height48"
+                        android:layout_height="@dimen/height48"
+                        android:src="@mipmap/default_avatar"
+                        android:layout_centerInParent="true"
+                        />
+                </RelativeLayout>
+            </LinearLayout>
+
+
+            <include layout="@layout/line_view_ddd"/>
+
+            <LinearLayout
+                android:id="@+id/v_name"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height50"
+                android:background="?android:selectableItemBackground">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/text_name"
+                    android:textColor="@color/text_color333"
+                    android:textSize="@dimen/font15"
+                    android:paddingRight="@dimen/padding12"
+                    android:gravity="center_vertical"
+                    />
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical|right"
+                    android:textColor="@color/text_color666"
+                    android:textSize="@dimen/font13"
+                    android:drawableRight="@mipmap/to_right_to_small"
+                    android:drawablePadding="@dimen/padding8"
+                    android:paddingRight="@dimen/padding12"
+                    android:singleLine="true"
+                    />
+            </LinearLayout>
+
+            <include layout="@layout/line_view_ddd"/>
+
+            <LinearLayout
+                android:id="@+id/v_where"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height50"
+                android:background="?android:selectableItemBackground">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/text_where"
+                    android:textColor="@color/text_color333"
+                    android:textSize="@dimen/font15"
+                    android:paddingRight="@dimen/padding12"
+                    android:gravity="center_vertical"
+                    />
+                <TextView
+                    android:id="@+id/tv_where"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical|right"
+                    android:textColor="@color/text_color666"
+                    android:textSize="@dimen/font13"
+                    android:drawableRight="@mipmap/to_right_to_small"
+                    android:drawablePadding="@dimen/padding8"
+                    android:paddingRight="@dimen/padding12"
+                    android:singleLine="true"
+                    />
+            </LinearLayout>
+
+            <include layout="@layout/line_view_ddd"/>
+
+            <LinearLayout
+                android:id="@+id/v_sex"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height50"
+                android:background="?android:selectableItemBackground">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/text_sex"
+                    android:textColor="@color/text_color333"
+                    android:textSize="@dimen/font15"
+                    android:paddingRight="@dimen/padding12"
+                    android:gravity="center_vertical"
+                    />
+                <TextView
+                    android:id="@+id/tv_sex"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical|right"
+                    android:textColor="@color/text_color666"
+                    android:textSize="@dimen/font13"
+                    android:drawableRight="@mipmap/to_right_to_small"
+                    android:drawablePadding="@dimen/padding8"
+                    android:paddingRight="@dimen/padding12"
+                    android:singleLine="true"
+                    />
+            </LinearLayout>
+
+            <include layout="@layout/line_view_ddd"/>
+
+            <LinearLayout
+                android:id="@+id/v_age"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height50"
+                android:background="?android:selectableItemBackground">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/text_age"
+                    android:textColor="@color/text_color333"
+                    android:textSize="@dimen/font15"
+                    android:paddingRight="@dimen/padding12"
+                    android:gravity="center_vertical"
+                    />
+                <TextView
+                    android:id="@+id/tv_age"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical|right"
+                    android:textColor="@color/text_color666"
+                    android:textSize="@dimen/font13"
+                    android:drawableRight="@mipmap/to_right_to_small"
+                    android:drawablePadding="@dimen/padding8"
+                    android:paddingRight="@dimen/padding12"
+                    android:singleLine="true"
+                    />
+            </LinearLayout>
+
+            <include layout="@layout/line_view_ddd"/>
+
+            <LinearLayout
+                android:id="@+id/v_relationship"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height50"
+                android:background="?android:selectableItemBackground">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/text_relationship"
+                    android:textColor="@color/text_color333"
+                    android:textSize="@dimen/font15"
+                    android:paddingRight="@dimen/padding12"
+                    android:gravity="center_vertical"
+                    />
+                <TextView
+                    android:id="@+id/tv_relationship"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical|right"
+                    android:textColor="@color/text_color666"
+                    android:textSize="@dimen/font13"
+                    android:drawableRight="@mipmap/to_right_to_small"
+                    android:drawablePadding="@dimen/padding8"
+                    android:paddingRight="@dimen/padding12"
+                    android:singleLine="true"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

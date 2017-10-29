@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <View
+                android:id="@+id/statusBar2"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/white" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="44dp"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/v1"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:clickable="true">
+
+                    <TextView
+                        android:id="@+id/tv1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignLeft="@+id/line1"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignStart="@+id/line1"
+                        android:gravity="center"
+                        android:paddingLeft="@dimen/padding12"
+                        android:paddingRight="@dimen/padding12"
+                        android:text="发现"
+                        android:textColor="@color/black_green_selector"
+                        android:textSize="@dimen/font16" />
+
+                    <View
+                        android:id="@+id/line1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="2dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginLeft="@dimen/margin12"
+                        android:layout_marginRight="@dimen/margin12"
+                        android:background="@color/light_green" />
+                    <!---->
+
+                </RelativeLayout>
+
+                <FrameLayout
+                    android:id="@+id/v2"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:clickable="true">
+
+                    <TextView
+                        android:id="@+id/tv2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center"
+                        android:paddingLeft="@dimen/padding12"
+                        android:paddingRight="@dimen/padding12"
+                        android:text="好友"
+                        android:textColor="@color/black_green_selector"
+                        android:textSize="@dimen/font16" />
+
+                    <ImageView
+                        android:id="@+id/redpoint_circle_friend"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="15dp"
+                        android:src="@mipmap/redpoint2"
+                        android:visibility="gone" />
+
+                    <View
+                        android:id="@+id/line2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="2dp"
+                        android:layout_gravity="bottom"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginLeft="@dimen/margin12"
+                        android:layout_marginRight="@dimen/margin12"
+                        android:background="@color/light_green" />
+                    <!---->
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/v3"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:clickable="true">
+
+                    <TextView
+                        android:id="@+id/tv3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center"
+                        android:paddingLeft="@dimen/padding12"
+                        android:paddingRight="@dimen/padding12"
+                        android:text="项目"
+                        android:textColor="@color/black_green_selector"
+                        android:textSize="@dimen/font16" />
+
+                    <ImageView
+                        android:id="@+id/redpoint_circle_project"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="15dp"
+                        android:src="@mipmap/redpoint2"
+                        android:visibility="gone" />
+
+                    <View
+                        android:id="@+id/line3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="2dp"
+                        android:layout_gravity="bottom"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginLeft="@dimen/margin12"
+                        android:layout_marginRight="@dimen/margin12"
+                        android:background="@color/light_green" />
+                    <!-- -->
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/v4"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:clickable="true">
+
+                    <TextView
+                        android:id="@+id/tv4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:paddingLeft="@dimen/padding12"
+                        android:paddingRight="@dimen/padding12"
+                        android:text="地域圈"
+                        android:textColor="@color/black_green_selector"
+                        android:textSize="@dimen/font16"
+
+                        />
+
+                    <ImageView
+                        android:id="@+id/redpoint_circle_local"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="23dp"
+                        android:src="@mipmap/redpoint2"
+                        android:visibility="gone" />
+
+                    <View
+                        android:id="@+id/line4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="2dp"
+                        android:layout_gravity="bottom"
+                        android:layout_marginBottom="3dp"
+                        android:layout_marginLeft="@dimen/margin12"
+                        android:layout_marginRight="@dimen/margin12"
+                        android:background="@color/light_green" />
+                    <!-- -->
+                </FrameLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/line_ccc" />
+        <!--<RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/release_forum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="40dp"
+                android:layout_marginRight="@dimen/margin20"
+                android:src="@mipmap/iv_ft_green"
+                />
+        </RelativeLayout>-->
+        <!--<com.zeyuan.kyq.widget.PullToRefresh.PullToRefreshLayout
+            android:id="@+id/layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <include layout="@layout/main_refresh_head" />
+
+            <com.zeyuan.kyq.widget.PullToRefresh.PullableScrollView
+                android:id="@+id/sv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="none"
+                android:fadingEdge="none"
+                android:fillViewport="true"
+                android:overScrollMode="never">-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:gravity="center"
+                android:text="banner"
+                android:visibility="gone" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/line_ddd"
+                android:visibility="gone" />
+
+            <!--<FrameLayout-->
+            <!--android:id="@+id/circle_content"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+
+            <!--/>-->
+            <android.support.v4.view.ViewPager
+                android:id="@+id/vp_circle_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+        <!--</com.zeyuan.kyq.widget.PullToRefresh.PullableScrollView>
+
+        <include layout="@layout/load_more"/>
+
+    </com.zeyuan.kyq.widget.PullToRefresh.PullToRefreshLayout>-->
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_ft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_marginBottom="50dp"
+        android:layout_marginRight="18dp"
+        android:src="@mipmap/iv_ft_green" />
+
+    <View
+        android:id="@+id/statusBar1"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@drawable/bg_status_alpha" />
+</FrameLayout>

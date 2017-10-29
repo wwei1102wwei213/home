@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/ll_white_title_bar"
+    android:background="@color/white"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        >
+        <LinearLayout
+            android:id="@+id/ll_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            >
+            <ImageView
+                android:id="@+id/iv_white_title_back"
+                android:layout_width="@dimen/height40"
+                android:layout_height="match_parent"
+                android:src="@mipmap/top_btn_back_blue"
+                android:scaleType="centerInside"
+                />
+            <LinearLayout
+                android:id="@+id/ll_return_back"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                >
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@mipmap/top_btn_back_blue"
+                    android:scaleType="centerInside"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="返回"
+                    android:textSize="@dimen/font17"
+                    android:textColor="@color/light_green"
+                    android:gravity="center_vertical"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/iv_white_title_share"
+            android:layout_width="@dimen/height50"
+            android:padding="@dimen/padding10"
+            android:scaleType="centerInside"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            />
+
+        <TextView
+            android:id="@+id/tv_bar_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/text_color2"
+            android:textSize="@dimen/front18"
+            android:gravity="center"
+            android:singleLine="true"
+            android:layout_toRightOf="@id/ll_back"
+            android:layout_toLeftOf="@id/iv_white_title_share"
+            />
+    </RelativeLayout>
+    <View style="@style/line_horizontal_e2"
+        android:id="@+id/line_white_title"
+        />
+</LinearLayout>

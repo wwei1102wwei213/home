@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/statusBar1"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@drawable/bg_status_alpha" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height50"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/tv_white_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:singleLine="true"
+            android:textColor="@color/text_color2"
+            android:textSize="@dimen/front18" />
+
+        <ImageView
+            android:id="@+id/iv_white_title_back"
+            android:layout_width="@dimen/height50"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
+            android:src="@mipmap/top_btn_back_blue" />
+
+        <ImageView
+            android:id="@+id/right"
+            android:layout_width="@dimen/height50"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:scaleType="centerInside"
+            android:src="@mipmap/ic_setting_msg"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line_ddd" />
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tl_msg_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabIndicatorColor="@color/light_green2"
+        app:tabSelectedTextColor="@color/light_green2"
+        app:tabTextColor="@color/text_color666">
+
+        <android.support.design.widget.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <android.support.design.widget.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <android.support.design.widget.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <android.support.design.widget.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </android.support.design.widget.TabLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/line_ddd" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/main_color"
+        android:orientation="vertical">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vp_msg_type"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <FrameLayout
+            android:id="@+id/fl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/other_title"
+            android:visibility="gone" />
+    </LinearLayout>
+
+</LinearLayout>
+
+    <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/main_color"
+        >
+
+        &lt;!&ndash;<include layout="@layout/white_title_bar"/>&ndash;&gt;
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height50"
+            android:background="@color/white">
+            <TextView
+                android:id="@+id/tv_white_title"
+                android:textColor="@color/text_color2"
+                android:textSize="@dimen/front18"
+                android:gravity="center"
+                android:singleLine="true"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <ImageView
+                android:id="@+id/iv_white_title_back"
+                android:layout_width="@dimen/height50"
+                android:layout_height="match_parent"
+                android:src="@mipmap/top_btn_back_blue"
+                android:scaleType="centerInside"
+                />
+        </RelativeLayout>
+
+        <com.zeyuan.kyq.widget.CustomScrollView
+            android:id="@+id/v_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fadingEdge="none"
+            android:overScrollMode="never">
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/padding15"
+                    android:text="消息推送中显示以下内容"
+                    android:textSize="@dimen/font15" />
+
+
+                <com.zeyuan.kyq.widget.MyListView
+                    android:id="@+id/lv_news"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:divider="@color/white"
+                    android:dividerHeight="0dp"
+                    android:fadingEdge="none"
+                    android:overScrollMode="never" />
+
+
+            </LinearLayout>
+        </com.zeyuan.kyq.widget.CustomScrollView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/line_ccc"/>
+
+        <FrameLayout
+            android:id="@+id/fl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/other_title"
+            android:visibility="gone"
+            />-->
+
+
+    <!--<LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="78dp"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/padding15"
+            android:paddingRight="@dimen/padding15"
+            android:background="@color/white"
+            >
+
+            <ImageView
+                android:id="@+id/iv_1"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@mipmap/default_avatar"
+                android:layout_centerVertical="true"
+                />
+            <LinearLayout
+                android:id="@+id/ll_1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
+                    android:text="6"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@mipmap/in_right"
+                    android:scaleType="centerInside"
+                    android:layout_gravity="center_vertical"/>
+            </LinearLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/iv_1"
+                android:layout_toLeftOf="@+id/ll_1"
+                android:layout_centerVertical="true">
+                <TextView
+                    android:id="@+id/tv_news_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/front16"
+                    android:textColor="@color/text_color2"
+                    android:paddingLeft="@dimen/padding15"
+                    android:singleLine="true"
+                    android:text="消息标题"
+                    />
+                <TextView
+                    android:id="@+id/tv_news_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/front14"
+                    android:textColor="@color/text_color3"
+                    android:paddingLeft="@dimen/padding15"
+                    android:layout_below="@+id/tv_news_item"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:text="消息内容"
+                    />
+            </RelativeLayout>
+
+        </RelativeLayout>
+        <View
+            style="@style/line_horizontal_e2_1dp"
+            android:layout_marginLeft="62dp"/>
+
+    </LinearLayout>-->
+
+    <!--</LinearLayout>-->

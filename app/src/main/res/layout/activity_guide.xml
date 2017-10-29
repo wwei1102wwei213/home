@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="25dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <com.zeyuan.kyq.widget.DrawCircleView
+            android:id="@+id/dcv_guide"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height32"
+            android:layout_alignParentBottom="true"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/weixin_login"
+        style="@style/guide_layout"
+        android:background="@drawable/weixin_login_selector">
+        <TextView
+            style="@style/guide_textview"
+            android:drawableLeft="@mipmap/wechat"
+            android:text="@string/weixinlogin" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/qq_login"
+        style="@style/guide_layout"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:background="@drawable/qq_login_selector">
+
+        <TextView
+            android:drawableLeft="@mipmap/tencent_qq"
+            style="@style/guide_textview"
+            android:text="@string/qqlogin" />
+    </RelativeLayout>
+</LinearLayout>

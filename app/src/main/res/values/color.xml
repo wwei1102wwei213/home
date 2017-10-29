@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="dialog_background">#9a0a0a29</color>
+    <color name="google_red">#d62d20</color>
+    <color name="google_blue">#0057e7</color>
+    <color name="google_green">#008744</color>
+    <color name="google_yellow">#ffa700</color>
+
+    <color name="main_wenzheng">#90A864</color>
+    <color name="main_bingfazheng">#3EC0B6</color>
+    <color name="main_fuzuoyong">#C66D76</color>
+    <color name="main_zhibiao">#B780EF</color>
+
+    <color name="main_grad_start">#9a0a0a29</color>
+    <color name="main_grad_end">#000a0a29</color>
+
+    <color name="light_red">#f59599</color>
+
+    <!-- e12f2f-->
+    <color name="red">#e12f2f</color>
+    <color name="reds">#f44f4f</color>
+
+    <color name="forum_red">#88e12f2f</color>
+    <color name="forum_red_alpha">#25e12f2f</color>
+
+    <color name="light_green">#17cbd1</color>
+
+    <color name="light_green2">#38DDE3</color>
+    <color name="light_yellow">#FFDC73</color>
+    <color name="purple">#DAB2D3</color>
+    <color name="white">#ffffff</color>
+    <color name="white_gray">#8be5e8</color>
+    <!-- 建立档案中的选中后的颜色变化-->
+
+    <color name="scroll_color">#F4F4F4</color>
+    <color name="daf">#F5F5F5</color>
+    <color name="main_bottom_color">#808080</color>
+    <color name="nurse_change">#18BFC5</color>
+    <color name="nurse_change_trans">#18BFC5</color>
+    <color name="window_backgroud">#ffffff</color>
+    <color name="black">#000000</color>
+    <!--这个是主页中第一个圆圈中 的背景颜色-->
+    <color name="main_title1">#30BCBF</color>
+    <color name="search_color">#0b4243</color>
+    <color name="main_title2">#4d30BCBF</color>
+    <color name="text_title3">#97C6CA</color>
+    <color name="text_stroke_color">#e1e1e1</color>
+    <color name="text_stroke_color2">#cfcfcf</color>
+    <!-- 重要文字  普通段落引导词  辅助级次要文字-->
+    <color name="text_color_s">#4F4F4F</color>
+    <color name="text_color_1">#222222</color>
+    <color name="text_color2">#333333</color>
+    <color name="text_check">#666666</color>
+    <color name="text_color3">#999999</color>
+    <color name="text_color333">#333333</color>
+    <color name="text_color666">#666666</color>
+    <color name="text_color999">#999999</color>
+    <color name="text_color505155">#505155</color>
+
+    <color name="text_color_ccc">#cccccc</color>
+    <color name="text_normal">#353535</color>
+    <!--分割区域底色-->
+
+    <color name="main_color">#F6F6F6</color>
+    <color name="color_f9">#F4F4F4</color>
+    <color name="color_f9f9f9">#F9F9F9</color>
+    <color name="color_f4">#F4F4F4</color>
+    <color name="color_f0">#F0F0F0</color>
+    <color name="color_eb">#ebebeb</color>
+    <color name="main_space_bg">#F0F0F0</color>
+    <!--分割线-->
+    <color name="line_color">#ebebeb</color>
+    <color name="line_e6">#e6e6e6</color>
+    <color name="main_line">#ececec</color>
+    <color name="transparent">#00000000</color>
+    <color name="line_ccc">#ccc</color>
+    <color name="line_ddd">#ddd</color>
+    <color name="line_e0">#e0e0e0</color>
+    <color name="listview_dv_item">#F5F5F5</color>
+
+    <color name="line_table">#CECECE</color>
+
+    <color name="solid_color">#F5F5F5</color>
+
+    <color name="diagnosis_gray">#E2E2E2</color>
+    <color name="edit_soild">#f8f8f8</color>
+
+    <color name="qq_login">#029eff</color>
+    <color name="qq_login1">#FF0378C1</color>
+
+    <color name="weixin_login">#3ec977</color>
+    <!--FF0378C1-->
+    <color name="weixin_login1">#FF2E8753</color>
+
+    <color name="dialog_backgroud">#b3000000</color>
+    <!--所有的选择框的颜色-->
+    <color name="choose_square_color">#dcdcdc</color>
+
+    <!--帖子姓名的颜色 -->
+    <color name="item_forum_name">#666666</color>
+    <!-- 标题的颜色-->
+    <color name="item_forum_title">#666666</color>
+
+    <color name="time_color">#c5c5c5</color>
+
+    <color name="case_expandlistview_group_title">#f9f9f9</color>
+    <color name="text_color4">#8b8b8b</color>
+
+    <color name="title_color">#2e2e2e</color>
+    <color name="text_color5">#1c1c1c</color>
+
+    <color name="home_text">#1c1c1c</color>
+
+    <color name="no_step_hint_bg">#f9ebd2</color>
+    <color name="home_bg01">#e9e9e9</color>
+    <color name="home_viewpager_item_nick">#848484</color>
+
+    <color name="help_black">#393939</color>
+    <color name="time_gray">#EAEAEA</color>
+    <color name="bg_fd">#FDFDFD</color>
+    <color name="lighter_gray">#ddd</color>
+    <color name="darker_gray">#999</color>
+    <color name="darker_gray_20">#20999999</color>
+    <color name="facelock_spotlight_mask">#CC000000</color>
+    <color name="text_light">#666666</color>
+    <color name="bg0cf">#0CFFFFFF</color>
+    <color name="bg290">#29000000</color>
+    <color name="share_color">#E0FFFFFF</color>
+    <color name="step_bg_color">#2030BCBF</color>
+    <color name="other_title">#F0F0F0</color>
+    <color name="item_list_title">#666666</color>
+    <color name="water_red">#F99797</color>
+    <color name="stat_bar_color">#1c1c1c</color>
+
+    <color name="gray_title_bar_color">#373B3E</color>
+    <!--<color name="stat_bar_color">#17cbd1</color>-->
+
+    <color name="other_function">#b68b16</color>
+    <color name="water_blue_main">#90edf5</color>
+    <color name="water_red_main">#fdaeaa</color>
+    <color name="water_green_main_1">#7bf08d</color>
+    <color name="water_green_main_2">#4fd363</color>
+    <color name="half_alpha">#80000000</color>
+    <color name="half_alpha_33">#33000000</color>
+    <color name="green_ligth_ligth">#CFF1F3</color>
+
+    <color name="menu_title">#EEEEEE</color>
+    <color name="line_e2">#ececec</color>
+    <color name="gray_green_bg">#E1F8F9</color>
+
+    <color name="color_white_alpha_eight">#ccffffff</color>
+    <color name="color_white_alpha_half">#7fffffff</color>
+    <color name="color_white">#ffeeeeee</color>
+    <color name="color_white_charactor_color">#FFFFFFFF</color>
+    <color name="color_red_charactor_show">#FF0000</color>
+    <color name="color_white_alpha_alpha40">#66ffffff</color>
+    <color name="color_progress_bg">#26ffffff</color>
+    <color name="color_progress">#ff00a0e9</color>
+    <color name="color_secondprogress_gray">#ff9a9a9a</color>
+    <color name="color_video_view_bg">#00000000</color>
+    <color name="color_input_tips">#ffb3b3b3</color>
+    <color name="color_transparent">#000000</color>
+
+    <color name="cancer_other_bg">#FFF3F3</color>
+    <color name="cancer_other_sold">#fe898d</color>
+    <color name="color_setting_menu_bg">#A0000000</color>
+    <color name="color_setting_menu_content_bg">#B0000000</color>
+    <color name="color_setting_menu_item_selected">#B1000000</color>
+
+    <color name="color_edit_info_message">#4BD6CF</color>
+    <color name="color_bolder_edit_info_message">#77FEF7</color>
+
+    <color name="topbar_background">#73CBEA</color>
+
+    <color name="alert">#CC0000</color>
+    <color name="confirm">#FF8800</color>
+    <color name="info">#669900</color>
+
+    <color name="line_ec">#ececec</color>
+    <color name="bg_ec">#ececec</color>
+    <color name="bg_push_msg_for_selector">#EFFDFE</color>
+
+    <color name="item_diagnosis_eff">#FC6C76</color>
+    <color name="item_diagnosis_cancer_eff">#FC961B</color>
+    <color name="item_diagnosis_other">#6899F0</color>
+    <color name="item_case_green">#0AD8B1</color>
+    <color name="item_case_red">#FC6C76</color>
+    <color name="item_case_orange">#FC961B</color>
+    <color name="item_case_blue">#6899F0</color>
+    <color name="item_edit_step_new_delete">#95C5CA</color>
+
+    <color name="live_old">#65A0B9</color>
+
+    <item name="subscribe_item_text_color_normal_night" type="color">@color/default_text_night
+    </item>
+
+    <color name="default_text_night">#ff747474</color>
+    <color name="subscribe_item_text_color_pressed_night">#ff303030</color>
+    <color name="subscribe_item_selected_stroke_night">#ffbc494d</color>
+    <color name="subscribe_item_drag_stroke">#ffd2d2d2</color>
+    <color name="subscribe_item_drag_bg">#fff5f5f5</color>
+    <color name="subscribe_item_selected_bg">#ffffffff</color>
+    <color name="subscribe_item_selected_stroke">#ffcc3131</color>
+    <color name="subscribe_item_disabled_stroke">#ffd9d9d9</color>
+    <color name="subscribe_item_disabled_bg">#ffefefef</color>
+    <color name="subscribe_item_pressed_stroke">#ffcdcdcd</color>
+    <color name="subscribe_item_pressed_bg">#fff9f9f9</color>
+    <color name="subscribe_item_normal_stroke">#ffcdcdcd</color>
+    <color name="subscribe_item_normal_bg">#ffffff</color>
+
+    <item name="subscribe_item_text_color_normal" type="color">@color/default_text</item>
+    <color name="btn_pressed">#eeeeee</color>
+
+    <color name="default_text">#ff454545</color>
+    <color name="subscribe_item_text_color_pressed">#ffb9b9b9</color>
+    <color name="category_subscribe_text">#ffffffff</color>
+    <color name="drawer_item_bg">#ff5d5d5d</color>
+    <color name="drawer_line_color">#ff444444</color>
+    <color name="title_text_color">#ffffffff</color>
+    <color name="subscribe_tip_text">#ff2e2e2e</color>
+    <color name="subscribe_activity_bg">#ffefefef</color>
+    <color name="subscribe_bg">#fff5f5f5</color>
+    <color name="subscribe_seperate_line">#ffcdcdcd</color>
+
+    <color name="decision_cure_purple">#FEC4D2</color>
+    <color name="decision_cure_yellow">#FFDD7A</color>
+    <color name="decision_cure_green">#B2EAE7</color>
+    <color name="decision_cure_gray">#E8ECF7</color>
+
+    <color name="decision_progress_red">#FA777F</color>
+
+    <color name="color_f3f8fb">#F3F8FB</color>
+
+    <color name="color_record_classify_1">#FFFCF7</color>
+    <color name="color_record_classify_2">#F6FEFF</color>
+    <color name="color_record_classify_3">#F6FFFE</color>
+    <color name="color_record_classify_4">#F5F8FF</color>
+    <color name="color_record_classify_5">#FFF9FD</color>
+    <color name="color_record_classify_6">#FFF6F7</color>
+    <color name="color_record_classify_7">#F6FEFF</color>
+    <color name="color_record_classify_8">#FFF6F7</color>
+    <color name="color_record_classify_9">#F5F8FF</color>
+    <color name="color_record_classify_10">#FFFCF7</color>
+
+
+    <!--图表背景-->
+    <color name="color_chart_green_gray">#DBF5F6</color>
+    <color name="color_record_chart_red">#FBDcDe</color>
+    <color name="color_record_chart_red_now">#FA767f</color>
+    <color name="color_record_chart_orange">#F6F0Db</color>
+    <color name="color_record_chart_orange_now">#FF9913</color>
+    <color name="color_record_chart_1">#DBF5F6</color>
+    <color name="color_record_chart_1_now">#17cbd1</color>
+    <color name="color_record_chart_2">#F6F0Db</color>
+    <color name="color_record_chart_2_now">#FF9913</color>
+    <color name="color_record_chart_3">#FBDcDe</color>
+    <color name="color_record_chart_3_now">#FA767f</color>
+    <color name="color_record_chart_4">#dde6f9</color>
+    <color name="color_record_chart_4_now">#94b5ff</color>
+    <color name="color_record_chart_5">#f9dded</color>
+    <color name="color_record_chart_5_now">#f77ebd</color>
+    <color name="color_record_chart_6">#def9dd</color>
+    <color name="color_record_chart_6_now">#67e2cb</color>
+
+    <color name="color_green_dark_del">#9CC1C5</color>
+
+    <color name="color_record_main_bg">#e1e1e1</color>
+
+    <color name="color_record_4205">#f68b8f</color>
+    <color name="color_record_4207">#fdd676</color>
+    <color name="color_record_4214">#dab2d3</color>
+    <color name="color_record_other">#b3e092</color>
+
+    <color name="text_normal_h">#656565</color>
+    <color name="text_black">#4d4d4d</color>
+    <color name="text_blue">#17cad1</color>
+    <color name="text_56">#565656</color>
+    <color name="text_c7a">#666c7a</color>
+    <color name="diffuse_color">#bdebf8</color>
+    <color name="rippelColor">#0099CC</color>
+    <color name="text_orange">#f88e06</color>
+    <color name="color_blue_bg">#caf0f1</color>
+    <color name="transparent_black">#cc000000</color>
+    <color name="color_pop_bg">#80000000</color>
+    <color name="divider_list">#d4d4d4</color>
+    <color name="tag_bg">#f6f6f6</color>
+
+</resources>

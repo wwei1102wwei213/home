@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/whole_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/main_color"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <include
+            android:id="@+id/toorbar"
+            layout="@layout/toorbar" />
+        <View
+            style="@style/line_horizontal_e2_1dp"/>
+        <include
+            android:id="@+id/circle_name"
+            layout="@layout/item_find_circle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/toorbar" />
+
+        <!--<View
+            style="@style/line_horizontal_e2_1dp"/>-->
+
+        <!--<RelativeLayout
+            android:id="@+id/rl_rv_circle"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height48"
+            android:visibility="visible">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_circle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height48"
+                android:background="@color/white"
+                />
+        </RelativeLayout>-->
+
+        <View
+            style="@style/line_horizontal_e2_1dp"
+            android:layout_height="1dp"/>
+        <com.zeyuan.kyq.widget.CustomView.CustomRefreshListView
+            android:id="@+id/listview"
+            android:layout_width="match_parent"
+            android:divider="@null"
+            android:scrollbars="none"
+            android:dividerHeight="3dp"
+            android:fadingEdge="none"
+            android:overScrollMode="never"
+            android:persistentDrawingCache="none"
+            android:scrollingCache="false"
+            android:smoothScrollbar="true"
+            android:paddingLeft="6dp"
+            android:paddingRight="6dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="match_parent"
+            />
+        <FrameLayout
+            android:id="@+id/fl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </FrameLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_cancer_zm"
+        android:layout_width="wrap_content"
+        android:layout_height="?actionBarSize"
+        android:visibility="gone"
+        android:paddingRight="@dimen/padding10"
+        android:paddingLeft="@dimen/padding5"
+        android:layout_gravity="right"
+        >
+        <TextView
+            android:id="@+id/tv_cancer_zm"
+            android:layout_width="wrap_content"
+            android:layout_height="?actionBarSize"
+            android:text=""
+            android:textColor="@color/light_green"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/front16"
+            android:paddingRight="@dimen/padding4"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/tv_cancer_zm"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/to_down"
+            />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/release_forum"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="102dp"
+        android:layout_marginRight="@dimen/margin20"
+        android:text="发帖"
+        android:textColor="@color/white"
+        android:textSize="@dimen/font16"
+        android:background="@drawable/bg_btn_release_selector"
+        />
+
+    <ProgressBar
+        android:id="@+id/pd"
+        style="@style/progressbar_style" />
+</RelativeLayout>

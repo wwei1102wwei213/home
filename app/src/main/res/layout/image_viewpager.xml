@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/rl_showimage"
+    android:clickable="true"
+    android:background="@color/black"
+    >
+    <View
+    android:id="@+id/statusBar1"
+    android:layout_width="match_parent"
+    android:layout_height="1px"/>
+    <com.zeyuan.kyq.widget.HackyViewPager
+        android:id="@+id/vp_img"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/statusBar1"
+        android:orientation="vertical"/>
+
+</RelativeLayout>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_horizontal_margin">
+
+    <EditText
+        android:id="@+id/etName"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/forumdetial_boootm_editext_reply_shape"
+        android:hint="请输入你的名字"
+        android:paddingBottom="6dp"
+        android:paddingLeft="@dimen/small_margin"
+        android:paddingTop="6dp"
+        android:textSize="@dimen/font14"/>
+
+</LinearLayout>

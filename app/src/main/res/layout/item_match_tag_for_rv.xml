@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#DCF4F5">
+    <com.zeyuan.kyq.widget.MyGridView
+        android:id="@+id/gv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:horizontalSpacing="8dp"
+        android:verticalSpacing="12dp"
+        android:paddingLeft="@dimen/padding10"
+        android:paddingRight="@dimen/padding10"
+        android:paddingTop="@dimen/padding12"
+        android:paddingBottom="@dimen/padding12"
+        android:numColumns="4">
+
+    </com.zeyuan.kyq.widget.MyGridView>
+    <!--<RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </RelativeLayout>-->
+    <TextView
+        android:id="@+id/tv_look_more"
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:background="@drawable/bg_revise_ligth_green_r5"
+        android:text="展开查看更多回复"
+        android:gravity="center"
+        android:textColor="@color/light_green"
+        android:layout_marginLeft="@dimen/margin48"
+        android:layout_marginRight="@dimen/margin48"
+        android:layout_marginBottom="@dimen/margin12"
+        android:visibility="visible"
+        />
+</LinearLayout>

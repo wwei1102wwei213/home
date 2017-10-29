@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 高度20 -->
+    <size android:height="20dp"/>
+    <!-- 圆角弧度 10 -->
+    <corners android:radius="10dp"/>
+    <!-- 变化率 -->
+    <gradient
+        android:endColor="@color/text_blue"
+        android:startColor="@color/text_blue" />
+</shape>

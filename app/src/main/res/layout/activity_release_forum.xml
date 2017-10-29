@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<com.zeyuan.kyq.widget.MyLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/my_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:visibility="visible">
+
+    <RelativeLayout
+        android:id="@+id/v_body"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/other_title"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/title1"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/white">
+
+            <ImageView
+                android:id="@+id/btn_back"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:paddingLeft="5dp"
+                android:paddingRight="@dimen/small_margin"
+                android:src="@mipmap/top_btn_back_blue" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="发布帖子"
+                android:textColor="@color/text_color2"
+                android:textSize="@dimen/front18" />
+
+            <TextView
+                android:id="@+id/tv_release"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="发帖"
+                android:textColor="@color/text_blue"
+                android:textSize="@dimen/front16" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true" />
+        </RelativeLayout>
+
+
+        <com.zeyuan.kyq.widget.CustomScrollView
+            android:id="@+id/sv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/title1"
+            android:fadingEdge="none"
+            android:overScrollMode="never"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:background="@color/white"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:orientation="vertical">
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/line_color" />
+
+                <RelativeLayout
+                    android:id="@+id/v_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/main_height">
+
+                    <EditText
+                        android:id="@+id/titles"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/main_height"
+                        android:background="@null"
+                        android:hint="@string/forum_title"
+                        android:paddingLeft="@dimen/activity_horizontal_margin"
+                        android:textColor="@color/text_color2"
+                        android:textColorHint="@color/text_color3"
+                        android:textSize="@dimen/font15" />
+
+                    <ImageView
+                        android:id="@+id/delete_bt_content"
+                        android:layout_width="@dimen/height36"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:scaleType="center"
+                        android:src="@mipmap/delete_content" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="8dp"
+                    android:background="@drawable/bg_dotted_line"
+                    android:layerType="software" />
+
+                <RelativeLayout
+                    android:id="@+id/v_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:minHeight="@dimen/my_top_backgroud">
+
+                    <EditText
+                        android:id="@+id/content"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:gravity="left"
+                        android:hint="@string/forum_content"
+                        android:minHeight="@dimen/my_top_backgroud"
+                        android:paddingLeft="@dimen/activity_horizontal_margin"
+                        android:paddingTop="@dimen/small_margin"
+                        android:textColor="@color/text_color2"
+                        android:textColorHint="@color/text_color3"
+                        android:textSize="@dimen/font15" />
+
+                    <TextView
+                        android:id="@+id/delte_all"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/height32"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        android:drawableLeft="@mipmap/delete_all"
+                        android:drawablePadding="@dimen/drawable_padding"
+                        android:gravity="center"
+                        android:text="清除所有"
+                        android:textSize="@dimen/front10" />
+
+                    <com.zeyuan.kyq.widget.MyGridView
+                        android:id="@+id/show_pic"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@+id/content"
+                        android:layout_toLeftOf="@+id/delte_all"
+                        android:horizontalSpacing="@dimen/small_margin"
+                        android:numColumns="4"
+                        android:padding="4dp"
+                        android:verticalSpacing="@dimen/small_margin" />
+                </RelativeLayout>
+
+                <View
+                    style="@style/line_horizontal_normol"
+                    android:layout_height="1dp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:background="@color/main_color" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="8dp"
+                        android:drawablePadding="3dp"
+                        android:drawableLeft="@mipmap/ic_records_show"
+                        android:gravity="center_vertical"
+                        android:text="在帖子中显示病历"
+                        android:textColor="@color/text_color333"
+                        android:textSize="@dimen/font15" />
+
+                    <CheckBox
+                        android:id="@+id/cb_show_detail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/padding10"
+                        android:button="@drawable/bg_cb_show_records"
+                        android:checked="true" />
+                </RelativeLayout>
+
+                <View style="@style/line_horizontal_e2_1dp" />
+
+                <FrameLayout
+                    android:id="@+id/view_selected_friends"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp">
+
+                    <TextView
+                        android:id="@+id/tv_selected_friends_tag"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="8dp"
+                        android:drawableLeft="@drawable/bg_select_friends"
+                        android:drawablePadding="3dp"
+                        android:gravity="center_vertical"
+                        android:text="提醒谁看"
+                        android:textColor="@color/text_color333"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/tv_selected_friends"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_marginLeft="120dp"
+                        android:layout_marginRight="8dp"
+                        android:drawableRight="@mipmap/to_right"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text=""
+                        android:textColor="#87bcc0"
+                        android:textSize="15sp" />
+                </FrameLayout>
+
+            </LinearLayout>
+        </com.zeyuan.kyq.widget.CustomScrollView>
+
+        <include
+            android:id="@+id/temp_bottom"
+            layout="@layout/layout_btn_bottom" />
+    </RelativeLayout>
+</com.zeyuan.kyq.widget.MyLayout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="测试圈"
+    android:textColor="@color/text_color3"
+    android:textSize="@dimen/font10"
+    android:paddingLeft="@dimen/padding6"
+    android:paddingRight="@dimen/padding6"
+    android:paddingTop="2dp"
+    android:paddingBottom="2dp"
+    android:background="@drawable/bg_tv_from_circle"
+    />
+

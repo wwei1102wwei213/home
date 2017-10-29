@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:apps="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ll_author_info"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="7dp"
+    android:background="@drawable/bg_cash_white_r10"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:orientation="vertical"
+    android:visibility="gone">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="82dp"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:layout_width="48dp"
+            android:layout_height="46dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp">
+
+            <com.zeyuan.kyq.widget.CircleImageView
+                android:id="@+id/civ_head_img"
+                android:layout_width="46dp"
+                android:layout_height="46dp"
+                android:src="@mipmap/default_avatar"
+                apps:border_color="@color/white"
+                apps:border_width="1dp" />
+
+            <ImageView
+                android:id="@+id/v_big_v"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|right"
+                android:src="@mipmap/big_v_red" />
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_author_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/text_color333"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_author_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text=""
+                android:textColor="@color/text_color999"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/cb_care"
+            android:layout_width="68dp"
+            android:layout_height="27dp"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="7dp"
+            android:background="@drawable/circle_follow_change_selector"
+            android:button="@null"
+            android:gravity="center"
+            android:text="＋ 关注"
+            android:textColor="@color/white_black2_selector"
+            android:textSize="@dimen/font13" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_author_forum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <include layout="@layout/line_view_ddd" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="7dp"
+            android:text="作者往期帖子"
+            android:textColor="@color/text_color999"
+            android:textSize="12sp" />
+
+        <LinearLayout
+            android:id="@+id/ll_forum_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/font14"
+            android:orientation="vertical" />
+    </LinearLayout>
+</LinearLayout>

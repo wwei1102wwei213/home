@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="25dp"
+
+    >
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+
+        >
+        <TextView
+            android:id="@+id/author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="测试"
+            android:lineSpacingExtra="3dp"
+            android:lineSpacingMultiplier="1.1"
+            android:textSize="@dimen/font11"
+            android:textColor="@color/text_title3"
+            android:paddingRight="@dimen/padding4"
+            android:layout_marginTop="@dimen/margin4"
+            />
+        <TextView
+            android:id="@+id/is_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="9sp"
+            android:textColor="@color/light_green"
+            android:background="@drawable/bg_author_10"
+            android:paddingTop="1px"
+            android:paddingBottom="1px"
+            android:paddingLeft="2dp"
+            android:paddingRight="2dp"
+            android:layout_marginTop="@dimen/margin4"
+
+            android:text="作者"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/son_msg"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/font11"
+        android:textColor="@color/text_color666"
+        android:lineSpacingExtra="3dp"
+        android:lineSpacingMultiplier="1.1"
+        android:text=": "
+        android:paddingLeft="@dimen/padding4"
+        android:paddingTop="4dp"
+        android:paddingBottom="@dimen/padding4"
+        android:background="@drawable/bg_press_item_comment"
+        />
+</LinearLayout>

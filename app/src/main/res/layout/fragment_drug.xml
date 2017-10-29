@@ -1,0 +1,109 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".view.DrugActivity">
+
+    <include layout="@layout/toorbar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/drug_detail_top_tv"
+                android:text="@string/mingcheng" />
+
+            <TextView
+                android:id="@+id/comm_name"
+                style="@style/drug_detail_bottom_tv"
+                android:text="通用名称：" />
+
+            <TextView
+                android:id="@+id/english_name"
+                style="@style/drug_detail_bottom_tv"
+                android:text="通用名称：" />
+
+            <TextView
+                android:id="@+id/shop_name"
+
+                style="@style/drug_detail_bottom_tv"
+                android:text="通用名称：" />
+
+            <TextView
+                style="@style/drug_detail_top_tv"
+                android:layout_width="wrap_content"
+                android:text="【药物类型】" />
+
+
+            <TextView
+                android:id="@+id/drug_type"
+                style="@style/drug_detail_bottom_tv"
+                android:text="其他" />
+
+
+            <TextView
+                style="@style/drug_detail_top_tv"
+                android:text="【入脑能力】" />
+
+            <TextView
+                android:id="@+id/brain"
+                style="@style/drug_detail_bottom_tv"
+                android:text="未知" />
+
+            <TextView
+                style="@style/drug_detail_top_tv"
+                android:text="【描述/适应症】"
+
+                />
+
+            <TextView
+                android:id="@+id/suit"
+                style="@style/drug_detail_bottom_tv"
+                android:textIsSelectable="true"
+                android:text="未知" />
+
+
+            <TextView
+                style="@style/drug_detail_top_tv"
+
+                android:text="【参考用法】" />
+
+            <TextView
+                android:id="@+id/usage"
+                style="@style/drug_detail_bottom_tv"
+                android:textIsSelectable="true"
+                android:text="未知" />
+
+
+            <TextView
+                style="@style/drug_detail_top_tv"
+                android:text="【针对靶点】" />
+
+            <TextView
+                android:id="@+id/gene"
+                style="@style/drug_detail_bottom_tv"
+                android:text="未知" />
+
+
+            <TextView
+                style="@style/drug_detail_top_tv"
+                android:text="【注意事项】" />
+
+            <TextView
+                android:id="@+id/caution"
+                style="@style/drug_detail_bottom_tv"
+                android:textIsSelectable="true"
+                android:text="未知" />
+
+
+            <View style="@style/empty_layout" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

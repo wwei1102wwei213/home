@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_color"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height48"
+        android:background="@color/white">
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="@dimen/height48"
+            android:layout_height="match_parent"
+            android:src="@mipmap/top_btn_back_blue"
+            android:scaleType="centerInside"
+            />
+        <TextView
+            android:id="@+id/tv_edit"
+            android:layout_width="@dimen/height48"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="编辑"
+            android:textSize="@dimen/font12"
+            android:textColor="@color/light_green"
+            android:layout_alignParentRight="true"
+            android:visibility="visible"
+            />
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@+id/tv_edit"
+            android:layout_toRightOf="@+id/iv_back"
+            android:gravity="center"
+            android:textColor="@color/text_color2"
+            android:textSize="@dimen/front18"
+            android:text="收藏列表"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/line_ccc"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+
+    <com.zeyuan.kyq.widget.CustomView.CustomRefreshListView
+        android:id="@+id/lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/margin4"
+        android:overScrollMode="never"
+        android:fadingEdge="none"
+        android:divider="@null"
+        android:dividerHeight="0dp"/>
+
+</LinearLayout>

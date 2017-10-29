@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/line1"
+        style="@style/line_style"
+        android:background="@color/line_color"
+        android:layout_height="@dimen/small_margin"
+        android:visibility="gone"
+        android:layout_marginTop="@dimen/activity_horizontal_margin" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:text="易瑞沙介绍"
+            android:textColor="@color/text_color_1"
+            android:textSize="@dimen/font16"
+            android:textStyle="bold" />
+
+
+        <View
+            style="@style/line_style"
+            android:layout_marginTop="@dimen/small_margin" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:text="@string/case_desc"
+            android:textColor="@color/text_color2"
+            android:textSize="@dimen/font14"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/tv_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:text="易瑞沙（吉非替尼片），适应症为本品适用于治疗既往接受过化学治疗的局部晚期 "
+            android:lineSpacingExtra="3dp"
+            android:lineSpacingMultiplier="1.1"
+            android:textIsSelectable="true"
+            android:textColor="@color/text_color666"
+            android:textSize="@dimen/font14" />
+
+        <!--<View-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="1dp"-->
+        <!--android:layout_marginTop="15dp"-->
+        <!--android:background="@color/line_color" />-->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:text="@string/refer_usage"
+            android:textColor="@color/text_color333"
+            android:textSize="@dimen/font14"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/use_durgs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:text="易瑞沙（吉非替尼片），适应症为本品适用于治疗既往接受过化学治疗的局部晚期 "
+            android:lineSpacingExtra="3dp"
+            android:lineSpacingMultiplier="1.1"
+            android:textIsSelectable="true"
+            android:textColor="@color/text_color666"
+            android:textSize="@dimen/font14"
+             />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:background="@color/line_color" />
+
+        <LinearLayout
+            android:id="@+id/side_effect"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/main_height"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="可能产生的副作用"
+                android:textColor="@color/text_color333"
+                android:textSize="@dimen/font16" />
+
+            <TextView
+                android:id="@+id/effective"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:drawablePadding="15dp"
+                android:drawableRight="@mipmap/right"
+                android:ellipsize="end"
+                android:gravity="right"
+                android:singleLine="true"
+                android:text="@string/none"
+                android:textColor="@color/light_green"
+                android:textSize="@dimen/front14" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/line_color" />
+
+        <LinearLayout
+            android:id="@+id/ll_mab_bingfa"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/main_height"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="可能产生的并发症"
+                android:textColor="@color/text_color333"
+                android:textSize="@dimen/font16" />
+
+            <TextView
+                android:id="@+id/tv_mab_bingfa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:drawablePadding="15dp"
+                android:drawableRight="@mipmap/right"
+                android:ellipsize="end"
+                android:gravity="right"
+                android:singleLine="true"
+                android:text="@string/none"
+                android:textColor="@color/light_green"
+                android:textSize="@dimen/front14" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/line_color" />
+
+        <LinearLayout
+            android:id="@+id/ll_details"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:gravity="left|center_vertical"
+                android:text="详细说明"
+                android:textColor="@color/text_color333"
+                android:textSize="@dimen/font16" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:drawablePadding="15dp"
+                android:drawableRight="@mipmap/right"
+                android:textSize="@dimen/front14" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/below_detail_line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/line_color" />
+    </LinearLayout>
+
+
+    <View
+        android:id="@+id/empty_view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height32"
+        android:visibility="gone" />
+</LinearLayout>

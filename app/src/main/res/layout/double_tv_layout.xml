@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/choose_type_selector"
+    android:orientation="horizontal"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
+
+
+    <TextView
+        android:id="@+id/tv_left"
+        android:layout_width="wrap_content"
+        android:paddingBottom="10dp"
+        android:layout_weight="1"
+        android:paddingTop="10dp"
+        android:layout_height="match_parent"
+        android:text="请选择癌肿"
+        android:gravity="left|center_vertical"
+        android:textColor="@color/white_whitegay_selector"
+        android:textSize="@dimen/front18" />
+
+    <TextView
+        android:id="@+id/tv_right"
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:drawablePadding="16dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:drawableRight="@drawable/patient_down_selector"
+        android:gravity="right|center_vertical"
+        android:textColor="@color/white_whitegay_selector"
+        android:textSize="@dimen/front18" />
+
+
+</LinearLayout>

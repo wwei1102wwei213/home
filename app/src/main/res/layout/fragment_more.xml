@@ -1,0 +1,175 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:apps="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/main_color"
+        >
+        <include layout="@layout/main_more_title_bar" />
+
+        <View style="@style/line_style"
+            android:layout_marginTop="@dimen/margin8"/>
+        <RelativeLayout
+            android:id="@+id/patient_detail"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/footer_height"
+
+            android:background="@color/white">
+
+            <com.zeyuan.kyq.widget.CircleImageView
+                android:id="@+id/avatar"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/padding15"
+                android:src="@mipmap/default_avatar"
+                apps:border_color="@color/white"
+                apps:border_width="1dp" />
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/avatar"
+                android:layout_marginLeft="@dimen/padding15"
+                android:layout_marginTop="@dimen/small_margin"
+                android:layout_toRightOf="@id/avatar"
+                android:text=""
+                android:textColor="@color/text_color2"
+                android:textSize="@dimen/front22" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/padding15"
+                android:src="@mipmap/right" />
+
+            <TextView
+                android:id="@+id/name_other"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/avatar"
+                android:layout_marginBottom="@dimen/small_margin"
+                android:layout_marginLeft="@dimen/padding15"
+                android:layout_toRightOf="@id/avatar"
+                android:text=""
+                android:textColor="@color/text_color3"
+                android:textSize="@dimen/front10" />
+        </RelativeLayout>
+
+        <View style="@style/line_style" />
+        <View style="@style/line_style"
+            android:layout_marginTop="@dimen/margin8"/>
+        <RelativeLayout
+            android:id="@+id/to_recommend_friend_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/my_main_height"
+            android:background="@color/white">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/padding15"
+                android:text="@string/recommend_friend"
+                android:textColor="@color/text_color2"
+                android:textSize="@dimen/front18" />
+
+            <ImageView
+                android:id="@+id/to_recommend_friend"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/padding15"
+                android:src="@mipmap/right"
+                android:textColor="@color/text_color2" />
+        </RelativeLayout>
+
+        <View style="@style/line_style" />
+
+        <RelativeLayout
+            android:id="@+id/more_f_help"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/my_main_height"
+
+            android:background="@color/white">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/padding15"
+                android:text="@string/use_help"
+                android:textColor="@color/text_color2"
+                android:textSize="@dimen/front18" />
+
+            <ImageView
+                android:id="@+id/to_user_help"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/padding15"
+                android:src="@mipmap/right"
+                android:textColor="@color/text_color2" />
+        </RelativeLayout>
+
+        <View style="@style/line_style" />
+
+
+        <RelativeLayout
+            android:id="@+id/about"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/my_main_height"
+            android:background="@color/white">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/padding15"
+                android:text="@string/about"
+                android:textColor="@color/text_color2"
+                android:textSize="@dimen/front18" />
+
+            <ImageView
+                android:id="@+id/to_about"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/padding15"
+                android:src="@mipmap/right" />
+        </RelativeLayout>
+        <View style="@style/line_style" />
+        <!--<TextView
+            android:id="@+id/tv_news"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/my_main_height"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/padding15"
+            android:paddingRight="@dimen/padding15"
+            android:text="@string/setting_news"
+            android:textColor="@color/text_color2"
+            android:drawableRight="@mipmap/right"
+            android:textSize="@dimen/front18" />
+
+        <View style="@style/line_style" />-->
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/iv_fb_in"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/feedback_in_none"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/margin20"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="60dp"
+        />
+</RelativeLayout>

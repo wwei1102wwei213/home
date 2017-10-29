@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:background="@color/white"
+    android:orientation="horizontal">
+
+    <FrameLayout
+        android:id="@+id/fl_cancer_type"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/tv_cancer_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawablePadding="3.5dp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:drawableRight="@drawable/selector_tag"
+            android:text="癌种"
+            android:textColor="@color/tv_normal_to_blue"
+            android:textSize="14sp" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_move"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/tv_move"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawablePadding="3.5dp"
+            android:drawableRight="@drawable/selector_tag"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:text="转移"
+            android:textColor="@color/tv_normal_to_blue"
+            android:textSize="14sp" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_step_type"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/tv_step_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawablePadding="3.5dp"
+            android:drawableRight="@drawable/selector_tag"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:text="阶段类型"
+            android:textColor="@color/tv_normal_to_blue"
+            android:textSize="14sp" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_change"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/tv_change"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawablePadding="3.5dp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:drawableRight="@drawable/selector_tag"
+            android:text="突变"
+            android:textColor="@color/tv_normal_to_blue"
+            android:textSize="14sp" />
+
+    </FrameLayout>
+</LinearLayout>

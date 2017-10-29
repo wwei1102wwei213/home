@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#ccc"/>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:paddingBottom="@dimen/padding8">
+
+
+
+        <com.zeyuan.kyq.widget.CircleImageView
+            android:id="@id/avatar"
+            android:layout_width="@dimen/height40"
+            android:layout_height="@dimen/height40"
+            android:layout_marginLeft="@dimen/margin12"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/sceon_city" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_alignTop="@+id/avatar"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/avatar"
+            android:layout_marginLeft="@dimen/margin8"
+            >
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text=""
+                android:textColor="@color/item_forum_title"
+                android:textSize="@dimen/font14" />
+
+            <TextView
+                android:id="@+id/cancer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/text_color3"
+                android:textSize="@dimen/font13"
+                android:visibility="gone" />
+        </LinearLayout>
+
+
+
+
+        <TextView
+            android:id="@+id/topic_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/avatar"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/avatar"
+            android:text="帖子 2920"
+            android:textColor="@color/text_color4"
+            android:textSize="@dimen/front12"
+            android:visibility="gone" />
+
+
+        <TextView
+            android:id="@+id/number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/avatar"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/topic_number"
+            android:text="人数 2920"
+            android:textColor="@color/text_color4"
+            android:textSize="@dimen/front12"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:id="@+id/isfollowlayout"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/height50"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:clickable="true"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            >
+            <com.zeyuan.kyq.widget.CircleFollowCheckBox
+                android:id="@+id/isfollow"
+                android:layout_width="58dp"
+                android:layout_height="26dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:background="@drawable/circle_follow_change_selector"
+                android:layout_gravity="center_horizontal"
+                android:button="@null"
+                android:checked="false"
+                android:focusable="false"
+                android:text="@string/is_follow"
+                android:textColor="@color/white_black2_selector"
+                android:textSize="@dimen/font12" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

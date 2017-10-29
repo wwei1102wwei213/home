@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:flowlayout="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:layout_marginBottom="100dp"
+    android:layout_marginTop="90dp"
+    android:layout_marginLeft="@dimen/margin10"
+    android:layout_marginRight="@dimen/margin10">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/margin20"
+            android:background="@drawable/bg_edit_symptom"
+            android:padding="25dp">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_line_around_1px"
+                android:layout_marginLeft="@dimen/margin4"
+                android:layout_marginRight="@dimen/margin4"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_line_around_1px"
+                android:layout_marginTop="@dimen/margin4"
+                android:layout_marginBottom="@dimen/margin4"
+                />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="常见症状"
+                    android:textStyle="bold"
+                    android:padding="@dimen/padding5"
+                    android:textSize="@dimen/font18"
+                    android:textColor="@color/text_color999"
+                    android:layout_gravity="center_horizontal"
+                    />
+                <com.zeyuan.kyq.widget.FlowLayout
+                    android:id="@+id/fl_symptom"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/margin25"
+                    flowlayout:horizontal_spacing="@dimen/margin15"
+                    flowlayout:vertical_spacing="@dimen/margin15">
+                
+
+                </com.zeyuan.kyq.widget.FlowLayout>
+            </LinearLayout>
+        </RelativeLayout>
+        <View
+            android:id="@+id/refresh"
+            android:layout_width="61dp"
+            android:layout_height="61dp"
+            android:background="@mipmap/sypmtom_refresh"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginBottom="@dimen/margin13"
+            />
+
+
+
+</FrameLayout>

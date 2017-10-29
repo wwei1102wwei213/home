@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="不确定癌种"
+    android:paddingTop="@dimen/padding8"
+    android:paddingBottom="@dimen/padding8"
+    android:paddingLeft="@dimen/padding15"
+    android:paddingRight="@dimen/padding15"
+    android:background="@drawable/bg_cancer_second_item_selector"
+    android:textSize="@dimen/font15"
+    android:textColor="@color/green_white_selector"
+    />
+

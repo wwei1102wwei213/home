@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>测试JS与Web交互</title>
+	</head>
+
+	<body>
+		<div id="js1" style="width: 100px;height: 60px;text-align: center;line-height: 60px;background: gainsboro;">网页调起支付</div>
+		<br />
+		<div id="js2" style="width: 100px;height: 60px;text-align: center;line-height: 60px;background: gainsboro;">App取得参数</div>
+		<br />
+		<div id="helloweb" style="width: 100%;height: 60px;background: gainsboro;">文本输出</div>
+		<script>
+			function Fromjs() {
+				window.kaq.testParam("param_everything");
+			}
+			var aTag = document.getElementById("js1");
+			aTag.addEventListener('click', function() {
+				//调用android本地方法
+				window.kaq.testToast();
+				return false;
+			}, false);
+		</script>
+	</body>
+
+</html>

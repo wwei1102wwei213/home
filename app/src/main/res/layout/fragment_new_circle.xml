@@ -1,0 +1,127 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context="com.zeyuan.kyq.fragment.main.CircleNewFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+
+            <TextView
+                android:textColor="@color/text_color2"
+                android:textSize="@dimen/front24"
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="圈子" />
+
+            <ImageView
+                android:id="@+id/iv_news_circle"
+                android:paddingRight="@dimen/padding10"
+                android:layout_alignParentRight="true"
+                android:src="@mipmap/news_top_hint"
+                android:layout_width="50dp"
+                android:scaleType="centerInside"
+                android:layout_height="match_parent"
+                android:visibility="gone"/>
+
+            <ImageView
+                android:id="@+id/add_circle"
+                android:layout_toLeftOf="@+id/iv_news_circle"
+                android:src="@mipmap/more_circles"
+                android:layout_width="50dp"
+                android:scaleType="centerInside"
+                android:layout_alignParentRight="true"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="14dp"
+                android:text="2"
+                android:background="@drawable/bg_news_num_hint"
+                android:textColor="@color/white"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"
+                android:gravity="center"
+                android:textSize="@dimen/font10"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="13dp"
+                android:layout_marginRight="12dp"
+                android:visibility="gone"
+                />
+        </RelativeLayout>
+
+
+
+        <include layout="@layout/layout_notice_circle"/>
+
+        <RelativeLayout
+            android:id="@+id/v_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            >
+            <View
+                android:id="@+id/temp_top_line"
+                style="@style/line_horizontal_normol"
+                android:layout_height="8dp"
+                android:background="@color/line_e2"
+                android:visibility="visible"
+                />
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:background="@color/white"
+                android:visibility="visible"
+                android:layout_below="@id/temp_top_line"
+                />
+            <ImageView
+                android:id="@+id/iv_circle_add"
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:src="@mipmap/to_add_more"
+                android:layout_below="@+id/temp_top_line"
+                android:layout_alignParentRight="true"/>
+        </RelativeLayout>
+
+        <View style="@style/line_horizontal_e2_1dp"
+            android:layout_height="1dp"/>
+
+        <com.zeyuan.kyq.widget.CustomView.CustomRefreshListView
+            android:id="@+id/listview"
+            android:layout_width="match_parent"
+            android:divider="@null"
+            android:scrollbars="none"
+            android:background="@color/main_color"
+            android:dividerHeight="0dp"
+            android:fadingEdge="none"
+            android:overScrollMode="never"
+            android:persistentDrawingCache="none"
+            android:scrollingCache="false"
+            android:smoothScrollbar="true"
+            android:layout_height="match_parent"
+            />
+    </LinearLayout>
+    <!--<ImageButton
+        android:id="@+id/release_forum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="40dp"
+        android:background="@mipmap/release_forum" />-->
+    <include layout="@layout/btn_release_forum"    />
+
+    <ProgressBar
+        android:id="@+id/pd"
+        style="@style/progressbar_style" />
+
+</RelativeLayout>

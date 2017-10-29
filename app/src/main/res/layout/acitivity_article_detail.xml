@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ProgressBar
+        android:id="@+id/pd"
+        style="@style/progressbar_style"
+        android:visibility="gone"
+        />
+
+    <com.zeyuan.kyq.widget.MyLayout
+        android:id="@+id/my_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/v_top"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height48">
+
+                <ImageView
+                    android:id="@+id/iv_back"
+                    android:layout_width="@dimen/height48"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerInside"
+                    android:src="@mipmap/top_btn_back_blue" />
+
+                <ImageView
+                    android:id="@+id/iv_share"
+                    android:layout_width="@dimen/height48"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:padding="@dimen/padding10"
+                    android:scaleType="centerInside"
+                    android:src="@mipmap/forum_share" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toLeftOf="@+id/iv_share"
+                    android:layout_toRightOf="@+id/iv_back">
+
+                    <LinearLayout
+                        android:id="@+id/v_author"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_centerHorizontal="true"
+                        android:orientation="horizontal">
+
+                        <com.zeyuan.kyq.widget.CircleImageView
+                            android:id="@+id/civ"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center_vertical"
+                            android:src="@mipmap/default_avatar" />
+
+                        <TextView
+                            android:id="@+id/name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="@dimen/padding5"
+                            android:text=""
+                            android:textColor="@color/text_color2"
+                            android:textSize="@dimen/font14" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/line_ccc" />
+            </RelativeLayout>
+
+            <include layout="@layout/view_edit_input" />
+
+            <ProgressBar
+                android:id="@+id/pb_art"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/v_top"
+                android:max="100"
+                android:maxHeight="1dp"
+                android:minHeight="1dp"
+                android:progressDrawable="@drawable/seekbar_drawable" />
+
+            <com.youzan.sdk.web.plugin.YouzanBrowser
+                android:id="@+id/wv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/v_bottom"
+                android:layout_below="@+id/pb_art" />
+
+            <View
+                android:id="@+id/v_half"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/v_bottom"
+                android:background="@color/half_alpha"
+                android:visibility="gone" />
+        </RelativeLayout>
+    </com.zeyuan.kyq.widget.MyLayout>
+</FrameLayout>

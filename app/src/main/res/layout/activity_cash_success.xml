@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_color"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:text="提现结果"
+        android:background="@color/white"
+        android:textColor="@color/text_color2"
+        android:textSize="@dimen/front20"
+        android:gravity="center"
+        android:singleLine="true"
+        />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="60dp"
+        android:src="@mipmap/cash_success"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin15"
+        android:text="成功提现"
+        android:textSize="@dimen/font16"
+        android:textColor="@color/text_color2"
+        android:gravity="center_horizontal"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/font14"
+        android:textColor="@color/text_color3"
+        android:text="@string/cash_success_hint"
+        android:layout_marginTop="@dimen/margin15"
+        android:gravity="center_horizontal"
+        />
+    
+    <Button
+        android:id="@+id/btn_finish"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="@dimen/margin48"
+        android:layout_marginRight="@dimen/margin48"
+        android:background="@drawable/btn_light_green_r5"
+        android:text="完成"
+        android:textColor="@color/white"
+        android:textSize="@dimen/font16"
+        android:layout_marginTop="@dimen/margin20"
+        />
+
+</LinearLayout>

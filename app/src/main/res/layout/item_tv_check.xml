@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/box_gv"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@drawable/selector_choose_circle"
+    android:button="@null"
+    android:gravity="center"
+    android:paddingBottom="6dp"
+    android:paddingLeft="@dimen/padding15"
+    android:paddingRight="@dimen/padding15"
+    android:paddingTop="6dp"
+    android:textColor="@color/selector_child_check"
+    android:textSize="@dimen/font15" />
+

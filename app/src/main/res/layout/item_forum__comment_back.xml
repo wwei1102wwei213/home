@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <com.zeyuan.kyq.widget.CircleImageView
+        android:id="@+id/avatar"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:src="@mipmap/default_avatar" />
+
+
+
+    <TextView
+        android:id="@+id/forum_host_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:layout_toRightOf="@+id/avatar"
+        android:text=""
+        android:textColor="@color/item_forum_name"
+        android:textSize="@dimen/font13" />
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/forum_host_name"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@id/avatar"
+        android:textSize="@dimen/font11" />
+
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/reply_number"
+        android:layout_below="@+id/reply_number"
+        android:layout_marginTop="@dimen/small_margin"
+        android:text=""
+        android:textColor="@color/text_color2"
+        android:textSize="@dimen/font15" />
+
+    <TextView
+        android:id="@+id/reply_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/avatar"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/avatar"
+        android:text="2015/5/1 15:38"
+        android:textColor="@color/time_color"
+        android:textSize="@dimen/front10" />
+
+    <TextView
+        android:id="@+id/reply"
+        android:layout_width="match_parent"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_height="@dimen/my_replylist_title_height"
+        android:layout_alignLeft="@+id/title"
+        android:layout_below="@+id/title"
+        android:gravity="center|left"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/small_margin"
+        android:background="@drawable/reply_shape"
+        android:drawableRight="@mipmap/right"
+        android:text="原文：妈妈加油"
+        android:textColor="@color/time_color"
+        android:textSize="@dimen/front12" />
+
+    <View
+        style="@style/line_style"
+        android:layout_alignLeft="@+id/title"
+        android:layout_below="@+id/reply"
+        android:layout_marginTop="@dimen/activity_horizontal_margin" />
+</RelativeLayout>

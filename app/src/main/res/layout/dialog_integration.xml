@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialog_integration_bg"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/iv_integration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/anim_list_integration" />
+
+    <TextView
+        android:id="@+id/tv_integration_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="12dp"
+        android:gravity="center_horizontal"
+        android:text=""
+        android:lineSpacingExtra="5dp"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+</LinearLayout>

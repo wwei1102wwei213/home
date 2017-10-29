@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_cancer_info"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="12dp"
+    android:layout_marginRight="12dp"
+    android:layout_marginTop="6dp"
+    android:layout_marginBottom="3dp"
+    android:background="@drawable/bgwhite_borderec_r10"
+    android:orientation="vertical"
+    android:visibility="gone">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="3dp"
+            android:layout_height="18dp"
+            android:background="@color/text_blue" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="病历资料"
+            android:textColor="@color/text_black"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="患者经历："
+            android:textColor="@color/text_color999"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_cancer_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:lineSpacingExtra="3dp"
+            android:text="病人在治疗中，所患癌种为肺腺癌，IV期，于2015年7月8日确诊"
+            android:textColor="@color/text_color333"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_cancer_info_more"
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/bottom_radius_10"
+        android:gravity="center"
+        android:textSize="13sp"
+        android:text="更多病情信息>>"
+        android:textColor="@color/text_blue" />
+</LinearLayout>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    >
+    <com.zeyuan.kyq.widget.CircleImageView
+        android:id="@+id/host_avatar"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:src="@mipmap/default_avatar" />
+
+    <TextView
+        android:id="@+id/release_forum_name"
+        android:layout_width="wrap_content"
+        android:textSize="@dimen/font13"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:textColor="@color/item_forum_name"
+        android:layout_toRightOf="@+id/host_avatar"
+        android:text="Robin" />
+
+    <TextView
+        android:id="@+id/release_forum_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/time_color"
+        android:layout_alignBottom="@+id/host_avatar"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/host_avatar"
+        android:text=""
+        android:textSize="@dimen/front10" />
+
+
+    <ImageView
+        android:id="@+id/is_host"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="19dp"
+        android:layout_toRightOf="@id/release_forum_name"
+        android:src="@mipmap/release_forum_host" />
+
+    <TextView
+        android:id="@+id/reply_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+
+        android:layout_alignTop="@id/host_avatar"
+        android:drawableLeft="@mipmap/reply"
+        android:drawablePadding="5dp"
+        android:text="回复"
+        android:textColor="@color/light_green"
+        android:textSize="@dimen/front12" />
+
+    <TextView
+        android:id="@+id/reply_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/release_forum_time"
+        android:layout_below="@+id/release_forum_time"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/reply_paddingright"
+        android:text=""
+        android:textColor="@color/text_color2"
+        android:textSize="@dimen/front14" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignLeft="@+id/release_forum_time"
+        android:layout_below="@+id/reply_content"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:background="@color/line_color" />
+
+</RelativeLayout>

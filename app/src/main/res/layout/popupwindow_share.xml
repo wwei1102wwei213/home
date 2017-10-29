@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/ll_bg"
+    android:background="@color/color_pop_bg"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/ll_bottom_View"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/bgwhite_borderec_r10"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:gravity="center"
+                android:text="请选择"
+                android:textColor="@color/text_color666"
+                android:textSize="13sp" />
+
+            <include layout="@layout/line_view_ddd" />
+
+            <TextView
+                android:id="@+id/tv_pop_share"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:gravity="center"
+                android:text="分享"
+                android:textColor="@color/text_blue"
+                android:textSize="16sp" />
+
+            <include layout="@layout/line_view_ddd" />
+
+            <TextView
+                android:id="@+id/tv_pop_edit"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:gravity="center"
+                android:text="编辑"
+                android:textColor="@color/text_blue"
+                android:textSize="16sp" />
+
+            <include layout="@layout/line_view_ddd" />
+
+            <TextView
+                android:id="@+id/tv_pop_delete"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:gravity="center"
+                android:text="删除"
+                android:textColor="@color/red"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_pop_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/bgwhite_borderec_r10"
+            android:gravity="center"
+            android:text="取消"
+            android:textColor="@color/text_color666"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+</FrameLayout>

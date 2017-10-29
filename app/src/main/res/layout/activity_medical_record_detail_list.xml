@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_color"
+    android:orientation="vertical"
+    tools:context="com.zeyuan.kyq.view.MedicalRecordDetailListActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height48"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="@string/title_record"
+            android:textColor="@color/text_color333"
+            android:textSize="@dimen/font18"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="@dimen/status_title_height"
+            android:layout_height="match_parent"
+            android:scaleType="center"
+            android:src="@mipmap/top_btn_back_blue" />
+    </RelativeLayout>
+
+    <include layout="@layout/line_view_ddd" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.andview.refreshview.XRefreshView
+            android:id="@+id/xrv_record_detail_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="50dp">
+
+            <ListView
+                android:id="@+id/lv_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:divider="@color/main_color"
+                android:dividerHeight="6dp"
+                android:scrollbars="none" />
+        </com.andview.refreshview.XRefreshView>
+
+        <TextView
+            android:id="@+id/tv_record_empty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="80dp"
+            android:drawableTop="@mipmap/ic_empty_rs"
+            android:gravity="center_horizontal"
+            android:text="暂无该项记录"
+            android:textColor="@color/text_color666"
+            android:textSize="@dimen/font15"
+            android:visibility="gone" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom"
+            android:background="@color/white">
+
+            <include layout="@layout/line_view_ddd" />
+
+            <RelativeLayout
+                android:id="@+id/v_to_record"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="42dp"
+                android:layout_marginRight="42dp"
+                android:background="@drawable/bg_add_step_for_edit_step">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:drawableLeft="@mipmap/add_step_left_for_edit_step"
+                    android:drawablePadding="@dimen/padding4"
+                    android:gravity="center"
+                    android:text="@string/btn_new_record"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font14" />
+            </RelativeLayout>
+        </FrameLayout>
+    </FrameLayout>
+
+</LinearLayout>

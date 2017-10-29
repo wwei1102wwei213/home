@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@android:color/transparent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--android:background="@android:color/transparent"-->
+    <TextView
+        android:id="@+id/title"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:background="@drawable/dialog_shape1"
+        android:text="上传头像"
+        android:textColor="@color/text_color2" />
+
+    <View
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        style="@style/line_style" />
+    <TextView
+        android:id="@+id/from_tp"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/main_height"
+        android:layout_gravity="center"
+        android:background="@color/white"
+
+        android:gravity="center"
+        android:text="拍照"
+        android:textColor="@color/light_green" />
+
+    <View
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        style="@style/line_style" />
+
+    <TextView
+        android:id="@+id/from_pic"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/main_height"
+        android:layout_gravity="center"
+        android:background="@drawable/dialog_shape2"
+        android:gravity="center"
+        android:text="@string/from_pic"
+        android:textColor="@color/light_green" />
+    <TextView
+        android:id="@+id/cancle"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/main_height"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/dialog_shape"
+        android:gravity="center"
+        android:text="取消" />
+</LinearLayout>

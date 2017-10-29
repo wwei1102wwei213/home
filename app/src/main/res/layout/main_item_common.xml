@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="140dp">
+
+
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/default_avatar"/>
+
+        <TextView
+            android:id="@+id/img_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:paddingBottom="5dp"
+            android:background="@drawable/black_gradient"
+            android:layout_marginLeft="15dp"
+            android:ellipsize="end"
+            android:layout_marginRight="15dp"
+            android:lines="1"
+            android:text="【肺肿瘤】非肿瘤咳嗽的饮食方法"
+            android:textColor="@color/white"
+            android:textSize="@dimen/front18"/>
+    </RelativeLayout>

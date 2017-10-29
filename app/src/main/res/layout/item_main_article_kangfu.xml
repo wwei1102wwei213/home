@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="90dp"
+
+    >
+
+    <View
+        style="@style/main_article_menu"
+        android:background="#91c4f8"
+        />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/padding10"
+        android:paddingTop="@dimen/padding10">
+        <TextView
+            android:id="@+id/tv_main_kf_bt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/main_article_kangfu"
+            android:textColor="#73B7FE"
+            android:textSize="14sp"
+            android:singleLine="true"
+            android:gravity="center_vertical"
+            android:drawableLeft="@mipmap/main_left_kf"
+            android:layout_marginBottom="6dp"
+            android:ellipsize="middle"
+            android:paddingRight="@dimen/padding5"
+            />
+        <TextView
+            android:id="@+id/tv_main_article_title_kangfu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:singleLine="true"
+            android:textSize="16sp"
+            android:textColor="@color/text_normal"
+            android:paddingBottom="2dp"
+            />
+        <TextView
+            android:id="@+id/tv_summary_kangfu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:textColor="@color/darker_gray"
+            android:textSize="13sp"
+            android:text=""/>
+    </LinearLayout>
+</LinearLayout>

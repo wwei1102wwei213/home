@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_color">
+
+
+    <LinearLayout
+        android:id="@+id/body"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <com.andview.refreshview.XRefreshView
+            android:id="@+id/xrv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="vertical" />
+
+        </com.andview.refreshview.XRefreshView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="80dp"
+            android:drawableTop="@mipmap/ic_friend_none"
+            android:text="您暂未关注任何圈友~~"
+            android:textColor="@color/text_color666"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/btn_focus"
+            android:layout_width="126dp"
+            android:layout_height="36dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/btn_green_normal"
+            android:text="关注圈友"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font18" />
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/pd"
+        style="@style/progressbar_style"
+        android:indeterminate="false" />
+</FrameLayout>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_search_circle_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/front18"
+        android:layout_marginTop="@dimen/margin10"
+        android:textColor="@color/item_forum_title"
+        android:singleLine="true"
+        android:paddingLeft="20dp"
+        android:paddingRight="38dp"
+        />
+    <TextView
+        android:id="@+id/tv_search_circle_cancer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/front14"
+        android:layout_marginTop="@dimen/margin4"
+        android:layout_below="@id/tv_search_circle_name"
+        android:textColor="@color/text_color3"
+        android:singleLine="true"
+        android:paddingLeft="20dp"
+        android:paddingRight="38dp"
+        />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/height60"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="25dp"
+        android:src="@mipmap/right" />
+    <View
+        style="@style/line_style"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_alignParentBottom="true"
+        />
+
+</RelativeLayout>

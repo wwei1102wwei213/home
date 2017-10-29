@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:id="@+id/type_body"
+    android:layout_width="match_parent"
+    android:layout_height="166dp"
+    android:src="@mipmap/main_test_img"
+    android:scaleType="centerCrop">
+    <ImageView
+        android:id="@+id/iv_banner_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:fadingEdge="none"
+        android:overScrollMode="never"
+        />
+
+    <TextView
+        android:id="@+id/tv_gonggao_main_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_marginLeft="@dimen/margin48"
+        android:layout_marginRight="@dimen/margin48"
+        android:maxLines="3"
+        android:text=""
+        android:textColor="@color/white"
+        android:textSize="@dimen/front14"
+        android:layout_marginTop="@dimen/margin_main_top"
+
+        />
+    <TextView
+        android:id="@+id/tv_plan_main_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_marginLeft="@dimen/margin30"
+        android:layout_marginRight="@dimen/margin30"
+        android:maxLines="2"
+        android:paddingBottom="@dimen/padding6"
+        android:text=""
+        android:gravity="center"
+        android:textColor="@color/text_color2"
+        android:textSize="@dimen/front14"
+        android:layout_marginTop="@dimen/margin_main_top"
+        />
+    <TextView
+        android:id="@+id/tv_now_drug"
+        android:layout_width="132dp"
+        android:layout_height="34dp"
+        android:background="@mipmap/now_drug"
+        android:layout_below="@+id/tv_plan_main_top"
+        android:layout_centerHorizontal="true"
+        android:text="立即用药"
+        android:textStyle="bold"
+        android:textSize="@dimen/front14"
+        android:textColor="@color/water_red"
+        android:gravity="center_horizontal"
+        android:paddingTop="@dimen/padding4"
+        android:visibility="gone"
+        />
+
+</RelativeLayout>
+

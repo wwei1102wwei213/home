@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/toorbar" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/small_margin" />
+
+    <ListView
+        android:id="@+id/listview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@color/line_color"
+        android:dividerHeight="@dimen/small_margin"
+        android:scrollbars="none" />
+
+    <View style="@style/line_style" />
+
+    <!--<RelativeLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:paddingBottom="@dimen/small_margin"-->
+    <!--android:paddingTop="@dimen/small_margin">-->
+
+
+    <!-- -->
+    <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+    <!--&lt;!&ndash;android:id="@+id/add_step"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_centerHorizontal="true"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:drawableLeft="@mipmap/add_step"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:drawablePadding="@dimen/drawable_padding"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:gravity="center_vertical"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:text="新增阶段"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:textColor="@color/light_green" />&ndash;&gt;-->
+    <!--</RelativeLayout>-->
+
+    <View style="@style/line_style" />
+
+    <Button
+        android:id="@+id/add_step"
+        style="@style/bottom_button"
+        android:text="新增阶段"
+        android:visibility="visible" />
+</LinearLayout>

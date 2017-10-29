@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drug_other"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/footer_height"
+    android:drawableTop="@mipmap/drug_other_no"
+    android:text=""
+    android:gravity="center_horizontal"
+    android:layout_gravity="center_horizontal"
+    android:layout_centerHorizontal="true"
+    android:button="@null"
+    android:paddingTop="@dimen/padding10"
+    android:paddingBottom="@dimen/padding10"
+    android:drawablePadding="@dimen/padding4"
+    android:background="@color/scroll_color"
+    android:textColor="@color/text_color2"
+    android:textSize="@dimen/front12"
+    />

@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zeyuan.kyq.widget.HomeFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/home"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.zeyuan.kyq.widget.HomeLinearLayout
+        android:id="@+id/v_top_body"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/main_color"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/v_top_banner"
+            android:layout_width="match_parent"
+            android:layout_height="165dp"
+            android:visibility="visible">
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/vp_top_banner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></android.support.v4.view.ViewPager>
+
+            <com.zeyuan.kyq.widget.DrawCircleView
+                android:id="@+id/dcv_top_banner"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_alignParentBottom="true" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/v_top_info"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height52"
+            android:background="@color/white">
+
+            <com.zeyuan.kyq.widget.CircleImageView
+                android:id="@+id/civ"
+                android:layout_width="@dimen/height40"
+                android:layout_height="@dimen/height40"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/margin13" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/font12"
+                android:layout_toRightOf="@+id/civ"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text=""
+                    android:textColor="@color/text_color666"
+                    android:textSize="@dimen/font14" />
+
+                <TextView
+                    android:id="@+id/tv_integration_sum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:drawableLeft="@mipmap/ic_integration_light"
+                    android:drawablePadding="3dp"
+                    android:text="积分"
+                    android:textColor="#fba62c"
+                    android:textSize="@dimen/font12" />
+
+            </LinearLayout>
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/margin13"
+                android:src="@mipmap/home_time_bg" />
+
+            <TextView
+                android:id="@+id/tv_discover_time"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/margin13"
+                android:gravity="center_vertical"
+                android:textColor="@color/text_color333"
+                android:textSize="@dimen/font12"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <GridView
+            android:id="@+id/gv_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin8"
+            android:background="@color/white"
+            android:numColumns="4"
+            android:visibility="gone" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin8"
+            android:background="@color/main_color" />
+    </com.zeyuan.kyq.widget.HomeLinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <View
+            android:id="@+id/v_change_home"
+            android:layout_width="match_parent"
+            android:layout_height="413dp"
+            android:background="@color/color_setting_menu_content_bg" />
+
+        <RelativeLayout
+            android:id="@+id/iv_tab"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:background="@color/white">
+
+            <com.zeyuan.kyq.widget.CustomView.InsideRecyclerView
+                android:id="@+id/rv_top"
+                android:layout_width="match_parent"
+                android:layout_height="38dp" />
+
+            <ImageView
+                android:id="@+id/add"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:layout_alignParentRight="true"
+                android:visibility="gone"
+                android:src="@mipmap/home_tab_right" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/ll_change"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/main_color">
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/vp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:background="@drawable/home_top_tab_shadow" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/v_top_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <View
+            android:id="@+id/statusBar2"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/light_green2" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:background="@color/light_green2"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/padding10"
+                android:layout_marginRight="@dimen/margin10"
+                android:src="@mipmap/home_top_head_white" />
+
+            <RelativeLayout
+                android:id="@+id/v_search"
+                android:layout_width="172dp"
+                android:layout_height="34dp"
+                android:layout_centerInParent="true"
+                android:background="@mipmap/home_top_match_bg"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:paddingBottom="4dp"
+                    android:paddingRight="@dimen/padding10"
+                    android:text="点击查看精准内容"
+                    android:textColor="@color/light_green2"
+                    android:textSize="@dimen/font14"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:paddingBottom="1dp"
+                    android:paddingRight="@dimen/padding5"
+                    android:src="@mipmap/home_top_match_right" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="29dp">
+
+                    <ImageView
+                        android:id="@+id/iv_move"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/margin10"
+                        android:src="@mipmap/home_top_match_move"
+                        android:visibility="gone" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/v_news_num_home"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:drawableLeft="@mipmap/news_white_38_33"
+                    android:drawablePadding="@dimen/padding5"
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/padding10"
+                    android:paddingRight="@dimen/padding10"
+                    android:text="消息"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font14" />
+
+                <TextView
+                    android:id="@+id/tv_news_num_home"
+                    android:layout_width="wrap_content"
+                    android:layout_height="13dp"
+                    android:layout_marginLeft="@dimen/margin20"
+                    android:layout_marginTop="@dimen/margin8"
+                    android:background="@drawable/bg_news_num_hint"
+                    android:gravity="center"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:text="0"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font10"
+                    android:visibility="gone" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/pd"
+        style="@style/progressbar_style"
+        android:indeterminate="false" />
+</com.zeyuan.kyq.widget.HomeFrameLayout>

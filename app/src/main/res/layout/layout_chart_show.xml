@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="185dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/v_color_1"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="@drawable/bg_chart_green"
+            android:paddingRight="1px"
+            android:paddingLeft="1px"
+            android:paddingTop="1px">
+
+            <RelativeLayout
+                android:id="@+id/v_color_2"
+                android:layout_width="match_parent"
+                android:layout_height="28dp"
+                android:background="@color/color_chart_green_gray">
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/text_cancer_size_unit"
+                    android:textColor="@color/text_color333"
+                    android:textStyle="bold"
+                    android:paddingLeft="@dimen/padding12"
+                    android:textSize="@dimen/font12"
+                    android:gravity="center_vertical"
+                    />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="显示在病历主页"
+                        android:gravity="center_vertical"
+                        android:textSize="@dimen/font12"
+                        android:textColor="@color/text_color666"
+                        />
+
+                    <RelativeLayout
+                        android:id="@+id/v_chart_show_change"
+                        android:layout_width="40dp"
+                        android:layout_height="15dp"
+                        android:paddingLeft="@dimen/padding8"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="@dimen/margin12"
+                        >
+
+                        <TextView
+                            android:id="@+id/tv_select_bg"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/chart_selector_change_bg_2"
+                            android:layout_centerVertical="true"
+                            />
+
+                        <TextView
+                            android:id="@+id/tv_select_point"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@mipmap/now_step_no_select_circle_small"
+                            android:layout_centerVertical="true"
+                            android:visibility="gone"
+                            />
+
+                        <TextView
+                            android:id="@+id/tv_select_point_right"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@mipmap/now_step_select_circle_small"
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentRight="true"
+                            android:visibility="gone"
+                            />
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <!--<RelativeLayout
+                    android:id="@+id/v_chart_show_change"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true">
+                    <RelativeLayout
+                        android:layout_width="32dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/padding12"
+                        android:layout_marginRight="@dimen/padding12">
+                        <TextView
+                            android:id="@+id/tv_select_bg"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/chart_selector_change_bg_2"
+                            android:layout_centerVertical="true"
+                            />
+                        <TextView
+                            android:id="@+id/tv_select_point"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/chart_selector_change_2"
+                            android:layout_centerVertical="true"
+                            />
+                    </RelativeLayout>
+                </RelativeLayout>-->
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:background="@drawable/dash_line_d3"
+                    android:layerType="software"
+                    android:layout_marginTop="30dp"
+                    />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:background="@drawable/dash_line_d3"
+                    android:layerType="software"
+                    android:layout_marginTop="60dp"
+                    />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:background="@drawable/dash_line_d3"
+                    android:layerType="software"
+                    android:layout_marginTop="90dp"
+                    />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="28dp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp">
+
+        </android.support.v7.widget.RecyclerView>
+    </RelativeLayout>
+</LinearLayout>

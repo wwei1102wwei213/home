@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheckBox xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cb_rfa"
+    android:layout_width="100dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/circle_color_selectors"
+    android:button="@null"
+    android:drawablePadding="@dimen/drawable_padding"
+    android:drawableRight="@drawable/check_right_selector"
+    android:text="你好"
+    android:padding="6dp"
+    android:textColor="@color/gray_green_selector"
+    android:layout_gravity="start|top"
+    android:gravity="center"
+    android:textSize="@dimen/font15" />

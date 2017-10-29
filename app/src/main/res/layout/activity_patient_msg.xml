@@ -1,0 +1,455 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:apps="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_color"
+    tools:context="com.zeyuan.kyq.view.PatientDetailActivity">
+
+
+    <ImageView
+        android:id="@+id/iv_blur"
+        android:scaleType="centerCrop"
+        android:layout_width="match_parent"
+        android:layout_height="320dp" />
+    <TextView
+        android:id="@+id/tv_blur"
+        android:layout_width="match_parent"
+        android:layout_height="320dp" />
+
+    <LinearLayout
+        android:id="@+id/whole_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+
+        <com.zeyuan.kyq.widget.CustomScrollView
+            android:id="@+id/sv"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:scrollbars="none"
+            android:fadingEdge="none"
+            android:overScrollMode="never"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <View
+                    android:id="@+id/v_temp"
+                    android:layout_width="match_parent"
+                    android:layout_height="24dp"/>
+
+                <RelativeLayout
+                    android:id="@+id/v_top"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_below="@+id/v_temp">
+
+
+
+
+                    <com.zeyuan.kyq.widget.CircleImageView
+                        android:id="@+id/avatar"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@mipmap/default_avatar"
+                        apps:border_color="@color/white"
+                        apps:border_width="1dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginBottom="@dimen/margin15"
+                        />
+                    <TextView
+                        android:id="@+id/tv_top_temp"
+                        android:layout_above="@+id/avatar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin10"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/patientdetail_txt2"
+                        android:textSize="@dimen/font12"
+                        android:textColor="@color/white" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:singleLine="false"
+                        android:layout_marginBottom="@dimen/margin4"
+                        android:layout_above="@+id/tv_top_temp"
+                        android:text="@string/patientdetail_txt1"
+                        android:textSize="@dimen/font12"
+                        android:textColor="@color/white" />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/contents"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/v_top"
+                    android:orientation="vertical"
+                    android:background="@color/main_color"
+                    android:paddingBottom="@dimen/activity_horizontal_margin"
+                    android:visibility="visible">
+
+
+                    <!--<LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/light_green"
+                        android:orientation="vertical"
+                        android:visibility="visible"
+                        android:paddingBottom="@dimen/activity_horizontal_margin">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="@dimen/small_margin"
+                            android:singleLine="false"
+                            android:text="@string/patientdetail_txt1"
+                            android:textColor="@color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="@string/patientdetail_txt2"
+                            android:textColor="@color/white" />
+
+                        <com.zeyuan.kyq.widget.CircleImageView
+                            android:id="@+id/avatar"
+                            android:layout_width="90dp"
+                            android:layout_height="90dp"
+                            android:layout_centerInParent="true"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="@dimen/activity_horizontal_margin"
+                            android:src="@mipmap/default_avatar"
+                            apps:border_color="@color/white"
+                            apps:border_width="1dp" />
+                    </LinearLayout>-->
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:background="@color/main_color"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="@dimen/activity_horizontal_margin"
+                        android:text="@string/base_info" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/main_height"
+                        android:background="@color/main_color"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/name"
+                            style="@style/patient_detail_top_textview_style"
+                            android:layout_marginRight="3dp"
+                            android:background="@color/white"
+                            android:drawableLeft="@mipmap/name"
+                            android:text="@string/name" />
+
+                        <TextView
+                            android:id="@+id/location"
+                            style="@style/patient_detail_top_textview_style"
+                            android:layout_marginLeft="3dp"
+
+                            android:drawableLeft="@mipmap/location"
+                            android:text="@string/location" />
+
+
+
+                    </LinearLayout>
+
+
+                    <!--<LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/main_height"
+                        android:layout_marginTop="6dp"
+                        android:visibility="visible"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/age"
+                            style="@style/patient_detail_top_textview_style"
+                            android:layout_marginRight="3dp"
+                            android:drawableLeft="@mipmap/age"
+                            android:text="@string/age" />
+
+                        <TextView
+                            android:id="@+id/sex"
+                            style="@style/patient_detail_top_textview_style"
+                            android:layout_marginLeft="3dp"
+                            android:drawableLeft="@mipmap/sex"
+                            android:text="@string/sex" />
+
+                    </LinearLayout>-->
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:background="@color/main_color"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="@dimen/activity_horizontal_margin"
+                        android:text="@string/cancer_des" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/main_height2"
+                        android:background="@color/white">
+
+                        <TextView
+                            style="@style/patient_detail_left_textview_style"
+                            android:text="@string/cancer_type" />
+
+                        <TextView
+                            android:id="@+id/cancer_type"
+                            style="@style/patient_detail_right_textview_style"
+                            android:drawableRight="@mipmap/right" />
+
+                    </LinearLayout>
+
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/main_height2"
+                        android:layout_marginTop="@dimen/small_margin"
+                        android:background="@color/white">
+
+                        <TextView
+                            style="@style/patient_detail_left_textview_style"
+                            android:text="@string/gene" />
+
+                        <TextView
+                            android:id="@+id/gene"
+                            style="@style/patient_detail_right_textview_style"
+                            android:drawableRight="@mipmap/right"
+                            />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/main_height2"
+                        android:layout_marginTop="@dimen/small_margin"
+                        android:background="@color/white">
+
+                        <TextView
+                            style="@style/patient_detail_left_textview_style"
+                            android:text="@string/discover_time" />
+
+                        <TextView
+                            android:id="@+id/cancer_time"
+                            style="@style/patient_detail_right_textview_style"
+                            android:drawableRight="@mipmap/right" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/main_height2"
+                        android:layout_marginTop="@dimen/small_margin"
+                        android:background="@color/white">
+
+                        <TextView
+                            style="@style/patient_detail_left_textview_style"
+                            android:text="@string/transpos_txt" />
+
+                        <TextView
+                            android:id="@+id/transfer_pos"
+                            style="@style/patient_detail_right_textview_style"
+                            android:drawableRight="@mipmap/right" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/main_height2"
+                        android:layout_marginTop="@dimen/small_margin"
+                        android:background="@color/white">
+
+                        <TextView
+                            style="@style/patient_detail_left_textview_style"
+                            android:text="@string/patient_sex" />
+
+                        <TextView
+                            android:id="@+id/sex"
+                            style="@style/patient_detail_right_textview_style"
+                            android:drawableRight="@mipmap/right" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/main_height2"
+                        android:layout_marginTop="@dimen/small_margin"
+                        android:background="@color/white">
+
+                        <TextView
+                            style="@style/patient_detail_left_textview_style"
+                            android:text="@string/patient_age" />
+
+                        <TextView
+                            android:id="@+id/age"
+                            style="@style/patient_detail_right_textview_style"
+                            android:drawableRight="@mipmap/right" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/main_height2"
+                        android:layout_marginTop="@dimen/small_margin"
+                        android:background="@color/white">
+
+                        <TextView
+                            style="@style/patient_detail_left_textview_style"
+                            android:text="@string/choose_digit" />
+
+                        <TextView
+                            android:id="@+id/period_case"
+                            style="@style/patient_detail_right_textview_style"
+                            android:drawableRight="@mipmap/right"
+                            android:text="" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/main_height"
+                            android:background="#F8F8F8">
+
+                            <TextView
+                                style="@style/patient_detail_left_textview_style"
+                                android:text="@string/digit_t" />
+
+                            <TextView
+                                android:id="@+id/period_start"
+                                style="@style/patient_detail_right_textview_style"
+                                android:text="" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/line_color" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/main_height2"
+                            android:background="#F8F8F8">
+
+                            <TextView
+                                style="@style/patient_detail_left_textview_style"
+                                android:text="@string/digit_n" />
+
+                            <TextView
+                                android:id="@+id/linba"
+                                style="@style/patient_detail_right_textview_style"
+                                android:text="" />
+                        </LinearLayout>
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/line_color" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/main_height2"
+                            android:background="#F8F8F8">
+
+                            <TextView
+                                style="@style/patient_detail_left_textview_style"
+                                android:text="@string/digit_m" />
+
+                            <TextView
+                                android:id="@+id/far_trsnsfo_case"
+                                style="@style/patient_detail_right_textview_style"
+                                android:text="" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </RelativeLayout>
+        </com.zeyuan.kyq.widget.CustomScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <View style="@style/line_style" />
+
+            <Button
+                android:id="@+id/save"
+                style="@style/bottom_button"
+                android:text="@string/save"
+                android:visibility="gone" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+    <View
+        android:id="@+id/view_color_change"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/light_green" />
+
+
+        <!--用來佔位-->
+        <View
+            android:id="@+id/statusBar1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+        <!--标题栏-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_below="@+id/statusBar1">
+            <TextView
+                android:id="@+id/statusTitle"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:text="患者详情"
+                android:textColor="@color/white"
+                android:textSize="@dimen/front18"
+                android:gravity="center"
+                />
+            <ImageView
+                android:id="@+id/btn_back"
+                android:paddingLeft="5dp"
+                android:layout_width="wrap_content"
+                android:src="@mipmap/top_btn_back_white_sma"
+                android:paddingRight="@dimen/small_margin"
+                android:layout_height="match_parent"/>
+        </RelativeLayout>
+
+
+
+
+    <ProgressBar
+        android:id="@+id/pd"
+        style="@style/progressbar_style" />
+
+</RelativeLayout>

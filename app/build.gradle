@@ -1,0 +1,174 @@
+apply plugin: 'com.android.application'
+
+android {
+    /*compileSdkVersion 23
+    buildToolsVersion '23.0.3'*/
+
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        applicationId "com.zeyuan.kyq"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 30
+        versionName "2.9"
+        multiDexEnabled true
+        //开发时注释掉，上线打开
+//        manifestPlaceholders = [UMENG_CHANNEL_VALUE: "channel_name"]
+    }
+    sourceSets
+            {
+                main
+                        {
+                            // 设置Jni so文件路径
+                            jniLibs.srcDirs = ['libs']
+                        }
+            }
+    signingConfigs {
+        release {
+            storeFile file("key.jks")
+            storePassword "zeyuan"
+            keyAlias "China"
+            keyPassword "zeyuanwangluo"
+        }
+    }
+
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.release
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dexOptions {
+        javaMaxHeapSize "4G"
+    }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/DEPENDENCIES.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+
+    }
+    //渠道Flavors，我这里写了一些常用的，开发时注释掉，上线打开
+    /*productFlavors {
+        zeyuan {}
+//        yingyongbao {}
+//        xiaomi {}
+//        huawei {}
+//        wandoujia {}
+//        letv {}
+//        summung {}
+//        lenovo {}
+//        oppo {}
+//        baidu {}
+//        other {}
+    }*/
+
+    //开发时注释掉，上线打开
+   /* productFlavors.all { flavor ->
+        flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+    }
+    //开发时注释掉，上线打开
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            def outputFile = output.outputFile
+            if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                def fileName = outputFile.name.replace(".apk", "-${defaultConfig.versionName}.apk")
+                output.outputFile = new File(outputFile.parent, fileName)
+            }
+        }
+    }
+    buildToolsVersion '25.0.2'*/
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+    maven {
+        url "http://repo.baichuan-android.taobao.com/content/groups/public/"
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile files('libs/gson-2.2.4.jar')
+    //cdn的
+
+    //compile files('libs/open_sdk_r5276_lite.jar')
+
+    //qq登录
+
+    //    compile files('libs/libammsdk.jar')
+
+    //微信的
+    compile project(':alertview')
+    compile files('libs/MobCommons.jar')
+    compile files('libs/MobTools.jar')
+    compile files('libs/commons-beanutils-1.9.2.jar')
+    compile files('libs/thinkandroid-1.1-bin.jar')
+    //compile files('libs/mta-sdk-1.6.2.jar')
+
+    // compile files('libs/ormlite-android-4.48.jar')
+
+    // compile files('libs/ormlite-android-4.49-SNAPSHOT.jar')
+    compile files('libs/pinyin4j-2.5.0.jar')
+    compile files('libs/xUtils-2.6.14.jar')
+    compile files('libs/universal-image-loader-1.9.0.jar')
+    compile files('libs/calligraphy-0.6.0.jar')
+    //compile files('libs/calligraphy-0.6.0-sources.jar')
+
+    //compile files('libs/achartengine-1.1.0.jar')
+    compile files('libs/httpclient-4.3.5.jar')
+    compile files('libs/httpclient-cache-4.3.4.jar')
+    compile files('libs/app-monitor-sdk-2.5.1.1_for_bc_proguard.jar')
+//    compile(name: 'alisdk-feedback-2.5.2', ext: 'aar')
+    compile(name: 'alisdk-feedback-2.5.6', ext: 'aar')
+    compile project(':XRefreshLibrary')
+    compile files('libs/umeng-analytics-v5.6.7.jar')
+    compile project(':DroidPlugin')
+    compile(name: 'InKeSdkPlugin-3.9.1', ext: 'aar')
+    compile project(':PushSDK')
+    //compile files('libs/securityguardaar5.1.96.0328.jar')
+    compile(name: 'securityguardaar3-5.1.103', ext: 'aar')
+    compile files('libs/utdid4all-1.1.5.3_proguard.jar')
+    compile(name: 'android-gif-drawable-1.2.7', ext: 'aar')
+
+
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.android.support:appcompat-v7:25.3.1'
+   // compile 'com.squareup.okhttp:okhttp:2.6.0'
+    compile 'com.squareup.okhttp3:okhttp:3.8.1'
+    compile 'com.android.support:design:25.3.1'
+    compile 'com.aliyun.dpa:oss-android-sdk:1.4.0'
+    compile 'com.android.support:support-v4:25.3.1'
+    compile 'com.commit451:PhotoView:1.2.4'
+    compile 'com.github.bumptech.glide:glide:3.8.0'
+    compile 'com.android.support:recyclerview-v7:25.3.1'
+    compile 'com.android.support:cardview-v7:25.3.1'
+    compile 'com.jakewharton:butterknife:7.0.1'
+    compile 'com.readystatesoftware.systembartint:systembartint:1.0.4'
+    compile 'com.android.support:multidex:1.0.1'
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    compile 'io.reactivex.rxjava2:rxjava:2.0.7'
+    compile 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:1.3.4'
+
+}
+
+
+
+
+
+
+
+
+

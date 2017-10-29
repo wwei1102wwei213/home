@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/padding8"
+    >
+
+    <com.zeyuan.kyq.widget.MyListView
+        android:id="@+id/cr_lv"
+        android:visibility="visible"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/padding12"
+        android:paddingRight="@dimen/padding12"
+        android:overScrollMode="never"
+        android:fadingEdge="none"
+        android:divider="@null"
+        android:dividerHeight="0dp"/>
+
+    <include
+        layout="@layout/layout_no_result_info_center"/>
+
+</LinearLayout>

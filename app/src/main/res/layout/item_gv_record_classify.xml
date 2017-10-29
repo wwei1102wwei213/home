@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:paddingLeft="@dimen/padding6"
+    android:paddingRight="@dimen/padding6">
+
+    <RelativeLayout
+        android:id="@+id/v_bg"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_centerVertical="true"
+        >
+        <ImageView
+            android:id="@+id/iv"
+            android:layout_width="49dp"
+            android:layout_height="49dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="2dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/iv"
+            android:text=""
+            android:layout_marginTop="18dp"
+            android:textSize="@dimen/font14"
+            android:textColor="@color/text_color333"
+            android:textStyle="bold"
+            android:singleLine="true"
+            />
+
+        <TextView
+            android:id="@+id/tv_remark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/font10"
+            android:textColor="@color/text_color999"
+            android:layout_toRightOf="@+id/iv"
+            android:layout_below="@+id/tv_title"
+            android:text=""
+            android:layout_marginTop="2dp"
+            android:paddingRight="@dimen/padding4"
+            android:lineSpacingExtra="2dp"
+            android:lineSpacingMultiplier="1.05"
+            android:textStyle="bold"/>
+
+    </RelativeLayout>
+</RelativeLayout>

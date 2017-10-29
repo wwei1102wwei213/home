@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="42dp"
+    android:background="@drawable/info_center_tab_bg"
+    android:layout_marginLeft="@dimen/margin12"
+    android:layout_marginRight="@dimen/margin12"
+    android:padding="1px"
+    >
+
+    <RelativeLayout
+        android:id="@+id/v_art"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:paddingLeft="@dimen/padding15"
+        android:layout_height="match_parent"
+        android:background="@drawable/info_center_tab_left"
+        >
+        <TextView
+            android:id="@+id/tv_art"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textColor="@color/info_center_tab_select"
+            android:textSize="@dimen/font14"
+            />
+        <View
+            android:id="@+id/line_art"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/light_green"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="2dp"
+            />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/iv_three_1"
+        android:layout_width="40dp"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY" />
+
+    <RelativeLayout
+        android:id="@+id/v_forum"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/info_center_tab_right"
+        >
+        <TextView
+            android:id="@+id/tv_forum"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/info_center_tab_select"
+            android:textSize="@dimen/font14"
+            android:gravity="center"
+            />
+        <View
+            android:id="@+id/line_forum"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/light_green"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="2dp"
+            />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/iv_three_2"
+        android:layout_width="40dp"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        />
+
+    <RelativeLayout
+        android:id="@+id/v_reply"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/info_center_tab_right"
+        android:paddingRight="@dimen/padding15">
+        <TextView
+            android:id="@+id/tv_reply"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/info_center_tab_select"
+            android:textSize="@dimen/font14"
+            android:gravity="center"
+            />
+        <View
+            android:id="@+id/line_reply"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/light_green"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="2dp"
+        />
+    </RelativeLayout>
+
+</LinearLayout>

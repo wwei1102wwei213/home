@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="32dp"
+    android:id="@+id/layout_step_hint"
+    android:visibility="gone"
+    android:background="@color/no_step_hint_bg"
+    >
+
+    <TextView
+        android:id="@+id/tv_show_info_step"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:drawableRight="@mipmap/to_right_blue2"
+        android:drawableLeft="@mipmap/to_left_orange"
+        android:drawablePadding="@dimen/padding5"
+        android:text="@string/no_step_hint_text"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/padding10"
+        android:paddingRight="@dimen/padding10"
+        android:layout_alignParentRight="true"
+        android:singleLine="true"
+        />
+
+</RelativeLayout>

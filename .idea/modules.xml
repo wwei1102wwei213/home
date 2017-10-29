@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/DroidPlugin/DroidPlugin.iml" filepath="$PROJECT_DIR$/DroidPlugin/DroidPlugin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PushSDK/PushSDK.iml" filepath="$PROJECT_DIR$/PushSDK/PushSDK.iml" />
+      <module fileurl="file://$PROJECT_DIR$/XRefreshLibrary/XRefreshLibrary.iml" filepath="$PROJECT_DIR$/XRefreshLibrary/XRefreshLibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/alertview/alertview.iml" filepath="$PROJECT_DIR$/alertview/alertview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dilogs/dilogs.iml" filepath="$PROJECT_DIR$/dilogs/dilogs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kaq.iml" filepath="$PROJECT_DIR$/kaq.iml" />
+    </modules>
+  </component>
+</project>

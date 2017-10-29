@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!--<include layout="@layout/status_bg_view"/>-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height48">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="@string/title_record_classify"
+            android:textColor="@color/text_color333"
+            android:textSize="@dimen/font18"
+            android:textStyle="bold"
+            />
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="@dimen/status_title_height"
+            android:src="@mipmap/top_btn_back_blue"
+            android:scaleType="center"
+            android:layout_height="match_parent"/>
+    </RelativeLayout>
+    <include layout="@layout/line_view_ddd"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin8"
+        android:background="@color/color_f3f8fb"/>
+    <GridView
+        android:id="@+id/gv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:numColumns="2"
+        android:paddingLeft="@dimen/padding6"
+        android:paddingRight="@dimen/padding6"
+        android:paddingTop="@dimen/padding10"
+        android:paddingBottom="@dimen/padding10"
+        />
+</LinearLayout>

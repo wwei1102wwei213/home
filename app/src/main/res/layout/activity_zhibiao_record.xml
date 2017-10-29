@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/titles"
+        layout="@layout/toorbar" />
+
+    <ScrollView
+        android:id="@+id/whole_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/save"
+        android:layout_below="@+id/titles"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/add_symptom_shape"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/main_height"
+                android:background="@drawable/add_symptom_textview_shape"
+                android:drawableLeft="@mipmap/zhibiao"
+                android:drawablePadding="@dimen/drawable_padding"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:text="肿标记录"
+                android:textColor="@color/white"
+                android:textSize="@dimen/front18" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/main_height"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:text="@string/cea"
+                android:textColor="@color/text_color2"
+                android:textSize="@dimen/front14" />
+
+            <EditText
+                android:id="@+id/cea_record"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/main_height"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+
+                android:background="@color/main_color"
+                android:gravity="center_vertical"
+                android:hint="@string/cea_record"
+                android:paddingLeft="15dp"
+                android:textColorHint="@color/text_color3"
+                android:textSize="@dimen/front18" />
+
+            <LinearLayout
+                android:id="@+id/ll_add_ly"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/main_height"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:text="主病灶"
+                    android:textColor="@color/text_color2"
+                    android:textSize="@dimen/front14" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/main_height"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/master_len"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/main_height"
+                        android:layout_marginLeft="1dp"
+                        android:layout_weight="1"
+                        android:background="@color/main_color"
+                        android:gravity="center_vertical"
+                        android:hint="@string/cancer_length"
+                        android:inputType="number"
+                        android:paddingLeft="15dp"
+                        android:textColorHint="@color/text_color3"
+                        android:textSize="@dimen/front18" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="×" />
+
+                    <EditText
+                        android:id="@+id/master_width"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/main_height"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_weight="1"
+                        android:background="@color/main_color"
+                        android:gravity="center_vertical"
+                        android:hint="@string/cancer_width"
+                        android:inputType="number"
+                        android:paddingLeft="15dp"
+                        android:textColorHint="@color/text_color3"
+                        android:textSize="@dimen/front18" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height60"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/add_cancer_symp"
+                        style="@style/digit_switch_button_style"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        android:gravity="center_vertical"
+                        android:text="增加转移灶" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/delete_cancer_symp"
+                        style="@style/digit_switch_button_style"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        android:text="删除转移灶" />
+                </FrameLayout>
+            </LinearLayout>
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="@dimen/main_height"-->
+            <!--android:orientation="horizontal">-->
+
+            <!--<EditText-->
+            <!--android:id="@+id/slave_len"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="@dimen/main_height"-->
+            <!--android:layout_marginLeft="1dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:background="@color/main_color"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:hint="肿瘤长度"-->
+            <!--android:numeric="integer"-->
+            <!--android:paddingLeft="15dp"-->
+            <!--android:textSize="@dimen/front18"/>-->
+
+            <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="5dp"-->
+            <!--android:text="×"/>-->
+
+            <!--<EditText-->
+            <!--android:id="@+id/slave_width"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="@dimen/main_height"-->
+            <!--android:layout_marginLeft="5dp"-->
+            <!--android:layout_marginRight="1dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:numeric="integer"-->
+            <!--android:background="@color/main_color"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:hint="肿瘤宽度"-->
+            <!--android:paddingLeft="15dp"-->
+            <!--android:textSize="@dimen/front18"/>-->
+            <!--</LinearLayout>-->
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:background="@color/line_color" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/main_height2"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/patient_detail_left_textview_style"
+                    android:text="肿瘤转移情况" />
+
+                <TextView
+                    android:id="@+id/show_tranpos"
+                    style="@style/patient_detail_right_textview_style"
+                    android:drawableRight="@mipmap/right"
+                    android:text="未知" />
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:background="@color/line_color" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/main_height2"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/patient_detail_left_textview_style"
+                    android:text="检查日期" />
+
+                <TextView
+                    android:id="@+id/time"
+                    style="@style/patient_detail_right_textview_style"
+                    android:drawableRight="@mipmap/right"
+                    android:text="请输入检查日期" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:background="@color/line_color" />
+
+            <View
+                style="@style/empty_layout"
+                android:layout_height="50dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp" />
+        </LinearLayout>
+
+    </ScrollView>
+
+    <View
+        style="@style/line_style"
+        android:layout_below="@+id/whole_content" />
+
+    <Button
+        android:id="@+id/save"
+        style="@style/bottom_button"
+        android:text="@string/save"
+        android:visibility="visible" />
+
+
+</RelativeLayout>

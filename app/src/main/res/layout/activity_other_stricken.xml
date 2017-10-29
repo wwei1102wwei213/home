@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zeyuan.kyq.widget.MyLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/my_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+        <LinearLayout
+            android:orientation="vertical" android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height48"
+                android:background="@color/white">
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:text="@string/title_other_stricken"
+                    android:textColor="@color/text_color333"
+                    android:textSize="@dimen/font18"
+                    android:textStyle="bold"
+                    />
+                <ImageView
+                    android:id="@+id/iv_back"
+                    android:layout_width="@dimen/status_title_height"
+                    android:src="@mipmap/top_btn_back_blue"
+                    android:scaleType="center"
+                    android:layout_height="match_parent"/>
+                <TextView
+                    android:id="@+id/tv_save"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingRight="@dimen/padding12"
+                    android:paddingLeft="@dimen/padding12"
+                    android:text="@string/btn_choose"
+                    android:textColor="@color/light_green2"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center_vertical"
+                    />
+            </RelativeLayout>
+            <include layout="@layout/line_view_ddd"/>
+            <com.zeyuan.kyq.widget.CustomScrollView
+                android:id="@+id/sv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/main_color"
+                android:overScrollMode="never"
+                android:fadingEdge="none"
+                android:scrollbars="none">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <com.zeyuan.kyq.widget.MyListView
+                        android:id="@+id/lv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:divider="@color/line_ddd"
+                        android:dividerHeight="1px">
+
+                    </com.zeyuan.kyq.widget.MyListView>
+                    <EditText
+                        android:id="@+id/et"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="140dp"
+                        android:textColor="@color/text_color666"
+                        android:textSize="@dimen/font13"
+                        android:lineSpacingExtra="3dp"
+                        android:lineSpacingMultiplier="1.1"
+                        android:paddingTop="@dimen/padding8"
+                        android:paddingLeft="@dimen/padding12"
+                        android:paddingRight="@dimen/padding12"
+                        android:paddingBottom="@dimen/padding12"
+                        android:layout_marginTop="@dimen/margin8"
+                        android:gravity="left|top"
+                        android:hint="@string/hint_other_stricken"
+                        android:background="@color/white"/>
+                </LinearLayout>
+
+            </com.zeyuan.kyq.widget.CustomScrollView>
+        </LinearLayout>
+
+</com.zeyuan.kyq.widget.MyLayout>

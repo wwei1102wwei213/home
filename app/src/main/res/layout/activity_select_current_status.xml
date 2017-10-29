@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!--<TextView-->
+            <!--android:id="@+id/tv_look_around"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="right"-->
+            <!--android:layout_marginRight="20dp"-->
+            <!--android:drawableRight="@mipmap/ic_arrow_small"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:paddingBottom="8dp"-->
+            <!--android:paddingTop="8dp"-->
+            <!--android:drawablePadding="5dp"-->
+            <!--android:text="先逛逛"-->
+            <!--android:textColor="@color/text_color999"-->
+            <!--android:textSize="13sp" />-->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="42dp"
+            android:text="选择患者的当前状况"
+            android:textColor="@color/text_color333"
+            android:textSize="21sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="8dp"
+            android:text="我们将根据您的治疗状态给出专业的内容"
+            android:textColor="@color/text_color666"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_prevent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.01"
+                android:drawableTop="@drawable/prevent"
+                android:gravity="center_horizontal"
+                android:text="预防"
+                android:textColor="@color/text_c7a"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_diagnosis_undetermined"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/diagnosis_undetermined"
+                android:gravity="center_horizontal"
+                android:text="未确诊"
+                android:textColor="@color/text_c7a"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_newly_diagnosed"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/newly_diagnosed"
+                android:gravity="center_horizontal"
+                android:text="新确诊"
+                android:textColor="@color/text_c7a"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_in_treatment"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/in_treatment"
+                android:gravity="center_horizontal"
+                android:text="治疗中"
+                android:textColor="@color/text_c7a"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_empty_window"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/empty_window"
+                android:gravity="center_horizontal"
+                android:text="康复空窗期"
+                android:textColor="@color/text_c7a"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_recrudescence"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/recrudescence"
+                android:gravity="center_horizontal"
+                android:text="复发治疗期"
+                android:textColor="@color/text_c7a"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="280dp"
+            android:layout_height="42dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="40dp"
+            android:layout_marginTop="72dp"
+            android:background="@drawable/btn_solid_empty_radius_24"
+            android:gravity="center"
+            android:text="@string/next_step"
+            android:textColor="@color/text_blue"
+            android:textSize="16sp" />
+    </LinearLayout>
+</ScrollView>

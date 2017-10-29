@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <!--<View
+        android:id="@+id/v_space_top"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        />-->
+
+    <!--<LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height32"
+        android:paddingLeft="@dimen/padding12">
+
+        <View style="@style/patient_left_green"/>
+
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/font14"
+            android:layout_gravity="center_vertical"
+            android:text="@string/CEA"
+            android:gravity="center_vertical"
+            android:textColor="@color/text_color333"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:paddingRight="@dimen/padding8"
+            android:paddingLeft="@dimen/padding8"
+            />
+
+    </LinearLayout>-->
+
+
+    <RelativeLayout
+        android:id="@+id/v_chart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/padding10"
+        android:paddingRight="@dimen/padding10"
+        android:layout_marginLeft="@dimen/margin10"
+        android:layout_marginRight="@dimen/margin10"
+        android:paddingTop="@dimen/padding8"
+        android:paddingBottom="@dimen/padding8"
+        android:layout_marginTop="@dimen/margin12"
+        android:layout_marginBottom="@dimen/margin8"
+        android:background="@drawable/bg_medical_record_item_3"
+        android:visibility="visible">
+        <include layout="@layout/layout_chart_show"/>
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/main_color"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btn_no_dialog"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:textColor="@color/text_color333"
+            android:text="取消"
+            />
+        <Button
+            android:id="@+id/btn_clear_edit"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:textColor="@color/text_color333"
+            android:text="清除"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:text="编辑阶段说明"
+
+            android:textSize="@dimen/front16"
+            android:textColor="@color/text_color333"
+            android:gravity="center"
+            />
+        <Button
+            android:id="@+id/btn_yes_dialog"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="保存"
+            android:textColor="@color/text_color333"
+            android:background="@null"
+            />
+
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:paddingBottom="@dimen/padding10"
+        android:layout_height="wrap_content"
+        >
+        <EditText
+            android:id="@+id/et_dialog_custom_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="102dp"
+            android:maxHeight="240dp"
+            android:textSize="@dimen/font13"
+            android:textColor="@color/text_normal"
+            android:lineSpacingExtra="2dp"
+            android:lineSpacingMultiplier="1.05"
+            android:padding="@dimen/padding6"
+            android:layout_marginLeft="@dimen/margin15"
+            android:layout_marginRight="@dimen/margin15"
+            android:background="@drawable/bg_edit_input"
+            android:gravity="top"
+            />
+    </RelativeLayout>
+
+</LinearLayout>

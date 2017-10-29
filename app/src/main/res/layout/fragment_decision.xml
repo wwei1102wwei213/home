@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_color"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+    <!--顶部UI-->
+    <View
+        android:id="@+id/statusBar2"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/light_green2" />
+
+    <RelativeLayout
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_below="@+id/statusBar2"
+        android:background="@color/light_green2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="圈圈助手"
+            android:textColor="@color/white"
+            android:textSize="@dimen/front18" />
+    </RelativeLayout>
+
+    <com.andview.refreshview.XRefreshView
+        android:id="@+id/xrv_decision"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/top">
+        <!--滑动控件-->
+        <com.zeyuan.kyq.widget.MyScrollView
+            android:id="@+id/sv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <!--绿色背景-->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:background="@color/light_green2" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin8"
+                        android:background="@drawable/bg_diag"
+                        android:orientation="horizontal"
+                        android:paddingBottom="@dimen/padding10"
+                        android:paddingLeft="@dimen/padding10"
+                        android:paddingRight="@dimen/padding10"
+                        android:paddingTop="@dimen/padding10">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <!--没填写病历的提示-->
+                            <include
+                                android:id="@+id/view_complete_record"
+                                layout="@layout/layout_complete_medical_record"
+                                android:visibility="gone" />
+                            <!--病情总体情况-->
+                            <include
+                                android:id="@+id/view_overall_situation"
+                                layout="@layout/layout_overall_situation" />
+                            <!--可能的风险并发症-->
+                            <include
+                                android:id="@+id/view_complete_record"
+                                layout="@layout/layout_danger" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!--可能的发展-->
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-8dp"
+                        android:background="@drawable/bg_diag"
+                        android:orientation="horizontal"
+                        android:paddingBottom="@dimen/padding15"
+                        android:paddingLeft="@dimen/padding20"
+                        android:paddingRight="@dimen/padding15"
+                        android:paddingTop="@dimen/padding15"
+                        android:visibility="visible">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/drug_detail_title_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingBottom="@dimen/padding4"
+                                android:paddingTop="@dimen/padding4"
+                                android:text="你的病情可能的发展" />
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="?android:selectableItemBackground"
+                                android:orientation="horizontal"
+                                android:paddingBottom="@dimen/padding4"
+                                android:paddingLeft="@dimen/padding15"
+                                android:paddingRight="@dimen/padding15"
+                                android:paddingTop="@dimen/padding4">
+
+                                <TextView
+                                    android:id="@+id/tv_symptom"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:drawablePadding="@dimen/padding5"
+                                    android:drawableTop="@mipmap/decision_query"
+                                    android:padding="@dimen/padding10"
+                                    android:text="症状百科"
+                                    android:textColor="@color/text_color666"
+                                    android:textSize="@dimen/font11"
+
+                                    />
+
+                                <TextView
+                                    android:id="@+id/tv_diagnosis"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
+                                    android:drawablePadding="@dimen/padding5"
+                                    android:drawableTop="@mipmap/decision_diagnosis"
+                                    android:padding="@dimen/padding10"
+                                    android:text="预后方案"
+                                    android:textColor="@color/text_color666"
+                                    android:textSize="@dimen/font11"
+
+                                    />
+
+                                <TextView
+                                    android:id="@+id/tv_similar"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:drawablePadding="@dimen/padding5"
+                                    android:drawableTop="@mipmap/decision_answer"
+                                    android:padding="@dimen/padding10"
+                                    android:text="相似患者"
+                                    android:textColor="@color/text_color666"
+                                    android:textSize="@dimen/font11"
+
+                                    />
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!--对症防护支持与营养指导-->
+                    <LinearLayout
+                        android:id="@+id/ll_guard_advice"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/bg_diag"
+                        android:orientation="vertical"
+                        android:paddingBottom="@dimen/padding20"
+                        android:paddingLeft="@dimen/padding15"
+                        android:paddingRight="@dimen/padding15"
+                        android:paddingTop="@dimen/padding16">
+
+                        <include layout="@layout/layout_decision_1" />
+
+                        <include layout="@layout/layout_decision_2" />
+                    </LinearLayout>
+                    <!--个性化推荐-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-8dp"
+                        android:background="@drawable/bg_diag"
+                        android:orientation="vertical"
+                        android:paddingBottom="@dimen/padding20"
+                        android:paddingLeft="@dimen/padding15"
+                        android:paddingRight="@dimen/padding15"
+                        android:paddingTop="@dimen/padding16">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="26dp">
+
+                            <TextView
+                                style="@style/drug_detail_title_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="5dp"
+                                android:drawableLeft="@mipmap/decision_recommend"
+                                android:drawablePadding="5dp"
+                                android:gravity="center_vertical"
+                                android:text="个性化推荐" />
+
+                            <TextView
+                                android:id="@+id/tv_recommend_more"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical|right"
+                                android:text="查看更多>"
+                                android:textColor="#c1c1c1"
+                                android:textSize="12sp" />
+
+
+                        </FrameLayout>
+
+                        <com.zeyuan.kyq.widget.MyListView
+                            android:id="@+id/lv_recommend"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:divider="@null"
+                            android:dividerHeight="0dp"
+                            android:fadingEdge="none"
+                            android:overScrollMode="never" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_ad"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/bg_diag"
+                        android:orientation="vertical"
+                        android:paddingBottom="@dimen/padding20"
+                        android:paddingLeft="@dimen/padding15"
+                        android:paddingRight="@dimen/padding15"
+                        android:paddingTop="@dimen/padding16">
+
+                        <TextView
+                            android:id="@+id/tv_ad_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="5dp"
+                            android:drawableLeft="@mipmap/ic_ad"
+                            android:drawablePadding="5dp"
+                            android:drawableRight="@mipmap/to_right"
+                            android:ellipsize="end"
+                            android:gravity="center_vertical"
+                            android:maxLines="1"
+                            android:text="抗癌圈求助系统，全新上线"
+                            android:textColor="#1c1c1c" />
+
+                        <RelativeLayout
+                            android:id="@+id/v_top_banner"
+                            android:layout_width="match_parent"
+                            android:layout_height="90dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginTop="10dp"
+                            android:visibility="visible">
+
+                            <android.support.v4.view.ViewPager
+                                android:id="@+id/vp_ad"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentTop="true" />
+
+                            <com.zeyuan.kyq.widget.DrawCircleView
+                                android:id="@+id/dcv_ad"
+                                android:layout_width="match_parent"
+                                android:layout_height="20dp"
+                                android:layout_alignParentBottom="true" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </RelativeLayout>
+
+        </com.zeyuan.kyq.widget.MyScrollView>
+    </com.andview.refreshview.XRefreshView>
+</RelativeLayout>

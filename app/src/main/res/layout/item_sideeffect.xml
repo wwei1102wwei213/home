@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:padding="15dp"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/title"
+    android:textSize="@dimen/front18"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="肝毒性"/>
+
+
+    <TextView
+        android:id="@+id/content"
+        android:textSize="@dimen/front12"
+        android:text="使用特罗凯期间曾报到肝衰竭和肝肾综合症（包括死亡）病历，特别是基线肝受损患者。所以，建议定期肝功能实验"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>

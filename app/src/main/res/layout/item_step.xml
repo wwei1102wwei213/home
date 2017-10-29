@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <TextView
+        android:id="@+id/step_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="1"
+        android:textSize="40sp" />
+
+    <TextView
+        android:id="@+id/chem_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@id/step_number"
+        android:text="易瑞沙+2992"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/chem_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/chem_name"
+        android:layout_below="@+id/chem_name"
+        android:layout_marginTop="10dp"
+        android:text="2015-7-6 至今"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/stopChem"
+        android:focusable="false"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="5dp"
+        android:text="停药" />
+</RelativeLayout>

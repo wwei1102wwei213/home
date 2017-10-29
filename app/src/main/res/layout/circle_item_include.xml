@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:paddingBottom="@dimen/activity_horizontal_margin">
+
+
+    <com.zeyuan.kyq.widget.CircleImageView
+        android:id="@id/avatar"
+        android:layout_width="@dimen/header_width"
+        android:layout_height="@dimen/header_width"
+        android:layout_marginLeft="@dimen/margin8"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:src="@mipmap/sceon_city" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/avatar"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="4dp"
+        android:layout_toRightOf="@id/avatar"
+        android:text=""
+        android:textColor="@color/item_forum_title"
+        android:textSize="@dimen/front22" />
+
+    <TextView
+        android:id="@+id/cancer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:layout_toRightOf="@id/avatar"
+        android:layout_marginLeft="10dp"
+        android:text=""
+        android:textColor="@color/text_color3"
+        android:textSize="@dimen/front14"
+        android:visibility="visible" />
+
+
+    <TextView
+        android:id="@+id/topic_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/avatar"
+        android:layout_marginBottom="4dp"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/avatar"
+        android:text="帖子 2920"
+        android:textColor="@color/text_color4"
+        android:textSize="@dimen/front12"
+        android:visibility="gone" />
+
+
+    <TextView
+        android:id="@+id/number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/avatar"
+        android:layout_marginBottom="4dp"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/topic_number"
+        android:text="人数 2920"
+        android:textColor="@color/text_color4"
+        android:textSize="@dimen/front12"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/isfollowlayout"
+        android:layout_width="80dp"
+        android:layout_height="@dimen/height60"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:clickable="true"
+        >
+        <com.zeyuan.kyq.widget.MyCheckBox
+            android:id="@+id/isfollow"
+            android:layout_width="@dimen/activity_size_64"
+            android:layout_height="@dimen/height26"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:background="@drawable/circle_color_selector"
+            android:button="@null"
+            android:checked="false"
+            android:drawableLeft="@drawable/radiobutton_selector"
+            android:drawablePadding="@dimen/drawable_padding"
+            android:focusable="false"
+            android:padding="4dp"
+            android:text="@string/add_follow"
+            android:textColor="@color/red_green_selector"
+            android:textSize="@dimen/front12" />
+    </RelativeLayout>
+
+</RelativeLayout>

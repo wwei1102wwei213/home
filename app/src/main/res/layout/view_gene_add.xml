@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/need_dismiss"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/padding12"
+        android:background="@color/white"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/tv_gene_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="填写分期"
+            android:drawableRight="@mipmap/gene_right_to_down"
+            android:textColor="@color/red"
+            android:textSize="@dimen/font16"
+            android:padding="@dimen/padding10"
+            android:layout_gravity="center_horizontal"
+            />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+                android:text="根据上述资料，你所处的分期是："
+                android:textColor="@color/light_red"
+                />
+            <TextView
+                android:id="@+id/digit_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/light_green"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_zero_digit"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height42"
+            android:background="@drawable/bg_gene_gray_green_bg"
+            android:layout_marginRight="@dimen/margin20"
+            android:layout_marginLeft="@dimen/margin20"
+            android:layout_marginTop="@dimen/margin12"
+            android:visibility="visible"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/zero_digit"
+                style="@style/patient_info_left_tv"
+                android:text="请选择分期:"/>
+
+            <TextView
+                android:id="@+id/zero_current_case"
+                style="@style/patient_info_right_tv"
+
+                android:text=""/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_one_digit"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height42"
+            android:visibility="gone"
+            android:background="@drawable/bg_gene_gray_green_bg"
+            android:layout_marginRight="@dimen/margin20"
+            android:layout_marginLeft="@dimen/margin20"
+            android:layout_marginTop="@dimen/margin12"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/first_digit"
+                style="@style/patient_info_left_tv"
+                android:text="原发肿瘤情况:"/>
+
+            <TextView
+                android:id="@+id/tv_cancer_case"
+                style="@style/patient_info_right_tv"
+                android:text=""/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/white"/>
+
+        <LinearLayout
+            android:id="@+id/ll_two_digit"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height42"
+            android:background="@drawable/bg_gene_gray_green_bg"
+            android:layout_marginRight="@dimen/margin20"
+            android:layout_marginLeft="@dimen/margin20"
+            android:layout_marginTop="@dimen/margin12"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/patient_info_left_tv"
+                android:text="区域淋巴结:"/>
+
+            <TextView
+                android:id="@+id/tv_linba"
+                style="@style/patient_info_right_tv"
+                android:text=""/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/white"/>
+
+        <LinearLayout
+            android:id="@+id/ll_three_digit"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height42"
+            android:visibility="gone"
+            android:background="@drawable/bg_gene_gray_green_bg"
+            android:layout_marginRight="@dimen/margin20"
+            android:layout_marginLeft="@dimen/margin20"
+            android:layout_marginTop="@dimen/margin12"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/patient_info_left_tv"
+                android:text="远处转移:"/>
+
+            <TextView
+                android:id="@+id/tv_far_move"
+                style="@style/patient_info_right_tv"
+                android:text=""/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_next_page2"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:background="@drawable/btn_bg_info_step"
+            android:text="下一步"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:layout_marginLeft="@dimen/margin48"
+            android:layout_marginRight="@dimen/margin48"
+            android:layout_marginTop="20dp"
+            android:textSize="@dimen/front16"
+            />
+    </LinearLayout>
+</LinearLayout>

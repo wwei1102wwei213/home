@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/layout_search_input"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/v_content"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:visibility="visible">
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tl_more_circle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:tabIndicatorColor="@color/light_green"
+                app:tabSelectedTextColor="@color/light_green"
+                app:tabTextColor="@color/text_color2"
+                />
+            <View
+                style="@style/line_horizontal_e2_1dp"
+                android:background="@color/main_color"/>
+            <android.support.v4.view.ViewPager
+                android:id="@+id/vp_circle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/v_search_body"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+            <TextView
+                android:id="@+id/tv_search_hint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="搜索记录如下："
+                android:textSize="@dimen/font13"
+                android:textColor="@color/text_color3"
+                android:background="#E9E9E9"
+                android:paddingTop="@dimen/padding10"
+                android:paddingBottom="@dimen/padding10"
+                android:gravity="center"/>
+            <LinearLayout
+                android:id="@+id/v_record"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                android:orientation="vertical"
+                >
+                <ListView
+                    android:id="@+id/lv_record"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="@null"
+                    android:dividerHeight="0dp"
+                    android:visibility="visible"/>
+                <Button
+                    android:id="@+id/btn_clear_record"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height36"
+                    android:background="@drawable/btn_clear_search_symptom"
+                    android:text="@string/search_sym_clear"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp"
+                    android:textColor="@color/text_color2"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    />
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/lv_search"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="@null"
+                android:dividerHeight="0dp"
+                android:visibility="visible"/>
+        </LinearLayout>
+    </FrameLayout>
+
+
+
+</LinearLayout>

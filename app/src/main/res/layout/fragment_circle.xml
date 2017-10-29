@@ -1,0 +1,61 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    >
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/circle_title_bar" />
+
+    <View
+        android:id="@+id/temp_line"
+        android:layout_below="@id/header"
+        style="@style/line_horizontal_normol"
+        android:layout_height="1dp"
+        android:background="@color/main_color"
+        />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv"
+        android:layout_width="match_parent"
+        android:layout_height="95dp"
+        android:layout_below="@id/temp_line"
+        android:background="@color/white"
+        android:visibility="visible"
+        />
+
+        <com.zeyuan.kyq.widget.CustomView.CustomRefreshListView
+            android:id="@+id/listview"
+            android:layout_width="match_parent"
+            android:divider="@null"
+            android:scrollbars="none"
+            android:paddingTop="3dp"
+            android:background="@color/main_color"
+            android:dividerHeight="3dp"
+            android:fadingEdge="none"
+            android:paddingLeft="6dp"
+            android:paddingRight="6dp"
+            android:overScrollMode="never"
+            android:persistentDrawingCache="none"
+            android:scrollingCache="false"
+            android:smoothScrollbar="true"
+            android:layout_centerHorizontal="true"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/rv"
+             />
+
+    <ImageButton
+        android:id="@+id/release_forum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="40dp"
+        android:background="@mipmap/release_forum" />
+
+    <ProgressBar
+        android:id="@+id/pd"
+        style="@style/progressbar_style" />
+
+</RelativeLayout>

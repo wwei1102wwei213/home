@@ -1,0 +1,41 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.zeyuan.kyq.view.SplashActivity">
+
+    <RelativeLayout
+        android:id="@+id/rl_splash_temp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@mipmap/splash" />
+
+        <TextView
+            android:id="@+id/tv_splash"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="45dp"
+            android:gravity="center_horizontal"
+            android:text=""
+            android:textColor="@color/light_green"
+            android:textSize="@dimen/front16" />
+
+    </RelativeLayout>
+
+
+    <ImageSwitcher
+        android:id="@+id/is"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+    </ImageSwitcher>
+
+
+</RelativeLayout>
