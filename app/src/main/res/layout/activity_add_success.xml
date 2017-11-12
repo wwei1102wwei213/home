@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height48">
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="@dimen/height48"
+                android:layout_height="match_parent"
+                android:src="@mipmap/top_btn_back_blue"
+                android:scaleType="centerInside"
+                />
+            <ImageView
+                android:id="@+id/iv_share"
+                android:layout_width="@dimen/height48"
+                android:layout_height="match_parent"
+                android:padding="@dimen/padding10"
+                android:scaleType="centerInside"
+                android:layout_alignParentRight="true"
+                android:src="@mipmap/forum_share"
+                android:visibility="invisible"
+                />
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toLeftOf="@+id/iv_share"
+                android:layout_toRightOf="@+id/iv_back"
+                android:gravity="center"
+                android:textColor="@color/text_color2"
+                android:textSize="@dimen/front18"
+                android:text=""
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/line_ccc"
+                android:layout_alignParentBottom="true"/>
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:src="@mipmap/mine"
+            android:scaleType="centerCrop"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="感谢您的提交!"
+            android:textSize="@dimen/font20"
+            android:textColor="@color/light_green"
+            android:gravity="center_horizontal"/>
+
+        <TextView
+            android:id="@+id/tv_hint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="@dimen/font16"
+            android:textColor="@color/text_color666"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="@dimen/margin10"/>
+
+        <TextView
+            android:id="@+id/tv_success_share"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:text="分享给其他好友"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font16"
+            android:gravity="center"
+            android:background="@drawable/btn_bg_info_step"
+            android:layout_marginTop="@dimen/margin20"
+            android:layout_gravity="center_horizontal"/>
+
+    </LinearLayout>
+
+</FrameLayout>

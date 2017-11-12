@@ -492,6 +492,16 @@
         <activity
             android:name=".view.RemindedFriendsListActivity"
             android:screenOrientation="portrait" />
+        <!--新增成功和评价医生页面-->
+        <activity
+            android:name=".view.AddCommentSuccessActivity"
+            android:screenOrientation="portrait" />
+        <!-- 新增 -->
+        <activity
+            android:name=".view.AddCommentActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+
         <!-- Service组件 -->
         <service
             android:name=".service.ZYKaqService"

@@ -233,7 +233,9 @@ public class SplashActivity extends BaseActivity implements ViewSwitcher.ViewFac
 
     private void toNext(){
 //        Factory.post(this, Const.EGetPatientDetail);
+        UserinfoData.saveInfoID(this, "9810");
         String infoID = UserinfoData.getInfoID(this);
+        UserinfoData.saveIsHaveCreateInfo(this,"1");
         String isHaveCreateInfo = UserinfoData.getIsHaveCreateInfo(this);
         if(!TextUtils.isEmpty(infoID)&&"1".equals(isHaveCreateInfo)){
             startActivity(new Intent(SplashActivity.this, MainActivity.class));
