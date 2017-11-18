@@ -675,6 +675,9 @@ public final class Const {
     public static final String RESULT_OTHER_STRICKEN_REMARK = "Result_Other_Stricken_Remark";//其他重疾描述返回标识
     public static final String RESULT_ALL_MENU_FLAG = "Result_all_menu_flag";//全部功能退出时返回标识
 
+    public static final String INTENT_ADD_FLAG_TYPE = "INTENT_ADD_FLAG_TYPE";//新增标识 医生 医院 秘方 其他
+
+
     //Intent消息常量标识
     public static final int REQUEST_CODE_RECORD_ACTIVITY = 101;//记录页面返回CODE
     public static final int REQUEST_CODE_CHOOSE_QUOTA_TYPE = 102;//选择指标类型CODE

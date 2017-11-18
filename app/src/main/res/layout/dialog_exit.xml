@@ -7,14 +7,16 @@
     >
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="是否退出登录？"
-        android:padding="@dimen/padding15"
-        android:textSize="@dimen/font14"
-        android:textColor="@color/text_color3"
+        android:background="@drawable/frame_top_only"
         android:gravity="center"
-        android:background="@drawable/frame_top_only"/>
+        android:padding="@dimen/padding15"
+        android:text="是否退出登录？"
+        android:textColor="@color/text_color3"
+        android:textSize="@dimen/font14" />
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"

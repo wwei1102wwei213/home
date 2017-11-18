@@ -81,7 +81,7 @@ public class AddCommentActivity extends BaseActivity implements AdapterView.OnIt
     private TextView tv_title;
     //设置记录类型
     private void initType(){
-        type = getIntent().getIntExtra(Const.RECORD_CLASSIFY_TYPE, 5);
+        type = getIntent().getIntExtra(Const.INTENT_ADD_FLAG_TYPE, 1);
         REQUEST_FLAG = getIntent().getBooleanExtra(Const.RECORD_REQUEST_FLAG, false);
         tv_title = (TextView)findViewById(R.id.tv_title);
         tv_title.setText(UiUtils.getRecordClassifyTitle(type));
@@ -101,6 +101,8 @@ public class AddCommentActivity extends BaseActivity implements AdapterView.OnIt
     private View v_hospital;
     //滑动器
     private CustomScrollView sv;
+    //新增TYPE选项
+    private TextView tv_type_1,tv_type_2,tv_type_3,tv_type_4;
     private void initView(){
         tv_save = (TextView)findViewById(R.id.tv_save);
 
@@ -115,9 +117,16 @@ public class AddCommentActivity extends BaseActivity implements AdapterView.OnIt
         sv = (CustomScrollView)findViewById(R.id.sv);
         mLayout = (MyLayout)findViewById(R.id.my_layout);
 
+        tv_type_1 = (TextView) findViewById(R.id.tv_add_type_1);
+        tv_type_2 = (TextView) findViewById(R.id.tv_add_type_2);
+        tv_type_3 = (TextView) findViewById(R.id.tv_add_type_3);
+        tv_type_4 = (TextView) findViewById(R.id.tv_add_type_4);
+
+        setTypeView(type);
     }
 
     //设置监听事件
+    String hint = "";
     private void initListener(){
         findViewById(R.id.iv_back).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -129,6 +138,15 @@ public class AddCommentActivity extends BaseActivity implements AdapterView.OnIt
         mLayout.setOnSoftKeyboardListener(this);
         gv.setOnItemClickListener(this);
         gv.setOnItemLongClickListener(this);
+        if (type==1){
+            hint = "请输入医生姓名";
+        } else if (type==2){
+            hint = "请输入医生姓名";
+        } else if (type==3){
+            hint = "请输入医院名称";
+        } else {
+            hint = "请输入名称";
+        }
         et_hospital.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
@@ -142,7 +160,7 @@ public class AddCommentActivity extends BaseActivity implements AdapterView.OnIt
                     et_hospital.setSelection(temp.length());
                 } else {
                     if (TextUtils.isEmpty(et_hospital.getText())) {
-                        et_hospital.setHint(getResources().getString(R.string.hint_hospital));
+                        et_hospital.setHint(hint);
                     }
                 }
             }
@@ -151,12 +169,34 @@ public class AddCommentActivity extends BaseActivity implements AdapterView.OnIt
 
     private void initData(){}
 
-
-
-
-
-
-
+    private void setTypeView(int index){
+        switch (index){
+            case 1:
+                tv_type_1.setSelected(true);
+                tv_type_2.setSelected(false);
+                tv_type_3.setSelected(false);
+                tv_type_4.setSelected(false);
+                break;
+            case 2:
+                tv_type_1.setSelected(false);
+                tv_type_2.setSelected(true);
+                tv_type_3.setSelected(false);
+                tv_type_4.setSelected(false);
+                break;
+            case 3:
+                tv_type_1.setSelected(false);
+                tv_type_2.setSelected(false);
+                tv_type_3.setSelected(true);
+                tv_type_4.setSelected(false);
+                break;
+            case 4:
+                tv_type_1.setSelected(false);
+                tv_type_2.setSelected(false);
+                tv_type_3.setSelected(false);
+                tv_type_4.setSelected(true);
+                break;
+        }
+    }
 
     private int InfoID = Integer.valueOf(UserinfoData.getInfoID(this));
 
