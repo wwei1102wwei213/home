@@ -32,7 +32,6 @@ import com.zeyuan.kyq.utils.Contants;
 import com.zeyuan.kyq.utils.ExceptionUtils;
 import com.zeyuan.kyq.utils.LogCustom;
 import com.zeyuan.kyq.utils.PhotoUtils;
-import com.zeyuan.kyq.utils.UiUtils;
 import com.zeyuan.kyq.utils.UserinfoData;
 import com.zeyuan.kyq.widget.CustomScrollView;
 import com.zeyuan.kyq.widget.MyGridView;
@@ -53,6 +52,7 @@ public class AddCommentActivity extends BaseActivity implements AdapterView.OnIt
         ,MyLayout.OnSoftKeyboardListener,View.OnClickListener,HttpResponseInterface {
 
     private static final int REQUEST_PICK = 0;
+    private static final int REQUEST_SUMMARY = 1;
     //记录分类标识
     private int type;
     //已选择图片路径列表
@@ -84,7 +84,7 @@ public class AddCommentActivity extends BaseActivity implements AdapterView.OnIt
         type = getIntent().getIntExtra(Const.INTENT_ADD_FLAG_TYPE, 1);
         REQUEST_FLAG = getIntent().getBooleanExtra(Const.RECORD_REQUEST_FLAG, false);
         tv_title = (TextView)findViewById(R.id.tv_title);
-        tv_title.setText(UiUtils.getRecordClassifyTitle(type));
+        tv_title.setText("新增");
     }
 
     //备注输入框
@@ -98,7 +98,7 @@ public class AddCommentActivity extends BaseActivity implements AdapterView.OnIt
     //监听输入法控件
     private MyLayout mLayout;
     //医院区域框
-    private View v_hospital;
+    private TextView tv_type_name,tv_type_txt;
     //滑动器
     private CustomScrollView sv;
     //新增TYPE选项
@@ -109,7 +109,8 @@ public class AddCommentActivity extends BaseActivity implements AdapterView.OnIt
         et_remark = (EditText)findViewById(R.id.et_remark);
         et_hospital = (EditText)findViewById(R.id.et_hospital);
 
-        v_hospital = findViewById(R.id.v_hospital);
+        tv_type_name = (TextView) findViewById(R.id.tv_type_name);
+        tv_type_txt = (TextView) findViewById(R.id.tv_type_txt);
         gv = (MyGridView)findViewById(R.id.gv);
         selectedPicture = new ArrayList<>();
         adapter = new RecordPhotoAdapter(this,selectedPicture);
@@ -122,11 +123,19 @@ public class AddCommentActivity extends BaseActivity implements AdapterView.OnIt
         tv_type_3 = (TextView) findViewById(R.id.tv_add_type_3);
         tv_type_4 = (TextView) findViewById(R.id.tv_add_type_4);
 
+        tv_type_1.setOnClickListener(this);
+        tv_type_2.setOnClickListener(this);
+        tv_type_3.setOnClickListener(this);
+        tv_type_4.setOnClickListener(this);
+
         setTypeView(type);
     }
 
     //设置监听事件
-    String hint = "";
+//    String hint = "";
+    String[] hints = {"请输入医生姓名", "请输入医院名称", "请输入秘方名称", "请输入名称"};
+    String[] typeNames = {"医生姓名", "医院名称", "秘方名称", "其他名称"};
+    String[] typeTxts = {"对医生的描述", "对医院的描述", "对秘方的描述", "对其他的描述"};
     private void initListener(){
         findViewById(R.id.iv_back).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -138,7 +147,7 @@ public class AddCommentActivity extends BaseActivity implements AdapterView.OnIt
         mLayout.setOnSoftKeyboardListener(this);
         gv.setOnItemClickListener(this);
         gv.setOnItemLongClickListener(this);
-        if (type==1){
+       /* if (type==1){
             hint = "请输入医生姓名";
         } else if (type==2){
             hint = "请输入医生姓名";
@@ -146,7 +155,7 @@ public class AddCommentActivity extends BaseActivity implements AdapterView.OnIt
             hint = "请输入医院名称";
         } else {
             hint = "请输入名称";
-        }
+        }*/
         et_hospital.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
@@ -160,7 +169,7 @@ public class AddCommentActivity extends BaseActivity implements AdapterView.OnIt
                     et_hospital.setSelection(temp.length());
                 } else {
                     if (TextUtils.isEmpty(et_hospital.getText())) {
-                        et_hospital.setHint(hint);
+                        et_hospital.setHint(hints[type-1]);
                     }
                 }
             }
@@ -194,8 +203,11 @@ public class AddCommentActivity extends BaseActivity implements AdapterView.OnIt
                 tv_type_2.setSelected(false);
                 tv_type_3.setSelected(false);
                 tv_type_4.setSelected(true);
-                break;
+              break;
         }
+        tv_type_name.setText(typeNames[index-1]);
+        et_hospital.setText("");
+        tv_type_txt.setText(typeTxts[index-1]);
     }
 
     private int InfoID = Integer.valueOf(UserinfoData.getInfoID(this));
@@ -205,6 +217,30 @@ public class AddCommentActivity extends BaseActivity implements AdapterView.OnIt
         switch (v.getId()){
             case R.id.tv_save:
                 toSaveData();
+                break;
+            case R.id.tv_add_type_1:
+                if (type!=1){
+                    type = 1;
+                    setTypeView(1);
+                }
+                break;
+            case R.id.tv_add_type_2:
+                if (type!=2){
+                    type = 2;
+                    setTypeView(2);
+                }
+                break;
+            case R.id.tv_add_type_3:
+                if (type!=3){
+                    type = 3;
+                    setTypeView(3);
+                }
+                break;
+            case R.id.tv_add_type_4:
+                if (type!=4){
+                    type = 4;
+                    setTypeView(4);
+                }
                 break;
         }
     }
@@ -488,8 +524,8 @@ public class AddCommentActivity extends BaseActivity implements AdapterView.OnIt
                                 intent, REQUEST_PICK);
                     }
                 } else {
-                    startActivity(new Intent(this, ShowPhotoActivity.class).putExtra("list",
-                            (Serializable) selectedPicture).putExtra("position", position));
+                    startActivityForResult(new Intent(this, AddPhotoSummaryActivity.class).putExtra("list",
+                            (Serializable) selectedPicture).putExtra("position", position),REQUEST_SUMMARY);
                 }
             }catch (Exception e){
                 ExceptionUtils.ExceptionToUM(e, this, "ReleaseForumActivity");

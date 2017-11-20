@@ -633,7 +633,11 @@
             android:name=".view.SelectCurrentCaseActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
-
+        <!--添加图片描述页面-->
+        <activity
+            android:name=".view.AddPhotoSummaryActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
     </application>
 
 </manifest>

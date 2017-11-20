@@ -31,7 +31,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:layout_alignParentRight="true"
-                    android:text="发布"
+                    android:text="完成"
                     android:textSize="@dimen/font16"
                     android:paddingRight="10dp"
                     android:paddingLeft="10dp"
@@ -46,7 +46,7 @@
                     android:gravity="center"
                     android:textColor="@color/text_color2"
                     android:textSize="@dimen/front18"
-                    android:text="新增"
+                    android:text="添加描述"
                     />
                 <View
                     android:layout_width="match_parent"
@@ -54,75 +54,77 @@
                     android:background="@color/line_ccc"
                     android:layout_alignParentBottom="true"/>
             </RelativeLayout>
-
-            <com.zeyuan.kyq.widget.CustomScrollView
-                android:id="@+id/sv"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/main_color"
-                android:overScrollMode="never"
-                android:fadingEdge="none"
-                android:scrollbars="none">
-
-                <LinearLayout
-                    android:orientation="vertical"
+                android:layout_height="match_parent">
+                <com.zeyuan.kyq.widget.CustomScrollView
+                    android:id="@+id/sv"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:focusable="true"
-                    android:focusableInTouchMode="true"
-                    >
+                    android:layout_height="match_parent"
+                    android:background="@color/color_f0"
+                    android:overScrollMode="never"
+                    android:fadingEdge="none"
+                    android:scrollbars="none">
 
                     <LinearLayout
                         android:orientation="vertical"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/margin8"
-                        android:background="@color/white">
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        >
 
-                        <EditText
-                            android:id="@+id/et_remark"
+                        <LinearLayout
+                            android:orientation="vertical"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:minHeight="120dp"
-                            android:textColor="@color/text_color666"
-                            android:textSize="@dimen/font13"
-                            android:lineSpacingExtra="3dp"
-                            android:lineSpacingMultiplier="1.1"
-                            android:paddingLeft="@dimen/padding12"
-                            android:paddingRight="@dimen/padding12"
-                            android:paddingBottom="@dimen/padding12"
-                            android:paddingTop="@dimen/padding12"
-                            android:hint="添加图片说明"
-                            android:gravity="left|top"
-                            android:background="@null"/>
+                            android:layout_marginTop="@dimen/margin8"
+                            android:background="@color/white">
+                            <EditText
+                                android:id="@+id/et_remark"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:minHeight="110dp"
+                                android:textColor="@color/text_color666"
+                                android:textSize="@dimen/font13"
+                                android:lineSpacingExtra="3dp"
+                                android:lineSpacingMultiplier="1.1"
+                                android:paddingLeft="@dimen/padding12"
+                                android:paddingRight="@dimen/padding12"
+                                android:paddingBottom="@dimen/padding12"
+                                android:gravity="left|top"
+                                android:hint="添加图片说明"
+                                android:paddingTop="@dimen/padding12"
+                                android:background="@null"/>
+
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="400dp"
+                            android:layout_marginLeft="@dimen/margin48"
+                            android:layout_marginRight="@dimen/margin48"
+                            android:layout_marginTop="12dp">
+                            <ImageView
+                                android:id="@+id/iv"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="centerCrop"/>
+                        </RelativeLayout>
 
                     </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/tv_photo_type"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/status_title_height"
-                        android:textSize="@dimen/font14"
-                        android:paddingLeft="@dimen/padding12"
-                        android:paddingRight="@dimen/padding12"
-                        android:hint="@string/hint_add_photo"
-                        android:gravity="center_vertical"
-                        />
+                </com.zeyuan.kyq.widget.CustomScrollView>
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:layout_alignParentBottom="true"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:background="#40ffffff"/>
+            </RelativeLayout>
 
-                    <com.zeyuan.kyq.widget.MyGridView
-                        android:id="@+id/gv"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="@dimen/padding12"
-                        android:paddingRight="@dimen/padding12"
-                        android:paddingBottom="@dimen/padding12"
-                        android:horizontalSpacing="@dimen/small_margin"
-                        android:numColumns="4"
-                        android:verticalSpacing="@dimen/small_margin" />
-
-                </LinearLayout>
-
-            </com.zeyuan.kyq.widget.CustomScrollView>
 
         </LinearLayout>
 
