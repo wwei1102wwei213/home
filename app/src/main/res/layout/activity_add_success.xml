@@ -48,8 +48,9 @@
         </RelativeLayout>
 
         <ImageView
+            android:id="@+id/iv"
             android:layout_width="match_parent"
-            android:layout_height="160dp"
+            android:layout_height="145dp"
             android:src="@mipmap/mine"
             android:scaleType="centerCrop"/>
 
@@ -58,6 +59,7 @@
             android:layout_height="wrap_content"
             android:text="感谢您的提交!"
             android:textSize="@dimen/font20"
+            android:layout_marginTop="@dimen/margin10"
             android:textColor="@color/light_green"
             android:gravity="center_horizontal"/>
 

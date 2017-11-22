@@ -7,7 +7,6 @@ import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.view.animation.AlphaAnimation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -22,14 +21,12 @@ import com.zeyuan.kyq.bean.PhpUserInfoBean;
 import com.zeyuan.kyq.bean.SimilarCaseBean;
 import com.zeyuan.kyq.biz.Factory;
 import com.zeyuan.kyq.biz.HttpResponseInterface;
-import com.zeyuan.kyq.biz.forcallback.AdapterCallback;
 import com.zeyuan.kyq.biz.forcallback.OnSelectorItemSelectedListener;
 import com.zeyuan.kyq.fragment.dialog.ZYDialog;
 import com.zeyuan.kyq.utils.Const;
 import com.zeyuan.kyq.utils.Contants;
 import com.zeyuan.kyq.utils.IntegerVersionSignature;
 import com.zeyuan.kyq.utils.UserinfoData;
-import com.zeyuan.kyq.widget.RippleBackground;
 import com.zeyuan.kyq.widget.selector.SimilarCaseSelector;
 
 import java.util.ArrayList;
@@ -37,19 +34,19 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class SimilarActivity extends BaseActivity implements HttpResponseInterface, View.OnClickListener, OnSelectorItemSelectedListener {
-    FrameLayout fl_loading;
-    TextView tv_user_name;
-    //    TextView tv_search_tip;
+/**
+ * Created by Administrator on 2017-11-22.
+ */
+
+public class CommentProjectActivity extends BaseActivity implements HttpResponseInterface, View.OnClickListener, OnSelectorItemSelectedListener {
+
     FrameLayout fl_tips_or_selector;
     TextView tv_search_result_tips;
     SimilarCaseSelector similarCaseSelector;
-    RippleBackground rp_content;
-    // DiffuseView dv_search;
     Context context;
     List<SimilarCaseBean.DataEntity> similars = new ArrayList<>();
     boolean isDataLoadComplected = false;
-    boolean isShowed_5s = false;
+
     boolean refresh;
     boolean loading;
     XRefreshView xrv_similar_case;
@@ -67,11 +64,8 @@ public class SimilarActivity extends BaseActivity implements HttpResponseInterfa
         super.onCreate(savedInstanceState);
         context = this;
         //设置状态栏
-//        setStatusBarTranslucent();
-        setContentView(R.layout.activity_similar);
-//        initStatusBar();
+        setContentView(R.layout.activity_comment_list);
         initView();
-        startLoadingTimer();
         initData();
     }
 
@@ -80,11 +74,7 @@ public class SimilarActivity extends BaseActivity implements HttpResponseInterfa
         findViewById(R.id.ll_back).setOnClickListener(this);
         TextView tv_other_title = (TextView) findViewById(R.id.tv_other_title);
         tv_other_title.setText("相似案例");
-        fl_loading = (FrameLayout) findViewById(R.id.fl_loading);
-        rp_content = (RippleBackground) findViewById(R.id.rp_content);
-        //dv_search = (DiffuseView) findViewById(R.id.dv_search);
-        tv_user_name = (TextView) findViewById(R.id.tv_user_name);
-//        tv_search_tip = (TextView) findViewById(R.id.tv_search_tip);
+
 
         fl_tips_or_selector = (FrameLayout) findViewById(R.id.fl_tips_or_selector);
         tv_search_result_tips = (TextView) findViewById(R.id.tv_search_result_tips);
@@ -92,7 +82,7 @@ public class SimilarActivity extends BaseActivity implements HttpResponseInterfa
         similarCaseSelector.setOnSelectorItemSelectedListener(this);
         xrv_similar_case = (XRefreshView) findViewById(R.id.xrv_similar_case);
         rcv_similar_case = (RecyclerView) findViewById(R.id.rcv_similar_case);
-        similarCaseAdapter = new SimilarCaseRecAdapter(context, similars, new AdapterCallback() {
+        /*similarCaseAdapter = new SimilarCaseRecAdapter(context, similars, new AdapterCallback() {
             @Override
             public void forAdapterCallback(int pos, int tag, String id, boolean flag, Object obj) {
                 careuid = id;
@@ -103,7 +93,7 @@ public class SimilarActivity extends BaseActivity implements HttpResponseInterfa
                     cancelFollow();
                 }
             }
-        });
+        });*/
         layoutManager = new LinearLayoutManager(context);
         rcv_similar_case.setHasFixedSize(true);
         rcv_similar_case.setLayoutManager(layoutManager);
@@ -122,7 +112,7 @@ public class SimilarActivity extends BaseActivity implements HttpResponseInterfa
                         refresh = true;
                         page = 0;
                         initData();
-                        Factory.postPhp(SimilarActivity.this, Const.PApi_getSimilarCase);
+//                        Factory.postPhp(SimilarActivity.this, Const.PApi_getSimilarCase);
                     }
                 }, 500);
             }
@@ -133,7 +123,7 @@ public class SimilarActivity extends BaseActivity implements HttpResponseInterfa
                     public void run() {
                         loading = true;
                         page++;
-                        Factory.postPhp(SimilarActivity.this, Const.PApi_getSimilarCase);
+//                        Factory.postPhp(SimilarActivity.this, Const.PApi_getSimilarCase);
 
                     }
                 }, 500);
@@ -156,7 +146,7 @@ public class SimilarActivity extends BaseActivity implements HttpResponseInterfa
     }
 
     private void initData() {
-        tv_user_name.setText(UserinfoData.getInfoname(this));
+
     }
 
     @Override
@@ -219,7 +209,7 @@ public class SimilarActivity extends BaseActivity implements HttpResponseInterfa
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
-                        Factory.postPhp(SimilarActivity.this, Const.PCareDel);
+//                        Factory.postPhp(SimilarActivity.this, Const.PCareDel);
                         dialog.dismiss();
                     }
                 })
@@ -258,17 +248,13 @@ public class SimilarActivity extends BaseActivity implements HttpResponseInterfa
         if (flag == Const.PApi_getSimilarCase) {
             SimilarCaseBean scb = (SimilarCaseBean) response;
             isDataLoadComplected = true;
-            setSimilarCaseCount(scb.getCountNum());
-            hideLoading();
+            hideLoading(flag);
             if (scb.getData() != null && scb.getData().size() > 0) {
                 if (page == 0) {
                     similars.clear();
                     similarCaseAdapter.setStepId(stepId);
                 }
                 similars.addAll(scb.getData());
-                if (fl_loading.getVisibility() != View.VISIBLE) {//如果搜索页面正在显示，不更新recycleView
-                    similarCaseAdapter.notifyDataSetChanged();
-                }
                 overLoading(0);
             } else {
                 overLoading(2);
@@ -320,34 +306,6 @@ public class SimilarActivity extends BaseActivity implements HttpResponseInterfa
         }
     }
 
-    private void startLoadingTimer() {
-        rp_content.startRippleAnimation();
-        //匹配界面倒计时
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                isShowed_5s = true;
-                rp_content.stopRippleAnimation();
-                hideLoading();
-            }
-        }, 5000);
-    }
-
-    //关闭搜索界面并显示匹配的数量
-    private void hideLoading() {
-        //第一次打开的时候至少显示5s匹配页面，并且数据已加载完成，并且匹配页面是在显示状态
-        if (isShowed_5s && isDataLoadComplected && fl_loading.getVisibility() == View.VISIBLE) {
-            AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.1f);
-            alphaAnimation.setDuration(100);
-            fl_loading.startAnimation(alphaAnimation);
-            fl_loading.setVisibility(View.GONE);
-            showSimilarCaseCount();
-            similarCaseAdapter.notifyDataSetChanged();
-        } else if (isShowed_5s && isDataLoadComplected) {
-            showSimilarCaseCount();
-        }
-    }
-
     private void overLoading(int tag) {
         if (tag == 0) {
             if (refresh) {
@@ -378,46 +336,12 @@ public class SimilarActivity extends BaseActivity implements HttpResponseInterfa
         if (loading) loading = false;
     }
 
-    Handler handler = new Handler();
 
-    //设置匹配出的相似案例数量
-    private void setSimilarCaseCount(int count) {
-        String scc;
-        if (count > 10000)
-            scc = "9999+";
-        else
-            scc = count + "";
-        tv_search_result_tips.setText("成功匹配出" + scc + "位有对应抗癌经验的人");
-    }
-
-    private void showSimilarCaseCount() {
-        if (isNeedShowSearchResult) {
-            similarCaseSelector.hide();
-            AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
-            alphaAnimation.setDuration(300);
-            tv_search_result_tips.startAnimation(alphaAnimation);
-            tv_search_result_tips.setVisibility(View.VISIBLE);
-            isNeedShowSearchResult = false;
-            showSelector();
-        }
-    }
 
     //显示条件选择器
     private void showSelector() {
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
-                alphaAnimation.setDuration(300);
-                tv_search_result_tips.startAnimation(alphaAnimation);
-                tv_search_result_tips.setVisibility(View.GONE);
-                if (fl_tips_or_selector.getChildCount() == 1) {
-                    fl_tips_or_selector.addView(similarCaseSelector.getView());
-                }
-                similarCaseSelector.show();
-
-            }
-        }, 3000);
+        fl_tips_or_selector.addView(similarCaseSelector.getView());
+        similarCaseSelector.show();
     }
 
 

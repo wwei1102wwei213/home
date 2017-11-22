@@ -29,6 +29,7 @@ import com.zeyuan.kyq.utils.CDNHelper;
 import com.zeyuan.kyq.utils.Const;
 import com.zeyuan.kyq.utils.ConstUtils;
 import com.zeyuan.kyq.utils.Contants;
+import com.zeyuan.kyq.utils.DecryptUtils;
 import com.zeyuan.kyq.utils.ExceptionUtils;
 import com.zeyuan.kyq.utils.LogCustom;
 import com.zeyuan.kyq.utils.PhotoUtils;
@@ -102,7 +103,7 @@ public class AddCommentActivity extends BaseActivity implements AdapterView.OnIt
     //滑动器
     private CustomScrollView sv;
     //新增TYPE选项
-    private TextView tv_type_1,tv_type_2,tv_type_3,tv_type_4;
+    private TextView tv_type_1,tv_type_2,tv_type_3;
     private void initView(){
         tv_save = (TextView)findViewById(R.id.tv_save);
 
@@ -121,21 +122,20 @@ public class AddCommentActivity extends BaseActivity implements AdapterView.OnIt
         tv_type_1 = (TextView) findViewById(R.id.tv_add_type_1);
         tv_type_2 = (TextView) findViewById(R.id.tv_add_type_2);
         tv_type_3 = (TextView) findViewById(R.id.tv_add_type_3);
-        tv_type_4 = (TextView) findViewById(R.id.tv_add_type_4);
+
 
         tv_type_1.setOnClickListener(this);
         tv_type_2.setOnClickListener(this);
         tv_type_3.setOnClickListener(this);
-        tv_type_4.setOnClickListener(this);
 
         setTypeView(type);
     }
-
+//1.项目2.医生3.医院
     //设置监听事件
 //    String hint = "";
-    String[] hints = {"请输入医生姓名", "请输入医院名称", "请输入秘方名称", "请输入名称"};
-    String[] typeNames = {"医生姓名", "医院名称", "秘方名称", "其他名称"};
-    String[] typeTxts = {"对医生的描述", "对医院的描述", "对秘方的描述", "对其他的描述"};
+    String[] hints = {"请输入项目名称","请输入医生姓名", "请输入医院名称"};
+    String[] typeNames = {"项目名称","医生姓名", "医院名称" };
+    String[] typeTxts = {"对项目的描述","对医生的描述", "对医院的描述" };
     private void initListener(){
         findViewById(R.id.iv_back).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -147,15 +147,6 @@ public class AddCommentActivity extends BaseActivity implements AdapterView.OnIt
         mLayout.setOnSoftKeyboardListener(this);
         gv.setOnItemClickListener(this);
         gv.setOnItemLongClickListener(this);
-       /* if (type==1){
-            hint = "请输入医生姓名";
-        } else if (type==2){
-            hint = "请输入医生姓名";
-        } else if (type==3){
-            hint = "请输入医院名称";
-        } else {
-            hint = "请输入名称";
-        }*/
         et_hospital.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
@@ -184,26 +175,17 @@ public class AddCommentActivity extends BaseActivity implements AdapterView.OnIt
                 tv_type_1.setSelected(true);
                 tv_type_2.setSelected(false);
                 tv_type_3.setSelected(false);
-                tv_type_4.setSelected(false);
                 break;
             case 2:
                 tv_type_1.setSelected(false);
                 tv_type_2.setSelected(true);
                 tv_type_3.setSelected(false);
-                tv_type_4.setSelected(false);
                 break;
             case 3:
                 tv_type_1.setSelected(false);
                 tv_type_2.setSelected(false);
                 tv_type_3.setSelected(true);
-                tv_type_4.setSelected(false);
                 break;
-            case 4:
-                tv_type_1.setSelected(false);
-                tv_type_2.setSelected(false);
-                tv_type_3.setSelected(false);
-                tv_type_4.setSelected(true);
-              break;
         }
         tv_type_name.setText(typeNames[index-1]);
         et_hospital.setText("");
@@ -236,81 +218,27 @@ public class AddCommentActivity extends BaseActivity implements AdapterView.OnIt
                     setTypeView(3);
                 }
                 break;
-            case R.id.tv_add_type_4:
-                if (type!=4){
-                    type = 4;
-                    setTypeView(4);
-                }
-                break;
         }
     }
 
 
 
     private void toSaveData(){
-        /*if (type == Const.RECORD_TYPE_13){
-            if ((check==null||check.size()==0)&&!hasSymptomRemark && TextUtils.isEmpty(et_hospital.getText().toString())
-                    &&TextUtils.isEmpty(et_doctor.getText().toString())
-                    &&TextUtils.isEmpty(et_remark.getText().toString())
-                    &&(selectedPicture==null||selectedPicture.size()==0)){
-                showToast("请至少填写一项数据");
-                return;
-            }
-            if (TextUtils.isEmpty(RecordTime)){
-                showToast("请选择日期");
-                return;
-            }
-            toUpdateData();
-        } else if (type == Const.RECORD_TYPE_11 || type == Const.RECORD_TYPE_12){
-            if ((check==null||check.size()==0)&& TextUtils.isEmpty(et_hospital.getText().toString())
-                    &&TextUtils.isEmpty(et_doctor.getText().toString())
-                    &&TextUtils.isEmpty(et_remark.getText().toString())
-                    &&(selectedPicture==null||selectedPicture.size()==0)){
-                showToast("请至少填写一项数据");
-                return;
-            }
-            if (TextUtils.isEmpty(RecordTime)){
-                showToast("请选择日期");
-                return;
-            }
-            toUpdateData();
-        } else if(type == Const.RECORD_TYPE_14){
-            if (TextUtils.isEmpty(RecordTime)){
-                showToast("请选择日期");
-                return;
-            }
-
-            toUpdateData();
-
-        } else if(type == Const.RECORD_TYPE_15){
-
-            if (TextUtils.isEmpty(RecordTime)){
-                showToast("请选择日期");
-                return;
-            }
-
-            toUpdateData();
-        } else {
-            toSave();
-        }*/
+        toSave();
     }
 
     private ProgressDialog mProgressDialog;
     private void toSave(){
-
-        /*if (TextUtils.isEmpty(RecordTime)){
-            showToast("请选择日期");
+        if (TextUtils.isEmpty(et_hospital.getText().toString())){
+            showToast("请输入名称");
             return;
         }
-
-        if (TextUtils.isEmpty(et_hospital.getText().toString())
-                &&TextUtils.isEmpty(et_doctor.getText().toString())
-                &&TextUtils.isEmpty(et_remark.getText().toString())
-                &&(selectedPicture==null||selectedPicture.size()==0)){
-            showToast("请至少填写一项数据");
+        /*&&(selectedPicture==null||selectedPicture.size()==0)*/
+        if (TextUtils.isEmpty(et_remark.getText().toString())){
+            showToast("请输入描述");
             return;
         }
-        toUpdateData();*/
+        toUpdateData();
     }
 
     private void toUpdateData(){
@@ -326,26 +254,7 @@ public class AddCommentActivity extends BaseActivity implements AdapterView.OnIt
     }
 
     private void toPost(){
-        switch (type){
-            case Const.RECORD_TYPE_13:
-                Factory.postPhp(this, Const.PAddStep2Perform);
-                break;
-            case Const.RECORD_TYPE_11:
-                Factory.postPhp(this, Const.PAddTransferGen);
-                break;
-            case Const.RECORD_TYPE_12:
-                Factory.postPhp(this, Const.PAddTransferRecord);
-                break;
-            case Const.RECORD_TYPE_14:
-                Factory.postPhp(this, Const.PAddQuotaMasterSlave);
-                break;
-            case Const.RECORD_TYPE_15:
-                Factory.postPhp(this, Const.PAddCancerMark);
-                break;
-            default:
-                Factory.postPhp(this, Const.PAddPresentationOther);
-                break;
-        }
+        Factory.postPhp(this, Const.PApi_addProjectInfo);
     }
 
     //图片url集合
@@ -431,16 +340,19 @@ public class AddCommentActivity extends BaseActivity implements AdapterView.OnIt
     public Map getParamInfo(int tag) {
         Map<String,String> map = new HashMap<>();
         map.put(Contants.InfoID, UserinfoData.getInfoID(this));
-        String hospital = et_hospital.getText().toString();
-        if (!TextUtils.isEmpty(hospital)){
-            map.put("hospital",hospital);
-        }
-
-        if (urls!=null&&urls.size()>0){
-            map.put("pic", ConstUtils.getParamsForPic(urls));
-        }
-        if (tag == Const.PAddPresentationOther){
-            map.put("Type",type+"");
+        if (tag == Const.PApi_addProjectInfo){
+            if (urls!=null&&urls.size()>0){
+                map.put("PicUrl", ConstUtils.getParamsForPic(urls));
+            }
+            String Pname = et_hospital.getText().toString();
+            if (!TextUtils.isEmpty(Pname)){
+                map.put("Pname",Pname);
+            }
+            String Ptext = et_remark.getText().toString();
+            if (!TextUtils.isEmpty(Ptext)){
+                map.put("Ptext", DecryptUtils.encodeAndURL(Ptext));
+            }
+            map.put("TypeID",type+"");
         }
         return map;
     }
@@ -452,19 +364,18 @@ public class AddCommentActivity extends BaseActivity implements AdapterView.OnIt
 
     @Override
     public void toActivity(Object response, int flag) {
-        if (flag == Const.PAddPresentationOther || flag == Const.PAddStep2Perform
-                || flag == Const.PAddTransferGen || flag == Const.PAddTransferRecord
-                || flag == Const.PAddQuotaMasterSlave || flag == Const.PAddCancerMark){
+        if (flag == Const.PApi_addProjectInfo ){
             PhpUserInfoBean bean = (PhpUserInfoBean)response;
             if (Const.RESULT.equals(bean.getiResult())){
-                showToast("保存成功");
+//                showToast("新增成功");
                 if (REQUEST_FLAG){
                     Request_Is_Changed = true;
                 }
                 exit = 1;
+                startActivity(new Intent(this, AddCommentSuccessActivity.class).putExtra("add_success_type",0));
                 finish();
             }else {
-                showToast("保存失败");
+                showToast("新增失败");
             }
         }
     }
@@ -476,9 +387,7 @@ public class AddCommentActivity extends BaseActivity implements AdapterView.OnIt
 
     @Override
     public void hideLoading(int flag) {
-        if (flag == Const.PAddPresentationOther || flag == Const.PAddStep2Perform
-                || flag == Const.PAddTransferGen || flag == Const.PAddTransferRecord
-                || flag == Const.PAddQuotaMasterSlave){
+        if (flag == Const.PApi_addProjectInfo ){
             if (mProgressDialog!=null) mProgressDialog.dismiss();
             tv_save.setClickable(true);
         }
@@ -486,9 +395,7 @@ public class AddCommentActivity extends BaseActivity implements AdapterView.OnIt
 
     @Override
     public void showError(int flag) {
-        if (flag == Const.PAddPresentationOther || flag == Const.PAddStep2Perform
-                || flag == Const.PAddTransferGen || flag == Const.PAddTransferRecord
-                || flag == Const.PAddQuotaMasterSlave){
+        if (flag == Const.PApi_addProjectInfo ){
             if (mProgressDialog!=null) mProgressDialog.dismiss();
             tv_save.setClickable(true);
         }
@@ -625,9 +532,10 @@ public class AddCommentActivity extends BaseActivity implements AdapterView.OnIt
             } else {
                 super.finish();
             }
+//            super.finish();
         }else if (exit == 1){
             if (REQUEST_FLAG){
-                this.setResult(Const.REQUEST_CODE_RECORD_ACTIVITY, getIntent().putExtra("isChanged", Request_Is_Changed));
+                this.setResult(1, getIntent().putExtra("isChanged", Request_Is_Changed));
             }
             super.finish();
         }else {

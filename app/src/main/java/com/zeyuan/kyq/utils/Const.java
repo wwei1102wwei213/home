@@ -427,6 +427,9 @@ public final class Const {
     //修改手机号码
     public static final int PApi_Edit_Moblie = 135;
     public static final String p_Api_Edit_Moblie = P_IP_PORT_2 + "Edit_Moblie";
+    //新增医生 项目等
+    public static final int PApi_addProjectInfo = 136;
+    public static final String p_Api_addProjectInfo = P_IP_PORT_2 + "addProjectInfo";
 
 
 /*********************************网络模块相关字段***end*******************************************/

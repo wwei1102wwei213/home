@@ -332,7 +332,9 @@ public class GetRespForPhpBiz {
             case Const.PApi_Edit_Moblie:
                 url = Const.p_Api_Edit_Moblie;
                 break;
-
+            case Const.PApi_addProjectInfo:
+                url = Const.p_Api_addProjectInfo;
+                break;
 
         }
         LogCustom.i(Const.TAG.ZY_HTTP, "请求地址：" + url);
@@ -580,6 +582,9 @@ public class GetRespForPhpBiz {
                     o = mGson.fromJson(response, RecommendUserBean.class);
                     break;
                 case Const.PApi_Edit_Moblie:
+                    o = mGson.fromJson(response, PhpUserInfoBean.class);
+                    break;
+                case Const.PApi_addProjectInfo:
                     o = mGson.fromJson(response, PhpUserInfoBean.class);
                     break;
             }

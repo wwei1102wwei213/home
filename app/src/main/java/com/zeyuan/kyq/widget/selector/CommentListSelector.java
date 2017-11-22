@@ -18,10 +18,10 @@ import com.zeyuan.kyq.widget.selector.popupWindow.StepTypePopupWindow;
 import com.zeyuan.kyq.widget.selector.popupWindow.TransferPopupWindow;
 
 /**
- * Created by Administrator on 2017/5/2.
- * 相似案例的条件选择器
+ * Created by Administrator on 2017-11-22.
  */
-public class SimilarCaseSelector implements View.OnClickListener {
+
+public class CommentListSelector implements View.OnClickListener {
     public final static int TYPE_CANCER = 0;
     public final static int TYPE_TRANSFER = 1;
     public final static int TYPE_STEP = 2;
@@ -46,7 +46,7 @@ public class SimilarCaseSelector implements View.OnClickListener {
         this.onSelectorItemSelectedListener = onSelectorItemSelectedListener;
     }
 
-    public SimilarCaseSelector(Activity context, ViewGroup group) {
+    public CommentListSelector(Activity context, ViewGroup group) {
         this.context = context;
         rootView = LayoutInflater.from(context).inflate(R.layout.selector_similar_case, group, false);
         fl_cancer_type = (FrameLayout) rootView.findViewById(R.id.fl_cancer_type);

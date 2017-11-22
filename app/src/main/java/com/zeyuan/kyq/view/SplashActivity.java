@@ -23,27 +23,21 @@ import com.umeng.analytics.MobclickAgent;
 import com.zeyuan.kyq.R;
 import com.zeyuan.kyq.app.BaseActivity;
 import com.zeyuan.kyq.application.ZYApplication;
-import com.zeyuan.kyq.bean.PatientDetailBean;
 import com.zeyuan.kyq.biz.ComeIntoBiz;
-import com.zeyuan.kyq.biz.HttpResponseInterface;
 import com.zeyuan.kyq.service.ZYKaqService;
 import com.zeyuan.kyq.utils.Const;
-import com.zeyuan.kyq.utils.Contants;
 import com.zeyuan.kyq.utils.ExceptionUtils;
 import com.zeyuan.kyq.utils.NetworkUtils;
-import com.zeyuan.kyq.utils.Secret.HttpSecretUtils;
 import com.zeyuan.kyq.utils.UserinfoData;
 
 import java.lang.ref.WeakReference;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.UUID;
 
 
 /**
  * 初始页面
  */
-public class SplashActivity extends BaseActivity implements ViewSwitcher.ViewFactory,View.OnTouchListener,HttpResponseInterface{
+public class SplashActivity extends BaseActivity implements ViewSwitcher.ViewFactory,View.OnTouchListener{
 
     private static final String TAG = SplashActivity.class.getSimpleName();
     private MyHandler mHandler;
@@ -233,7 +227,7 @@ public class SplashActivity extends BaseActivity implements ViewSwitcher.ViewFac
 
     private void toNext(){
 //        Factory.post(this, Const.EGetPatientDetail);
-        UserinfoData.saveInfoID(this, "9810");
+        UserinfoData.saveInfoID(this, "280180");
         String infoID = UserinfoData.getInfoID(this);
         UserinfoData.saveIsHaveCreateInfo(this,"1");
         String isHaveCreateInfo = UserinfoData.getIsHaveCreateInfo(this);
@@ -243,46 +237,6 @@ public class SplashActivity extends BaseActivity implements ViewSwitcher.ViewFac
             startActivity(new Intent(SplashActivity.this, GuideActivity.class));
         }
         finish();
-    }
-
-    @Override
-    public Map getParamInfo(int tag) {
-        Map<String,String> map = new HashMap<>();
-        map.put(Contants.InfoID, "9810");
-        return map;
-    }
-
-    @Override
-    public byte[] getPostParams(int flag) {
-        String[] args = null;
-        args = new String[]{
-                Contants.InfoID,UserinfoData.getInfoID(this)
-        };
-        return HttpSecretUtils.getParamString(args);
-    }
-
-    @Override
-    public void toActivity(Object response, int flag) {
-        PatientDetailBean bean = (PatientDetailBean)response;
-        if (Const.RESULT.equals(bean.iResult)){
-            UserinfoData.saveUserData(this, bean);
-            toNextStep();
-        }
-    }
-
-    @Override
-    public void showLoading(int flag) {
-
-    }
-
-    @Override
-    public void hideLoading(int flag) {
-
-    }
-
-    @Override
-    public void showError(int flag) {
-
     }
 
     private void toNextStep(){
