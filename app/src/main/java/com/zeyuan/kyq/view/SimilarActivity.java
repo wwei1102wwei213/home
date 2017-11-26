@@ -23,7 +23,6 @@ import com.zeyuan.kyq.bean.SimilarCaseBean;
 import com.zeyuan.kyq.biz.Factory;
 import com.zeyuan.kyq.biz.HttpResponseInterface;
 import com.zeyuan.kyq.biz.forcallback.AdapterCallback;
-import com.zeyuan.kyq.biz.forcallback.OnSelectorItemSelectedListener;
 import com.zeyuan.kyq.fragment.dialog.ZYDialog;
 import com.zeyuan.kyq.utils.Const;
 import com.zeyuan.kyq.utils.Contants;
@@ -37,7 +36,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class SimilarActivity extends BaseActivity implements HttpResponseInterface, View.OnClickListener, OnSelectorItemSelectedListener {
+public class SimilarActivity extends BaseActivity implements HttpResponseInterface, View.OnClickListener, SimilarCaseSelector.OnSelectorItemSelectedListener {
     FrameLayout fl_loading;
     TextView tv_user_name;
     //    TextView tv_search_tip;

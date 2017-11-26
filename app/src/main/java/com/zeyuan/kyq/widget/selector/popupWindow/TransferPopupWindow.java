@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import com.zeyuan.kyq.R;
 import com.zeyuan.kyq.biz.Factory;
-import com.zeyuan.kyq.biz.forcallback.OnSelectorItemSelectedListener;
 import com.zeyuan.kyq.utils.Const;
 import com.zeyuan.kyq.widget.FlowLayout;
 import com.zeyuan.kyq.widget.selector.SimilarCaseSelector;
@@ -30,9 +29,9 @@ public class TransferPopupWindow extends PopupWindow {
     Activity context;
     private List<String> mData;
     Map<String, String> map;
-    private OnSelectorItemSelectedListener onSelectorItemSelectedListener;
+    private SimilarCaseSelector.OnSelectorItemSelectedListener onSelectorItemSelectedListener;
 
-    public void setOnSelectorItemSelectedListener(OnSelectorItemSelectedListener onSelectorItemSelectedListener) {
+    public void setOnSelectorItemSelectedListener(SimilarCaseSelector.OnSelectorItemSelectedListener onSelectorItemSelectedListener) {
         this.onSelectorItemSelectedListener = onSelectorItemSelectedListener;
     }
 

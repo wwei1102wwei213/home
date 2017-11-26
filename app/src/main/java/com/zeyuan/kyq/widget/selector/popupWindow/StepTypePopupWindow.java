@@ -16,7 +16,6 @@ import com.zeyuan.kyq.R;
 import com.zeyuan.kyq.adapter.StepTypeLeftAdapter;
 import com.zeyuan.kyq.adapter.StepTypeRightAdapter;
 import com.zeyuan.kyq.biz.Factory;
-import com.zeyuan.kyq.biz.forcallback.OnSelectorItemSelectedListener;
 import com.zeyuan.kyq.utils.Const;
 import com.zeyuan.kyq.widget.selector.SimilarCaseSelector;
 
@@ -44,10 +43,10 @@ public class StepTypePopupWindow extends PopupWindow implements AdapterView.OnIt
     private StepTypeRightAdapter rightAdapter;
     private LinkedHashMap<String, List<String>> cureData;
     private SparseArray<ConfStepEntity> sparseArray;
-    private OnSelectorItemSelectedListener onSelectorItemSelectedListener;
+    private SimilarCaseSelector.OnSelectorItemSelectedListener onSelectorItemSelectedListener;
 
 
-    public void setOnSelectorItemSelectedListener(OnSelectorItemSelectedListener onSelectorItemSelectedListener) {
+    public void setOnSelectorItemSelectedListener(SimilarCaseSelector.OnSelectorItemSelectedListener onSelectorItemSelectedListener) {
         this.onSelectorItemSelectedListener = onSelectorItemSelectedListener;
     }
 

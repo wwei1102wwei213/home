@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f4f4f4"
-    tools:context="com.zeyuan.kyq.view.SimilarActivity">
+    tools:context="com.zeyuan.kyq.view.CommentProjectActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,29 +18,89 @@
         <FrameLayout
             android:id="@+id/fl_tips_or_selector"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
+            android:layout_height="wrap_content"
+            android:focusable="true">
+            <include layout="@layout/selector_comment_case"/>
 
         </FrameLayout>
 
         <include layout="@layout/line_view_ddd" />
-
-        <com.andview.refreshview.XRefreshView
-            android:id="@+id/xrv_similar_case"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#F0F0F0">
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <View
+                    android:id="@+id/v_bottom_temp"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_alignParentBottom="true"/>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_above="@+id/v_bottom_temp">
+                    <com.andview.refreshview.XRefreshView
+                        android:id="@+id/xrv_similar_case"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#f4f4f4">
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/rcv_similar_case"
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/rcv_similar_case"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="#ffffff"
+                            android:scrollbars="vertical">
+
+                        </android.support.v7.widget.RecyclerView>
+
+                    </com.andview.refreshview.XRefreshView>
+                </LinearLayout>
+                <RelativeLayout
+                    android:id="@+id/v_bottom"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/bg_add_comment_type"
+                    android:layout_alignParentBottom="true">
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:layout_centerInParent="true">
+                        <ImageView
+                            android:id="@+id/iv_bottom_add_type"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/icon_add_project"/>
+                        <TextView
+                            android:id="@+id/tv_bottom_add_type"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/font16"
+                            android:textStyle="bold"
+                            android:paddingLeft="5dp"
+                            android:paddingTop="2dp"
+                            android:text="新增项目"/>
+                    </LinearLayout>
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <FrameLayout
+                android:id="@+id/fl"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scrollbars="vertical">
+                android:visibility="gone">
 
-            </android.support.v7.widget.RecyclerView>
+            </FrameLayout>
+        </FrameLayout>
 
-        </com.andview.refreshview.XRefreshView>
     </LinearLayout>
+
 
 
 </RelativeLayout>

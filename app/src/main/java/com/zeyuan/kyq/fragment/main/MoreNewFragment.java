@@ -64,8 +64,8 @@ import com.zeyuan.kyq.utils.LogCustom;
 import com.zeyuan.kyq.utils.Secret.HttpSecretUtils;
 import com.zeyuan.kyq.utils.UiUtils;
 import com.zeyuan.kyq.utils.UserinfoData;
-import com.zeyuan.kyq.view.AddCommentActivity;
 import com.zeyuan.kyq.view.BindingPhoneActivity;
+import com.zeyuan.kyq.view.CommentProjectActivity;
 import com.zeyuan.kyq.view.DrawCashActivity;
 import com.zeyuan.kyq.view.GuideActivity;
 import com.zeyuan.kyq.view.InfoCenterActivity;
@@ -175,7 +175,7 @@ public class MoreNewFragment extends BaseZyFragment implements View.OnClickListe
                 @Override
                 public void onClick(View v) {
 //                    startActivity(new Intent(context, AboutActivity.class));
-                    startActivity(new Intent(context, AddCommentActivity.class));
+                    startActivity(new Intent(context, CommentProjectActivity.class).putExtra("Comment_Project_Type",2));
                 }
             });
 

@@ -492,15 +492,7 @@
         <activity
             android:name=".view.RemindedFriendsListActivity"
             android:screenOrientation="portrait" />
-        <!--新增成功和评价医生页面-->
-        <activity
-            android:name=".view.AddCommentSuccessActivity"
-            android:screenOrientation="portrait" />
-        <!-- 新增 -->
-        <activity
-            android:name=".view.AddCommentActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize|stateHidden" />
+
 
         <!-- Service组件 -->
         <service
@@ -638,6 +630,25 @@
             android:name=".view.AddPhotoSummaryActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize"/>
+        <!--添加图片描述页面-->
+        <activity
+            android:name=".view.CommentProjectActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
+        <!--新增成功和评价医生页面-->
+        <activity
+            android:name=".view.AddCommentSuccessActivity"
+            android:screenOrientation="portrait" />
+        <!-- 新增 -->
+        <activity
+            android:name=".view.AddCommentActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <!-- 新增评价 -->
+        <activity
+            android:name=".view.AddCommentAllActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
     </application>
 
 </manifest>

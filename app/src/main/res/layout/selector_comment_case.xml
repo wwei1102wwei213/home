@@ -6,13 +6,13 @@
     android:orientation="horizontal">
 
     <FrameLayout
-        android:id="@+id/fl_cancer_type"
+        android:id="@+id/v1"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1">
 
         <TextView
-            android:id="@+id/tv_cancer_type"
+            android:id="@+id/tv_where"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -27,13 +27,13 @@
     </FrameLayout>
 
     <FrameLayout
-        android:id="@+id/fl_move"
+        android:id="@+id/v2"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1">
 
         <TextView
-            android:id="@+id/tv_move"
+            android:id="@+id/tv_cure_type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -48,13 +48,13 @@
     </FrameLayout>
 
     <FrameLayout
-        android:id="@+id/fl_step_type"
+        android:id="@+id/v3"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1">
 
         <TextView
-            android:id="@+id/tv_step_type"
+            android:id="@+id/tv_cancer_type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -69,13 +69,13 @@
     </FrameLayout>
 
     <FrameLayout
-        android:id="@+id/fl_change"
+        android:id="@+id/v4"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1">
 
         <TextView
-            android:id="@+id/tv_change"
+            android:id="@+id/tv_order"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

@@ -692,6 +692,25 @@ public class ConstUtils {
     }
 
     /**
+     * 将List转换成字符串，并将子项用","隔开
+     *
+     * @param list
+     * @return
+     */
+    public static String getParamsForPicSummary(List<String> list){
+        if (list==null||list.size()==0) return "";
+        String result = "";
+        for (int i=0;i<list.size();i++){
+            if (i==0) {
+                result += DecryptUtils.encode(list.get(0));
+            }else {
+                result += "," +DecryptUtils.encode(list.get(i));
+            }
+        }
+        return result;
+    }
+
+    /**
      * 将阶段数据转成参数串
      *
      * @param bean

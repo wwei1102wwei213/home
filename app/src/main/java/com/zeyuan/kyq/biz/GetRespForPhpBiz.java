@@ -26,6 +26,7 @@ import com.zeyuan.kyq.Entity.UserReplyEntity;
 import com.zeyuan.kyq.application.ZYApplication;
 import com.zeyuan.kyq.bean.AdverticingListBean;
 import com.zeyuan.kyq.bean.ClickStatisticsBean;
+import com.zeyuan.kyq.bean.CommentProjectBean;
 import com.zeyuan.kyq.bean.CurrentNumBean;
 import com.zeyuan.kyq.bean.EffectiveBean;
 import com.zeyuan.kyq.bean.ForumInfoBean;
@@ -335,6 +336,18 @@ public class GetRespForPhpBiz {
             case Const.PApi_addProjectInfo:
                 url = Const.p_Api_addProjectInfo;
                 break;
+            case Const.PApi_getProjectList:
+                url = Const.p_Api_getProjectList;
+                break;
+            case Const.PApi_getDocList:
+                url = Const.p_Api_getDocList;
+                break;
+            case Const.PApi_getHosList:
+                url = Const.p_Api_getHosList;
+                break;
+            case Const.PApi_addPcomment:
+                url = Const.p_Api_addPcomment;
+                break;
 
         }
         LogCustom.i(Const.TAG.ZY_HTTP, "请求地址：" + url);
@@ -585,6 +598,18 @@ public class GetRespForPhpBiz {
                     o = mGson.fromJson(response, PhpUserInfoBean.class);
                     break;
                 case Const.PApi_addProjectInfo:
+                    o = mGson.fromJson(response, PhpUserInfoBean.class);
+                    break;
+                case Const.PApi_getProjectList:
+                    o = mGson.fromJson(response, CommentProjectBean.class);
+                    break;
+                case Const.PApi_getDocList:
+                    o = mGson.fromJson(response, CommentProjectBean.class);
+                    break;
+                case Const.PApi_getHosList:
+                    o = mGson.fromJson(response, CommentProjectBean.class);
+                    break;
+                case Const.PApi_addPcomment:
                     o = mGson.fromJson(response, PhpUserInfoBean.class);
                     break;
             }

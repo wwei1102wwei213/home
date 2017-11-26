@@ -9,7 +9,6 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.zeyuan.kyq.R;
-import com.zeyuan.kyq.biz.forcallback.OnSelectorItemSelectedListener;
 import com.zeyuan.kyq.utils.MapDataUtils;
 import com.zeyuan.kyq.utils.UserinfoData;
 import com.zeyuan.kyq.widget.selector.popupWindow.CancerTypePopupWindow;
@@ -270,6 +269,8 @@ public class SimilarCaseSelector implements View.OnClickListener {
         mutationTypePopupWindow.showPopupWindow(rootView, cancerId);
     }
 
-
+    public interface OnSelectorItemSelectedListener {
+        void onSelectorItemSelected(String id, String name, int type);
+    }
 
 }

@@ -430,6 +430,18 @@ public final class Const {
     //新增医生 项目等
     public static final int PApi_addProjectInfo = 136;
     public static final String p_Api_addProjectInfo = P_IP_PORT_2 + "addProjectInfo";
+    //获取项目列表
+    public static final int PApi_getProjectList = 137;
+    public static final String p_Api_getProjectList = P_IP_PORT_2 + "getProjectList";
+    //获取医生列表
+    public static final int PApi_getDocList = 138;
+    public static final String p_Api_getDocList = P_IP_PORT_2 + "getDocList";
+    //获取医院列表
+    public static final int PApi_getHosList = 139;
+    public static final String p_Api_getHosList = P_IP_PORT_2 + "getHosList";
+    //添加评价
+    public static final int PApi_addPcomment = 140;
+    public static final String p_Api_addPcomment = P_IP_PORT_2 + "addPcomment";
 
 
 /*********************************网络模块相关字段***end*******************************************/

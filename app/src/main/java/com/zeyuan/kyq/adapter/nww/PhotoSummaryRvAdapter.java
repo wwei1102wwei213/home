@@ -58,7 +58,7 @@ public class PhotoSummaryRvAdapter extends BaseRecyclerAdapter<PhotoSummaryRvAda
                     index = position;
                     notifyDataSetChanged();
                     if (!TextUtils.isEmpty(url)){
-                        callback.onItemSelected(url);
+                        callback.onItemSelected(url, position);
                     }
                 }
             }
@@ -99,6 +99,6 @@ public class PhotoSummaryRvAdapter extends BaseRecyclerAdapter<PhotoSummaryRvAda
     }
 
     public interface PhotoSelectedListener{
-        void onItemSelected(String url);
+        void onItemSelected(String url, int position);
     }
 }
