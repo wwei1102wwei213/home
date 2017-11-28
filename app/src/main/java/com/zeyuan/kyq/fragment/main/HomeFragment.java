@@ -49,7 +49,6 @@ import com.zeyuan.kyq.biz.Factory;
 import com.zeyuan.kyq.biz.HttpResponseInterface;
 import com.zeyuan.kyq.biz.forcallback.FragmentCallBack;
 import com.zeyuan.kyq.biz.manager.ClickStatisticsManager;
-import com.zeyuan.kyq.biz.manager.FunctionGuideManager;
 import com.zeyuan.kyq.biz.manager.IntegrationManager;
 import com.zeyuan.kyq.filedownloader.JFileDownloadListener;
 import com.zeyuan.kyq.filedownloader.JFileDownloader;
@@ -60,7 +59,6 @@ import com.zeyuan.kyq.service.ZYKaqService;
 import com.zeyuan.kyq.utils.Const;
 import com.zeyuan.kyq.utils.Contants;
 import com.zeyuan.kyq.utils.DataUtils;
-import com.zeyuan.kyq.utils.DensityUtils;
 import com.zeyuan.kyq.utils.ExceptionUtils;
 import com.zeyuan.kyq.utils.LogCustom;
 import com.zeyuan.kyq.utils.MapDataUtils;
@@ -98,9 +96,9 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
         , ViewPager.OnPageChangeListener, FragmentCallBack, HomePageCallBack {
 
     //高度变化区域最小值
-    private int MAX_CHANGE;
+//    private int MAX_CHANGE;
     //高度变化区域最大值
-    private int MIN_CHANGE;
+//    private int MIN_CHANGE;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -110,8 +108,8 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
             //初始化状态栏
             initStatusBar2();
             ZYApplication.homeMoveFlag = true;
-            MIN_CHANGE = DensityUtils.dpToPx(context, 44) + getStatusBarHeight();
-            LogCustom.i("ZYS", "max:" + MAX_CHANGE + ";min:" + MIN_CHANGE);
+//            MIN_CHANGE = DensityUtils.dpToPx(context, 44) + getStatusBarHeight();
+//            LogCustom.i("ZYS", "max:" + MAX_CHANGE + ";min:" + MIN_CHANGE);
             //初始化控件
             initView();
             //设置监听事件
@@ -222,9 +220,9 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
     }
 
     private void setChangeHeight() {
-        ViewGroup.LayoutParams params = v_change.getLayoutParams();
+        /*ViewGroup.LayoutParams params = v_change.getLayoutParams();
         params.height = MAX_CHANGE;
-        v_change.setLayoutParams(params);
+        v_change.setLayoutParams(params);*/
     }
 
     private void setEmptyView() {
@@ -880,7 +878,7 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
                 Toast.makeText(context, "菜单数据加载失败", Toast.LENGTH_SHORT).show();
             }
             //计算高度改变区域最大值
-            MAX_CHANGE = DensityUtils.dpToPx(context, 165 + 52 + 16 + h * 90);//banner高度165，用户信息高度52，间隔8*2
+//            MAX_CHANGE = DensityUtils.dpToPx(context, 165 + 52 + 16 + h * 90);//banner高度165，用户信息高度52，间隔8*2
             //设置高度改变区高度
             setChangeHeight();
         }
@@ -1033,7 +1031,7 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
             } else if (msg.what == CHANGE_BANNER) {
                 fragment.setBannerChange();
             } else if (msg.what == CHANGE_VIEW_FLAG) {
-                fragment.changeView();
+//                fragment.changeView();
             }
         }
     }
@@ -1065,7 +1063,7 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
     @Override
     public boolean isChangeAble(boolean isUp) {
 //        if (isChanging) return false;
-        int h = v_change.getMeasuredHeight();
+        /*int h = v_change.getMeasuredHeight();
         if (isUp && h == MAX_CHANGE) {
             return true;
         }
@@ -1074,7 +1072,7 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
         }
         if (h < MAX_CHANGE && h > MIN_CHANGE) {
             return true;
-        }
+        }*/
         return false;
     }
 
@@ -1084,7 +1082,7 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
 
     @Override
     public void setViewChange(int x) {
-        int h = v_change.getMeasuredHeight();
+        /*int h = v_change.getMeasuredHeight();
         h = h + x;
         if (h > MAX_CHANGE) h = MAX_CHANGE;
         if (h < MIN_CHANGE) h = MIN_CHANGE;
@@ -1134,7 +1132,7 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
                 mRef = false;
                 setMainRefresh(false);
             }
-        }
+        }*/
     }
 
     private int changeIndex = 0;
@@ -1153,7 +1151,7 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
     };
 
     private void changeView() {
-        if (changeIndex < 0 || changeIndex > changeMax) {
+        /*if (changeIndex < 0 || changeIndex > changeMax) {
             isChanging = false;
             return;
         }
@@ -1191,7 +1189,7 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
             mHandler.postDelayed(homeRun, 40);
         }
         v_change.setLayoutParams(params);
-        if (changeIndex == 0 || changeIndex == changeMax) isChanging = false;
+        if (changeIndex == 0 || changeIndex == changeMax) isChanging = false;*/
 
     }
 
