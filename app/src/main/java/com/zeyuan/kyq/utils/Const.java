@@ -442,6 +442,9 @@ public final class Const {
     //添加评价
     public static final int PApi_addPcomment = 140;
     public static final String p_Api_addPcomment = P_IP_PORT_2 + "addPcomment";
+    //全部评价
+    public static final int PApi_viewPcomment = 141;
+    public static final String p_Api_viewPcomment = P_IP_PORT_2 + "viewPcomment";
 
 
 /*********************************网络模块相关字段***end*******************************************/
@@ -713,6 +716,8 @@ public final class Const {
     public static final int FM = 127;
     public static final String INTENT_SHOW_DISCUZ_FLAG = "ShowDiscuzFLAG";
     public static final String INTENT_SHOW_DISCUZ_ID = "ShowDiscuzID";
+    public static final String INTENT_SHOW_COMMENT_ID = "INTENT_SHOW_COMMENT_ID";
+    public static final String INTENT_SHOW_COMMENT_TYPE = "INTENT_SHOW_COMMENT_TYPE";
     public static String SHOW_DISCUZ_FORUM;
     public static String SHOW_DISCUZ_ARTICLE;
     public static String SIMALAR_TITLE = "SIMALAR_TITLE";

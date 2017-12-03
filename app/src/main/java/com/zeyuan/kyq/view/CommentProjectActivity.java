@@ -105,10 +105,10 @@ public class CommentProjectActivity extends BaseActivity implements HttpResponse
         findViewById(R.id.v_bottom).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                startActivity(new Intent(CommentProjectActivity.this, AddCommentActivity.class).putExtra(Const.INTENT_ADD_FLAG_TYPE, type));
-                startActivity(new Intent(CommentProjectActivity.this, AddCommentAllActivity.class)
-                        .putExtra(Const.INTENT_ADD_FLAG_TYPE, type)
-                        .putExtra("Comment_Item_Data",list.get(0)));
+                startActivity(new Intent(CommentProjectActivity.this, AddCommentActivity.class).putExtra(Const.INTENT_ADD_FLAG_TYPE, type));
+                /*startActivity(new Intent(CommentProjectActivity.this, AddCommentAllActivity.class)
+                        .putExtra(Const.INTENT_ADD_FLAG_TYPE, type-1)
+                        .putExtra("Comment_Item_Data",list.get(0)));*/
             }
         });
 
@@ -120,7 +120,10 @@ public class CommentProjectActivity extends BaseActivity implements HttpResponse
         adapter = new CommentProjectRvAdapter(context, list, new AdapterCallback() {
             @Override
             public void forAdapterCallback(int pos, int tag, String id, boolean flag, Object obj) {
-
+                startActivity(new Intent(CommentProjectActivity.this, ShowCommentH5Actvity.class)
+                        .putExtra(Const.INTENT_SHOW_COMMENT_TYPE, Integer.valueOf(type-1))
+                        .putExtra("Comment_Item_Data",(CommentProjectItem) obj)
+                        .putExtra(Const.INTENT_SHOW_COMMENT_ID, id));
             }
         },type);
         layoutManager = new LinearLayoutManager(context);

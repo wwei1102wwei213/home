@@ -786,7 +786,6 @@ public class UiUtils {
         }
     }
 
-
     public static void toMenuJump(Context context, HomePageEntity entity, FragmentCallBack callback,
                                   boolean isHome, FragmentActivity activity) {
         String type = entity.getSkiptype();
@@ -941,7 +940,7 @@ public class UiUtils {
         }
     }
 
-    private static void toIfJump(final int jump, final Context context, final FragmentCallBack callback
+    public static void toIfJump(final int jump, final Context context, final FragmentCallBack callback
             , final FragmentActivity activity) {
         String isHas = UserinfoData.getIsHaveStep(context);
         int has = Integer.valueOf(isHas);

@@ -11,36 +11,33 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.AdapterView;
-import android.widget.GridView;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.andview.refreshview.callback.HomePageCallBack;
+import com.andview.refreshview.XRefreshView;
+import com.andview.refreshview.XRefreshViewFooter;
 import com.bumptech.glide.Glide;
 import com.meelive.ingkee.sdk.plugin.entity.UserInfo;
 import com.zeyuan.kyq.Entity.ArticleTypeEntity;
 import com.zeyuan.kyq.Entity.HomePageBean;
 import com.zeyuan.kyq.Entity.HomePageEntity;
+import com.zeyuan.kyq.Entity.InformationEntity;
 import com.zeyuan.kyq.Entity.UserInformationEntity;
 import com.zeyuan.kyq.R;
 import com.zeyuan.kyq.adapter.BannerPagerAdapter;
-import com.zeyuan.kyq.adapter.HomeGvAdapter;
+import com.zeyuan.kyq.adapter.HomeHelpRecyclerAdapter;
 import com.zeyuan.kyq.adapter.HomeTabRecyclerAdapter;
-import com.zeyuan.kyq.adapter.MyFragmentAdapter;
-import com.zeyuan.kyq.app.BaseHomeNoDestroyFragment;
 import com.zeyuan.kyq.app.BaseZyFragment;
 import com.zeyuan.kyq.application.ZYApplication;
 import com.zeyuan.kyq.bean.MainPageInfoBean;
@@ -66,18 +63,21 @@ import com.zeyuan.kyq.utils.Secret.HttpSecretUtils;
 import com.zeyuan.kyq.utils.UiUtils;
 import com.zeyuan.kyq.utils.UserinfoData;
 import com.zeyuan.kyq.view.AllMenuActivity;
+import com.zeyuan.kyq.view.ArticleTypeActivity;
+import com.zeyuan.kyq.view.HeadlineHomeActivity;
+import com.zeyuan.kyq.view.HomeSymptomActivity;
 import com.zeyuan.kyq.view.InfoCenterActivity;
 import com.zeyuan.kyq.view.MainActivity;
-import com.zeyuan.kyq.view.MatchArticleActivity;
 import com.zeyuan.kyq.view.NewsCenterActivity;
+import com.zeyuan.kyq.view.SearchDrugActivity;
+import com.zeyuan.kyq.view.SimilarActivity;
 import com.zeyuan.kyq.widget.CircleImageView;
 import com.zeyuan.kyq.widget.CustomView.InsideRecyclerView;
 import com.zeyuan.kyq.widget.DrawCircleView;
-import com.zeyuan.kyq.widget.HomeFrameLayout;
-import com.zeyuan.kyq.widget.HomeLinearLayout;
 import com.zeyuan.kyq.widget.IntegrationPopupWindow;
 
 import java.io.File;
+import java.io.Serializable;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -93,23 +93,23 @@ import java.util.Map;
  * @author wwei
  */
 public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapter.OnItemClickListener, HttpResponseInterface
-        , ViewPager.OnPageChangeListener, FragmentCallBack, HomePageCallBack {
+        , ViewPager.OnPageChangeListener, FragmentCallBack{
 
     //高度变化区域最小值
 //    private int MAX_CHANGE;
     //高度变化区域最大值
 //    private int MIN_CHANGE;
 
+    private int page;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.fragment_home, container, false);
+        rootView = inflater.inflate(R.layout.fragment_home_new, container, false);
         try {
-            //初始化状态栏
-            initStatusBar2();
             ZYApplication.homeMoveFlag = true;
-//            MIN_CHANGE = DensityUtils.dpToPx(context, 44) + getStatusBarHeight();
-//            LogCustom.i("ZYS", "max:" + MAX_CHANGE + ";min:" + MIN_CHANGE);
+            page = 0;
+            ZYApplication.homeHelpPageFlag = true;
             //初始化控件
             initView();
             //设置监听事件
@@ -130,104 +130,162 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
     private HomeTabRecyclerAdapter adapter_top;
     //导航栏数据
     private List<ArticleTypeEntity> list_top;
-
     private LinearLayoutManager manager;
     //屏幕宽度像素
     private int mWidth;
-    //底部文章ViewPager
-    private ViewPager vp;
-    //精准内容
-    private View v_search;
-    //精准内容匹配动画空间
-    private View iv_move;
-    private Animation a;
     //消息点击控件
     private View v_news_num;
     //消息数量显示
     private TextView tv_news_num;
     //高度变化区域
-    private View v_change;
+//    private View v_change;
     //顶部banner
     private ViewPager mVp;
     private BannerPagerAdapter mAdapter;
     private DrawCircleView mDcv;
-    private View v_top_menu;
-    private HomeLinearLayout v_top_body;
-    //快速入口区
-    private GridView mGv;
-    private HomeGvAdapter mGvAdapter;
+
     //积分总数
     private TextView tv_integration_sum;
 
+    //滑动器
+    private XRefreshView xv;
+    //文章列表控件
+    private RecyclerView rv;
+    private View headerView;
+    //列表适配器
+    private HomeHelpRecyclerAdapter adapter;
+    //列表数据
+    private List<InformationEntity> data;
+
+    private FragmentCallBack callback;
+
+    private List<HomePageEntity> banners;
     private void initView() {
-
         try {
-            ((HomeFrameLayout) findViewById(R.id.home)).setCallback(this);
-            //顶部菜单区域
-            v_top_menu = findViewById(R.id.v_top_menu);
-            //设置空空间高度
-            setEmptyView();
-            v_search = findViewById(R.id.v_search);
-            v_change = findViewById(R.id.v_change_home);
-            v_change.setAlpha(0);
-            //设置控件
-            add = (ImageView) findViewById(R.id.add);
-            vp = (ViewPager) findViewById(R.id.vp);
-            rv_top = (InsideRecyclerView) findViewById(R.id.rv_top);
-            iv_move = findViewById(R.id.iv_move);
-            v_news_num = findViewById(R.id.v_news_num_home);
-            tv_news_num = (TextView) findViewById(R.id.tv_news_num_home);
-            tv_integration_sum = (TextView) findViewById(R.id.tv_integration_sum);
-            //精准内容动画设置
-            a = AnimationUtils.loadAnimation(context, R.anim.home_top_match_move);
-            a.setAnimationListener(new ReStartAnimationListener());
-            a.setFillAfter(false);
-            iv_move.startAnimation(a);
-            iv_move.setVisibility(View.VISIBLE);
-
-            //布局设置
-            manager = new LinearLayoutManager(context);
-            manager.setOrientation(LinearLayoutManager.HORIZONTAL);
-            rv_top.setLayoutManager(manager);
-
-            //适配器设置
-            list_top = new ArrayList<>();
-            adapter_top = new HomeTabRecyclerAdapter(context, list_top, this, 0);
-            rv_top.setAdapter(adapter_top);
-
             DisplayMetrics metric = new DisplayMetrics();
             getActivity().getWindowManager().getDefaultDisplay().getMetrics(metric);
             mWidth = metric.widthPixels; // 屏幕宽度（像素）
+            v_news_num = findViewById(R.id.v_news_num_home);
+            xv = (XRefreshView) findViewById(R.id.xrv);
+            rv = (RecyclerView) findViewById(R.id.rv);
+            LinearLayoutManager manager1 = new LinearLayoutManager(context);
+            manager1.setOrientation(LinearLayoutManager.VERTICAL);
+            rv.setLayoutManager(manager1);
+            rv.setHasFixedSize(true);
+            data = new ArrayList<>();
+            if (banners == null || banners.size() == 0) banners = new ArrayList<>();
+            adapter = new HomeHelpRecyclerAdapter(context, data, rv, banners);
+            /*if ("0".equals(UserinfoData.getIsHaveStep(context))) {
 
-            //新增顶部banner
-            v_top_body = (HomeLinearLayout) findViewById(R.id.v_top_body);
-            v_top_body.setCallback(this);
-
-            mVp = (ViewPager) findViewById(R.id.vp_top_banner);
-//            mVp.setParent(v_top_body);
-            mDcv = (DrawCircleView) findViewById(R.id.dcv_top_banner);
-
-            //快速入口菜单
-            mGv = (GridView) findViewById(R.id.gv_top);
-            mGvAdapter = new HomeGvAdapter(context, new ArrayList<HomePageEntity>());
-            mGv.setAdapter(mGvAdapter);
-
-
+            }*/
+            headerView = adapter.setHeaderView(R.layout.head_home_fragment, rv);
+            initHeaderView();
+            rv.setAdapter(adapter);
+            //滑动控件设置
+            xv.setPinnedTime(1000);
+            xv.setPullLoadEnable(true);
+            xv.setMoveForHorizontal(true);
+            adapter.setCustomLoadMoreView(new XRefreshViewFooter(context));
+            xv.setXRefreshViewListener(new XRefreshView.SimpleXRefreshListener() {
+                @Override
+                public void onRefresh() {
+                    refresh = true;
+                    page = 0;
+                    setData();
+                }
+                @Override
+                public void onLoadMore(boolean isSilence) {
+                    loading = true;
+                    page++;
+                    setData();
+                }
+            });
         } catch (Exception e) {
             ExceptionUtils.ExceptionToUM(e, context, "initView");
         }
 
     }
 
-    private void setChangeHeight() {
-        /*ViewGroup.LayoutParams params = v_change.getLayoutParams();
-        params.height = MAX_CHANGE;
-        v_change.setLayoutParams(params);*/
+    private FrameLayout fl_add;
+    private CircleImageView head_civ;
+    private TextView[] menuTvs;
+    private CircleImageView[] menuCivs;
+    private View[] menuVs;
+    private TextView tv_head_1,tv_head_2;
+    private void initHeaderView() {
+        if (headerView == null) return;
+        //设置控件
+        add = (ImageView) headerView.findViewById(R.id.add);
+        rv_top = (InsideRecyclerView) headerView.findViewById(R.id.rv_top);
+
+        tv_news_num = (TextView) findViewById(R.id.tv_news_num_home);
+        tv_integration_sum = (TextView) findViewById(R.id.tv_integration_sum);
+        //布局设置
+        manager = new LinearLayoutManager(context);
+        manager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        rv_top.setLayoutManager(manager);
+        //适配器设置
+        list_top = new ArrayList<>();
+        adapter_top = new HomeTabRecyclerAdapter(context, list_top, this, 0);
+        rv_top.setAdapter(adapter_top);
+        mVp = (ViewPager)findViewById(R.id.vp_top_banner);
+        mDcv = (DrawCircleView)findViewById(R.id.dcv_top_banner);
+        head_civ = (CircleImageView)findViewById(R.id.civ);
+        fl_add = (FrameLayout) headerView.findViewById(R.id.fl_add);
+        if ("0".equals(UserinfoData.getIsHaveStep(context))) {
+            initUserTypeView();
+        }
+        tv_head_1 = (TextView) headerView.findViewById(R.id.tv_head_1);
+        tv_head_2 = (TextView) headerView.findViewById(R.id.tv_head_2);
+
+        menuTvs = new TextView[7];
+        menuTvs[0] = (TextView) headerView.findViewById(R.id.menu_tv_1);
+        menuTvs[1] = (TextView) headerView.findViewById(R.id.menu_tv_2);
+        menuTvs[2] = (TextView) headerView.findViewById(R.id.menu_tv_3);
+        menuTvs[3] = (TextView) headerView.findViewById(R.id.menu_tv_4);
+        menuTvs[4] = (TextView) headerView.findViewById(R.id.menu_tv_9);
+        menuTvs[5] = (TextView) headerView.findViewById(R.id.menu_tv_10);
+        menuTvs[6] = (TextView) headerView.findViewById(R.id.menu_tv_11);
+        menuCivs = new CircleImageView[7];
+        menuCivs[0] = (CircleImageView) headerView.findViewById(R.id.civ_menu_1);
+        menuCivs[1] = (CircleImageView) headerView.findViewById(R.id.civ_menu_2);
+        menuCivs[2] = (CircleImageView) headerView.findViewById(R.id.civ_menu_3);
+        menuCivs[3] = (CircleImageView) headerView.findViewById(R.id.civ_menu_4);
+        menuCivs[4] = (CircleImageView) headerView.findViewById(R.id.civ_menu_9);
+        menuCivs[5] = (CircleImageView) headerView.findViewById(R.id.civ_menu_10);
+        menuCivs[6] = (CircleImageView) headerView.findViewById(R.id.civ_menu_11);
+        menuVs = new View[7];
+        menuVs[0] = headerView.findViewById(R.id.v_menu_1);
+        menuVs[1] = headerView.findViewById(R.id.v_menu_2);
+        menuVs[2] = headerView.findViewById(R.id.v_menu_3);
+        menuVs[3] = headerView.findViewById(R.id.v_menu_4);
+        menuVs[4] = headerView.findViewById(R.id.v_menu_9);
+        menuVs[5] = headerView.findViewById(R.id.v_menu_10);
+        menuVs[6] = headerView.findViewById(R.id.v_menu_11);
     }
 
-    private void setEmptyView() {
-
+    private View userTypeView;
+    private void initUserTypeView(){
+        userTypeView = LayoutInflater.from(context).inflate(R.layout.view_diy_recommend, fl_add, false);
+        if (userTypeView==null) return;
+        fl_add.removeAllViews();
+        fl_add.addView(userTypeView);
+        userTypeView.findViewById(R.id.v_recommend_close).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fl_add.removeAllViews();
+                adapter.notifyDataSetChanged();
+            }
+        });
+        userTypeView.findViewById(R.id.v_recommend_open).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UiUtils.startIndividuationTreatment(getActivity());
+                // createInfoStepFragment();
+            }
+        });
     }
+
 
     private void setListener() {
         try {
@@ -237,41 +295,88 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
                     showEditTab();
                 }
             });
-            v_search.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startActivity(new Intent(context, MatchArticleActivity.class));
-                }
-            });
             v_news_num.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     startActivity(new Intent(context, NewsCenterActivity.class));
                 }
             });
-            mGv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            head_civ.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    HomePageEntity entity = mGvAdapter.getItem(position);
-                    if (entity.getId().equals("-1")) {
-                        startActivityForResult(new Intent(context, AllMenuActivity.class), Const.REQUEST_CODE_CHOOSE_QUOTA_TYPE);
-                    } else {
-                        UiUtils.toMenuJump(context, entity, HomeFragment.this, true, getActivity());
-                        ClickStatisticsManager.getInstance().addClickEvent(Const.CLICK_EVENT_2, entity.getId());
+                public void onClick(View v) {
+                    startActivity(new Intent(context, InfoCenterActivity.class)
+                            .putExtra(Const.InfoCenterID, UserinfoData.getInfoID(context)));
+                }
+            });
+            headerView.findViewById(R.id.v_menu_12).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(context, AllMenuActivity.class));
+                }
+            });
+            headerView.findViewById(R.id.v_menu_8).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    context.startActivity(new Intent(context, SimilarActivity.class));
+                }
+            });
+            headerView.findViewById(R.id.v_menu_7).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    UiUtils.toIfJump(6, context, HomeFragment.this, getActivity());
+                }
+            });
+            headerView.findViewById(R.id.v_menu_6).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    context.startActivity(new Intent(context, HomeSymptomActivity.class));
+                }
+            });
+            headerView.findViewById(R.id.v_menu_5).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    context.startActivity(new Intent(context, SearchDrugActivity.class));
+                }
+            });
+            headerView.findViewById(R.id.v_headline).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (art_list!=null&&art_list.size()>0){
+                        context.startActivity(new Intent(context, HeadlineHomeActivity.class)
+                                .putExtra("Headline_List", (Serializable) art_list));
                     }
                 }
             });
-            v_top_menu.setOnClickListener(new View.OnClickListener() {
+            headerView.findViewById(R.id.menu_main_3_1).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
                 }
             });
-            findViewById(R.id.civ).setOnClickListener(new View.OnClickListener() {
+            headerView.findViewById(R.id.menu_main_3_2).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startActivity(new Intent(context, InfoCenterActivity.class)
-                            .putExtra(Const.InfoCenterID, UserinfoData.getInfoID(context)));
+                    /*"id":"11",
+            "name":"怎么吃",
+            "pic_oss":"http://oss-cn-shenzhen.aliyuncs.com/zeyuan1/14918160428213.png",
+            "skiptype":"11",
+            "sign_a":"31",
+            "sign_b":"1"*/
+                    HomePageEntity mEntity = new HomePageEntity();
+                    mEntity.setId("11");
+                    mEntity.setName("怎么吃");
+                    mEntity.setSign_a("31");
+                    mEntity.setSign_b("1");
+                    mEntity.setSkiptype("11");
+                    context.startActivity(new Intent(context, ArticleTypeActivity.class)
+                            .putExtra(Const.INTENT_ARTICLE_TYPE_ENTITY, mEntity));
+
+                }
+            });
+            headerView.findViewById(R.id.menu_main_3_3).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
                 }
             });
         } catch (Exception e) {
@@ -290,7 +395,7 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
     }
 
     private boolean postFlag = false;//防止多次post
-    private List<HomePageEntity> banners;
+    //    private List<HomePageEntity> banners;
     private List<HomePageEntity> bannerEntities;
 
     private void bindView(MainPageInfoBean bean) {
@@ -323,6 +428,7 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
                     mHandler.post(bannerRun);
                     postFlag = true;
                 }
+
 
                 //广告，每24小时弹出一次
                 final List<HomePageEntity> tagBannerList = bean.getTagBannerList();
@@ -375,10 +481,6 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
 
             //版本迭代
             MainPageInfoBean.UpEntity upEntity = bean.getUp();
-//            UpdateDialog.Builder builder = new UpdateDialog.Builder(getActivity());
-//            builder.setCancelAble(false);
-//            UpdateDialog updateDialog = builder.create();
-//            updateDialog.show();
             initUpDateType(upEntity);
 
             //加载快速入口数据
@@ -390,11 +492,14 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
         }
     }
 
+    private void setData() {
+        Factory.postPhp(this, Const.PHomeArticleInfo);
+    }
     private List<ArticleTypeEntity> art_list;
     private List<ArticleTypeEntity> showCatMain;
     private List<ArticleTypeEntity> hideCatMain;
     private int articleIndex = 0;
-    private ArrayList<Fragment> fragments;
+    //    private ArrayList<Fragment> fragments;
     //推荐列表窗口设置
     HomeHelpFragment hFragment;
 
@@ -409,58 +514,30 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
             hideCatMain = new ArrayList<>();
             hideCatMain = entity.getCatHideList();
             if (cat == null || cat.size() == 0) return;
-            if (fragments == null) {
-                fragments = new ArrayList<>();
-            }
-            fragments.clear();
+
             art_list = new ArrayList<>();
             ArticleTypeEntity mEntity = new ArticleTypeEntity();
             mEntity.setCatid(0);
             mEntity.setCatname("推荐");
             art_list.add(mEntity);
-            //推荐列表窗口设置
-            hFragment = new HomeHelpFragment();
-            hFragment.setFragmentCallback(this);
-            hFragment.setBanners(banners);
-            hFragment.setHomeCallBack(this);
-            //不加人统计
-            hFragment.setPageFlag(false);
-            fragments.add(hFragment);
-            Bundle bundle;
-            if (cat.size() > 0) {
-                LogCustom.d("zys", "生成的文章页面");
-                for (int i = 0; i < cat.size(); i++) {
-                    LogCustom.d("zys", "catname=" + cat.get(i).getCatname() + " catid=" + cat.get(i).getCatid());
-                    HomeArticleFragment fragment = new HomeArticleFragment();
-                    fragment.setHomeCallBack(this);
-                    bundle = new Bundle();
-                    //设置文章类型数据
-                    bundle.putSerializable(Contants.CatID, cat.get(i));
-                    fragment.setArguments(bundle);
-                    //不加人统计
-                    fragment.setPageFlag(false);
-                    fragments.add(fragment);
-                }
-            }
-
-            MyFragmentAdapter fAdapter = new MyFragmentAdapter(getActivity().getSupportFragmentManager(), fragments);
-            vp.setAdapter(fAdapter);
-            vp.addOnPageChangeListener(this);
             //文章导航栏数据添加
             if (cat.size() > 0) {
                 for (int i = 0; i < cat.size(); i++) {
                     art_list.add(cat.get(i));
                 }
             }
-            //添加一个空白项，为右侧更多栏目的占位
-//            mEntity = new ArticleTypeEntity();
-//            mEntity.setCatid(9999);
-//            mEntity.setCatname("         ");
-//            art_list.add(mEntity);
             //文章导航栏视图设置
             adapter_top.update(art_list);
             //设置文章列表视图
             articleIndex = 0;
+            List<InformationEntity> temp = entity.getData();
+            if (temp!=null&&temp.size()>1){
+                String title1 = temp.get(0).getTitle();
+                tv_head_1.setText(TextUtils.isEmpty(title1)?"":title1);
+                title1 = temp.get(1).getTitle();
+                tv_head_2.setText(TextUtils.isEmpty(title1)?"":title1);
+            }
+            adapter.notifyDataSetChanged();
         } catch (Exception e) {
             ExceptionUtils.ExceptionToUM(e, context, "initHomeArticle");
         }
@@ -469,21 +546,10 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
     //主页刷新按钮点击时执行
     public void toRefresh() {
         try {
-            ((BaseHomeNoDestroyFragment) fragments.get(articleIndex)).toRefresh();
+//            ((BaseHomeNoDestroyFragment) fragments.get(articleIndex)).toRefresh();
         } catch (Exception e) {
             ExceptionUtils.ExceptionSend(e, "toRefresh");
         }
-    }
-
-    //列表是否在顶部
-    private boolean isTop() {
-        try {
-            if (fragments != null && ((BaseHomeNoDestroyFragment) fragments.get(articleIndex)).isTopFlag())
-                return true;
-        } catch (Exception e) {
-            ExceptionUtils.ExceptionSend(e, "isTop");
-        }
-        return false;
     }
 
     //导航栏目编辑
@@ -603,7 +669,7 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
     private void showUpdateDialog() {
         UpdateDialog.Builder builder = new UpdateDialog.Builder(getActivity());
         if ("1".equals(updateType)) {//强制更新
-            builder.setContent("Hi 抗癌圈的小伙伴们\n" + "经过一段时间的内侧，抗癌圈" + versionNum + "版本终于上线啦\n" +
+            builder.setContent("Hi 抗癌圈的小伙伴们\n" + "经过一段时间的内测，抗癌圈" + versionNum + "版本终于上线啦\n" +
                     "\n主要的更新有：\n" +
                     "\n" +
                     updateMessage +
@@ -615,7 +681,7 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
                 }
             });
         } else {
-            builder.setContent("Hi 抗癌圈的小伙伴们\n" + "经过一段时间的内侧，抗癌圈" + versionNum + "版本终于上线啦\n" +
+            builder.setContent("Hi 抗癌圈的小伙伴们\n" + "经过一段时间的内测，抗癌圈" + versionNum + "版本终于上线啦\n" +
                     "\n主要的更新有：\n" +
                     "\n" +
                     updateMessage +
@@ -732,24 +798,47 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
     public void OnRecyclerItemClick(View v, int position, String typeID) {
         try {
             if (!"9999".equals(typeID)) {
-                vp.setCurrentItem(position);
+                if (position==0){
+                    adapter.setFlag(0);
+                    if ("0".equals(UserinfoData.getIsHaveStep(context))) {
+                        if (userTypeView!=null){
+                            fl_add.removeAllViews();
+                            fl_add.addView(userTypeView);
+                            adapter.notifyDataSetChanged();
+                        }
+                    }
+                } else {
+                    if ("0".equals(UserinfoData.getIsHaveStep(context))) {
+                        if (userTypeView!=null){
+                            fl_add.removeAllViews();
+                            adapter.notifyDataSetChanged();
+                        }
+                    }
+                    adapter.setFlag(1);
+                }
+                articleIndex = position;
+                page = 0;
+                setData();
             }
         } catch (Exception e) {
             ExceptionUtils.ExceptionSend(e, "OnRecyclerItemClick");
         }
     }
 
-    private static final int pageSize = 5;
+    private static final int pageSize = 20;
 
     @Override
     public Map getParamInfo(int tag) {
         Map<String, String> map = new HashMap<>();
         map.put(Contants.InfoID, UserinfoData.getInfoID(context));
         if (tag == Const.PHomeArticleInfo) {
-
-            map.put("catid", "0");
-            map.put("page", "0");
-            map.put("pagesize", pageSize + "");
+            if (art_list==null||art_list.size()==0){
+                map.put(Contants.CatID, "0");
+            } else {
+                map.put(Contants.CatID, art_list.get(articleIndex).getCatid()+"");
+            }
+            map.put(Contants.Page, page + "");
+            map.put(Contants.PageSize, pageSize + "");
         }
         return map;
     }
@@ -817,7 +906,7 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
                         + DataUtils.getDayForStepDetail(UserinfoData.getDiscoverTime(context), 0) + "天</b></font>"));
                 if (!TextUtils.isEmpty(UserinfoData.getAvatarUrl(context))) {
                     Glide.with(context).load(UserinfoData.getAvatarUrl(context)).error(R.mipmap.default_avatar)
-                            .into((CircleImageView) findViewById(R.id.civ));
+                            .into(head_civ);
                 }
                 //设置映客所需用户数据
                 ZYApplication.YK_UserInfo = new UserInfo(UserinfoData.getInfoID(context), "kaq", UserinfoData.getInfoname(context),
@@ -836,16 +925,43 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
                     UserinfoData.savePhoneNum(getActivity().getApplicationContext(), infoBean.getMobile());
                 }
                 bindView(infoBean);
+                adapter.notifyDataSetChanged();
             }
+
         } else if (flag == Const.PHomeArticleInfo) {
             UserInformationEntity entity = (UserInformationEntity) response;
             try {
                 if (Const.RESULT.equals(entity.getiResult())) {
-                    initHomeArticle(entity);
+                    if (articleIndex==0&&page==0){
+                        initHomeArticle(entity);
+                    }
+                    if (page == 0) {
+                        data = new ArrayList<>();
+                        if (articleIndex==0){
+                            adapter.setHelp(entity.getHelp());
+                            adapter.updateBanners(banners);
+                        } else {
+//                            adapter.setHelp(null);
+                        }
+                    }
+                    List<InformationEntity> temp = entity.getData();
+                    if (temp != null && temp.size() != 0) {
+                        data.addAll(temp);
+                        if (art_list==null||art_list.size()==0){
+                            adapter.update(data, 0);
+                        } else {
+                            adapter.update(data, art_list.get(articleIndex).getCattype());
+                        }
+                        overLoading(0);
+                    } else {
+                        overLoading(2);
+                    }
                 } else {
-                    Toast.makeText(context, "文章数据加载失败", Toast.LENGTH_SHORT).show();
+                    overLoading(1);
                 }
+
             } catch (Exception e) {
+                overLoading(1);
                 ExceptionUtils.ExceptionSend(e, "toActivity PHomeArticleInfo");
             }
 
@@ -857,31 +973,60 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
                 if (mHomeList != null && mHomeList.size() > 0) {
                     List<HomePageEntity> temp = new ArrayList<>();
                     if (mHomeList.size() > 7) {
+
                         for (int i = 0; i < 7; i++) {
-                            temp.add(mHomeList.get(i));
+                            final HomePageEntity entity = mHomeList.get(i);
+                            String titleName = mHomeList.get(i).getName();
+                            Glide.with(context).load(mHomeList.get(i).getPic_oss()).error(R.mipmap.loading_fail).into(menuCivs[i]);
+                            menuTvs[i].setText(TextUtils.isEmpty(titleName)?"未知栏目":titleName);
+                            menuVs[i].setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    UiUtils.toMenuJump(context, entity, HomeFragment.this, true, getActivity());
+                                    ClickStatisticsManager.getInstance().addClickEvent(Const.CLICK_EVENT_2, entity.getId());
+                                }
+                            });
                         }
                     }
-                    HomePageEntity more = new HomePageEntity();
-                    more.setId("-1");
-                    more.setName("更多");
-                    temp.add(more);
-                    //设置快速入口
-                    mGvAdapter.update(temp);
-                    if (temp.size() <= 4) {
-                        h = 1;
-                    } else {
-                        h = 2;
-                    }
-                    mGv.setVisibility(View.VISIBLE);
                 }
             } else {
                 Toast.makeText(context, "菜单数据加载失败", Toast.LENGTH_SHORT).show();
             }
-            //计算高度改变区域最大值
-//            MAX_CHANGE = DensityUtils.dpToPx(context, 165 + 52 + 16 + h * 90);//banner高度165，用户信息高度52，间隔8*2
-            //设置高度改变区高度
-            setChangeHeight();
+
         }
+    }
+
+    private boolean refresh = false;
+    private boolean loading = false;
+
+    private void overLoading(int tag) {
+        if (tag == 0) {
+            if (refresh) {
+                xv.stopRefresh();
+                xv.setLoadComplete(false);
+            }
+            if (loading) {
+                xv.stopLoadMore();
+            }
+        } else if (tag == 1) {
+            if (refresh) {
+                xv.stopRefresh();
+            }
+            if (loading) {
+                page--;
+                xv.stopLoadMore();
+            }
+        } else if (tag == 2) {
+            if (refresh) {
+                xv.stopRefresh();
+            }
+            if (loading) {
+                page--;
+                xv.setLoadComplete(true);
+            }
+        }
+        if (refresh) refresh = false;
+        if (loading) loading = false;
     }
 
     @Override
@@ -905,6 +1050,7 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
             Toast.makeText(context, "获取用户信息失败", Toast.LENGTH_LONG).show();
         } else if (flag == Const.PHomeArticleInfo) {
             Toast.makeText(context, "文章数据加载失败", Toast.LENGTH_SHORT).show();
+            overLoading(2);
         }
     }
 
@@ -948,9 +1094,14 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
     public void dataCallBack(String str, int flag, String tag, Object obj) {
         if (flag == Const.FRAGMENT_EDIT_TAB) {
             //加载文章数据
+            articleIndex = 0;
+            page = 0;
+            adapter.setFlag(0);
             Factory.postPhp(this, Const.PHomeArticleInfo);
         } else if (flag == Const.FRAGMENT_INFO_STEP) {
             //用户没有阶段变成有阶段之后的操作
+            fl_add.removeAllViews();
+            adapter.notifyDataSetChanged();
         }
     }
 
@@ -959,28 +1110,7 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
 
     }
 
-    //重复启动动画，精准内容动画
-    private class ReStartAnimationListener implements Animation.AnimationListener {
-        public void onAnimationEnd(Animation animation) {
-            // TODO Auto-generated method stub
-            iv_move.setVisibility(View.GONE);
-            mHandler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    iv_move.startAnimation(a);
-                    iv_move.setVisibility(View.VISIBLE);
-                }
-            }, 1200);
-        }
 
-        public void onAnimationRepeat(Animation animation) {
-            // TODO Auto-generated method stub
-        }
-
-        public void onAnimationStart(Animation animation) {
-            // TODO Auto-generated method stub
-        }
-    }
 
     private void setBannerChange() {
         mVp.setCurrentItem(bannerIndex);
@@ -1060,80 +1190,10 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
         ZYApplication.homeMoveFlag = false;
     }
 
-    @Override
-    public boolean isChangeAble(boolean isUp) {
-//        if (isChanging) return false;
-        /*int h = v_change.getMeasuredHeight();
-        if (isUp && h == MAX_CHANGE) {
-            return true;
-        }
-        if (!isUp && h == MIN_CHANGE && isTop()) {
-            return true;
-        }
-        if (h < MAX_CHANGE && h > MIN_CHANGE) {
-            return true;
-        }*/
-        return false;
-    }
-
     private int space;
     private boolean UP_OR_DOWN = true;
     private boolean isChanging = false;
 
-    @Override
-    public void setViewChange(int x) {
-        /*int h = v_change.getMeasuredHeight();
-        h = h + x;
-        if (h > MAX_CHANGE) h = MAX_CHANGE;
-        if (h < MIN_CHANGE) h = MIN_CHANGE;
-        ViewGroup.LayoutParams params = v_change.getLayoutParams();
-        params.height = h;
-        v_change.setLayoutParams(params);
-        if (h == MAX_CHANGE) {
-            v_top_menu.setVisibility(View.GONE);
-            v_top_menu.setAlpha(0);
-            v_change.setAlpha(0);
-            if (mRef) {
-                mRef = false;
-                setMainRefresh(false);
-            }
-        } else if (h == MIN_CHANGE) {
-            v_top_menu.setVisibility(View.VISIBLE);
-            v_top_menu.setAlpha(1);
-            v_change.setAlpha(0);
-            if (!mRef) {
-                mRef = true;
-                setMainRefresh(true);
-            }
-
-
-            mHandler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    if (!getActivity().isFinishing()) {
-                        int[] xy = new int[2];
-                        v_search.getLocationInWindow(xy);
-                        int width = v_search.getWidth();
-                        int height = v_search.getHeight();
-                        FunctionGuideManager.getInstance().showAccurateGuide(getActivity(), xy, width, height);
-                    }
-
-                }
-            }, 500);
-
-
-        } else {
-            v_top_menu.setVisibility(View.VISIBLE);
-            float a = (float) h / MAX_CHANGE;
-            a = 1 - a;
-            v_top_menu.setAlpha(a);
-            v_change.setAlpha(a);
-            if (mRef) {
-                mRef = false;
-                setMainRefresh(false);
-            }
-        }*/
-    }
 
     private int changeIndex = 0;
     private int changeMax = 5;
@@ -1202,7 +1262,6 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if (mGvAdapter != null)
-            mGvAdapter.cancelLiveAnim();
+
     }
 }

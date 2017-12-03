@@ -12,7 +12,7 @@ android {
         minSdkVersion 15
         targetSdkVersion 23
         versionCode 30
-        versionName "2.9"
+        versionName "3.0"
         multiDexEnabled true
         //开发时注释掉，上线打开
 //        manifestPlaceholders = [UMENG_CHANNEL_VALUE: "channel_name"]
@@ -162,6 +162,7 @@ dependencies {
     compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
     compile 'io.reactivex.rxjava2:rxjava:2.0.7'
     compile 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:1.3.4'
+
 
 }
 

@@ -111,6 +111,7 @@ public class AddCommentAllActivity extends BaseActivity implements AdapterView.O
                 ((TextView) findViewById(R.id.tv_dot_name)).setText(TextUtils.isEmpty(itemData.getPname())?"":itemData.getPname());
                 ((TextView) findViewById(R.id.tv_dot_type)).setText("");
                 ((TextView) findViewById(R.id.tv_host_name)).setText(TextUtils.isEmpty(itemData.getJob())?"未录入医院":itemData.getJob());
+
                 ((TextView) findViewById(R.id.tv_sub)).setText(TextUtils.isEmpty(itemData.getPsubject())?"":itemData.getPsubject());
                 Glide.with(this).load(itemData.getPicUrl()).into((CircleImageView) findViewById(R.id.civ));
 

@@ -64,6 +64,7 @@ import com.zeyuan.kyq.utils.LogCustom;
 import com.zeyuan.kyq.utils.Secret.HttpSecretUtils;
 import com.zeyuan.kyq.utils.UiUtils;
 import com.zeyuan.kyq.utils.UserinfoData;
+import com.zeyuan.kyq.view.AboutActivity;
 import com.zeyuan.kyq.view.BindingPhoneActivity;
 import com.zeyuan.kyq.view.CommentProjectActivity;
 import com.zeyuan.kyq.view.DrawCashActivity;
@@ -174,8 +175,29 @@ public class MoreNewFragment extends BaseZyFragment implements View.OnClickListe
             findViewById(R.id.about).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-//                    startActivity(new Intent(context, AboutActivity.class));
+                    startActivity(new Intent(context, AboutActivity.class));
+//                    startActivity(new Intent(context, CommentProjectActivity.class).putExtra("Comment_Project_Type",2));
+                }
+            });
+            findViewById(R.id.test1).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    startActivity(new Intent(context, CommentProjectActivity.class).putExtra("Comment_Project_Type",1));
+                }
+            });
+            findViewById(R.id.test2).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
                     startActivity(new Intent(context, CommentProjectActivity.class).putExtra("Comment_Project_Type",2));
+                }
+            });
+            findViewById(R.id.test3).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    startActivity(new Intent(context, CommentProjectActivity.class).putExtra("Comment_Project_Type",3));
                 }
             });
 

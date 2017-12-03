@@ -227,9 +227,8 @@ public class SplashActivity extends BaseActivity implements ViewSwitcher.ViewFac
 
     private void toNext(){
 //        Factory.post(this, Const.EGetPatientDetail);
-        UserinfoData.saveInfoID(this, "280180");
+//        UserinfoData.saveInfoID(this, "280180");
         String infoID = UserinfoData.getInfoID(this);
-        UserinfoData.saveIsHaveCreateInfo(this,"1");
         String isHaveCreateInfo = UserinfoData.getIsHaveCreateInfo(this);
         if(!TextUtils.isEmpty(infoID)&&"1".equals(isHaveCreateInfo)){
             startActivity(new Intent(SplashActivity.this, MainActivity.class));
@@ -237,23 +236,6 @@ public class SplashActivity extends BaseActivity implements ViewSwitcher.ViewFac
             startActivity(new Intent(SplashActivity.this, GuideActivity.class));
         }
         finish();
-    }
-
-    private void toNextStep(){
-        try {
-            /*UserinfoData.saveInfoID(this,"108650");
-            UserinfoData.saveIsHaveCreateInfo21(this,"1");*/
-            String infoID = UserinfoData.getInfoID(this);
-            String isHaveCreateInfo = UserinfoData.getIsHaveCreateInfo(this);
-            if(!TextUtils.isEmpty(infoID)&&"1".equals(isHaveCreateInfo)){
-                startActivity(new Intent(SplashActivity.this, MainActivity.class));
-            }else{
-                startActivity(new Intent(SplashActivity.this, GuideActivity.class));
-            }
-            finish();
-        }catch (Exception e){
-            ExceptionUtils.ExceptionToUM(e,this,"toNextActivity()");
-        }
     }
 
     private static final int NETWORK_IS_OK = 1;

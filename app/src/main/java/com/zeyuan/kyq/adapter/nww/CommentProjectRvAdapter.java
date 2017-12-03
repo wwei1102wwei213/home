@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.andview.refreshview.recyclerview.BaseRecyclerAdapter;
@@ -14,7 +15,7 @@ import com.bumptech.glide.Glide;
 import com.zeyuan.kyq.R;
 import com.zeyuan.kyq.bean.CommentProjectItem;
 import com.zeyuan.kyq.biz.forcallback.AdapterCallback;
-import com.zeyuan.kyq.utils.DecryptUtils;
+import com.zeyuan.kyq.utils.ExceptionUtils;
 import com.zeyuan.kyq.widget.CircleImageView;
 
 import java.util.ArrayList;
@@ -65,7 +66,7 @@ public class CommentProjectRvAdapter extends BaseRecyclerAdapter<CommentProjectR
         holder.tv_num_1.setText(item.getHComNum()+"");
         holder.tv_num_2.setText(item.getMComNum()+"");
         holder.tv_num_3.setText(item.getLComNum()+"");
-        holder.tv_sub.setText(DecryptUtils.URLAnddecodeBase64(item.getPsubject()));
+        holder.tv_sub.setText(item.getPsubject());
         String url = item.getPicUrl();
         if (!TextUtils.isEmpty(url)){
             Glide.with(context).load(url).into(holder.iv);
@@ -85,10 +86,20 @@ public class CommentProjectRvAdapter extends BaseRecyclerAdapter<CommentProjectR
             holder.tv_rate.setText(item.getHComRate()+"%");
         } else if (type==3){
             if (TextUtils.isEmpty(item.getHospitalLevelName())){
-                holder.host_type.setVisibility(View.GONE);
+                holder.v_host_type.setVisibility(View.GONE);
             } else {
-                holder.host_type.setVisibility(View.VISIBLE);
-                holder.host_type.setText(item.getHospitalLevelName());
+                holder.v_host_type.setVisibility(View.VISIBLE);
+                holder.v_host_type.removeAllViews();
+                try {
+                    String[] args = item.getHospitalLevelName().split(",");
+                    for (int i=0;i<args.length;i++){
+                        View v = LayoutInflater.from(context).inflate(R.layout.item_host_type_tv, holder.v_host_type, false);
+                        ((TextView)v).setText(args[i]);
+                        holder.v_host_type.addView(v);
+                    }
+                }catch (Exception e){
+                    ExceptionUtils.ExceptionSend(e);
+                }
             }
         } else {
             if (TextUtils.isEmpty(item.getCureTypeName())){
@@ -116,6 +127,7 @@ public class CommentProjectRvAdapter extends BaseRecyclerAdapter<CommentProjectR
         ImageView iv;
         View v;
         TextView name,cure_name,tv_num_1,tv_num_2,tv_num_3,tv_sub,host_type,tv_rate,tv_host_name,tv_host_tag,tv_dot_type;
+        LinearLayout v_host_type;
 
         public ViewHolder(View itemView,boolean isItem) {
             super(itemView);
@@ -144,7 +156,7 @@ public class CommentProjectRvAdapter extends BaseRecyclerAdapter<CommentProjectR
                     tv_dot_type = (TextView) itemView.findViewById(R.id.tv_dot_type);
                 } else if (type==3){
                     iv = (ImageView) itemView.findViewById(R.id.iv);
-                    host_type = (TextView) itemView.findViewById(R.id.host_type);
+                    v_host_type = (LinearLayout) itemView.findViewById(R.id.v_host_type);
                 } else {
                     iv = (ImageView) itemView.findViewById(R.id.iv);
                     cure_name = (TextView) itemView.findViewById(R.id.cure_name);

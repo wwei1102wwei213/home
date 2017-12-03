@@ -2,91 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/main_color">
-
-    <RelativeLayout
-        android:id="@+id/v_top_banner"
-        android:layout_width="match_parent"
-        android:layout_height="165dp"
-        android:visibility="visible">
-
-        <android.support.v4.view.ViewPager
-            android:id="@+id/vp_top_banner"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </android.support.v4.view.ViewPager>
-
-        <com.zeyuan.kyq.widget.DrawCircleView
-            android:id="@+id/dcv_top_banner"
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:layout_alignParentBottom="true" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/v_top_info"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/height52"
-        android:background="@color/white">
-
-        <com.zeyuan.kyq.widget.CircleImageView
-            android:id="@+id/civ"
-            android:layout_width="@dimen/height40"
-            android:layout_height="@dimen/height40"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/margin13" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="@dimen/font12"
-            android:layout_toRightOf="@+id/civ"
-            android:gravity="center_vertical"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/tv_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:text=""
-                android:textColor="@color/text_color666"
-                android:textSize="@dimen/font14" />
-
-            <TextView
-                android:id="@+id/tv_integration_sum"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:drawableLeft="@mipmap/ic_integration_light"
-                android:drawablePadding="3dp"
-                android:text="积分"
-                android:textColor="#fba62c"
-                android:textSize="@dimen/font12" />
-
-        </LinearLayout>
+    android:background="@color/white">
 
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="@dimen/margin13"
-            android:src="@mipmap/home_time_bg" />
-
-        <TextView
-            android:id="@+id/tv_discover_time"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="@dimen/margin13"
-            android:gravity="center_vertical"
-            android:textColor="@color/text_color333"
-            android:textSize="@dimen/font12"
-            android:textStyle="bold" />
-
-    </RelativeLayout>
 
     <LinearLayout
         android:orientation="horizontal"
@@ -106,12 +24,13 @@
                 android:scaleType="centerCrop"
                 />
             <TextView
+                android:id="@+id/menu_tv_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:textColor="@color/text_color333"
                 android:textSize="@dimen/font12"
-                android:text="我的病历"/>
+                android:text=""/>
         </LinearLayout>
         <LinearLayout
             android:id="@+id/v_menu_2"
@@ -127,12 +46,13 @@
                 android:scaleType="centerCrop"
                 />
             <TextView
+                android:id="@+id/menu_tv_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:textColor="@color/text_color333"
                 android:textSize="@dimen/font12"
-                android:text="精准知识"/>
+                android:text=""/>
         </LinearLayout>
         <LinearLayout
             android:id="@+id/v_menu_3"
@@ -148,12 +68,13 @@
                 android:scaleType="centerCrop"
                 />
             <TextView
+                android:id="@+id/menu_tv_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:textColor="@color/text_color333"
                 android:textSize="@dimen/font12"
-                android:text="好医生"/>
+                android:text=""/>
         </LinearLayout>
         <LinearLayout
             android:id="@+id/v_menu_4"
@@ -169,14 +90,74 @@
                 android:scaleType="centerCrop"
                 />
             <TextView
+                android:id="@+id/menu_tv_4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:textColor="@color/text_color333"
                 android:textSize="@dimen/font12"
-                android:text="帮扶"/>
+                android:text=""/>
         </LinearLayout>
     </LinearLayout>
+    <!---->
+
+    <LinearLayout
+        android:id="@+id/v_headline"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp">
+        <ImageView
+            android:layout_width="114dp"
+            android:layout_height="30dp"
+            android:src="@drawable/home_headline_left"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="30dp"
+            android:paddingLeft="8dp">
+            <TextView
+                android:id="@+id/tv_head_1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textSize="@dimen/font11"
+                android:textColor="@color/text_color666"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:text=""/>
+            <TextView
+                android:id="@+id/tv_head_2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textSize="@dimen/font11"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textColor="@color/text_color666"
+                android:gravity="center_vertical"
+                android:text=""/>
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="更多"
+            android:textColor="@color/text_color999"
+            android:textSize="@dimen/font11"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/to_down_go"
+            android:rotation="270"/>
+    </LinearLayout>
+
     <!---->
     <LinearLayout
         android:orientation="horizontal"
@@ -187,35 +168,43 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
-            android:paddingLeft="12dp">
+            android:paddingLeft="12dp"
+            >
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="85dp"
+                android:layout_height="90dp"
                 android:src="@mipmap/home_menu_big_1"
-                android:layout_alignParentRight="true"/>
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"/>
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
-                <TextView
+                <!--<TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="循征医学"
                     android:textSize="@dimen/font16"
                     android:textColor="@color/text_color333"
                     android:textStyle="bold"
-                    android:paddingTop="5dp"/>
+                    android:paddingTop="5dp"/>-->
+                <ImageView
+                    android:layout_width="74dp"
+                    android:layout_height="18dp"
+                    android:src="@drawable/menu_main_1_1"
+                    android:layout_marginTop="5dp"/>
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="32dp"
                     android:text="临床 经验 造福患者"
-                    android:textSize="@dimen/font12"
+                    android:textSize="@dimen/font11"
+                    android:gravity="center_vertical"
                     android:textColor="@color/text_color999"
                     android:paddingTop="5dp"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="免费咨询"
+                    android:text="对症治疗"
                     android:textSize="@dimen/font12"
                     android:textColor="@color/white"
                     android:gravity="center"
@@ -231,33 +220,33 @@
             android:layout_height="match_parent"
             android:paddingLeft="12dp">
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="78dp"
+                android:layout_height="100dp"
                 android:src="@mipmap/home_menu_big_2"
-                android:layout_alignParentRight="true"/>
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="12dp"/>
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="111dp"
+                    android:layout_height="18dp"
+                    android:src="@drawable/menu_main_1_2"
+                    android:layout_marginTop="5dp"/>
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="前沿奇方"
-                    android:textSize="@dimen/font16"
-                    android:textColor="@color/text_color333"
-                    android:textStyle="bold"
-                    android:paddingTop="5dp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="无论什么有效就好"
-                    android:textSize="@dimen/font12"
+                    android:layout_height="32dp"
+                    android:text="免疫力下降\n是引起复发转移的关键"
+                    android:textSize="@dimen/font11"
+                    android:gravity="center_vertical"
                     android:textColor="@color/text_color999"
                     android:paddingTop="5dp"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="奇方特药"
+                    android:text="改善土壤"
                     android:textSize="@dimen/font12"
                     android:textColor="@color/white"
                     android:gravity="center"
@@ -284,6 +273,7 @@
                 android:layout_width="45dp"
                 android:layout_height="45dp"
                 android:scaleType="centerCrop"
+                android:src="@mipmap/menu_2_1"
                 />
             <TextView
                 android:layout_width="wrap_content"
@@ -305,6 +295,7 @@
                 android:layout_width="45dp"
                 android:layout_height="45dp"
                 android:scaleType="centerCrop"
+                android:src="@mipmap/menu_2_2"
                 />
             <TextView
                 android:layout_width="wrap_content"
@@ -326,6 +317,7 @@
                 android:layout_width="45dp"
                 android:layout_height="45dp"
                 android:scaleType="centerCrop"
+                android:src="@mipmap/menu_2_3"
                 />
             <TextView
                 android:layout_width="wrap_content"
@@ -347,6 +339,7 @@
                 android:layout_width="45dp"
                 android:layout_height="45dp"
                 android:scaleType="centerCrop"
+                android:src="@mipmap/menu_2_4"
                 />
             <TextView
                 android:layout_width="wrap_content"
@@ -358,6 +351,154 @@
         </LinearLayout>
     </LinearLayout>
     <!---->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="190dp">
+        <LinearLayout
+            android:id="@+id/menu_main_3_1"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="肿瘤营养风险评估(免费)"
+                android:textSize="@dimen/font15"
+                android:textColor="@color/text_color333"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:paddingLeft="12dp"
+                android:paddingTop="10dp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="肿瘤营养专家根据患者定制套餐"
+                android:textSize="@dimen/font11"
+                android:textColor="@color/text_color999"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:paddingLeft="12dp"
+                android:paddingTop="2dp"
+                />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="营养评测"
+                    android:textSize="@dimen/font12"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:layout_marginLeft="12dp"
+                    android:background="@mipmap/home_menu_text_bg"
+                    android:layout_marginTop="10dp"/>
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@mipmap/menu_main_2_1"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    />
+            </RelativeLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:id="@+id/menu_main_3_2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/temp_menu_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="怎么吃"
+                    android:textSize="@dimen/font15"
+                    android:textColor="@color/text_color333"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:paddingLeft="12dp"
+                    android:paddingTop="10dp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="吃什么,精确补充"
+                    android:textSize="@dimen/font11"
+                    android:textColor="@color/text_color999"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:layout_below="@+id/temp_menu_1"
+                    android:paddingLeft="12dp"
+                    android:paddingTop="2dp"
+                    />
+                <ImageView
+                    android:layout_width="108dp"
+                    android:layout_height="90dp"
+                    android:src="@mipmap/menu_main_3_1"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/menu_main_3_3"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/temp_menu_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="营养餐"
+                    android:textSize="@dimen/font15"
+                    android:textColor="@color/text_color333"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:paddingLeft="12dp"
+                    android:paddingTop="2dp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="肿瘤患者个性化定制"
+                    android:textSize="@dimen/font11"
+                    android:textColor="@color/text_color999"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:layout_below="@+id/temp_menu_2"
+                    android:paddingLeft="12dp"
+                    android:paddingTop="2dp"
+                    />
+                <ImageView
+                    android:layout_width="104dp"
+                    android:layout_height="55dp"
+                    android:src="@mipmap/menu_main_3_2"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="12dp"
+                    android:layout_marginBottom="5dp"/>
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <!---->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:textColor="@color/text_color333"
+        android:textSize="@dimen/font18"
+        android:gravity="center_vertical"
+        android:paddingLeft="20dp"
+        android:layout_marginTop="8dp"
+        android:text="推荐工具"/>
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -376,12 +517,13 @@
                 android:scaleType="centerCrop"
                 />
             <TextView
+                android:id="@+id/menu_tv_9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:textColor="@color/text_color333"
                 android:textSize="@dimen/font12"
-                android:text="基因检测"/>
+                android:text=""/>
         </LinearLayout>
         <LinearLayout
             android:id="@+id/v_menu_10"
@@ -397,12 +539,13 @@
                 android:scaleType="centerCrop"
                 />
             <TextView
+                android:id="@+id/menu_tv_10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:textColor="@color/text_color333"
                 android:textSize="@dimen/font12"
-                android:text="营养"/>
+                android:text=""/>
         </LinearLayout>
         <LinearLayout
             android:id="@+id/v_menu_11"
@@ -418,12 +561,13 @@
                 android:scaleType="centerCrop"
                 />
             <TextView
+                android:id="@+id/menu_tv_11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:textColor="@color/text_color333"
                 android:textSize="@dimen/font12"
-                android:text="药品"/>
+                android:text=""/>
         </LinearLayout>
         <LinearLayout
             android:id="@+id/v_menu_12"
@@ -437,6 +581,7 @@
                 android:layout_width="45dp"
                 android:layout_height="45dp"
                 android:scaleType="centerCrop"
+                android:src="@mipmap/gv_more"
                 />
             <TextView
                 android:layout_width="wrap_content"
@@ -447,4 +592,38 @@
                 android:text="更多"/>
         </LinearLayout>
     </LinearLayout>
+    <!--tab-->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@drawable/home_top_tab_shadow" />
+    <RelativeLayout
+        android:id="@+id/iv_tab"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:background="@color/white">
+
+        <com.zeyuan.kyq.widget.CustomView.InsideRecyclerView
+            android:id="@+id/rv_top"
+            android:layout_width="match_parent"
+            android:layout_height="38dp" />
+
+        <ImageView
+            android:id="@+id/add"
+            android:layout_width="wrap_content"
+            android:layout_height="38dp"
+            android:layout_alignParentRight="true"
+            android:visibility="visible"
+            android:src="@mipmap/home_tab_right" />
+    </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/home_top_tab_shadow" />
+
+    <FrameLayout
+        android:id="@+id/fl_add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 </LinearLayout>

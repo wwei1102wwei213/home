@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="105dp">
+    android:layout_height="120dp">
 
     <ImageView
         android:id="@+id/iv"
         android:layout_width="105dp"
-        android:layout_height="81dp"
+        android:layout_height="96dp"
         android:scaleType="centerCrop"
-        android:layout_margin="@dimen/margin12"
+
+        android:layout_marginLeft="12dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/default_img"/>
 
     <LinearLayout
@@ -20,21 +23,23 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="20dp">
+            android:layout_height="20dp"
+            >
 
             <TextView
                 android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="随风飞随风随风飞随风随随风飞随风随风飞随风随随风飞随风随风飞随风随"
+                android:text=""
                 android:singleLine="true"
                 android:maxWidth="180dp"
                 android:ellipsize="end"
                 android:textSize="@dimen/font16"
                 android:textStyle="bold"
                 android:textColor="@color/text_color333"
-                android:gravity="center_vertical"/>
-            <TextView
+                android:gravity="center_vertical"
+                android:layout_marginLeft="12dp"/>
+            <!--<TextView
                 android:id="@+id/host_type"
                 android:text="无"
                 android:layout_width="wrap_content"
@@ -47,25 +52,37 @@
                 android:paddingRight="3dp"
                 android:paddingTop="1dp"
                 android:paddingBottom="1dp"
-                android:visibility="visible"/>
+                android:visibility="visible"/>-->
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/v_host_type"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:gravity="center_vertical"
+            android:layout_height="20dp"
+            android:layout_marginTop="2dp">
+
         </LinearLayout>
 
         <TextView
             android:id="@+id/tv_sub"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="38dp"
             android:maxLines="2"
             android:ellipsize="end"
             android:text="随风飞随风随风飞随风随随风飞随风随风飞随风随随风飞随风随风飞随风随"
             android:textSize="@dimen/font13"
             android:textColor="@color/text_color666"
-            android:paddingTop="6dp"
+            android:paddingTop="3dp"
+            android:layout_marginLeft="12dp"
             />
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="20dp"
-            android:gravity="center_vertical">
+            android:gravity="center_vertical"
+            android:layout_marginLeft="12dp">
 
             <TextView
                 android:id="@+id/tv_num_1"

@@ -285,4 +285,7 @@
     <color name="divider_list">#d4d4d4</color>
     <color name="tag_bg">#f6f6f6</color>
 
+    <color name="comment_orange">#F75E28</color>
+    <color name="comment_green">#62c064</color>
+
 </resources>

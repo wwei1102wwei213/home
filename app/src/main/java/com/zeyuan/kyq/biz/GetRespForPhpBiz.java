@@ -26,6 +26,7 @@ import com.zeyuan.kyq.Entity.UserReplyEntity;
 import com.zeyuan.kyq.application.ZYApplication;
 import com.zeyuan.kyq.bean.AdverticingListBean;
 import com.zeyuan.kyq.bean.ClickStatisticsBean;
+import com.zeyuan.kyq.bean.CommentListBean;
 import com.zeyuan.kyq.bean.CommentProjectBean;
 import com.zeyuan.kyq.bean.CurrentNumBean;
 import com.zeyuan.kyq.bean.EffectiveBean;
@@ -348,6 +349,9 @@ public class GetRespForPhpBiz {
             case Const.PApi_addPcomment:
                 url = Const.p_Api_addPcomment;
                 break;
+            case Const.PApi_viewPcomment:
+                url = Const.p_Api_viewPcomment;
+                break;
 
         }
         LogCustom.i(Const.TAG.ZY_HTTP, "请求地址：" + url);
@@ -611,6 +615,9 @@ public class GetRespForPhpBiz {
                     break;
                 case Const.PApi_addPcomment:
                     o = mGson.fromJson(response, PhpUserInfoBean.class);
+                    break;
+                case Const.PApi_viewPcomment:
+                    o = mGson.fromJson(response, CommentListBean.class);
                     break;
             }
         } catch (com.google.gson.JsonParseException e) {

@@ -649,6 +649,23 @@
             android:name=".view.AddCommentAllActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateHidden" />
+        <!-- 全部评价 -->
+        <activity
+            android:name=".view.CommentListActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <!-- 肿瘤头条3.0 -->
+        <activity
+            android:name=".view.HeadlineHomeActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+
+        <!-- H5 -->
+        <activity
+            android:name=".view.ShowCommentH5Actvity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="true"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
     </application>
 
 </manifest>

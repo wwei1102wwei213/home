@@ -44,6 +44,11 @@ public class BannerPagerAdapter extends PagerAdapter {
         mInflater = LayoutInflater.from(mContext);
     }
 
+    public void update(List<HomePageEntity> banners){
+        this.banners = banners;
+        notifyDataSetChanged();
+    }
+
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
         LogCustom.i("ZYS","destroyItem:"+position);

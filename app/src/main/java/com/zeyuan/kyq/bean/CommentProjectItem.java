@@ -1,5 +1,9 @@
 package com.zeyuan.kyq.bean;
 
+import android.text.TextUtils;
+
+import com.zeyuan.kyq.utils.DecryptUtils;
+
 import java.io.Serializable;
 
 /**
@@ -72,7 +76,14 @@ public class CommentProjectItem implements Serializable{
     }
 
     public String getPsubject() {
-        return Psubject;
+        if (TextUtils.isEmpty(Psubject)) return "";
+        String result = "";
+        try {
+            result = DecryptUtils.URLAnddecodeBase64(Psubject);
+        }catch (Exception e){
+
+        }
+        return result;
     }
 
     public void setPsubject(String psubject) {

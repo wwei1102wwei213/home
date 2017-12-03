@@ -658,7 +658,35 @@
                 </RelativeLayout>
 
                 <View style="@style/line_style" />
-
+                <TextView
+                    android:id="@+id/test1"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="项目列表"
+                    android:textColor="@color/text_color2"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="20dp"
+                    android:textSize="@dimen/font14" />
+                <View style="@style/line_style" />
+                <TextView
+                    android:id="@+id/test2"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="医生列表"
+                    android:textColor="@color/text_color2"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="20dp"
+                    android:textSize="@dimen/font14" />
+                <View style="@style/line_style" />
+                <TextView
+                    android:id="@+id/test3"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="医院列表"
+                    android:textColor="@color/text_color2"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="20dp"
+                    android:textSize="@dimen/font14" />
                 <!--<TextView-->
                 <!--android:id="@+id/tv_new_function"-->
                 <!--android:layout_width="match_parent"-->
