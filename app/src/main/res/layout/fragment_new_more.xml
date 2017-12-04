@@ -658,7 +658,7 @@
                 </RelativeLayout>
 
                 <View style="@style/line_style" />
-                <TextView
+                <!--<TextView
                     android:id="@+id/test1"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
@@ -686,7 +686,7 @@
                     android:textColor="@color/text_color2"
                     android:gravity="center_vertical"
                     android:paddingLeft="20dp"
-                    android:textSize="@dimen/font14" />
+                    android:textSize="@dimen/font14" />-->
                 <!--<TextView-->
                 <!--android:id="@+id/tv_new_function"-->
                 <!--android:layout_width="match_parent"-->

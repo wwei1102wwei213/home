@@ -29,6 +29,7 @@ import com.zeyuan.kyq.view.AllMenuActivity;
 import com.zeyuan.kyq.view.ArticleDetailActivity;
 import com.zeyuan.kyq.view.ArticleTypeActivity;
 import com.zeyuan.kyq.view.CareListActivity;
+import com.zeyuan.kyq.view.CommentProjectActivity;
 import com.zeyuan.kyq.view.FocusFriendActivity;
 import com.zeyuan.kyq.view.ForumDetailActivity;
 import com.zeyuan.kyq.view.FourmListActivity;
@@ -924,6 +925,12 @@ public class UiUtils {
                             break;
                         case 25://有赞页面
                             context.startActivity(new Intent(context, YouzanActivity.class).putExtra("uzUrl", entity.getSign_b()));
+                            break;
+                        case 26://医生列表
+                            context.startActivity(new Intent(context, CommentProjectActivity.class).putExtra("Comment_Project_Type",2));
+                            break;
+                        case 27://医院列表
+                            context.startActivity(new Intent(context, CommentProjectActivity.class).putExtra("Comment_Project_Type",3));
                             break;
                         default:
                             Toast.makeText(context.getApplicationContext(), "当前版本暂不支持该功能\n" +

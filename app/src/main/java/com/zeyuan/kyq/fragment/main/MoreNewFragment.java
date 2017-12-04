@@ -66,7 +66,6 @@ import com.zeyuan.kyq.utils.UiUtils;
 import com.zeyuan.kyq.utils.UserinfoData;
 import com.zeyuan.kyq.view.AboutActivity;
 import com.zeyuan.kyq.view.BindingPhoneActivity;
-import com.zeyuan.kyq.view.CommentProjectActivity;
 import com.zeyuan.kyq.view.DrawCashActivity;
 import com.zeyuan.kyq.view.GuideActivity;
 import com.zeyuan.kyq.view.InfoCenterActivity;
@@ -179,7 +178,7 @@ public class MoreNewFragment extends BaseZyFragment implements View.OnClickListe
 //                    startActivity(new Intent(context, CommentProjectActivity.class).putExtra("Comment_Project_Type",2));
                 }
             });
-            findViewById(R.id.test1).setOnClickListener(new View.OnClickListener() {
+            /*findViewById(R.id.test1).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
@@ -199,7 +198,7 @@ public class MoreNewFragment extends BaseZyFragment implements View.OnClickListe
 
                     startActivity(new Intent(context, CommentProjectActivity.class).putExtra("Comment_Project_Type",3));
                 }
-            });
+            });*/
 
             /*findViewById(R.id.more_f_help).setOnClickListener(new View.OnClickListener() {
                 @Override

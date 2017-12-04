@@ -64,12 +64,14 @@ import com.zeyuan.kyq.utils.UiUtils;
 import com.zeyuan.kyq.utils.UserinfoData;
 import com.zeyuan.kyq.view.AllMenuActivity;
 import com.zeyuan.kyq.view.ArticleTypeActivity;
+import com.zeyuan.kyq.view.CommentProjectActivity;
 import com.zeyuan.kyq.view.HeadlineHomeActivity;
 import com.zeyuan.kyq.view.HomeSymptomActivity;
 import com.zeyuan.kyq.view.InfoCenterActivity;
 import com.zeyuan.kyq.view.MainActivity;
 import com.zeyuan.kyq.view.NewsCenterActivity;
 import com.zeyuan.kyq.view.SearchDrugActivity;
+import com.zeyuan.kyq.view.ShowDiscuzActivity;
 import com.zeyuan.kyq.view.SimilarActivity;
 import com.zeyuan.kyq.widget.CircleImageView;
 import com.zeyuan.kyq.widget.CustomView.InsideRecyclerView;
@@ -175,9 +177,6 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
             data = new ArrayList<>();
             if (banners == null || banners.size() == 0) banners = new ArrayList<>();
             adapter = new HomeHelpRecyclerAdapter(context, data, rv, banners);
-            /*if ("0".equals(UserinfoData.getIsHaveStep(context))) {
-
-            }*/
             headerView = adapter.setHeaderView(R.layout.head_home_fragment, rv);
             initHeaderView();
             rv.setAdapter(adapter);
@@ -350,18 +349,12 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
             headerView.findViewById(R.id.menu_main_3_1).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
+                    toMenu("http://www.kaqcn.com/act/tropho_fx");
                 }
             });
             headerView.findViewById(R.id.menu_main_3_2).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    /*"id":"11",
-            "name":"怎么吃",
-            "pic_oss":"http://oss-cn-shenzhen.aliyuncs.com/zeyuan1/14918160428213.png",
-            "skiptype":"11",
-            "sign_a":"31",
-            "sign_b":"1"*/
                     HomePageEntity mEntity = new HomePageEntity();
                     mEntity.setId("11");
                     mEntity.setName("怎么吃");
@@ -376,11 +369,39 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
             headerView.findViewById(R.id.menu_main_3_3).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
+                    toMenu("https://h5.youzan.com/v2/goods/361m5pz4nd47q?reft=1512370759106&spm=f47100560");
                 }
             });
+            headerView.findViewById(R.id.v_menu_big_1).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(context, CommentProjectActivity.class).putExtra("Comment_Project_Type",1));
+                }
+            });
+            headerView.findViewById(R.id.v_menu_big_2).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(context, CommentProjectActivity.class).putExtra("Comment_Project_Type",1));
+                }
+            });
+
         } catch (Exception e) {
             ExceptionUtils.ExceptionToUM(e, context, "initView");
+        }
+    }
+
+    private void toMenu(String url){
+        if (!TextUtils.isEmpty(url)) {
+            //加上登录信息
+            if (url.contains("?")) {
+                url += "&kaq=" + UiUtils.getRandomMath()
+                        + UserinfoData.getInfoID(context) + "&lt=2&Type=2";
+            } else {
+                url += "?kaq=" + UiUtils.getRandomMath()
+                        + UserinfoData.getInfoID(context) + "&lt=2&Type=2";
+            }
+            context.startActivity(new Intent(context, ShowDiscuzActivity.class)
+                    .putExtra(Const.SHOW_HTML_MAIN_TOP, url));
         }
     }
 
