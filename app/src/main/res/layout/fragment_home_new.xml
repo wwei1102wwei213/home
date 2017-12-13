@@ -9,7 +9,7 @@
         android:focusable="true"
         android:focusableInTouchMode="true">
 
-        <RelativeLayout
+        <!--<RelativeLayout
             android:id="@+id/v_top_banner"
             android:layout_width="match_parent"
             android:layout_height="165dp"
@@ -91,7 +91,7 @@
                 android:textSize="@dimen/font12"
                 android:textStyle="bold" />
 
-        </RelativeLayout>
+        </RelativeLayout>-->
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -106,10 +106,6 @@
                     android:layout_height="match_parent"
                     />
             </com.andview.refreshview.XRefreshView>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="8dp"
-                android:background="@drawable/home_top_tab_shadow" />
         </RelativeLayout>
 
     </LinearLayout>
@@ -152,4 +148,9 @@
         android:id="@+id/pd"
         style="@style/progressbar_style"
         android:indeterminate="false" />
+    <View
+        android:id="@+id/v_status_top_home"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="#50000000" />
 </RelativeLayout>

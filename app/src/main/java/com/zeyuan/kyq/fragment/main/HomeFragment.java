@@ -218,7 +218,7 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
         rv_top = (InsideRecyclerView) headerView.findViewById(R.id.rv_top);
 
         tv_news_num = (TextView) findViewById(R.id.tv_news_num_home);
-        tv_integration_sum = (TextView) findViewById(R.id.tv_integration_sum);
+        tv_integration_sum = (TextView) headerView.findViewById(R.id.tv_integration_sum);
         //布局设置
         manager = new LinearLayoutManager(context);
         manager.setOrientation(LinearLayoutManager.HORIZONTAL);
@@ -227,9 +227,9 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
         list_top = new ArrayList<>();
         adapter_top = new HomeTabRecyclerAdapter(context, list_top, this, 0);
         rv_top.setAdapter(adapter_top);
-        mVp = (ViewPager)findViewById(R.id.vp_top_banner);
-        mDcv = (DrawCircleView)findViewById(R.id.dcv_top_banner);
-        head_civ = (CircleImageView)findViewById(R.id.civ);
+        mVp = (ViewPager)headerView.findViewById(R.id.vp_top_banner);
+        mDcv = (DrawCircleView)headerView.findViewById(R.id.dcv_top_banner);
+        head_civ = (CircleImageView)headerView.findViewById(R.id.civ);
         fl_add = (FrameLayout) headerView.findViewById(R.id.fl_add);
         if ("0".equals(UserinfoData.getIsHaveStep(context))) {
             initUserTypeView();
@@ -375,13 +375,17 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
             headerView.findViewById(R.id.v_menu_big_1).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startActivity(new Intent(context, CommentProjectActivity.class).putExtra("Comment_Project_Type",1));
+                    startActivity(new Intent(context, CommentProjectActivity.class)
+                            .putExtra("Comment_Project_Type",1)
+                    .putExtra("Comment_Project_Type_PT",1));
                 }
             });
             headerView.findViewById(R.id.v_menu_big_2).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startActivity(new Intent(context, CommentProjectActivity.class).putExtra("Comment_Project_Type",1));
+                    startActivity(new Intent(context, CommentProjectActivity.class)
+                            .putExtra("Comment_Project_Type",1)
+                            .putExtra("Comment_Project_Type_PT",2));
                 }
             });
 

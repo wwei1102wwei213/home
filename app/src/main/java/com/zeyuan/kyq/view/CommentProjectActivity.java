@@ -67,6 +67,7 @@ public class CommentProjectActivity extends BaseActivity implements HttpResponse
     private int type;//1项目 2医生 3医院
     private CommentProjectRvAdapter adapter;
     private FrameLayout fl;
+    private int PT = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +76,9 @@ public class CommentProjectActivity extends BaseActivity implements HttpResponse
         //设置状态栏
         setContentView(R.layout.activity_comment_list);
         type = getIntent().getIntExtra("Comment_Project_Type", 1);
+        if (type==1){
+            PT = getIntent().getIntExtra("Comment_Project_Type_PT", 1);
+        }
         initView();
         initData();
     }
@@ -97,10 +101,10 @@ public class CommentProjectActivity extends BaseActivity implements HttpResponse
             titleName = "医院";
             iv_res = R.drawable.icon_add_host;
         }
-        String tv_bottom_type = "新增"+titleName;
+        String tv_bottom_type = "我要推荐"+(type==1?"抗癌":"")+titleName;
         ((TextView) findViewById(R.id.tv_bottom_add_type)).setText(tv_bottom_type);
         ((ImageView) findViewById(R.id.iv_bottom_add_type)).setImageResource(iv_res);
-        tv_other_title.setText(titleName);
+        tv_other_title.setText(titleName+"列表");
 
         findViewById(R.id.v_bottom).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -133,6 +137,7 @@ public class CommentProjectActivity extends BaseActivity implements HttpResponse
         adapter.setCustomLoadMoreView(new XRefreshViewFooter(context));
         xrv_similar_case.setPinnedTime(1000);
         xrv_similar_case.setPullLoadEnable(true);
+
         xrv_similar_case.setMoveForHorizontal(true);
         xrv_similar_case.setXRefreshViewListener(new XRefreshView.SimpleXRefreshListener() {
 
@@ -263,6 +268,9 @@ public class CommentProjectActivity extends BaseActivity implements HttpResponse
             map.put("OrderType", OrderType + "");
             map.put("page", page + "");
             map.put("pageSize", "10");
+            if (type==1){
+                map.put("ProjectType", PT+"");
+            }
         }
         return map;
     }

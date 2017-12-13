@@ -96,6 +96,7 @@ public class ShowCommentH5Actvity extends BaseActivity implements MyWebChromeCli
                 } else {
                     url = "http://help.kaqcn.com/Api/getProjectInfo?id="+id;
                 }
+                url += "&InfoID=" + UserinfoData.getInfoID(this);
                 initview();
                 initlistener();
             }
@@ -136,13 +137,27 @@ public class ShowCommentH5Actvity extends BaseActivity implements MyWebChromeCli
             findViewById(R.id.tv_service).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startActivity(new Intent(ShowCommentH5Actvity.this, CommentListActivity.class)
+                    /*startActivity(new Intent(ShowCommentH5Actvity.this, CommentListActivity.class)
                             .putExtra(Const.INTENT_SHOW_COMMENT_TYPE, Integer.valueOf(type))
-                            .putExtra(Const.INTENT_SHOW_COMMENT_ID, id));
+                            .putExtra(Const.INTENT_SHOW_COMMENT_ID, id));*/
+                    toService();
                 }
             });
         } catch (Exception e) {
             ExceptionUtils.ExceptionToUM(e, this, "ShowDiscuzActivity");
+        }
+    }
+
+    private void toService(){
+        if (itemData==null||itemData.getTagOpen()==0||TextUtils.isEmpty(itemData.getTagUrl())){
+            showToast("服务暂未开放\n请耐心等待.");
+        } else {
+            if (itemData.getTagType()==1){
+                startActivity(new Intent(this, YouzanActivity.class).putExtra("uzUrl", itemData.getTagUrl()));
+            } else {
+                startActivity(new Intent(this, ShowDiscuzActivity.class)
+                        .putExtra(Const.SHOW_HTML_MAIN_TOP, itemData.getTagUrl()));
+            }
         }
     }
 
@@ -524,10 +539,14 @@ public class ShowCommentH5Actvity extends BaseActivity implements MyWebChromeCli
     }
 
     @JavascriptInterface
-    public void appJumpProject(String type, String id){
-        startActivity(new Intent(this, ShowCommentH5Actvity.class)
-                .putExtra(Const.INTENT_SHOW_COMMENT_TYPE, Integer.valueOf(type))
-                .putExtra(Const.INTENT_SHOW_COMMENT_ID, id));
+    public void appJumpProject(String str){
+        if (!TextUtils.isEmpty(str)&&str.contains(",")){
+            String[] args = str.split(",");
+            startActivity(new Intent(this, ShowCommentH5Actvity.class)
+                    .putExtra(Const.INTENT_SHOW_COMMENT_TYPE, Integer.valueOf(args[0]))
+                    .putExtra(Const.INTENT_SHOW_COMMENT_ID, args[1]));
+
+        }
     }
 
     @JavascriptInterface
@@ -535,21 +554,29 @@ public class ShowCommentH5Actvity extends BaseActivity implements MyWebChromeCli
         startActivity(new Intent(this, ReleaseForumActivity.class));
     }
 
+
     @JavascriptInterface
-    public void appAllComment(String type, String id){
+    public void appAllComment(){
         startActivity(new Intent(this, CommentListActivity.class)
-                .putExtra(Const.INTENT_SHOW_COMMENT_TYPE, Integer.valueOf(type))
+                .putExtra(Const.INTENT_SHOW_COMMENT_TYPE, type)
                 .putExtra(Const.INTENT_SHOW_COMMENT_ID, id));
     }
 
     @JavascriptInterface
-    public void appPostDetail(){
-
+    public void appPostDetail(String circleID){
+        if (!TextUtils.isEmpty(circleID)){
+            startActivity(new Intent(this, NewCircleActivity.class)
+                    .putExtra(Contants.CircleID, circleID));
+        }
     }
 
     @JavascriptInterface
-    public void appArticleDetail(){
+    public void appArticleDetail(String id){
+        if (!TextUtils.isEmpty(id)){
+            startActivity(new Intent(this, ArticleDetailActivity.class).
+                    putExtra(Const.INTENT_ARTICLE_ID, "" + id));
 
+        }
     }
 
     @Override

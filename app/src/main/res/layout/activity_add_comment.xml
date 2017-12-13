@@ -79,6 +79,7 @@
                         android:layout_height="@dimen/height48"
                         android:layout_marginTop="@dimen/margin8"
                         android:background="@color/white"
+                        android:visibility="gone"
                         >
 
                         <TextView

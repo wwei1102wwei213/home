@@ -85,7 +85,7 @@ public class AddCommentActivity extends BaseActivity implements AdapterView.OnIt
         type = getIntent().getIntExtra(Const.INTENT_ADD_FLAG_TYPE, 1);
         REQUEST_FLAG = getIntent().getBooleanExtra(Const.RECORD_REQUEST_FLAG, false);
         tv_title = (TextView)findViewById(R.id.tv_title);
-        tv_title.setText("新增");
+        tv_title.setText("推荐");
     }
 
     //备注输入框
@@ -136,6 +136,11 @@ public class AddCommentActivity extends BaseActivity implements AdapterView.OnIt
     String[] hints = {"请输入项目名称","请输入医生姓名", "请输入医院名称"};
     String[] typeNames = {"项目名称","医生姓名", "医院名称" };
     String[] typeTxts = {"对项目的描述","对医生的描述", "对医院的描述" };
+    String[] mHints = {
+            "输入您推荐项目（或有特殊疗效的医生）的理由及具体情况，提交后，我们会尽快认证，并尽快上线该项目（或医生）。",
+            "输入医生所在医院及你知道的更多医生信息，提交后，我们会尽快认证，并尽快上线该医生。",
+            "在此输入内容，提交后，我们会尽快认证，并尽快上线该医院."
+    };
     private void initListener(){
         findViewById(R.id.iv_back).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -165,6 +170,7 @@ public class AddCommentActivity extends BaseActivity implements AdapterView.OnIt
                 }
             }
         });
+        et_remark.setHint(mHints[type-1]);
     }
 
     private void initData(){}
