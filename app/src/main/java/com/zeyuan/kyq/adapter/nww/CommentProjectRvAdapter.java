@@ -59,55 +59,68 @@ public class CommentProjectRvAdapter extends BaseRecyclerAdapter<CommentProjectR
 
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position, boolean isItem) {
-        final CommentProjectItem item = list.get(position);
+        try {
 
-        String name = item.getPname();
-        holder.name.setText(TextUtils.isEmpty(name)?"":name);
-        holder.tv_num_1.setText(item.getHComNum()+"");
-        holder.tv_num_2.setText(item.getMComNum()+"");
-        holder.tv_num_3.setText(item.getLComNum()+"");
-        holder.tv_sub.setText(item.getPsubject());
-        String url = item.getPicUrl();
-        if (!TextUtils.isEmpty(url)){
-            Glide.with(context).load(url).into(holder.iv);
-        } else {
-            holder.iv.setImageResource(R.drawable.default_img);
-        }
-        holder.v.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                callback.forAdapterCallback(position, 0, item.getId()+"", false, item);
-            }
-        });
-        if (type==2){
-            holder.tv_host_name.setText(TextUtils.isEmpty(item.getJob())?"未录入医院":item.getJob());
-            holder.tv_host_tag.setText("");
-            holder.tv_dot_type.setText("");
-            holder.tv_rate.setText(item.getHComRate()+"%");
-        } else if (type==3){
-            if (TextUtils.isEmpty(item.getHospitalLevelName())){
-                holder.v_host_type.setVisibility(View.GONE);
+
+            final CommentProjectItem item = list.get(position);
+
+            String name = item.getPname();
+            holder.name.setText(TextUtils.isEmpty(name)?"":name);
+            holder.tv_num_1.setText(item.getHComNum()+"");
+            holder.tv_num_2.setText(item.getMComNum()+"");
+            holder.tv_num_3.setText(item.getLComNum()+"");
+            holder.tv_sub.setText(item.getPsubject());
+            String url = item.getPicUrl();
+            if (!TextUtils.isEmpty(url)){
+                Glide.with(context).load(url).into(holder.iv);
             } else {
-                holder.v_host_type.setVisibility(View.VISIBLE);
-                holder.v_host_type.removeAllViews();
+                holder.iv.setImageResource(R.drawable.default_img);
+            }
+            holder.v.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    callback.forAdapterCallback(position, 0, item.getId()+"", false, item);
+                }
+            });
+            if (type==2){
+                holder.tv_host_name.setText(TextUtils.isEmpty(item.getJob())?"未录入医院":item.getJob());
+                holder.tv_host_tag.setText("");
+                holder.tv_dot_type.setText("");
                 try {
-                    String[] args = item.getHospitalLevelName().split(",");
-                    for (int i=0;i<args.length;i++){
-                        View v = LayoutInflater.from(context).inflate(R.layout.item_host_type_tv, holder.v_host_type, false);
-                        ((TextView)v).setText(args[i]);
-                        holder.v_host_type.addView(v);
+                    double d = Double.parseDouble(item.getHComRate());
+                    int n = (int) d;
+                    holder.tv_rate.setText(n+"%");
+                } catch (Exception e){
+
+                }
+
+            } else if (type==3){
+                if (TextUtils.isEmpty(item.getHospitalLevelName())){
+                    holder.v_host_type.setVisibility(View.GONE);
+                } else {
+                    holder.v_host_type.setVisibility(View.VISIBLE);
+                    holder.v_host_type.removeAllViews();
+                    try {
+                        String[] args = item.getHospitalLevelName().split(",");
+                        for (int i=0;i<args.length;i++){
+                            View v = LayoutInflater.from(context).inflate(R.layout.item_host_type_tv, holder.v_host_type, false);
+                            ((TextView)v).setText(args[i]);
+                            holder.v_host_type.addView(v);
+                        }
+                    }catch (Exception e){
+                        ExceptionUtils.ExceptionSend(e);
                     }
-                }catch (Exception e){
-                    ExceptionUtils.ExceptionSend(e);
+                }
+            } else {
+                if (TextUtils.isEmpty(item.getCureTypeName())){
+                    holder.cure_name.setVisibility(View.GONE);
+                } else {
+                    holder.cure_name.setVisibility(View.VISIBLE);
+                    holder.cure_name.setText(item.getCureTypeName());
                 }
             }
-        } else {
-            if (TextUtils.isEmpty(item.getCureTypeName())){
-                holder.cure_name.setVisibility(View.GONE);
-            } else {
-                holder.cure_name.setVisibility(View.VISIBLE);
-                holder.cure_name.setText(item.getCureTypeName());
-            }
+        } catch (Exception e){
+            ExceptionUtils.ExceptionSend(e, "onBindViewHolder");
         }
     }
 

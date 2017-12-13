@@ -207,7 +207,7 @@
     <!---->
     <View
         android:layout_width="match_parent"
-        android:layout_height="1px"
+        android:layout_height="1dp"
         android:background="@color/home_line_color"/>
     <LinearLayout
         android:id="@+id/v_headline"
@@ -341,7 +341,7 @@
 
         </RelativeLayout>
         <View
-            android:layout_width="1px"
+            android:layout_width="1dp"
             android:layout_height="match_parent"
             android:background="@color/home_line_color"/>
         <RelativeLayout
@@ -402,7 +402,7 @@
     </LinearLayout>
     <View
         android:layout_width="match_parent"
-        android:layout_height="1px"
+        android:layout_height="1dp"
         android:background="@color/home_line_color"/>
     <!---->
     <LinearLayout
@@ -432,7 +432,7 @@
                 android:text="查药"/>
         </LinearLayout>
         <View
-            android:layout_width="1px"
+            android:layout_width="1dp"
             android:layout_height="match_parent"
             android:background="@color/home_line_color"/>
         <LinearLayout
@@ -458,7 +458,7 @@
                 android:text="查症状"/>
         </LinearLayout>
         <View
-            android:layout_width="1px"
+            android:layout_width="1dp"
             android:layout_height="match_parent"
             android:background="@color/home_line_color"/>
         <LinearLayout
@@ -484,7 +484,7 @@
                 android:text="查进展"/>
         </LinearLayout>
         <View
-            android:layout_width="1px"
+            android:layout_width="1dp"
             android:layout_height="match_parent"
             android:background="@color/home_line_color"/>
         <LinearLayout
@@ -573,7 +573,7 @@
 
         </LinearLayout>
         <View
-            android:layout_width="1px"
+            android:layout_width="1dp"
             android:layout_height="match_parent"
             android:background="@color/home_line_color"/>
         <LinearLayout
@@ -619,7 +619,7 @@
             </RelativeLayout>
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1px"
+                android:layout_height="1dp"
                 android:background="@color/home_line_color"/>
             <RelativeLayout
                 android:id="@+id/menu_main_3_3"
@@ -663,7 +663,7 @@
     </LinearLayout>
     <View
         android:layout_width="match_parent"
-        android:layout_height="1px"
+        android:layout_height="1dp"
         android:background="@color/home_line_color"/>
     <!---->
     <TextView

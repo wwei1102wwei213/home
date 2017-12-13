@@ -49,7 +49,8 @@ public class CommentProjectItem implements Serializable{
             "TagOpen":0*/
 
     private String PicUrl,CureTypeName,Pname,Psubject,TagUrl,job,HospitalLevelName;
-    private int id,HComNum,MComNum,LComNum,TagType,TagOpen,HComRate;
+    private int id,HComNum,MComNum,LComNum,TagType,TagOpen;
+    private String HComRate;
 
     public String getPicUrl() {
         return PicUrl;
@@ -162,11 +163,11 @@ public class CommentProjectItem implements Serializable{
         HospitalLevelName = hospitalLevelName;
     }
 
-    public int getHComRate() {
+    public String getHComRate() {
         return HComRate;
     }
 
-    public void setHComRate(int HComRate) {
+    public void setHComRate(String HComRate) {
         this.HComRate = HComRate;
     }
 

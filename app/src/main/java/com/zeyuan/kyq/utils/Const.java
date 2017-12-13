@@ -718,6 +718,7 @@ public final class Const {
     public static final String INTENT_SHOW_DISCUZ_ID = "ShowDiscuzID";
     public static final String INTENT_SHOW_COMMENT_ID = "INTENT_SHOW_COMMENT_ID";
     public static final String INTENT_SHOW_COMMENT_TYPE = "INTENT_SHOW_COMMENT_TYPE";
+    public static final String INTENT_SHOW_COMMENT_TYPE_RANGE = "INTENT_SHOW_COMMENT_TYPE_RANGE";
     public static String SHOW_DISCUZ_FORUM;
     public static String SHOW_DISCUZ_ARTICLE;
     public static String SIMALAR_TITLE = "SIMALAR_TITLE";

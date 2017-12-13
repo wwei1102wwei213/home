@@ -168,6 +168,10 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
             getActivity().getWindowManager().getDefaultDisplay().getMetrics(metric);
             mWidth = metric.widthPixels; // 屏幕宽度（像素）
             v_news_num = findViewById(R.id.v_news_num_home);
+            View v = findViewById(R.id.v_status_top_home);
+            ViewGroup.LayoutParams params= v.getLayoutParams();
+            params.height = getStatusBarHeight();
+            v.setLayoutParams(params);
             xv = (XRefreshView) findViewById(R.id.xrv);
             rv = (RecyclerView) findViewById(R.id.rv);
             LinearLayoutManager manager1 = new LinearLayoutManager(context);
@@ -349,7 +353,7 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
             headerView.findViewById(R.id.menu_main_3_1).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    toMenu("http://www.kaqcn.com/act/tropho_fx");
+                    toMenu("http://www.kaqcn.com/act/tropho_index");
                 }
             });
             headerView.findViewById(R.id.menu_main_3_2).setOnClickListener(new View.OnClickListener() {

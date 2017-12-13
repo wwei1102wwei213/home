@@ -31,7 +31,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:layout_alignParentRight="true"
-                    android:text="发布"
+                    android:text="推荐"
                     android:textSize="@dimen/font16"
                     android:paddingRight="10dp"
                     android:paddingLeft="10dp"

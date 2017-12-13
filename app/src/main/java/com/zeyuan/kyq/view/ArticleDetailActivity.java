@@ -305,8 +305,8 @@ public class ArticleDetailActivity extends BaseActivity implements ViewDataListe
                             putExtra(Contants.Avatar, nurl));
                     return true;
                 }
-                return true;
-//                return super.shouldOverrideUrlLoading(view, nurl);
+//                return true;
+                return super.shouldOverrideUrlLoading(view, nurl);
             }
 
             @Override

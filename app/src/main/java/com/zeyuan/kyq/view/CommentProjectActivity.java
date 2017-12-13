@@ -42,8 +42,6 @@ import com.zeyuan.kyq.utils.UserinfoData;
 import com.zeyuan.kyq.widget.FlowLayout;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -267,7 +265,7 @@ public class CommentProjectActivity extends BaseActivity implements HttpResponse
             map.put("City", city);
             map.put("OrderType", OrderType + "");
             map.put("page", page + "");
-            map.put("pageSize", "10");
+            map.put("pageSize", "2");
             if (type==1){
                 map.put("ProjectType", PT+"");
             }
@@ -545,15 +543,24 @@ public class CommentProjectActivity extends BaseActivity implements HttpResponse
             Map<String,String> cureConf = (Map<String,String>) Factory.getData(Const.N_DataCureConf);
             Set<String> leftSet = cureConf.keySet();//
             List<String> cureKeys = new ArrayList<>();
-            for (String str : leftSet) {//把set转换为list
+            cureKeys.add("4206");
+            cureKeys.add("4205");
+            cureKeys.add("4214");
+            cureKeys.add("4207");
+            cureKeys.add("4208");
+            cureKeys.add("4217");
+            cureKeys.add("4232");
+            cureKeys.add("4231");
+            cureKeys.add("4213");
+            /*for (String str : leftSet) {//把set转换为list
                 cureKeys.add(str);
-            }
-            Collections.sort(cureKeys, new Comparator<String>() {
+            }*/
+            /*Collections.sort(cureKeys, new Comparator<String>() {
                 @Override
                 public int compare(String lhs, String rhs) {
                     return Integer.valueOf(lhs) - Integer.valueOf(rhs);
                 }
-            });
+            });*/
             final FlowLayout orderFL = (FlowLayout) cureView.findViewById(R.id.fl);
             for (int i=0;i<cureKeys.size();i++) {
                 final String id = cureKeys.get(i);

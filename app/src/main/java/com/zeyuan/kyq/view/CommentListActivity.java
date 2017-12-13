@@ -34,6 +34,7 @@ public class CommentListActivity extends BaseActivity implements HttpResponseInt
 
     private String id;
     private int type;
+    private int CommentType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,7 @@ public class CommentListActivity extends BaseActivity implements HttpResponseInt
         setContentView(R.layout.activity_comment_list_ww);
         id = getIntent().getStringExtra(Const.INTENT_SHOW_COMMENT_ID);
         type = getIntent().getIntExtra(Const.INTENT_SHOW_COMMENT_TYPE, 0);
+        CommentType = getIntent().getIntExtra(Const.INTENT_SHOW_COMMENT_TYPE_RANGE,0);
         initView();
         initData();
     }
@@ -111,6 +113,38 @@ public class CommentListActivity extends BaseActivity implements HttpResponseInt
         tv_h_num = (TextView) headerView.findViewById(R.id.tv_h_num);
         tv_m_num = (TextView) headerView.findViewById(R.id.tv_m_num);
         tv_l_num = (TextView) headerView.findViewById(R.id.tv_l_num);
+        tv_all_num.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CommentType = 0;
+                page = 0;
+                initData();
+            }
+        });
+        tv_h_num.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CommentType = 1;
+                page = 0;
+                initData();
+            }
+        });
+        tv_m_num.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CommentType = 2;
+                page = 0;
+                initData();
+            }
+        });
+        tv_l_num.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CommentType = 3;
+                page = 0;
+                initData();
+            }
+        });
         tv_comment_num = (TextView) headerView.findViewById(R.id.tv_comment_num);
     }
 
@@ -149,6 +183,7 @@ public class CommentListActivity extends BaseActivity implements HttpResponseInt
             map.put("RelationID",id);
             map.put("page", page + "");
             map.put("pageSize", "10");
+            map.put("commentType", CommentType+"");
         }
         return map;
     }
@@ -173,7 +208,12 @@ public class CommentListActivity extends BaseActivity implements HttpResponseInt
                     adapter.update(list);
                     overLoading(0);
                 } else {
-                    overLoading(2);
+                    if (!refresh&&!loading){
+                        list = new ArrayList<>();
+                        adapter.update(list);
+                    } else {
+                        overLoading(2);
+                    }
                 }
             } else {
                 overLoading(1);

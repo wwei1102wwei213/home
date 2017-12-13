@@ -105,6 +105,8 @@ public class AddCommentAllActivity extends BaseActivity implements AdapterView.O
         tv_title.setText("评价"+titleName);
         tv_type_txt = (TextView) findViewById(R.id.tv_type_txt);
         tv_type_txt.setText("对"+titleName+"的描述");
+        tv_type_txt_1 = (TextView) findViewById(R.id.tv_type_txt_1);
+        tv_type_txt_1.setText("对"+titleName+"的评价");
         if (itemData!=null){
             if (type==1){
                 findViewById(R.id.v_dot).setVisibility(View.VISIBLE);
@@ -135,6 +137,7 @@ public class AddCommentAllActivity extends BaseActivity implements AdapterView.O
     private MyLayout mLayout;
     //医院区域框
     private TextView tv_type_txt;
+    private TextView tv_type_txt_1;
     //滑动器
     private CustomScrollView sv;
     private CommentLevelSelector cls1,cls2,cls3,cls4;

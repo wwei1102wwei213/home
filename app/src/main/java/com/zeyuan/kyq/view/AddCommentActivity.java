@@ -85,7 +85,15 @@ public class AddCommentActivity extends BaseActivity implements AdapterView.OnIt
         type = getIntent().getIntExtra(Const.INTENT_ADD_FLAG_TYPE, 1);
         REQUEST_FLAG = getIntent().getBooleanExtra(Const.RECORD_REQUEST_FLAG, false);
         tv_title = (TextView)findViewById(R.id.tv_title);
-        tv_title.setText("推荐");
+        String titleName;
+        if (type==1){
+            titleName = "项目";
+        } else if (type==2){
+            titleName = "医生";
+        } else {
+            titleName = "医院";
+        }
+        tv_title.setText("推荐"+titleName);
     }
 
     //备注输入框
@@ -159,10 +167,11 @@ public class AddCommentActivity extends BaseActivity implements AdapterView.OnIt
                     String temp = "";
                     if (!TextUtils.isEmpty(et_hospital.getText())) {
                         temp = et_hospital.getText().toString();
+                        et_hospital.setHint("");
+                        et_hospital.setText(temp);
+                        et_hospital.setSelection(temp.length());
                     }
-                    et_hospital.setHint("");
-                    et_hospital.setText(temp);
-                    et_hospital.setSelection(temp.length());
+
                 } else {
                     if (TextUtils.isEmpty(et_hospital.getText())) {
                         et_hospital.setHint(hints[type-1]);
@@ -171,6 +180,7 @@ public class AddCommentActivity extends BaseActivity implements AdapterView.OnIt
             }
         });
         et_remark.setHint(mHints[type-1]);
+        et_hospital.setHint(hints[type-1]);
     }
 
     private void initData(){}

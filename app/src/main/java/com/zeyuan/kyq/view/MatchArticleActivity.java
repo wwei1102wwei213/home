@@ -138,7 +138,7 @@ public class MatchArticleActivity extends BaseActivity implements HttpResponseIn
                         if (index!=-2){
                             page = 0;
                             xv.setLoadComplete(false);
-                            if (pos==0){//判断参数标识
+                            if (pos==tl.getTabCount()-1){//判断参数标识
                                 HTTP_TAG = 0;
                             }else {
                                 HTTP_TAG = 1;
@@ -209,10 +209,11 @@ public class MatchArticleActivity extends BaseActivity implements HttpResponseIn
     private void setTabView(){
         try {
             tl.removeAllTabs();
-            tl.addTab(tl.newTab().setText("全部"));
+
             for (SameEntity entity:list){
                 tl.addTab(tl.newTab().setText(TextUtils.isEmpty(entity.getName())?"未知标签":entity.getName()));
             }
+            tl.addTab(tl.newTab().setText("全部"));
         }catch (Exception e){
             ExceptionUtils.ExceptionSend(e,"setTabView");
         }
@@ -227,8 +228,8 @@ public class MatchArticleActivity extends BaseActivity implements HttpResponseIn
             map.put("page",page+"");
             map.put("pagesize",pageSize);
             if (HTTP_TAG==1){
-                if (index!=-2&&index!=0&&list!=null&&!TextUtils.isEmpty(list.get(index-1).getId())){
-                    CureConfID = list.get(index-1).getId();
+                if (index!=-2&&index!=0&&list!=null&&!TextUtils.isEmpty(list.get(index).getId())){
+                    CureConfID = list.get(index).getId();
                     map.put("step",CureConfID);
                 }
             }else if(HTTP_TAG==2){

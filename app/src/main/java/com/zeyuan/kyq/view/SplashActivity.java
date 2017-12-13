@@ -230,7 +230,7 @@ public class SplashActivity extends BaseActivity implements ViewSwitcher.ViewFac
 //        UserinfoData.saveInfoID(this, "280180");
         String infoID = UserinfoData.getInfoID(this);
         String isHaveCreateInfo = UserinfoData.getIsHaveCreateInfo(this);
-        if(!TextUtils.isEmpty(infoID)&&"1".equals(isHaveCreateInfo)){
+        if(!TextUtils.isEmpty(infoID)/*&&"1".equals(isHaveCreateInfo)*/){
             startActivity(new Intent(SplashActivity.this, MainActivity.class));
         }else{
             startActivity(new Intent(SplashActivity.this, GuideActivity.class));

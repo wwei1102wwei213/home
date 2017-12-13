@@ -565,8 +565,8 @@ public class ShowCommentH5Actvity extends BaseActivity implements MyWebChromeCli
     @JavascriptInterface
     public void appPostDetail(String circleID){
         if (!TextUtils.isEmpty(circleID)){
-            startActivity(new Intent(this, NewCircleActivity.class)
-                    .putExtra(Contants.CircleID, circleID));
+            startActivity(new Intent(this, ForumDetailActivity.class)
+                    .putExtra(Const.FORUM_ID,circleID));
         }
     }
 
