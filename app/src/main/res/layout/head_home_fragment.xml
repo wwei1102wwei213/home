@@ -17,12 +17,16 @@
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:gravity="center">
-            <com.zeyuan.kyq.widget.CircleImageView
-                android:id="@+id/civ_menu_1"
+            <RelativeLayout
                 android:layout_width="45dp"
-                android:layout_height="45dp"
-                android:scaleType="centerCrop"
-                />
+                android:layout_height="45dp">
+                <com.zeyuan.kyq.widget.CircleImageView
+                    android:id="@+id/civ_menu_1"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:scaleType="centerCrop"
+                    />
+            </RelativeLayout>
             <TextView
                 android:id="@+id/menu_tv_1"
                 android:layout_width="wrap_content"
@@ -100,7 +104,10 @@
         </LinearLayout>
     </LinearLayout>
     <!---->
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/home_line_color"/>
     <LinearLayout
         android:id="@+id/v_headline"
         android:orientation="horizontal"
@@ -159,10 +166,15 @@
     </LinearLayout>
 
     <!---->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="@color/color_f4"/>
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="120dp">
+        android:layout_height="120dp"
+        >
         <RelativeLayout
             android:id="@+id/v_menu_big_1"
             android:layout_width="0dp"
@@ -213,6 +225,10 @@
             </LinearLayout>
 
         </RelativeLayout>
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@color/home_line_color"/>
         <RelativeLayout
             android:id="@+id/v_menu_big_2"
             android:layout_width="0dp"
@@ -256,6 +272,10 @@
 
         </RelativeLayout>
     </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/home_line_color"/>
     <!---->
     <LinearLayout
         android:orientation="horizontal"
@@ -283,6 +303,10 @@
                 android:textSize="@dimen/font12"
                 android:text="查药"/>
         </LinearLayout>
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@color/home_line_color"/>
         <LinearLayout
             android:id="@+id/v_menu_6"
             android:orientation="vertical"
@@ -305,6 +329,10 @@
                 android:textSize="@dimen/font12"
                 android:text="查症状"/>
         </LinearLayout>
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@color/home_line_color"/>
         <LinearLayout
             android:id="@+id/v_menu_7"
             android:orientation="vertical"
@@ -327,6 +355,10 @@
                 android:textSize="@dimen/font12"
                 android:text="查进展"/>
         </LinearLayout>
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@color/home_line_color"/>
         <LinearLayout
             android:id="@+id/v_menu_8"
             android:orientation="vertical"
@@ -350,6 +382,10 @@
                 android:text="相似患者"/>
         </LinearLayout>
     </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="@color/color_f4"/>
     <!---->
     <LinearLayout
         android:orientation="horizontal"
@@ -408,6 +444,10 @@
             </RelativeLayout>
 
         </LinearLayout>
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@color/home_line_color"/>
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="0dp"
@@ -449,6 +489,10 @@
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentRight="true"/>
             </RelativeLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/home_line_color"/>
             <RelativeLayout
                 android:id="@+id/menu_main_3_3"
                 android:layout_width="match_parent"
@@ -489,6 +533,10 @@
             </RelativeLayout>
         </LinearLayout>
     </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/home_line_color"/>
     <!---->
     <TextView
         android:layout_width="match_parent"

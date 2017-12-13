@@ -287,5 +287,6 @@
 
     <color name="comment_orange">#F75E28</color>
     <color name="comment_green">#62c064</color>
+    <color name="home_line_color">#eeeeee</color>
 
 </resources>

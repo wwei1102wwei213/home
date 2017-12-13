@@ -386,6 +386,10 @@ YXNum = 5; // 影像
                 exit = 1;
                 startActivity(new Intent(this, AddCommentSuccessActivity.class).putExtra("add_success_type",1));
                 finish();
+            }else if ("2".equals(bean.getiResult())){
+                exit = 2;
+                showToast("亲，您已经点评过了~");
+                finish();
             }else {
                 showToast("评价失败");
             }

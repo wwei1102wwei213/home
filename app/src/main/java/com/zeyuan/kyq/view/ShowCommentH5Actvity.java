@@ -65,6 +65,7 @@ public class ShowCommentH5Actvity extends BaseActivity implements MyWebChromeCli
 
     private String url = "";
     private String id = "";
+    //1项目 2医生 3医院
     private int type;
     private String title = "";
     private String summary = "";
@@ -86,10 +87,11 @@ public class ShowCommentH5Actvity extends BaseActivity implements MyWebChromeCli
             id = getIntent().getStringExtra(Const.INTENT_SHOW_COMMENT_ID);
             type = getIntent().getIntExtra(Const.INTENT_SHOW_COMMENT_TYPE, 0);
             itemData = (CommentProjectItem)getIntent().getSerializableExtra("Comment_Item_Data");
+            LogCustom.d("zys", "id:"+id+",type="+type);
             if (!TextUtils.isEmpty(id)) {
-                if (type == 1){
+                if (type == 2){
                     url = "http://help.kaqcn.com/Api/getDoctorInfo?id="+id;
-                } else if (type == 2){
+                } else if (type == 3){
                     url = "http://help.kaqcn.com/Api/getHospitalInfo?id="+id;
                 } else {
                     url = "http://help.kaqcn.com/Api/getProjectInfo?id="+id;
@@ -111,9 +113,9 @@ public class ShowCommentH5Actvity extends BaseActivity implements MyWebChromeCli
             sb.setMax(100);
             initwebview();
             String commentStr = "";
-            if (type==1){
+            if (type==2){
                 commentStr = "点评医生";
-            } else if (type==2){
+            } else if (type==3){
                 commentStr = "点评医院";
             } else {
                 commentStr = "点评项目";

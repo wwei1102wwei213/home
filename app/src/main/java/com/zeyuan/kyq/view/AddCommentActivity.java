@@ -361,7 +361,7 @@ public class AddCommentActivity extends BaseActivity implements AdapterView.OnIt
                 exit = 1;
                 startActivity(new Intent(this, AddCommentSuccessActivity.class).putExtra("add_success_type",0));
                 finish();
-            }else {
+            }  else {
                 showToast("新增失败");
             }
         }

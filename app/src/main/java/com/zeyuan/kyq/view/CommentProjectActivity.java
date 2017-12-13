@@ -121,7 +121,7 @@ public class CommentProjectActivity extends BaseActivity implements HttpResponse
             @Override
             public void forAdapterCallback(int pos, int tag, String id, boolean flag, Object obj) {
                 startActivity(new Intent(CommentProjectActivity.this, ShowCommentH5Actvity.class)
-                        .putExtra(Const.INTENT_SHOW_COMMENT_TYPE, Integer.valueOf(type-1))
+                        .putExtra(Const.INTENT_SHOW_COMMENT_TYPE, Integer.valueOf(type))
                         .putExtra("Comment_Item_Data",(CommentProjectItem) obj)
                         .putExtra(Const.INTENT_SHOW_COMMENT_ID, id));
             }
