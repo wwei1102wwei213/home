@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.TextView;
 
@@ -18,6 +19,7 @@ import com.zeyuan.kyq.biz.Factory;
 import com.zeyuan.kyq.biz.HttpResponseInterface;
 import com.zeyuan.kyq.utils.Const;
 import com.zeyuan.kyq.utils.Contants;
+import com.zeyuan.kyq.utils.DensityUtils;
 import com.zeyuan.kyq.utils.ExceptionUtils;
 import com.zeyuan.kyq.utils.UserinfoData;
 
@@ -69,7 +71,11 @@ public class CommentListActivity extends BaseActivity implements HttpResponseInt
             rv.setLayoutManager(manager1);
             rv.setHasFixedSize(true);
             list = new ArrayList<>();
-            adapter = new CommentListRvAdapter(this, list, null);
+            DisplayMetrics metric = new DisplayMetrics();
+            getWindowManager().getDefaultDisplay().getMetrics(metric);
+            int width = metric.widthPixels;     // 屏幕宽度（像素）
+            int result = (width - DensityUtils.dpToPx(this, 36 + 16)) / 3;//左右padding各18，space 8*2
+            adapter = new CommentListRvAdapter(this, list, result ,null);
             headerView = adapter.setHeaderView(R.layout.head_comment_list, rv);
             initHeaderView();
             rv.setAdapter(adapter);

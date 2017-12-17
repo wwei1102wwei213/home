@@ -29,6 +29,7 @@ import com.andview.refreshview.XRefreshView;
 import com.andview.refreshview.XRefreshViewFooter;
 import com.bumptech.glide.Glide;
 import com.meelive.ingkee.sdk.plugin.entity.UserInfo;
+import com.paradoxie.autoscrolltextview.VerticalTextview;
 import com.zeyuan.kyq.Entity.ArticleTypeEntity;
 import com.zeyuan.kyq.Entity.HomePageBean;
 import com.zeyuan.kyq.Entity.HomePageEntity;
@@ -214,7 +215,7 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
     private TextView[] menuTvs;
     private CircleImageView[] menuCivs;
     private View[] menuVs;
-    private TextView tv_head_1,tv_head_2;
+    private VerticalTextview tv_head_1,tv_head_2;
     private void initHeaderView() {
         if (headerView == null) return;
         //设置控件
@@ -238,8 +239,11 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
         if ("0".equals(UserinfoData.getIsHaveStep(context))) {
             initUserTypeView();
         }
-        tv_head_1 = (TextView) headerView.findViewById(R.id.tv_head_1);
-        tv_head_2 = (TextView) headerView.findViewById(R.id.tv_head_2);
+
+        tv_head_1 = (VerticalTextview) headerView.findViewById(R.id.tv_head_1);
+        tv_head_2 = (VerticalTextview) headerView.findViewById(R.id.tv_head_2);
+
+
 
         menuTvs = new TextView[7];
         menuTvs[0] = (TextView) headerView.findViewById(R.id.menu_tv_1);
@@ -560,11 +564,38 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
             //设置文章列表视图
             articleIndex = 0;
             List<InformationEntity> temp = entity.getData();
-            if (temp!=null&&temp.size()>1){
-                String title1 = temp.get(0).getTitle();
-                tv_head_1.setText(TextUtils.isEmpty(title1)?"":title1);
-                title1 = temp.get(1).getTitle();
-                tv_head_2.setText(TextUtils.isEmpty(title1)?"":title1);
+            if (temp!=null&&temp.size()>5){
+                ArrayList<String> headList1 = new ArrayList<>();
+                ArrayList<String> headList2 = new ArrayList<>();
+                String title0 = temp.get(0).getTitle();
+                String title1 = temp.get(1).getTitle();
+                String title2 = temp.get(2).getTitle();
+                String title3 = temp.get(3).getTitle();
+                String title4 = temp.get(4).getTitle();
+                String title5 = temp.get(5).getTitle();
+                headList1.add(TextUtils.isEmpty(title0)?"":title0);
+                headList2.add(TextUtils.isEmpty(title1)?"":title1);
+                headList1.add(TextUtils.isEmpty(title2)?"":title2);
+                headList2.add(TextUtils.isEmpty(title3)?"":title3);
+                headList1.add(TextUtils.isEmpty(title4)?"":title4);
+                headList2.add(TextUtils.isEmpty(title5)?"":title5);
+
+                tv_head_1.setTextList(headList1);
+                tv_head_1.setText(11f, 1, Color.parseColor("#666666"));
+                tv_head_2.setTextList(headList2);
+                tv_head_2.setText(11f, 1,  Color.parseColor("#666666"));
+                tv_head_1.setTextStillTime(3000);
+                tv_head_1.setAnimTime(300);
+                tv_head_2.setTextStillTime(3000);
+                tv_head_2.setAnimTime(300);
+                tv_head_1.startAutoScroll();
+                tv_head_2.startAutoScroll();
+                startScrollFlag = true;
+                /*tv_head_1.setTextList(headList1);
+                tv_head_2.setTextList(headList2);
+                tv_head_1.setText(12, 1, Color.RED);
+                tv_head_2.setText(12, 1, Color.RED);*/
+
             }
             adapter.notifyDataSetChanged();
         } catch (Exception e) {
@@ -572,6 +603,7 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
         }
     }
 
+    private boolean startScrollFlag = false;
     //主页刷新按钮点击时执行
     public void toRefresh() {
         try {
@@ -1002,7 +1034,7 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
                 if (mHomeList != null && mHomeList.size() > 0) {
                     List<HomePageEntity> temp = new ArrayList<>();
                     if (mHomeList.size() > 7) {
-
+                        headerView.findViewById(R.id.ic_hot).setVisibility(View.VISIBLE);
                         for (int i = 0; i < 7; i++) {
                             final HomePageEntity entity = mHomeList.get(i);
                             String titleName = mHomeList.get(i).getName();
@@ -1210,13 +1242,35 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
     @Override
     public void onResume() {
         super.onResume();
-        ZYApplication.homeMoveFlag = true;
+        try {
+            ZYApplication.homeMoveFlag = true;
+            if (tv_head_1!=null&&startScrollFlag){
+                tv_head_1.startAutoScroll();
+            }
+            if (tv_head_2!=null&&startScrollFlag){
+                tv_head_2.startAutoScroll();
+            }
+        } catch (Exception e){
+            ExceptionUtils.ExceptionSend(e);
+        }
+
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        ZYApplication.homeMoveFlag = false;
+        try {
+            ZYApplication.homeMoveFlag = false;
+            if (tv_head_1!=null){
+                tv_head_1.stopAutoScroll();
+            }
+            if (tv_head_2!=null){
+                tv_head_2.stopAutoScroll();
+            }
+        } catch (Exception e){
+            ExceptionUtils.ExceptionSend(e);
+        }
+
     }
 
     private int space;

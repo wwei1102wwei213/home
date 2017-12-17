@@ -215,7 +215,7 @@ public class ShowCommentH5Actvity extends BaseActivity implements MyWebChromeCli
                             putExtra(Contants.Avatar, nurl));
                     return true;
                 } else {
-                    url = nurl;
+//                    url = nurl;
                 }
                 return super.shouldOverrideUrlLoading(view, nurl);
             }

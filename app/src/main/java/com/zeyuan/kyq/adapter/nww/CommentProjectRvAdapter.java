@@ -113,11 +113,27 @@ public class CommentProjectRvAdapter extends BaseRecyclerAdapter<CommentProjectR
                 }
             } else {
                 if (TextUtils.isEmpty(item.getCureTypeName())){
+                    holder.v_host_type.setVisibility(View.GONE);
+                } else {
+                    holder.v_host_type.setVisibility(View.VISIBLE);
+                    holder.v_host_type.removeAllViews();
+                    try {
+                        String[] args = item.getCureTypeName().split(",");
+                        for (int i=0;i<args.length;i++){
+                            View v = LayoutInflater.from(context).inflate(R.layout.item_host_cure_tv, holder.v_host_type, false);
+                            ((TextView)v).setText(args[i]);
+                            holder.v_host_type.addView(v);
+                        }
+                    }catch (Exception e){
+                        ExceptionUtils.ExceptionSend(e);
+                    }
+                }
+                /*if (TextUtils.isEmpty(item.getCureTypeName())){
                     holder.cure_name.setVisibility(View.GONE);
                 } else {
                     holder.cure_name.setVisibility(View.VISIBLE);
                     holder.cure_name.setText(item.getCureTypeName());
-                }
+                }*/
             }
         } catch (Exception e){
             ExceptionUtils.ExceptionSend(e, "onBindViewHolder");
@@ -172,7 +188,8 @@ public class CommentProjectRvAdapter extends BaseRecyclerAdapter<CommentProjectR
                     v_host_type = (LinearLayout) itemView.findViewById(R.id.v_host_type);
                 } else {
                     iv = (ImageView) itemView.findViewById(R.id.iv);
-                    cure_name = (TextView) itemView.findViewById(R.id.cure_name);
+//                    cure_name = (TextView) itemView.findViewById(R.id.cure_name);
+                    v_host_type = (LinearLayout) itemView.findViewById(R.id.v_host_type);
                 }
             }
         }

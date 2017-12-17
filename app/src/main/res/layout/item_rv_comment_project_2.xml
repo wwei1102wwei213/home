@@ -10,8 +10,8 @@
         android:scaleType="centerCrop"
 
         android:layout_marginLeft="12dp"
-        android:layout_marginBottom="12dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginBottom="9dp"
+        android:layout_marginTop="15dp"
         android:background="@drawable/default_img"/>
 
     <LinearLayout
@@ -28,16 +28,14 @@
 
             <TextView
                 android:id="@+id/name"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text=""
                 android:singleLine="true"
-                android:maxWidth="180dp"
                 android:ellipsize="end"
                 android:textSize="@dimen/font16"
                 android:textStyle="bold"
                 android:textColor="@color/text_color333"
-                android:gravity="center_vertical"
                 android:layout_marginLeft="12dp"/>
             <!--<TextView
                 android:id="@+id/host_type"

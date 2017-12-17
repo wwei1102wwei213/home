@@ -114,11 +114,12 @@
                         android:layout_centerInParent="true"
                         />
                     <ImageView
+                        android:id="@+id/ic_hot"
                         android:layout_width="30dp"
                         android:layout_height="18dp"
                         android:src="@mipmap/ic_hot"
                         android:layout_alignParentRight="true"
-
+                        android:visibility="gone"
                         />
                 </RelativeLayout>
                 <TextView
@@ -227,28 +228,22 @@
             android:layout_weight="1"
             android:layout_height="30dp"
             android:paddingLeft="8dp">
-            <TextView
+            <com.paradoxie.autoscrolltextview.VerticalTextview
                 android:id="@+id/tv_head_1"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:textSize="@dimen/font11"
-                android:textColor="@color/text_color666"
+                android:layout_height="15dp"
                 android:maxLines="1"
                 android:ellipsize="end"
                 android:gravity="center_vertical"
-                android:text=""/>
-            <TextView
+                />
+            <com.paradoxie.autoscrolltextview.VerticalTextview
                 android:id="@+id/tv_head_2"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:textSize="@dimen/font11"
+                android:layout_height="15dp"
                 android:maxLines="1"
                 android:ellipsize="end"
-                android:textColor="@color/text_color666"
                 android:gravity="center_vertical"
-                android:text=""/>
+                />
         </LinearLayout>
         <TextView
             android:layout_width="wrap_content"

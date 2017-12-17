@@ -104,10 +104,33 @@
         android:textColor="@color/text_color333"
         android:paddingTop="10dp"
         android:text="as分公司的分公司的风格"
-        android:paddingBottom="15dp"/>
+        android:paddingBottom="12dp"/>
+
+    <LinearLayout
+        android:id="@+id/v_gv"
+        android:visibility="gone"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/padding15"
+        android:paddingRight="@dimen/padding15"
+        >
+        <com.zeyuan.kyq.widget.MyGridView
+            android:id="@+id/gv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:horizontalSpacing="@dimen/padding8"
+            android:verticalSpacing="@dimen/padding8"
+            android:numColumns="3"/>
+    </LinearLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1px"
         android:background="@color/line_ddd"
+        android:layout_marginTop="@dimen/margin15"
         android:layout_marginLeft="@dimen/margin12"/>
+
+
+
 </LinearLayout>

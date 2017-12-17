@@ -4,6 +4,8 @@ import android.text.TextUtils;
 
 import com.zeyuan.kyq.utils.DecryptUtils;
 
+import java.util.List;
+
 /**
  * Created by Administrator on 2017-12-03.
  */
@@ -21,6 +23,24 @@ public class CommentListItem {
     private String Mobile,CommentTxt;
 
     private int CommnetNum,TGNum,YXNum,FWNum,dateline;
+
+    private List<String> PicUrl,PicTxt;
+
+    public List<String> getPicUrl() {
+        return PicUrl;
+    }
+
+    public void setPicUrl(List<String> picUrl) {
+        PicUrl = picUrl;
+    }
+
+    public List<String> getPicTxt() {
+        return PicTxt;
+    }
+
+    public void setPicTxt(List<String> picTxt) {
+        PicTxt = picTxt;
+    }
 
     public String getMobile() {
         return Mobile;
