@@ -166,7 +166,8 @@ public class CommentListActivity extends BaseActivity implements HttpResponseInt
             if (level>=(temp+0.5f)){
                 temp++;
             }
-            if (temp>0) temp--;
+//            if (temp>0) temp--;
+            if (temp>4) temp = 4;
             tv_feel_num.setText(bean.getAvecommentNum());
             tv_feel_text.setText(levels[temp]);
         }

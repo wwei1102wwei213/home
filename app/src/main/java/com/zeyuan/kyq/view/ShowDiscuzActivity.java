@@ -173,7 +173,7 @@ public class ShowDiscuzActivity extends BaseActivity implements MyWebChromeClien
                             putExtra(Contants.Avatar, nurl));
                     return true;
                 } else {
-                    url = nurl;
+//                    url = nurl;
                 }
                 return super.shouldOverrideUrlLoading(view, nurl);
             }
