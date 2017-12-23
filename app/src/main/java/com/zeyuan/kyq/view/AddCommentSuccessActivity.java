@@ -46,6 +46,6 @@ public class AddCommentSuccessActivity extends BaseActivity{
     }
 
     private void toShare(){
-
+        finish();
     }
 }

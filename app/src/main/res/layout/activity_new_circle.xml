@@ -40,93 +40,12 @@
             android:layout_height="1px"
             android:background="@color/line_ccc"/>
 
-        <!--<com.zeyuan.kyq.widget.PullToRefresh.PullToRefreshLayout
-            android:id="@+id/layout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
 
-            <include layout="@layout/main_refresh_head" />
-
-            <com.zeyuan.kyq.widget.PullToRefresh.PullableScrollView
-                android:id="@+id/my_sv"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scrollbars="none"
-                android:fadingEdge="none"
-                android:overScrollMode="never">
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <include
-                        android:id="@+id/circle_name"
-                        layout="@layout/item_find_circle_new"
-                        android:layout_width="match_parent"
-                        android:layout_height="72dp"
-                        />
-                    <View
-                        style="@style/line_horizontal_e2"/>
-
-                    <RelativeLayout
-                        android:id="@+id/rl_rv_circle"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:visibility="visible">
-                        <android.support.v7.widget.RecyclerView
-                            android:id="@+id/rv_circle"
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/height48"
-                            android:background="@color/white"
-                            android:paddingRight="@dimen/padding5"
-                            android:paddingLeft="@dimen/padding5"
-                            />
-                        <View
-                            style="@style/line_horizontal_e2"
-                            android:layout_below="@+id/rv_circle"
-                            />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:id="@+id/v_lv"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingTop="@dimen/padding4"
-                        android:paddingLeft="@dimen/padding10"
-                        android:paddingRight="@dimen/padding10"
-                        >
-                        <com.zeyuan.kyq.widget.MyListView
-                            android:id="@+id/listview"
-                            android:layout_width="match_parent"
-                            android:fadingEdge="none"
-                            android:overScrollMode="never"
-                            android:persistentDrawingCache="none"
-                            android:scrollingCache="false"
-                            android:smoothScrollbar="true"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_height="match_parent"
-                            android:divider="@null"
-                            />
-                    </RelativeLayout>
-
-                    <FrameLayout
-                        android:id="@+id/fl"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                    </FrameLayout>
-
-                </LinearLayout>
-            </com.zeyuan.kyq.widget.PullToRefresh.PullableScrollView>
-
-            <include layout="@layout/load_more"/>
-
-        </com.zeyuan.kyq.widget.PullToRefresh.PullToRefreshLayout>-->
         <com.andview.refreshview.XRefreshView
             android:id="@+id/xrv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#F0F0F0">
+            android:background="#F4F4F4">
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rv"

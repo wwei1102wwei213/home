@@ -21,14 +21,52 @@
                 android:background="@color/white" />
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="44dp"
                 android:layout_gravity="center_horizontal"
                 android:orientation="horizontal">
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"/>
+                <RelativeLayout
+                    android:id="@+id/v0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:clickable="true">
 
+                    <TextView
+                        android:id="@+id/tv0"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignLeft="@+id/line0"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignStart="@+id/line0"
+                        android:gravity="center"
+                        android:paddingLeft="@dimen/padding12"
+                        android:paddingRight="@dimen/padding12"
+                        android:text="疾病"
+                        android:textColor="@color/black_green_selector"
+                        android:textSize="@dimen/font16" />
+
+                    <View
+                        android:id="@+id/line0"
+                        android:layout_width="56dp"
+                        android:layout_height="2dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginBottom="3dp"
+                        android:background="@color/light_green" />
+                    <!---->
+
+                </RelativeLayout>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"/>
                 <RelativeLayout
                     android:id="@+id/v1"
-                    android:layout_width="80dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="?android:attr/selectableItemBackground"
                     android:clickable="true">
@@ -49,20 +87,21 @@
 
                     <View
                         android:id="@+id/line1"
-                        android:layout_width="wrap_content"
+                        android:layout_width="56dp"
                         android:layout_height="2dp"
                         android:layout_alignParentBottom="true"
                         android:layout_marginBottom="3dp"
-                        android:layout_marginLeft="@dimen/margin12"
-                        android:layout_marginRight="@dimen/margin12"
                         android:background="@color/light_green" />
                     <!---->
 
                 </RelativeLayout>
-
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"/>
                 <FrameLayout
                     android:id="@+id/v2"
-                    android:layout_width="80dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="?android:attr/selectableItemBackground"
                     android:clickable="true">
@@ -91,20 +130,21 @@
 
                     <View
                         android:id="@+id/line2"
-                        android:layout_width="wrap_content"
+                        android:layout_width="56dp"
                         android:layout_height="2dp"
                         android:layout_gravity="bottom"
                         android:layout_marginBottom="3dp"
-                        android:layout_marginLeft="@dimen/margin12"
-                        android:layout_marginRight="@dimen/margin12"
                         android:background="@color/light_green" />
                     <!---->
 
                 </FrameLayout>
-
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"/>
                 <FrameLayout
                     android:id="@+id/v3"
-                    android:layout_width="80dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="?android:attr/selectableItemBackground"
                     android:clickable="true">
@@ -133,19 +173,20 @@
 
                     <View
                         android:id="@+id/line3"
-                        android:layout_width="wrap_content"
+                        android:layout_width="56dp"
                         android:layout_height="2dp"
                         android:layout_gravity="bottom"
                         android:layout_marginBottom="3dp"
-                        android:layout_marginLeft="@dimen/margin12"
-                        android:layout_marginRight="@dimen/margin12"
                         android:background="@color/light_green" />
                     <!-- -->
                 </FrameLayout>
-
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"/>
                 <FrameLayout
                     android:id="@+id/v4"
-                    android:layout_width="80dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="?android:attr/selectableItemBackground"
                     android:clickable="true">
@@ -157,8 +198,6 @@
                         android:layout_gravity="center_horizontal"
                         android:gravity="center"
                         android:maxLines="1"
-                        android:paddingLeft="@dimen/padding12"
-                        android:paddingRight="@dimen/padding12"
                         android:text="地域圈"
                         android:textColor="@color/black_green_selector"
                         android:textSize="@dimen/font16"
@@ -177,15 +216,17 @@
 
                     <View
                         android:id="@+id/line4"
-                        android:layout_width="wrap_content"
+                        android:layout_width="56dp"
                         android:layout_height="2dp"
                         android:layout_gravity="bottom"
                         android:layout_marginBottom="3dp"
-                        android:layout_marginLeft="@dimen/margin12"
-                        android:layout_marginRight="@dimen/margin12"
                         android:background="@color/light_green" />
                     <!-- -->
                 </FrameLayout>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"/>
             </LinearLayout>
         </LinearLayout>
 

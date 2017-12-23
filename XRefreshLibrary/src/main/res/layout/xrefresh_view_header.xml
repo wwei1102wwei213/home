@@ -3,7 +3,7 @@
     android:id="@+id/xrefreshview_header_text"
     android:layout_width="match_parent"
     android:layout_height="62dp"
-    android:background="#f0f0f0"
+    android:background="#f4f4f4"
     android:paddingBottom="10dp">
 
     <RelativeLayout

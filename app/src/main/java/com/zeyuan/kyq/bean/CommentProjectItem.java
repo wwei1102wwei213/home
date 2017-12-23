@@ -50,7 +50,7 @@ public class CommentProjectItem implements Serializable{
 
     private String PicUrl,CureTypeName,Pname,Psubject,TagUrl,job,HospitalLevelName;
     private int id,HComNum,MComNum,LComNum,TagType,TagOpen;
-    private String HComRate;
+    private String HComRate,hospital;
 
     public String getPicUrl() {
         return PicUrl;
@@ -169,6 +169,14 @@ public class CommentProjectItem implements Serializable{
 
     public void setHComRate(String HComRate) {
         this.HComRate = HComRate;
+    }
+
+    public String getHospital() {
+        return hospital;
+    }
+
+    public void setHospital(String hospital) {
+        this.hospital = hospital;
     }
 
     @Override

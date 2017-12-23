@@ -197,7 +197,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:paddingBottom="@dimen/padding4"
-                android:text="圈圈助手"
+                android:text="智能病历"
                 android:textColor="@color/green_red_selector"
                 android:textSize="@dimen/front12" />
         </LinearLayout>

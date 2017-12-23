@@ -83,9 +83,16 @@ public class CommentProjectRvAdapter extends BaseRecyclerAdapter<CommentProjectR
                 }
             });
             if (type==2){
-                holder.tv_host_name.setText(TextUtils.isEmpty(item.getJob())?"未录入医院":item.getJob());
+                holder.tv_host_name.setText(TextUtils.isEmpty(item.getHospital())?"未录入医院":item.getHospital());
                 holder.tv_host_tag.setText("");
-                holder.tv_dot_type.setText("");
+                String dot_type = item.getJob();
+                if (TextUtils.isEmpty(dot_type)){
+                    holder.tv_dot_type.setText("");
+                } else {
+                    dot_type = dot_type.replaceAll(",", " ");
+                    dot_type = dot_type.replaceAll("，", " ");
+                    holder.tv_dot_type.setText(dot_type);
+                }
                 try {
                     double d = Double.parseDouble(item.getHComRate());
                     int n = (int) d;

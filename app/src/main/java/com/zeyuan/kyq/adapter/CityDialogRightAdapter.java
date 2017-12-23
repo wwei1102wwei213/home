@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.zeyuan.kyq.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -84,11 +85,24 @@ public class CityDialogRightAdapter extends BaseAdapter {
         notifyDataSetChanged();
     }
 
+    public int getSelectPosition(){
+        return selPosition;
+    }
+
+    /**
+     * 设置check取消
+     */
+    public void setSelectChooseCancel() {
+        selPosition= -1;
+        notifyDataSetChanged();
+    }
+
     /**
      * 更新数据
      * @param datas
      */
     public void update(List<String> datas) {
+        if (datas==null) datas = new ArrayList<>();
         this.datas = datas;
         selPosition = -1;
         notifyDataSetChanged();

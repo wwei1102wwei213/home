@@ -77,13 +77,27 @@ public class CancerTypeRightAdapter extends BaseAdapter {
         }
         return convertView;
     }
+
+    public int getSelectedPosition(){
+        return selectedPosition;
+    }
+
     /**
-     * 这个方法是为了左边的点击后变白
+     * 选择
      */
     public void setSelectedPosition(int position) {
         selectedPosition = position;
         notifyDataSetChanged();
     }
+
+    /**
+     * 取消选择
+     */
+    public void setSelectedPositionCancel() {
+        selectedPosition = -1;
+        notifyDataSetChanged();
+    }
+
     class ViewHolder {
         TextView tv;
         ImageView iv_selected;

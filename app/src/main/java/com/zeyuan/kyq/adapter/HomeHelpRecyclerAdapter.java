@@ -6,7 +6,6 @@ import android.graphics.Color;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.view.ViewPager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -68,7 +67,7 @@ public class HomeHelpRecyclerAdapter extends BaseRecyclerAdapter<HomeHelpRecycle
     private int type = 0;
     private List<InformationEntity> list;
     private List<HelpItemEntity> help;
-    private RecyclerHelpAdapter rv_adapter;
+//    private RecyclerHelpAdapter rv_adapter;
     private BannerPagerAdapter vp_adapter;
     private RecyclerView recyclerView;
     private List<HomePageEntity> banners;
@@ -89,7 +88,7 @@ public class HomeHelpRecyclerAdapter extends BaseRecyclerAdapter<HomeHelpRecycle
         this.recyclerView = recyclerView;
         this.banners = banners;
         help = new ArrayList<>();
-        this.rv_adapter = new RecyclerHelpAdapter(context,help);
+//        this.rv_adapter = new RecyclerHelpAdapter(context,help);
         this.vp_adapter = new BannerPagerAdapter(context,banners);
     }
 
@@ -236,12 +235,13 @@ public class HomeHelpRecyclerAdapter extends BaseRecyclerAdapter<HomeHelpRecycle
                         vh.v_body.setVisibility(View.GONE);
                     }
                 }else if (viewType==TYPE_5){
-                    if (flag==0){
+                    /*if (flag==0){
                         vh.rv.setVisibility(View.VISIBLE);
-                        rv_adapter.update(help);
+//                        rv_adapter.update(help);
                     } else {
                         vh.rv.setVisibility(View.GONE);
-                    }
+                    }*/
+//                    vh.rv.setVisibility(View.GONE);
                 }else {
                     final InformationEntity entity;
                     if (position>8){
@@ -537,11 +537,11 @@ public class HomeHelpRecyclerAdapter extends BaseRecyclerAdapter<HomeHelpRecycle
                         v_gif = convertView.findViewById(R.id.v_gif);
                         break;
                     case TYPE_5:
-                        rv = (RecyclerView)convertView.findViewById(R.id.rv_home);
+                        /*rv = (RecyclerView)convertView.findViewById(R.id.rv_home);
                         LinearLayoutManager manager = new LinearLayoutManager(context);
                         manager.setOrientation(LinearLayoutManager.HORIZONTAL);
                         rv.setLayoutManager(manager);
-                        rv.setAdapter(rv_adapter);
+                        rv.setAdapter(rv_adapter);*/
                         break;
                     default:
                         v = convertView;

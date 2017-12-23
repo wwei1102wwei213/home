@@ -261,11 +261,11 @@ public class CommentProjectActivity extends BaseActivity implements HttpResponse
         map.put(Contants.InfoID, UserinfoData.getInfoID(context));
         if (tag == Const.PApi_getProjectList ||tag == Const.PApi_getHosList || tag == Const.PApi_getDocList) {
             map.put("CancerID", cancerId);
-            map.put("CureType ", CureType);//转移情况
+            map.put("CureType", CureType);//转移情况
             map.put("City", city);
             map.put("OrderType", OrderType + "");
             map.put("page", page + "");
-            map.put("pageSize", "2");
+            map.put("pageSize", "15");
             if (type==1){
                 map.put("ProjectType", PT+"");
             }
@@ -429,11 +429,16 @@ public class CommentProjectActivity extends BaseActivity implements HttpResponse
             rightListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    rightAdapter.setSelectedPosition(position);//这个是为了点击效果 字体变蓝
-                    selectData.put(leftAdapter.getItem(leftAdapter.getCount() - 1), position);
-                    String childItem = rightAdapter.getItem(position);
-                    onSelectorItemSelected(childItem, cancerValues.get(childItem), TYPE_CANCER);
-
+                    if (position==rightAdapter.getSelectedPosition()){
+                        rightAdapter.setSelectedPositionCancel();//取消选择
+                        selectData.put(leftAdapter.getItem(leftAdapter.getCount() - 1), position);
+                        onSelectorItemSelected("", "病种", TYPE_CANCER);
+                    } else {
+                        rightAdapter.setSelectedPosition(position);//这个是为了点击效果 字体变蓝
+                        selectData.put(leftAdapter.getItem(leftAdapter.getCount() - 1), position);
+                        String childItem = rightAdapter.getItem(position);
+                        onSelectorItemSelected(childItem, cancerValues.get(childItem), TYPE_CANCER);
+                    }
                 }
             });
         }
@@ -467,11 +472,12 @@ public class CommentProjectActivity extends BaseActivity implements HttpResponse
                 rightCityData = new ArrayList<>();
 
                 provinceList = (List<ProvinceEntity>) Factory.getData(Const.N_DataCity);
+                leftCityData.add("65535");
                 for(ProvinceEntity province:provinceList){
                     leftCityData.add(province.getId());
                 }
-                rightCityData = SyncConfigUtils.parseChildCitys(provinceList.get(0).getCityarray());
-
+//                rightCityData = SyncConfigUtils.parseChildCitys(provinceList.get(0).getCityarray());
+                rightCityData = new ArrayList<>();
                 leftListview = (ListView) cityView.findViewById(R.id.left_listview);
                 rightListview = (ListView) cityView.findViewById(R.id.rigth_listview);
 
@@ -497,20 +503,39 @@ public class CommentProjectActivity extends BaseActivity implements HttpResponse
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         if (selCityPosition == position) return;
-                        selCityPosition = position;//防止重复点击出现bug
-                        leftCityAdapter.setSelectedPosition(position);//设置点击变白
-                        province = leftCityAdapter.getItem(position);
-                        rightCityData.clear();
-                        rightCityData = SyncConfigUtils.parseChildCitys(provinceList.get(position).getCityarray());
-                        rightCityAdapter.update(rightCityData);
-                        rightListview.setSelection(0);
+                        if (position==0){
+                            selCityPosition = position;//防止重复点击出现bug
+                            leftCityAdapter.setSelectedPosition(position);//设置点击变白
+                            province = leftCityAdapter.getItem(position);
+                            rightCityData.clear();
+                            rightCityAdapter.update(rightCityData);
+                            rightListview.setSelection(0);
+                            onSelectorItemSelected("", "全部地区", TYPE_CITY);
+                        } else {
+                            selCityPosition = position;//防止重复点击出现bug
+                            leftCityAdapter.setSelectedPosition(position);//设置点击变白
+                            province = leftCityAdapter.getItem(position);
+                            rightCityData.clear();
+                            try {
+                                rightCityData = SyncConfigUtils.parseChildCitys(provinceList.get(position-1).getCityarray());
+                            } catch (Exception e){
+
+                            }
+                            rightCityAdapter.update(rightCityData);
+                            rightListview.setSelection(0);
+                        }
                     }
                 });
                 rightListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        rightCityAdapter.setSelectChoose(position);//设置选中
-                        onSelectorItemSelected(rightCityAdapter.getItem(position), citys.get(Integer.valueOf(rightCityData.get(position))), TYPE_CITY);
+                        if (position==rightCityAdapter.getSelectPosition()){
+                            rightCityAdapter.setSelectChooseCancel();//取消选择
+                            onSelectorItemSelected(null, "全部地区", TYPE_CITY);
+                        } else {
+                            rightCityAdapter.setSelectChoose(position);//设置选中
+                            onSelectorItemSelected(rightCityAdapter.getItem(position), citys.get(Integer.valueOf(rightCityData.get(position))), TYPE_CITY);
+                        }
                     }
                 });
 
@@ -572,6 +597,7 @@ public class CommentProjectActivity extends BaseActivity implements HttpResponse
                     public void onClick(View v) {
                         if (tv.isSelected()) {//取消选择
                             tv.setSelected(false);
+                            onSelectorItemSelected("", "类型", TYPE_CURE);
                         } else {//选中
                             //清除之前选中item的状态
                             for (int i = 0; i < orderFL.getChildCount(); i++) {
@@ -620,6 +646,7 @@ public class CommentProjectActivity extends BaseActivity implements HttpResponse
                     public void onClick(View v) {
                         if (tv.isSelected()) {//取消选择
                             tv.setSelected(false);
+                            onSelectorItemSelected("0", "默认排序", TYPE_ORDER);
                         } else {//选中
                             //清除之前选中item的状态
                             for (int i = 0; i < orderFL.getChildCount(); i++) {

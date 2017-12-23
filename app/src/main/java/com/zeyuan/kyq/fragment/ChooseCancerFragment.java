@@ -54,7 +54,11 @@ public class ChooseCancerFragment extends DialogFragment implements View.OnClick
     private String cancer_frist;
     private String cancer_second;
     private String cancer_three;
+    private boolean FlagParent = false;
 
+    public void setFlagParent(boolean flagParent) {
+        FlagParent = flagParent;
+    }
 
     public static ChooseCancerFragment getInstance(FragmentCallBack callback) {
         try {
@@ -237,155 +241,201 @@ public class ChooseCancerFragment extends DialogFragment implements View.OnClick
         try {
             switch (v.getId()) {
                 case R.id.tv_11:
-                    if (tv11.isSelected()) {
-                        tv11.setSelected(false);
-                        setGoneNextTV();
+                    if (FlagParent){
+                        toCallBackParent(0);
                     } else {
-                        clearFirstSelect();
-                        tv11.setSelected(true);
-                        initSecondView(0);
+                        if (tv11.isSelected()) {
+                            tv11.setSelected(false);
+                            setGoneNextTV();
+                        } else {
+                            clearFirstSelect();
+                            tv11.setSelected(true);
+                            initSecondView(0);
+                        }
                     }
                     break;
                 case R.id.tv_12:
-                    if (tv12.isSelected()) {
-                        tv12.setSelected(false);
-                        setGoneNextTV();
+                    if (FlagParent){
+                        toCallBackParent(1);
                     } else {
-                        clearFirstSelect();
-                        tv12.setSelected(true);
-                        initSecondView(1);
+                        if (tv12.isSelected()) {
+                            tv12.setSelected(false);
+                            setGoneNextTV();
+                        } else {
+                            clearFirstSelect();
+                            tv12.setSelected(true);
+                            initSecondView(1);
+                        }
                     }
                     break;
                 case R.id.tv_13:
-                    if (tv13.isSelected()) {
-                        tv13.setSelected(false);
-                        setGoneNextTV();
+                    if (FlagParent){
+                        toCallBackParent(2);
                     } else {
-                        clearFirstSelect();
-                        tv13.setSelected(true);
-                        initSecondView(2);
+                        if (tv13.isSelected()) {
+                            tv13.setSelected(false);
+                            setGoneNextTV();
+                        } else {
+                            clearFirstSelect();
+                            tv13.setSelected(true);
+                            initSecondView(2);
+                        }
                     }
-
                     break;
                 case R.id.tv_21:
-                    if (tv21.isSelected()) {
-                        tv21.setSelected(false);
-                        setGoneNextTV();
+                    if (FlagParent){
+                        toCallBackParent(3);
                     } else {
-                        clearFirstSelect();
-                        tv21.setSelected(true);
-                        initSecondView(3);
+                        if (tv21.isSelected()) {
+                            tv21.setSelected(false);
+                            setGoneNextTV();
+                        } else {
+                            clearFirstSelect();
+                            tv21.setSelected(true);
+                            initSecondView(3);
+                        }
                     }
-
                     break;
                 case R.id.tv_22:
-                    if (tv22.isSelected()) {
-                        tv22.setSelected(false);
-                        setGoneNextTV();
+                    if (FlagParent){
+                        toCallBackParent(4);
                     } else {
-                        clearFirstSelect();
-                        tv22.setSelected(true);
-                        initSecondView(4);
+                        if (tv22.isSelected()) {
+                            tv22.setSelected(false);
+                            setGoneNextTV();
+                        } else {
+                            clearFirstSelect();
+                            tv22.setSelected(true);
+                            initSecondView(4);
+                        }
                     }
-
                     break;
                 case R.id.tv_23:
-                    if (tv23.isSelected()) {
-                        tv23.setSelected(false);
-                        setGoneNextTV();
+                    if (FlagParent){
+                        toCallBackParent(5);
                     } else {
-                        clearFirstSelect();
-                        tv23.setSelected(true);
-                        initSecondView(5);
+                        if (tv23.isSelected()) {
+                            tv23.setSelected(false);
+                            setGoneNextTV();
+                        } else {
+                            clearFirstSelect();
+                            tv23.setSelected(true);
+                            initSecondView(5);
+                        }
                     }
-
                     break;
                 case R.id.tv_31:
-                    if (tv31.isSelected()) {
-                        tv31.setSelected(false);
-                        setGoneNextTV();
+                    if (FlagParent){
+                        toCallBackParent(6);
                     } else {
-                        clearFirstSelect();
-                        tv31.setSelected(true);
-                        initSecondView(6);
+                        if (tv31.isSelected()) {
+                            tv31.setSelected(false);
+                            setGoneNextTV();
+                        } else {
+                            clearFirstSelect();
+                            tv31.setSelected(true);
+                            initSecondView(6);
+                        }
                     }
                     break;
                 case R.id.tv_32:
-                    if (tv32.isSelected()) {
-                        tv32.setSelected(false);
-                        setGoneNextTV();
+                    if (FlagParent){
+                        toCallBackParent(7);
                     } else {
-                        clearFirstSelect();
-                        tv32.setSelected(true);
-                        initSecondView(7);
+                        if (tv32.isSelected()) {
+                            tv32.setSelected(false);
+                            setGoneNextTV();
+                        } else {
+                            clearFirstSelect();
+                            tv32.setSelected(true);
+                            initSecondView(7);
+                        }
                     }
                     break;
                 case R.id.tv_33:
-                    if (tv33.isSelected()) {
-                        tv33.setSelected(false);
-                        setGoneNextTV();
+                    if (FlagParent){
+                        toCallBackParent(8);
                     } else {
-                        clearFirstSelect();
-                        tv33.setSelected(true);
-                        initSecondView(8);
+                        if (tv33.isSelected()) {
+                            tv33.setSelected(false);
+                            setGoneNextTV();
+                        } else {
+                            clearFirstSelect();
+                            tv33.setSelected(true);
+                            initSecondView(8);
+                        }
                     }
-
                     break;
                 case R.id.tv_41:
-                    if (tv41.isSelected()) {
-                        tv41.setSelected(false);
-                        setGoneNextTV();
+                    if (FlagParent){
+                        toCallBackParent(9);
                     } else {
-                        clearFirstSelect();
-                        tv41.setSelected(true);
-                        initSecondView(9);
+                        if (tv41.isSelected()) {
+                            tv41.setSelected(false);
+                            setGoneNextTV();
+                        } else {
+                            clearFirstSelect();
+                            tv41.setSelected(true);
+                            initSecondView(9);
+                        }
                     }
-
                     break;
                 case R.id.tv_42:
-                    if (tv42.isSelected()) {
-                        tv42.setSelected(false);
-                        setGoneNextTV();
+                    if (FlagParent){
+                        toCallBackParent(10);
                     } else {
-                        clearFirstSelect();
-                        tv42.setSelected(true);
-                        initSecondView(10);
+                        if (tv42.isSelected()) {
+                            tv42.setSelected(false);
+                            setGoneNextTV();
+                        } else {
+                            clearFirstSelect();
+                            tv42.setSelected(true);
+                            initSecondView(10);
+                        }
                     }
 
                     break;
                 case R.id.tv_43:
-                    if (tv43.isSelected()) {
-                        tv43.setSelected(false);
-                        setGoneNextTV();
+                    if (FlagParent){
+                        toCallBackParent(11);
                     } else {
-                        clearFirstSelect();
-                        tv43.setSelected(true);
-                        initSecondView(11);
+                        if (tv43.isSelected()) {
+                            tv43.setSelected(false);
+                            setGoneNextTV();
+                        } else {
+                            clearFirstSelect();
+                            tv43.setSelected(true);
+                            initSecondView(11);
+                        }
                     }
-
                     break;
-
                 case R.id.tv_51:
-                    if (tv51.isSelected()) {
-                        tv51.setSelected(false);
-                        setGoneNextTV();
+                    if (FlagParent){
+                        toCallBackParent(12);
                     } else {
-                        clearFirstSelect();
-                        tv51.setSelected(true);
-                        initSecondView(12);
+                        if (tv51.isSelected()) {
+                            tv51.setSelected(false);
+                            setGoneNextTV();
+                        } else {
+                            clearFirstSelect();
+                            tv51.setSelected(true);
+                            initSecondView(12);
+                        }
                     }
-
                     break;
                 case R.id.tv_52:
-                    if (tv52.isSelected()) {
-                        tv52.setSelected(false);
-                        setGoneNextTV();
+                    if (FlagParent){
+                        toCallBackParent(13);
                     } else {
-                        clearFirstSelect();
-                        tv52.setSelected(true);
-                        initSecondView(13);
+                        if (tv52.isSelected()) {
+                            tv52.setSelected(false);
+                            setGoneNextTV();
+                        } else {
+                            clearFirstSelect();
+                            tv52.setSelected(true);
+                            initSecondView(13);
+                        }
                     }
-
                     break;
                 case R.id.tv_next1:
                     Log.i("ZYS", "next1");
@@ -803,6 +853,11 @@ public class ChooseCancerFragment extends DialogFragment implements View.OnClick
             setDefaultCancerHint(defaultID);
             callback.dataCallBack(defaultID, Const.FRAGMENT_CHOOSE_CANCER, null, null);
         }
+        dismiss();
+    }
+
+    private void toCallBackParent(int index){
+        callback.dataCallBack(args[index], Const.FRAGMENT_CHOOSE_CANCER, null, null);
         dismiss();
     }
 

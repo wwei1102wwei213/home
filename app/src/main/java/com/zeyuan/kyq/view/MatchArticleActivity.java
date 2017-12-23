@@ -91,6 +91,7 @@ public class MatchArticleActivity extends BaseActivity implements HttpResponseIn
         }
     }
 
+    private boolean isFirst = true;
     private boolean refresh = false;
     private boolean loading = false;
     private int page = 0;
@@ -138,11 +139,16 @@ public class MatchArticleActivity extends BaseActivity implements HttpResponseIn
                         if (index!=-2){
                             page = 0;
                             xv.setLoadComplete(false);
-                            if (pos==tl.getTabCount()-1){//判断参数标识
-                                HTTP_TAG = 0;
-                            }else {
+                            if (isFirst){
                                 HTTP_TAG = 1;
+                            } else {
+                                if (pos==tl.getTabCount()-1){//判断参数标识
+                                    HTTP_TAG = 0;
+                                }else {
+                                    HTTP_TAG = 1;
+                                }
                             }
+                            LogCustom.i("ZYY", "HTTP_TAG:"+HTTP_TAG);
                             initData();
                         }
                     }
@@ -228,7 +234,7 @@ public class MatchArticleActivity extends BaseActivity implements HttpResponseIn
             map.put("page",page+"");
             map.put("pagesize",pageSize);
             if (HTTP_TAG==1){
-                if (index!=-2&&index!=0&&list!=null&&!TextUtils.isEmpty(list.get(index).getId())){
+                if (index!=-2&&list!=null&&!TextUtils.isEmpty(list.get(index).getId())){
                     CureConfID = list.get(index).getId();
                     map.put("step",CureConfID);
                 }

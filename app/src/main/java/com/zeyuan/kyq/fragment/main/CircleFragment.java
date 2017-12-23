@@ -57,6 +57,7 @@ public class CircleFragment extends BaseZyFragment implements OnItemClickListene
     }
 
     private View v1;
+    private View v0;
     private View v2;
     private View v3;
     private View v4;
@@ -64,10 +65,12 @@ public class CircleFragment extends BaseZyFragment implements OnItemClickListene
     private View line2;
     private View line3;
     private View line4;
+    private View line0;
     private TextView tv1;
     private TextView tv2;
     private TextView tv3;
     private TextView tv4;
+    private TextView tv0;
     private View redpoint_circle_friend;
     private View redpoint_circle_project;
     private View redpoint_circle_local;
@@ -83,6 +86,7 @@ public class CircleFragment extends BaseZyFragment implements OnItemClickListene
     //private CircleCareFragment fragment3;
     private CircleProjectFragment fragment3;
     private CircleLocalFragment fragment4;
+    private DiseaseFragment fragment0;
     // private BaseZyFragment[] fragments = null;
     private int currentIndex = 0;
     private int selectedIndex = 0;
@@ -93,14 +97,17 @@ public class CircleFragment extends BaseZyFragment implements OnItemClickListene
         v_ft = findViewById(R.id.iv_ft);
 
         v1 = findViewById(R.id.v1);
+        v0 = findViewById(R.id.v0);
         v2 = findViewById(R.id.v2);
         v3 = findViewById(R.id.v3);
         v4 = findViewById(R.id.v4);
         line1 = findViewById(R.id.line1);
+        line0 = findViewById(R.id.line0);
         line2 = findViewById(R.id.line2);
         line3 = findViewById(R.id.line3);
         line4 = findViewById(R.id.line4);
         tv1 = (TextView) findViewById(R.id.tv1);
+        tv0 = (TextView) findViewById(R.id.tv0);
         tv2 = (TextView) findViewById(R.id.tv2);
         tv3 = (TextView) findViewById(R.id.tv3);
         tv4 = (TextView) findViewById(R.id.tv4);
@@ -116,6 +123,7 @@ public class CircleFragment extends BaseZyFragment implements OnItemClickListene
         v2.setOnClickListener(this);
         v3.setOnClickListener(this);
         v4.setOnClickListener(this);
+        v0.setOnClickListener(this);
     }
 
     //设置红点
@@ -136,6 +144,8 @@ public class CircleFragment extends BaseZyFragment implements OnItemClickListene
     }
 
     private void setPage() {
+        fragment0 = new DiseaseFragment();
+        fragment0.setCallback(this);
         fragment1 = new CircleFindFragment();
         fragment1.setCallback(this);
         fragment2 = new CircleFriendPostFragment();
@@ -144,6 +154,7 @@ public class CircleFragment extends BaseZyFragment implements OnItemClickListene
         fragment3.setCallback(this);
         fragment4 = new CircleLocalFragment();
         fragment4.setCallback(this);
+        fragmentArrayList.add(fragment0);
         fragmentArrayList.add(fragment1);
         fragmentArrayList.add(fragment2);
         fragmentArrayList.add(fragment3);
@@ -202,25 +213,29 @@ public class CircleFragment extends BaseZyFragment implements OnItemClickListene
     //选项卡切换
     private void changeSelector() {
         clearSelector();
-        if (selectedIndex == 0) {
+        if (selectedIndex == 1) {
             tv1.setSelected(true);
             line1.setVisibility(View.VISIBLE);
             v_ft.setVisibility(View.VISIBLE);
-        } else if (selectedIndex == 1) {
+        } else if (selectedIndex == 2) {
             tv2.setSelected(true);
             line2.setVisibility(View.VISIBLE);
             redpoint_circle_friend.setVisibility(View.GONE);
             v_ft.setVisibility(View.VISIBLE);
-        } else if (selectedIndex == 2) {
+        } else if (selectedIndex == 3) {
             tv3.setSelected(true);
             line3.setVisibility(View.VISIBLE);
             redpoint_circle_project.setVisibility(View.GONE);
             v_ft.setVisibility(View.VISIBLE);
-        } else if (selectedIndex == 3) {
+        } else if (selectedIndex == 4) {
             tv4.setSelected(true);
             line4.setVisibility(View.VISIBLE);
             redpoint_circle_local.setVisibility(View.GONE);
             v_ft.setVisibility(View.GONE);
+        } else if (selectedIndex==0){
+            tv0.setSelected(true);
+            line0.setVisibility(View.VISIBLE);
+            v_ft.setVisibility(View.VISIBLE);
         }
     }
 
@@ -230,10 +245,12 @@ public class CircleFragment extends BaseZyFragment implements OnItemClickListene
         tv2.setSelected(false);
         tv3.setSelected(false);
         tv4.setSelected(false);
+        tv0.setSelected(false);
         line1.setVisibility(View.INVISIBLE);
         line2.setVisibility(View.INVISIBLE);
         line3.setVisibility(View.INVISIBLE);
         line4.setVisibility(View.INVISIBLE);
+        line0.setVisibility(View.INVISIBLE);
     }
 
     @Override
@@ -284,15 +301,15 @@ public class CircleFragment extends BaseZyFragment implements OnItemClickListene
         } else if (flag == Const.SELECT_OTHER_FRAGMENT) {
             switch (str) {
                 case Const.Circle_Friend:
-                    selectedIndex = 1;
-                    setPageChange();
-                    break;
-                case Const.Circle_Project:
                     selectedIndex = 2;
                     setPageChange();
                     break;
-                case Const.Circle_Local:
+                case Const.Circle_Project:
                     selectedIndex = 3;
+                    setPageChange();
+                    break;
+                case Const.Circle_Local:
+                    selectedIndex = 4;
                     setPageChange();
                     break;
             }
@@ -303,7 +320,7 @@ public class CircleFragment extends BaseZyFragment implements OnItemClickListene
 
     @Override
     public void doEmptyPage(String tag, int flag, int type, boolean fit, String str, Object obj) {
-        selectedIndex = 1;
+        selectedIndex = 2;
         setPageChange();
     }
 
@@ -324,20 +341,24 @@ public class CircleFragment extends BaseZyFragment implements OnItemClickListene
                 Factory.onEvent(getActivity(), Const.EVENT_MoreCircle, null, null);
                 startActivityForResult(new Intent(getActivity(), MoreCircleNewActivity.class), 0);
                 break;
-            case R.id.v1:
+            case R.id.v0:
                 selectedIndex = 0;
                 setPageChange();
                 break;
-            case R.id.v2:
+            case R.id.v1:
                 selectedIndex = 1;
                 setPageChange();
                 break;
-            case R.id.v3:
+            case R.id.v2:
                 selectedIndex = 2;
                 setPageChange();
                 break;
-            case R.id.v4:
+            case R.id.v3:
                 selectedIndex = 3;
+                setPageChange();
+                break;
+            case R.id.v4:
+                selectedIndex = 4;
                 setPageChange();
                 break;
             case R.id.iv_ft://点击发帖

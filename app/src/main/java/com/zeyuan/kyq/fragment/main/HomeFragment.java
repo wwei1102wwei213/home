@@ -240,10 +240,21 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
             initUserTypeView();
         }
 
-        tv_head_1 = (VerticalTextview) headerView.findViewById(R.id.tv_head_1);
-        tv_head_2 = (VerticalTextview) headerView.findViewById(R.id.tv_head_2);
-
-
+        try {
+            tv_head_1 = (VerticalTextview) headerView.findViewById(R.id.tv_head_1);
+            tv_head_2 = (VerticalTextview) headerView.findViewById(R.id.tv_head_2);
+        } catch (Exception e){
+            try {
+                StackTraceElement[] stack = e.getStackTrace();
+                StringBuilder builder = new StringBuilder();
+                for(int i = 0;i<stack.length;i++){
+                    builder.append(stack[i].toString()+"\n");
+                }
+                Toast.makeText(context, builder.toString(), Toast.LENGTH_LONG).show();
+            }catch (Exception ex){
+                ex.printStackTrace();
+            }
+        }
 
         menuTvs = new TextView[7];
         menuTvs[0] = (TextView) headerView.findViewById(R.id.menu_tv_1);
@@ -535,7 +546,7 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
     //    private ArrayList<Fragment> fragments;
     //推荐列表窗口设置
     HomeHelpFragment hFragment;
-
+    private boolean FlagHeadLine = false;
     //设置文章数据
     private void initHomeArticle(UserInformationEntity entity) {
         try {
@@ -563,43 +574,62 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
             adapter_top.update(art_list);
             //设置文章列表视图
             articleIndex = 0;
-            List<InformationEntity> temp = entity.getData();
-            if (temp!=null&&temp.size()>5){
-                ArrayList<String> headList1 = new ArrayList<>();
-                ArrayList<String> headList2 = new ArrayList<>();
-                String title0 = temp.get(0).getTitle();
-                String title1 = temp.get(1).getTitle();
-                String title2 = temp.get(2).getTitle();
-                String title3 = temp.get(3).getTitle();
-                String title4 = temp.get(4).getTitle();
-                String title5 = temp.get(5).getTitle();
-                headList1.add(TextUtils.isEmpty(title0)?"":title0);
-                headList2.add(TextUtils.isEmpty(title1)?"":title1);
-                headList1.add(TextUtils.isEmpty(title2)?"":title2);
-                headList2.add(TextUtils.isEmpty(title3)?"":title3);
-                headList1.add(TextUtils.isEmpty(title4)?"":title4);
-                headList2.add(TextUtils.isEmpty(title5)?"":title5);
+            try {
+                List<InformationEntity> temp = entity.getData();
+                if (!FlagHeadLine&&temp!=null&&temp.size()>5){
+                    ArrayList<String> headList1 = new ArrayList<>();
+                    ArrayList<String> headList2 = new ArrayList<>();
+                    String title0 = temp.get(0).getTitle();
+                    String title1 = temp.get(1).getTitle();
+                    String title2 = temp.get(2).getTitle();
+                    String title3 = temp.get(3).getTitle();
+                    String title4 = temp.get(4).getTitle();
+                    String title5 = temp.get(5).getTitle();
+                    headList1.add(TextUtils.isEmpty(title0)?"":title0);
+                    headList2.add(TextUtils.isEmpty(title1)?"":title1);
+                    headList1.add(TextUtils.isEmpty(title2)?"":title2);
+                    headList2.add(TextUtils.isEmpty(title3)?"":title3);
+                    headList1.add(TextUtils.isEmpty(title4)?"":title4);
+                    headList2.add(TextUtils.isEmpty(title5)?"":title5);
 
-                tv_head_1.setTextList(headList1);
-                tv_head_1.setText(11f, 1, Color.parseColor("#666666"));
-                tv_head_2.setTextList(headList2);
-                tv_head_2.setText(11f, 1,  Color.parseColor("#666666"));
-                tv_head_1.setTextStillTime(3000);
-                tv_head_1.setAnimTime(300);
-                tv_head_2.setTextStillTime(3000);
-                tv_head_2.setAnimTime(300);
-                tv_head_1.startAutoScroll();
-                tv_head_2.startAutoScroll();
-                startScrollFlag = true;
-                /*tv_head_1.setTextList(headList1);
-                tv_head_2.setTextList(headList2);
-                tv_head_1.setText(12, 1, Color.RED);
-                tv_head_2.setText(12, 1, Color.RED);*/
-
+                    tv_head_1.setTextList(headList1);
+                    tv_head_1.setText(11f, 1, Color.parseColor("#666666"));
+                    tv_head_2.setTextList(headList2);
+                    tv_head_2.setText(11f, 1,  Color.parseColor("#666666"));
+                    tv_head_1.setTextStillTime(3000);
+                    tv_head_1.setAnimTime(300);
+                    tv_head_2.setTextStillTime(3000);
+                    tv_head_2.setAnimTime(300);
+                    tv_head_1.startAutoScroll();
+                    tv_head_2.startAutoScroll();
+                    startScrollFlag = true;
+                    FlagHeadLine = true;
+                }
+            } catch (Exception e){
+                try {
+                    StackTraceElement[] stack = e.getStackTrace();
+                    StringBuilder builder = new StringBuilder();
+                    for(int i = 0;i<stack.length;i++){
+                        builder.append(stack[i].toString()+"\n");
+                    }
+                    Toast.makeText(context, builder.toString(), Toast.LENGTH_LONG).show();
+                }catch (Exception ex){
+                    ex.printStackTrace();
+                }
             }
             adapter.notifyDataSetChanged();
         } catch (Exception e) {
             ExceptionUtils.ExceptionToUM(e, context, "initHomeArticle");
+            try {
+                StackTraceElement[] stack = e.getStackTrace();
+                StringBuilder builder = new StringBuilder();
+                for(int i = 0;i<stack.length;i++){
+                    builder.append(stack[i].toString()+"\n");
+                }
+                Toast.makeText(context, builder.toString(), Toast.LENGTH_LONG).show();
+            }catch (Exception ex){
+                ex.printStackTrace();
+            }
         }
     }
 

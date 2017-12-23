@@ -280,9 +280,9 @@ public class MatchArticleRecyclerAdapter extends BaseRecyclerAdapter<MatchArticl
     public int getAdapterItemViewType(int position) {
         if (type==1) return TYPE_2;
         if (list.size()<3){
-            if (position==list.size()) return TYPE_3;
+            if (position==0) return TYPE_3;
         }else {
-            if (position==3) return TYPE_3;
+            if (position==0) return TYPE_3;
         }
         return TYPE_1;
     }

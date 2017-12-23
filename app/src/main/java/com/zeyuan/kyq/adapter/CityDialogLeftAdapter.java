@@ -61,7 +61,12 @@ public class CityDialogLeftAdapter extends BaseAdapter {
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        holder.tv.setText(citys.get(Integer.valueOf(datas.get(position))));
+        int p_id = Integer.valueOf(datas.get(position));
+        if (p_id==65535){
+            holder.tv.setText("全部地区");
+        } else {
+            holder.tv.setText(citys.get(p_id));
+        }
         if(data!= null) {
             int num = data[position].size();
             if(num > 0) {
