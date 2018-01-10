@@ -587,6 +587,35 @@ public class UiUtils {
     }
 
     /**
+     * 获取父类节点癌种id
+     *
+     * @param id
+     * @return
+     */
+    public static String getCancerParentID(String id, boolean noUse) {
+        Map<String, String> map = (Map<String, String>) Factory.getData(Const.N_DataCancerParent);
+        String temp = map.get(id);
+        if (TextUtils.isEmpty(temp)) {
+            return "0";
+        } else {
+            if ("0".equals(temp)) {
+                return id;
+            } else {
+                String temp2 = map.get(temp);
+                if (TextUtils.isEmpty(temp2)) {
+                    return "0";
+                } else {
+                    if ("0".equals(temp2)) {
+                        return temp;
+                    } else {
+                        return temp2;
+                    }
+                }
+            }
+        }
+    }
+
+    /**
      * 点击关注后，结果显示封装
      *
      * @param context

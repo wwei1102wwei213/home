@@ -91,6 +91,9 @@ public class CommentProjectRvAdapter extends BaseRecyclerAdapter<CommentProjectR
                 } else {
                     dot_type = dot_type.replaceAll(",", " ");
                     dot_type = dot_type.replaceAll("，", " ");
+                    dot_type = dot_type.replaceAll(";", " ");
+                    dot_type = dot_type.replaceAll("；", " ");
+                    dot_type = dot_type.replaceAll("、", " ");
                     holder.tv_dot_type.setText(dot_type);
                 }
                 try {

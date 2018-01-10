@@ -51,6 +51,11 @@ public class RecyclerCircleAdapter extends RecyclerView.Adapter<RecyclerCircleAd
         return holder;
     }
 
+    public void update(List<String> list){
+        this.list = list;
+        notifyDataSetChanged();
+    }
+
     @Override
     public void onBindViewHolder(final RecyclerCircleAdapter.MyViewHolder holder, final int position) {
         try {

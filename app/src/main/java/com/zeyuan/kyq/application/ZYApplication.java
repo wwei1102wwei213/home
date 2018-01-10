@@ -174,7 +174,7 @@ public class ZYApplication extends TAApplication {
             }
             //推送
             try {
-//                initPush();
+                initPush();
             } catch (Exception e) {
                 ExceptionUtils.ExceptionSend(e, "友盟推送初始化");
             }

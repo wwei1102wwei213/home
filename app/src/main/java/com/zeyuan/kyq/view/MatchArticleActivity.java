@@ -234,7 +234,7 @@ public class MatchArticleActivity extends BaseActivity implements HttpResponseIn
             map.put("page",page+"");
             map.put("pagesize",pageSize);
             if (HTTP_TAG==1){
-                if (index!=-2&&list!=null&&!TextUtils.isEmpty(list.get(index).getId())){
+                if (index!=-2&&list!=null&&index!=list.size()&&!TextUtils.isEmpty(list.get(index).getId())){
                     CureConfID = list.get(index).getId();
                     map.put("step",CureConfID);
                 }

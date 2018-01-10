@@ -29,4 +29,5 @@
             android:layout_below="@+id/rv_circle"
             />
     </RelativeLayout>
+    <include layout="@layout/layout_head_selector_disease"/>
 </LinearLayout>

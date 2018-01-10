@@ -418,10 +418,10 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
             //加上登录信息
             if (url.contains("?")) {
                 url += "&kaq=" + UiUtils.getRandomMath()
-                        + UserinfoData.getInfoID(context) + "&lt=2&Type=2";
+                        + UserinfoData.getInfoID(context) + "&lt=2&Type=2&infoid="+UserinfoData.getInfoID(context);
             } else {
                 url += "?kaq=" + UiUtils.getRandomMath()
-                        + UserinfoData.getInfoID(context) + "&lt=2&Type=2";
+                        + UserinfoData.getInfoID(context) + "&lt=2&Type=2&infoid="+UserinfoData.getInfoID(context);
             }
             context.startActivity(new Intent(context, ShowDiscuzActivity.class)
                     .putExtra(Const.SHOW_HTML_MAIN_TOP, url));

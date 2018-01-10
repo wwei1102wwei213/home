@@ -241,18 +241,19 @@ public class ChooseCancerFragment extends DialogFragment implements View.OnClick
         try {
             switch (v.getId()) {
                 case R.id.tv_11:
-                    if (FlagParent){
+                    if (tv11.isSelected()) {
+                        tv11.setSelected(false);
+                        setGoneNextTV();
+                    } else {
+                        clearFirstSelect();
+                        tv11.setSelected(true);
+                        initSecondView(0);
+                    }
+                    /*if (FlagParent){
                         toCallBackParent(0);
                     } else {
-                        if (tv11.isSelected()) {
-                            tv11.setSelected(false);
-                            setGoneNextTV();
-                        } else {
-                            clearFirstSelect();
-                            tv11.setSelected(true);
-                            initSecondView(0);
-                        }
-                    }
+
+                    }*/
                     break;
                 case R.id.tv_12:
                     if (FlagParent){

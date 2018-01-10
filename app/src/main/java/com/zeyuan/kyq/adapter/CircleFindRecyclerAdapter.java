@@ -55,6 +55,7 @@ public class CircleFindRecyclerAdapter extends BaseRecyclerAdapter<CircleFindRec
 
     private static final int TYPE_1 = 0;
     private static final int TYPE_2 = 1;
+    private static final int TYPE_3 = 2;
     private Context context;
     private List<Shortcut> shortcuts;
     private List<ForumBaseEntity> list;
@@ -89,6 +90,9 @@ public class CircleFindRecyclerAdapter extends BaseRecyclerAdapter<CircleFindRec
 //            v = LayoutInflater.from(parent.getContext()).inflate(
 //                    R.layout.item_recycler_gv, parent, false);
             v = tasteSelector.getView(parent);
+        } else if (viewType == TYPE_3){
+            v = LayoutInflater.from(parent.getContext()).inflate(
+                    R.layout.item_rv_top_circle_list, parent, false);
         } else {
             v = LayoutInflater.from(parent.getContext()).inflate(
                     R.layout.item_forum_base_recycler, parent, false);
@@ -99,7 +103,15 @@ public class CircleFindRecyclerAdapter extends BaseRecyclerAdapter<CircleFindRec
     @Override
     public void onBindViewHolder(CircleFindViewHolder vh, int position, boolean isItem) {
         int type = getAdapterItemViewType(position);
-        if (type == TYPE_1) {
+        if (type == TYPE_3){
+            final ForumBaseEntity entity;
+            if (position < 2 || getAdapterItemCount() == list.size()) {
+                entity = list.get(position);
+            } else {
+                entity = list.get(position - 1);
+            }
+            vh.title.setText(TextUtils.isEmpty(entity.getTitle()) ? "" : entity.getTitle());
+        } else if (type == TYPE_1) {
 //            vh.gv.setAdapter(gv_adapter);
 //            vh.gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 //                @Override
@@ -116,7 +128,7 @@ public class CircleFindRecyclerAdapter extends BaseRecyclerAdapter<CircleFindRec
 //                }
 //            });
 //            gv_adapter.update(circles);
-        } else if (type == TYPE_2) {
+        } else {
             try {
                 final ForumBaseEntity entity;
                 if (position < 2 || getAdapterItemCount() == list.size()) {
@@ -288,6 +300,27 @@ public class CircleFindRecyclerAdapter extends BaseRecyclerAdapter<CircleFindRec
 
     @Override
     public int getAdapterItemViewType(int position) {
+        try {
+            if (position<2){
+                String posttype = list.get(position).getPosttype();
+                if (!TextUtils.isEmpty(posttype)){
+                    int t = Integer.valueOf(posttype);
+                    if (t != 0 && (t & 1) == 1) {
+                        return TYPE_3;
+                    }
+                }
+            } else if(position>2&& tasteSelector.getCount() > 0) {
+                String posttype = list.get(position-1).getPosttype();
+                if (!TextUtils.isEmpty(posttype)){
+                    int t = Integer.valueOf(posttype);
+                    if (t != 0 && (t & 1) == 1) {
+                        return TYPE_3;
+                    }
+                }
+            }
+        } catch (Exception e){
+
+        }
         if (position == 2 && tasteSelector.getCount() > 0)
             return TYPE_1;
         return TYPE_2;
@@ -350,6 +383,9 @@ public class CircleFindRecyclerAdapter extends BaseRecyclerAdapter<CircleFindRec
                     case 0:
 //                        gv = (MyGridView) itemView;
                         tasteSelectorView = itemView;
+                        break;
+                    case TYPE_3:
+                        title = (TextView) itemView.findViewById(R.id.title);
                         break;
                     default:
                         v = itemView;

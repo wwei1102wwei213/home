@@ -25,14 +25,14 @@
             android:layout_marginRight="@dimen/activity_horizontal_margin"
             >
             <TextView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
+                android:layout_width="60dp"
+                android:layout_height="24dp"
                 android:text="切换"
-                android:textColor="@color/light_green2"
+                android:textColor="@color/white"
                 android:textSize="@dimen/font14"
                 android:gravity="center"
                 android:layout_centerInParent="true"
-                android:background="@drawable/bg_change_cancer_circle_select"/>
+                android:background="@drawable/bg_green_r16"/>
         </RelativeLayout>
         <TextView
             android:id="@+id/title"
@@ -68,4 +68,7 @@
             android:layout_below="@+id/rv_disease"
             />
     </RelativeLayout>
+
+    <include layout="@layout/layout_head_selector_disease"/>
+
 </LinearLayout>

@@ -154,6 +154,57 @@ public class NewCircleActivity extends BaseActivity implements View.OnClickListe
         tv_description.setVisibility(View.GONE);
         isfollow.setOnCheckedChangeListener(this);
         initRecyclerView();
+        initSelectorView();
+    }
+
+    private View v1,v2,v3;
+    private View[] lines;
+    private TextView[] selects;
+    private void initSelectorView(){
+        v1 = headerView.findViewById(R.id.v1);
+        v2 = headerView.findViewById(R.id.v2);
+        v3 = headerView.findViewById(R.id.v3);
+        selects = new TextView[3];
+        selects[0] = (TextView) headerView.findViewById(R.id.tv1);
+        selects[0].setSelected(true);
+        selects[1] = (TextView) headerView.findViewById(R.id.tv2);
+        selects[2] = (TextView) headerView.findViewById(R.id.tv3);
+        lines = new View[3];
+        lines[0] = headerView.findViewById(R.id.line1);
+        lines[0].setVisibility(View.VISIBLE);
+        lines[1] = headerView.findViewById(R.id.line2);
+        lines[2] = headerView.findViewById(R.id.line3);
+        v1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setSelect(0);
+            }
+        });
+        v2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setSelect(1);
+            }
+        });
+        v3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setSelect(2);
+            }
+        });
+    }
+
+    private int currentSelect = 0;
+
+    private void setSelect(int index){
+        if (currentSelect == index) return;
+        for (int i=0;i<3;i++){
+            lines[i].setVisibility(i==index?View.VISIBLE:View.INVISIBLE);
+            selects[i].setSelected(i==index);
+        }
+        sort = index;
+        currentSelect = index;
+        initData();
     }
 
     private void initTopName(){
@@ -282,6 +333,7 @@ public class NewCircleActivity extends BaseActivity implements View.OnClickListe
         }
     }
 
+    private int sort = 0;
     private String CircleID;
     private String followOrcancel;////1关注 2
 
@@ -296,6 +348,7 @@ public class NewCircleActivity extends BaseActivity implements View.OnClickListe
             if (typeFlag){
                 map.put("TypeID",typeID);
             }
+            map.put("sort", sort+"");
         }
         return map;
     }

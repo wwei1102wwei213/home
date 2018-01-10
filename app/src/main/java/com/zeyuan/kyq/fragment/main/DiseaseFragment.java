@@ -16,8 +16,9 @@ import com.andview.refreshview.XRefreshViewFooter;
 import com.bumptech.glide.Glide;
 import com.zeyuan.kyq.Entity.ForumBaseBean;
 import com.zeyuan.kyq.Entity.ForumBaseEntity;
+import com.zeyuan.kyq.Entity.Shortcut;
 import com.zeyuan.kyq.R;
-import com.zeyuan.kyq.adapter.CircleListRecyclerAdapter;
+import com.zeyuan.kyq.adapter.CircleFindRecyclerAdapter;
 import com.zeyuan.kyq.adapter.RecyclerCircleAdapter;
 import com.zeyuan.kyq.app.LazyFragment;
 import com.zeyuan.kyq.biz.Factory;
@@ -45,10 +46,12 @@ import java.util.Map;
 public class DiseaseFragment extends LazyFragment implements HttpResponseInterface, RecyclerCircleAdapter.OnItemClickListener, FragmentCallBack{
 
     private String CancerParentID = "29";
+    private String CircleID;
     @Override
     protected View initViews(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_disease, container, false);
-        CancerParentID = UiUtils.getCancerParentID(UserinfoData.getCancerID(context));
+        CancerParentID = UiUtils.getCancerParentID(UserinfoData.getCancerID(context), false);
+        CircleID = UserinfoData.getCancerID(context);
         initView();
         return rootView;
     }
@@ -69,20 +72,22 @@ public class DiseaseFragment extends LazyFragment implements HttpResponseInterfa
 
     private List<ForumBaseEntity> data;
     private RecyclerView recyclerView;
-    private CircleListRecyclerAdapter adapter;
+    private CircleFindRecyclerAdapter adapter;
     private XRefreshView xRefreshView;
     private View headerView;
     private LinearLayoutManager layoutManager;
     private void initView(){
 
         try {
+
             xRefreshView = (XRefreshView) findViewById(R.id.xrv);
             xRefreshView.setPullLoadEnable(true);
             recyclerView = (RecyclerView) findViewById(R.id.rv);
             recyclerView.setHasFixedSize(true);
 
             data = new ArrayList<>();
-            adapter = new CircleListRecyclerAdapter(context,data);
+            List<Shortcut> temp = new ArrayList<>();
+            adapter = new CircleFindRecyclerAdapter(context,temp,data);
 
             // 设置静默加载模式
             layoutManager = new LinearLayoutManager(context);
@@ -136,7 +141,7 @@ public class DiseaseFragment extends LazyFragment implements HttpResponseInterfa
             civ = (CircleImageView) headerView.findViewById(R.id.avatar);
             civ.setImageResource(UiUtils.getCancerImage(UserinfoData.getCancerID(context)));
             circleName = (TextView) headerView.findViewById(R.id.title);
-            circleName.setText(MapDataUtils.getCancerValues(CancerParentID));
+            circleName.setText(MapDataUtils.getCircleValues(CircleID));
             v_change_view = headerView.findViewById(R.id.v_change_cancer);
             v_change_view.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -146,6 +151,7 @@ public class DiseaseFragment extends LazyFragment implements HttpResponseInterfa
             });
             v_rv_circle = headerView.findViewById(R.id.rv_disease_tag);
             initRecyclerView();
+            initSelectorView();
         } catch (Exception e){
             ExceptionUtils.ExceptionSend(e, "initHeaderView");
         }
@@ -160,15 +166,16 @@ public class DiseaseFragment extends LazyFragment implements HttpResponseInterfa
      * 圈子分级栏目视图
      *
      */
+    RecyclerCircleAdapter mAdapter;
     private void initRecyclerView(){
         try {
             Map<String,List<String>> map = (Map<String,List<String>>)Factory.getData(Const.N_DataCircleCancer);
-            List<String> temp = map.get(CancerParentID);
+            List<String> temp = map.get(CircleID);
             if(temp==null||temp.size()==0){
                 v_rv_circle.setVisibility(View.GONE);
             }else {
                 List<String> add = new ArrayList<>();
-                add.add(CancerParentID);
+                add.add(CircleID);
                 add.addAll(temp);
                 v_rv_circle.setVisibility(View.VISIBLE);
                 RecyclerView rv = (RecyclerView) headerView.findViewById(R.id.rv_disease);
@@ -177,13 +184,80 @@ public class DiseaseFragment extends LazyFragment implements HttpResponseInterfa
                 rv.setLayoutManager(manager);
                 rv.setItemAnimator(new DefaultItemAnimator());
                 LogCustom.i("ZYS", "add:" + add.toString());
-                RecyclerCircleAdapter mAdapter = new RecyclerCircleAdapter(context,add,this,0);
+                mAdapter = new RecyclerCircleAdapter(context,add,this,0);
                 rv.setAdapter(mAdapter);
             }
         } catch (Exception e){
             ExceptionUtils.ExceptionSend(e, "initRecyclerView");
         }
+    }
 
+    private void updateRecyclerView(){
+        try {
+            Map<String,List<String>> map = (Map<String,List<String>>)Factory.getData(Const.N_DataCircleCancer);
+            List<String> temp = map.get(CircleID);
+            if(temp==null||temp.size()==0){
+                v_rv_circle.setVisibility(View.GONE);
+            }else {
+                List<String> add = new ArrayList<>();
+                add.add(CircleID);
+                add.addAll(temp);
+                v_rv_circle.setVisibility(View.VISIBLE);
+                mAdapter.update(add);
+            }
+        } catch (Exception e){
+            ExceptionUtils.ExceptionSend(e, "initRecyclerView");
+        }
+    }
+
+    private View v1,v2,v3;
+    private View[] lines;
+    private TextView[] selects;
+    private void initSelectorView(){
+        v1 = headerView.findViewById(R.id.v1);
+        v2 = headerView.findViewById(R.id.v2);
+        v3 = headerView.findViewById(R.id.v3);
+        selects = new TextView[3];
+        selects[0] = (TextView) headerView.findViewById(R.id.tv1);
+        selects[0].setSelected(true);
+        selects[1] = (TextView) headerView.findViewById(R.id.tv2);
+        selects[2] = (TextView) headerView.findViewById(R.id.tv3);
+        lines = new View[3];
+        lines[0] = headerView.findViewById(R.id.line1);
+        lines[0].setVisibility(View.VISIBLE);
+        lines[1] = headerView.findViewById(R.id.line2);
+        lines[2] = headerView.findViewById(R.id.line3);
+        v1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setSelect(0);
+            }
+        });
+        v2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setSelect(1);
+            }
+        });
+        v3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setSelect(2);
+            }
+        });
+    }
+
+    private int currentSelect = 0;
+    private int sort = 0;
+    private void setSelect(int index){
+        if (currentSelect == index) return;
+        for (int i=0;i<3;i++){
+            lines[i].setVisibility(i==index?View.VISIBLE:View.INVISIBLE);
+            selects[i].setSelected(i==index);
+        }
+        sort = index;
+        currentSelect = index;
+        initData();
     }
 
     @Override
@@ -209,11 +283,17 @@ public class DiseaseFragment extends LazyFragment implements HttpResponseInterfa
             map.put(Contants.InfoID,UserinfoData.getInfoID(context));
 //            map.put(Contants.CircleID,CircleID);
             map.put("page",page+"");
-            map.put("pid", CancerParentID);
+            if ("0".equals(CancerParentID)){
+
+            } else {
+                map.put("pid", CancerParentID);
+            }
+            map.put("CircleID", CircleID);
             map.put("pagesize",pageSize+"");
             if (typeFlag){
                 map.put("TypeID",typeID);
             }
+            map.put("sort", sort+"");
         }
         return map;
     }
@@ -308,7 +388,7 @@ public class DiseaseFragment extends LazyFragment implements HttpResponseInterfa
     private void ShowChooseCancer(){
         if (fragment==null){
             fragment = ChooseCancerFragment.getInstance(this);
-            fragment.setFlagParent(true);
+//            fragment.setFlagParent(true);
         }
         fragment.show(getChildFragmentManager(),ChooseCancerFragment.TAG);
     }
@@ -317,11 +397,13 @@ public class DiseaseFragment extends LazyFragment implements HttpResponseInterfa
     public void dataCallBack(String str, int flag, String tag, Object obj) {
         if (flag == Const.FRAGMENT_CHOOSE_CANCER){
             if (!TextUtils.isEmpty(str)){
-                CancerParentID = UiUtils.getCancerParentID(str);
-                circleName.setText(MapDataUtils.getCancerValues(CancerParentID));
+                CancerParentID = UiUtils.getCancerParentID(str, false);
+                CircleID = str;
+                circleName.setText(MapDataUtils.getCircleValues(CircleID));
                 civ.setImageResource(UiUtils.getCancerImage(str));
                 page = 0;
                 initData();
+                updateRecyclerView();
             }
         }
     }
