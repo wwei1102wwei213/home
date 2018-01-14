@@ -141,7 +141,7 @@ public class ZYApplication extends TAApplication {
             //获得手机型号
             phoneInfo = Build.BRAND + Build.MODEL;
             //获得手机唯一标识
-//            deviceId = getDeviceID();
+            deviceId = getDeviceID();
             //创建数据库表单
             CreateDatabase();
             //初始化内存缓存

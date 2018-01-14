@@ -701,10 +701,9 @@ public class MoreNewFragment extends BaseZyFragment implements View.OnClickListe
 
     private void checkForOpenOrGet(boolean isOpenFeedback) {
         //打开页面前需要先申请相册和拍照的权限
-        if (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
-                || ContextCompat.checkSelfPermission(context, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
+        if (ContextCompat.checkSelfPermission(context, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
                 || ContextCompat.checkSelfPermission(context, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-            this.requestPermissions(new String[]{Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE
+            this.requestPermissions(new String[]{Manifest.permission.CAMERA
                             , Manifest.permission.WRITE_EXTERNAL_STORAGE}
                     , STORAGE_AND_CAMERA_PERMISSIONS);
         } else {

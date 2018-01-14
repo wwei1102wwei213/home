@@ -550,6 +550,18 @@ public class ShowCommentH5Actvity extends BaseActivity implements MyWebChromeCli
     }
 
     @JavascriptInterface
+    public void appJumpThread(String id){
+        /*if (!TextUtils.isEmpty(id)) {
+           startActivity(new Intent(this, ForumDetailActivity.class)
+                    .putExtra(Const.FORUM_ID, id));
+        }*/
+        if (!TextUtils.isEmpty(id)) {
+            this.startActivity(new Intent(this, NewCircleActivity.class)
+                    .putExtra(Contants.CircleID, id));
+        }
+    }
+
+    @JavascriptInterface
     public void appWritePost(){
         startActivity(new Intent(this, ReleaseForumActivity.class));
     }

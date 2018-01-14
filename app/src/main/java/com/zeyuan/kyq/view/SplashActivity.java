@@ -19,7 +19,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewSwitcher;
 
-import com.umeng.analytics.MobclickAgent;
 import com.zeyuan.kyq.R;
 import com.zeyuan.kyq.app.BaseActivity;
 import com.zeyuan.kyq.application.ZYApplication;
@@ -110,8 +109,8 @@ public class SplashActivity extends BaseActivity implements ViewSwitcher.ViewFac
     };
 
     //注册友盟推送
-    private void initUmeng(){
-        /*try {
+    /*private void initUmeng(){
+        *//*try {
             MobclickAgent.openActivityDurationTrack(false);
             PushAgent mPushAgent = PushAgent.getInstance(this);
 //            String device_token = mPushAgent.getRegistrationId();
@@ -121,17 +120,17 @@ public class SplashActivity extends BaseActivity implements ViewSwitcher.ViewFac
 
         }catch (Exception e){
             ExceptionUtils.ExceptionToUM(e,this,"UM.push.Error");
-        }*/
+        }*//*
         try {
             MobclickAgent.openActivityDurationTrack(false);
-            /*PushAgent mPushAgent = PushAgent.getInstance(this);
+            *//*PushAgent mPushAgent = PushAgent.getInstance(this);
             mPushAgent.enable();//开启推送
-            mPushAgent.setPushIntentServiceClass(ZYPushIntentService.class);*/
+            mPushAgent.setPushIntentServiceClass(ZYPushIntentService.class);*//*
         }catch (Exception e){
             ExceptionUtils.ExceptionSend(e,"initPush");
         }
 
-    }
+    }*/
 
     private ImageSwitcher is;
     //显示闪屏版本号

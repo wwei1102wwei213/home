@@ -244,7 +244,7 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
             tv_head_1 = (VerticalTextview) headerView.findViewById(R.id.tv_head_1);
             tv_head_2 = (VerticalTextview) headerView.findViewById(R.id.tv_head_2);
         } catch (Exception e){
-            try {
+            /*try {
                 StackTraceElement[] stack = e.getStackTrace();
                 StringBuilder builder = new StringBuilder();
                 for(int i = 0;i<stack.length;i++){
@@ -253,7 +253,8 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
                 Toast.makeText(context, builder.toString(), Toast.LENGTH_LONG).show();
             }catch (Exception ex){
                 ex.printStackTrace();
-            }
+            }*/
+            ExceptionUtils.ExceptionToUM(e, context, "head_list");
         }
 
         menuTvs = new TextView[7];
@@ -606,7 +607,7 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
                     FlagHeadLine = true;
                 }
             } catch (Exception e){
-                try {
+                /*try {
                     StackTraceElement[] stack = e.getStackTrace();
                     StringBuilder builder = new StringBuilder();
                     for(int i = 0;i<stack.length;i++){
@@ -615,12 +616,13 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
                     Toast.makeText(context, builder.toString(), Toast.LENGTH_LONG).show();
                 }catch (Exception ex){
                     ex.printStackTrace();
-                }
+                }*/
+                ExceptionUtils.ExceptionToUM(e, context, "head_list");
             }
             adapter.notifyDataSetChanged();
         } catch (Exception e) {
             ExceptionUtils.ExceptionToUM(e, context, "initHomeArticle");
-            try {
+            /*try {
                 StackTraceElement[] stack = e.getStackTrace();
                 StringBuilder builder = new StringBuilder();
                 for(int i = 0;i<stack.length;i++){
@@ -629,7 +631,7 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
                 Toast.makeText(context, builder.toString(), Toast.LENGTH_LONG).show();
             }catch (Exception ex){
                 ex.printStackTrace();
-            }
+            }*/
         }
     }
 
