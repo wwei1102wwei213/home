@@ -172,7 +172,9 @@ public class ShowDiscuzActivity extends BaseActivity implements MyWebChromeClien
                     startActivity(new Intent(ShowDiscuzActivity.this, ShowImageActivity.class).
                             putExtra(Contants.Avatar, nurl));
                     return true;
-                } else {
+                } else if (nurl.contains("youzan")){
+                    startActivity(new Intent(ShowDiscuzActivity.this, YouzanActivity.class).putExtra("uzUrl", nurl));
+                }else {
 //                    url = nurl;
                 }
                 return super.shouldOverrideUrlLoading(view, nurl);

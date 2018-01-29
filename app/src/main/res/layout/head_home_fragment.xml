@@ -91,7 +91,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="104dp">
-        <LinearLayout
+        <!--<LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="104dp">
@@ -197,7 +197,14 @@
                     android:textSize="@dimen/font12"
                     android:text=""/>
             </LinearLayout>
-        </LinearLayout>
+        </LinearLayout>-->
+        <GridView
+            android:id="@+id/gv1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:numColumns="4">
+
+        </GridView>
         <View
             android:layout_width="match_parent"
             android:layout_height="8dp"
@@ -270,6 +277,7 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="132dp"
+        android:visibility="visible"
         >
         <RelativeLayout
             android:id="@+id/v_menu_big_1"
@@ -513,7 +521,8 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="190dp">
+        android:layout_height="190dp"
+        android:visibility="visible">
         <LinearLayout
             android:id="@+id/menu_main_3_1"
             android:orientation="vertical"
@@ -670,7 +679,14 @@
         android:paddingLeft="20dp"
         android:layout_marginTop="8dp"
         android:text="推荐工具"/>
-    <LinearLayout
+    <GridView
+        android:id="@+id/gv2"
+        android:layout_width="match_parent"
+        android:layout_height="104dp"
+        android:numColumns="4">
+
+    </GridView>
+    <!--<LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="104dp">
@@ -762,7 +778,7 @@
                 android:textSize="@dimen/font12"
                 android:text="更多"/>
         </LinearLayout>
-    </LinearLayout>
+    </LinearLayout>-->
     <!--tab-->
     <View
         android:layout_width="match_parent"

@@ -15,6 +15,7 @@ public class HomePageEntity implements Serializable {
     private String sign_a;
     private String sign_b;
     private String skiptype;
+    private int count;
 
     public String getTag() {
         return tag;
@@ -70,6 +71,10 @@ public class HomePageEntity implements Serializable {
 
     public void setSkiptype(String skiptype) {
         this.skiptype = skiptype;
+    }
+
+    public int getCount() {
+        return count;
     }
 
     @Override

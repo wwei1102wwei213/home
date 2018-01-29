@@ -530,10 +530,25 @@ public class ReleaseForumActivity extends BaseActivity implements View.OnClickLi
     public void dataCallBack(String str, int flag, String tag, List<String> listForData, Map<String, Integer> map, Object obj) {
 
         circleIdString = str;
-        if (!TextUtils.isEmpty(circleIdString))
+        LogCustom.i(Const.TAG.ZY_OTHER, "dataCallBack:"+circleIdString);
+        if (!TextUtils.isEmpty(circleIdString)){
+            String otherId = getIntent().getStringExtra("Comment_H5_Id");
+            if (!TextUtils.isEmpty(otherId)){
+                String[] args = circleIdString.split(",");
+                List<String> tempList = new ArrayList<>();
+                for (String temp:args){
+                    tempList.add(temp);
+                }
+                if (!tempList.contains(otherId)){
+                    circleIdString = circleIdString + "," + otherId;
+                    LogCustom.i(Const.TAG.ZY_OTHER, "dataCallBack+other:"+circleIdString);
+                }
+            }
             postForum(Const.PApi_ThreadForMoreCircle);
-        else
+        } else {
             showToast("发布失败！");
+        }
+
 
     }
 

@@ -223,6 +223,20 @@ public class ZYNotificationClickHandler extends UmengNotificationClickHandler {
                         toInkeLive(args[1], context);
                     }
                     break;
+                case 17://跳转到直播间
+                    intent.setClassName(context, ShowDiscuzActivity.class.getName());
+                    try {
+                        String url = "http://help.kaqcn.com/ask/ask_list";
+                        if (url.contains("?")) {
+                            url += "&kaq=" + getRandomMath() + UserinfoData.getInfoID(context) + "&lt=2&Type=2";
+                        } else {
+                            url += "?kaq=" + getRandomMath() + UserinfoData.getInfoID(context) + "&lt=2&Type=2";
+                        }
+                        intent.putExtra(Const.SHOW_HTML_MAIN_TOP, url);
+                    } catch (Exception e) {
+                        intent.putExtra(Const.SHOW_HTML_MAIN_TOP, "http://bbs.kaqcn.com");
+                    }
+                    break;
             }
             if (jump != 0) {
                 if (flag && (jump == 7 || jump == 10 || jump == 11)) {

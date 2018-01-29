@@ -214,6 +214,8 @@ public class ShowCommentH5Actvity extends BaseActivity implements MyWebChromeCli
                     startActivity(new Intent(ShowCommentH5Actvity.this, ShowImageActivity.class).
                             putExtra(Contants.Avatar, nurl));
                     return true;
+                } else if (nurl.contains("youzan")){
+                    startActivity(new Intent(ShowCommentH5Actvity.this, YouzanActivity.class).putExtra("uzUrl", nurl));
                 } else {
 //                    url = nurl;
                 }
@@ -564,6 +566,15 @@ public class ShowCommentH5Actvity extends BaseActivity implements MyWebChromeCli
     @JavascriptInterface
     public void appWritePost(){
         startActivity(new Intent(this, ReleaseForumActivity.class));
+    }
+
+    @JavascriptInterface
+    public void appWritePost(String id){
+        if (!TextUtils.isEmpty(id)){
+            startActivity(new Intent(this, ReleaseForumActivity.class).putExtra("Comment_H5_Id", id));
+        } else {
+            startActivity(new Intent(this, ReleaseForumActivity.class));
+        }
     }
 
 

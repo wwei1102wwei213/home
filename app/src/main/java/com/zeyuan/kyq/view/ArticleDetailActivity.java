@@ -304,6 +304,8 @@ public class ArticleDetailActivity extends BaseActivity implements ViewDataListe
                     startActivity(new Intent(ArticleDetailActivity.this, ShowImageActivity.class).
                             putExtra(Contants.Avatar, nurl));
                     return true;
+                } else if (nurl.contains("youzan")){
+                    startActivity(new Intent(ArticleDetailActivity.this, YouzanActivity.class).putExtra("uzUrl", nurl));
                 }
 //                return true;
                 return super.shouldOverrideUrlLoading(view, nurl);

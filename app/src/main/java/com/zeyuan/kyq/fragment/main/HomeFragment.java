@@ -21,6 +21,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -39,6 +40,7 @@ import com.zeyuan.kyq.R;
 import com.zeyuan.kyq.adapter.BannerPagerAdapter;
 import com.zeyuan.kyq.adapter.HomeHelpRecyclerAdapter;
 import com.zeyuan.kyq.adapter.HomeTabRecyclerAdapter;
+import com.zeyuan.kyq.adapter.nww.HomeMenuGvAdapter;
 import com.zeyuan.kyq.app.BaseZyFragment;
 import com.zeyuan.kyq.application.ZYApplication;
 import com.zeyuan.kyq.bean.MainPageInfoBean;
@@ -46,7 +48,6 @@ import com.zeyuan.kyq.bean.PatientDetailBean;
 import com.zeyuan.kyq.biz.Factory;
 import com.zeyuan.kyq.biz.HttpResponseInterface;
 import com.zeyuan.kyq.biz.forcallback.FragmentCallBack;
-import com.zeyuan.kyq.biz.manager.ClickStatisticsManager;
 import com.zeyuan.kyq.biz.manager.IntegrationManager;
 import com.zeyuan.kyq.filedownloader.JFileDownloadListener;
 import com.zeyuan.kyq.filedownloader.JFileDownloader;
@@ -63,7 +64,6 @@ import com.zeyuan.kyq.utils.MapDataUtils;
 import com.zeyuan.kyq.utils.Secret.HttpSecretUtils;
 import com.zeyuan.kyq.utils.UiUtils;
 import com.zeyuan.kyq.utils.UserinfoData;
-import com.zeyuan.kyq.view.AllMenuActivity;
 import com.zeyuan.kyq.view.ArticleTypeActivity;
 import com.zeyuan.kyq.view.CommentProjectActivity;
 import com.zeyuan.kyq.view.HeadlineHomeActivity;
@@ -212,10 +212,13 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
 
     private FrameLayout fl_add;
     private CircleImageView head_civ;
-    private TextView[] menuTvs;
+    /*private TextView[] menuTvs;
     private CircleImageView[] menuCivs;
-    private View[] menuVs;
+    private View[] menuVs;*/
     private VerticalTextview tv_head_1,tv_head_2;
+    private GridView gv1,gv2;
+    private HomeMenuGvAdapter adapter1,adapter2;
+
     private void initHeaderView() {
         if (headerView == null) return;
         //设置控件
@@ -257,30 +260,12 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
             ExceptionUtils.ExceptionToUM(e, context, "head_list");
         }
 
-        menuTvs = new TextView[7];
-        menuTvs[0] = (TextView) headerView.findViewById(R.id.menu_tv_1);
-        menuTvs[1] = (TextView) headerView.findViewById(R.id.menu_tv_2);
-        menuTvs[2] = (TextView) headerView.findViewById(R.id.menu_tv_3);
-        menuTvs[3] = (TextView) headerView.findViewById(R.id.menu_tv_4);
-        menuTvs[4] = (TextView) headerView.findViewById(R.id.menu_tv_9);
-        menuTvs[5] = (TextView) headerView.findViewById(R.id.menu_tv_10);
-        menuTvs[6] = (TextView) headerView.findViewById(R.id.menu_tv_11);
-        menuCivs = new CircleImageView[7];
-        menuCivs[0] = (CircleImageView) headerView.findViewById(R.id.civ_menu_1);
-        menuCivs[1] = (CircleImageView) headerView.findViewById(R.id.civ_menu_2);
-        menuCivs[2] = (CircleImageView) headerView.findViewById(R.id.civ_menu_3);
-        menuCivs[3] = (CircleImageView) headerView.findViewById(R.id.civ_menu_4);
-        menuCivs[4] = (CircleImageView) headerView.findViewById(R.id.civ_menu_9);
-        menuCivs[5] = (CircleImageView) headerView.findViewById(R.id.civ_menu_10);
-        menuCivs[6] = (CircleImageView) headerView.findViewById(R.id.civ_menu_11);
-        menuVs = new View[7];
-        menuVs[0] = headerView.findViewById(R.id.v_menu_1);
-        menuVs[1] = headerView.findViewById(R.id.v_menu_2);
-        menuVs[2] = headerView.findViewById(R.id.v_menu_3);
-        menuVs[3] = headerView.findViewById(R.id.v_menu_4);
-        menuVs[4] = headerView.findViewById(R.id.v_menu_9);
-        menuVs[5] = headerView.findViewById(R.id.v_menu_10);
-        menuVs[6] = headerView.findViewById(R.id.v_menu_11);
+        gv1 = (GridView) headerView.findViewById(R.id.gv1);
+        gv2 = (GridView) headerView.findViewById(R.id.gv2);
+        adapter1 = new HomeMenuGvAdapter(context, new ArrayList<HomePageEntity>(),1,getActivity(),this);
+        adapter2 = new HomeMenuGvAdapter(context, new ArrayList<HomePageEntity>(),2,getActivity(),this);
+        gv1.setAdapter(adapter1);
+        gv2.setAdapter(adapter2);
     }
 
     private View userTypeView;
@@ -327,12 +312,12 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
                             .putExtra(Const.InfoCenterID, UserinfoData.getInfoID(context)));
                 }
             });
-            headerView.findViewById(R.id.v_menu_12).setOnClickListener(new View.OnClickListener() {
+            /*headerView.findViewById(R.id.v_menu_12).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     startActivity(new Intent(context, AllMenuActivity.class));
                 }
-            });
+            });*/
             headerView.findViewById(R.id.v_menu_8).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -1064,22 +1049,21 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
             if (Const.RESULT.equals(bean.getiResult())) {
                 List<HomePageEntity> mHomeList = bean.getData();
                 if (mHomeList != null && mHomeList.size() > 0) {
-                    List<HomePageEntity> temp = new ArrayList<>();
                     if (mHomeList.size() > 7) {
-                        headerView.findViewById(R.id.ic_hot).setVisibility(View.VISIBLE);
-                        for (int i = 0; i < 7; i++) {
-                            final HomePageEntity entity = mHomeList.get(i);
-                            String titleName = mHomeList.get(i).getName();
-                            Glide.with(context).load(mHomeList.get(i).getPic_oss()).error(R.mipmap.loading_fail).into(menuCivs[i]);
-                            menuTvs[i].setText(TextUtils.isEmpty(titleName)?"未知栏目":titleName);
-                            menuVs[i].setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    UiUtils.toMenuJump(context, entity, HomeFragment.this, true, getActivity());
-                                    ClickStatisticsManager.getInstance().addClickEvent(Const.CLICK_EVENT_2, entity.getId());
-                                }
-                            });
+                        List<HomePageEntity> temp1 = new ArrayList<>();
+                        List<HomePageEntity> temp2 = new ArrayList<>();
+                        for (int i=0;i<7;i++){
+                            if (i<4){
+                                temp1.add(mHomeList.get(i));
+                            } else {
+                                temp2.add(mHomeList.get(i));
+                            }
                         }
+                        HomePageEntity homePageEntity = new HomePageEntity();
+                        temp2.add(homePageEntity);
+                        adapter1.update(temp1);
+                        adapter2.update(temp2);
+                        adapter.notifyDataSetChanged();
                     }
                 }
             } else {
