@@ -11,8 +11,8 @@ android {
         applicationId "com.zeyuan.kyq"
         minSdkVersion 15
         targetSdkVersion 23
-        versionCode 30
-        versionName "3.0"
+        versionCode 32
+        versionName "3.0.2"
         multiDexEnabled true
         //开发时注释掉，上线打开
 //        manifestPlaceholders = [UMENG_CHANNEL_VALUE: "channel_name"]
@@ -61,20 +61,20 @@ android {
     //渠道Flavors，我这里写了一些常用的，开发时注释掉，上线打开
     /*productFlavors {
         zeyuan {}
-//        yingyongbao {}
-//        xiaomi {}
-//        huawei {}
-//        wandoujia {}
-//        letv {}
-//        summung {}
-//        lenovo {}
-//        oppo {}
-//        baidu {}
-//        other {}
-    }*/
+        yingyongbao {}
+        xiaomi {}
+        huawei {}
+        wandoujia {}
+        letv {}
+        summung {}
+        lenovo {}
+        oppo {}
+        baidu {}
+        other {}
+    }
 
     //开发时注释掉，上线打开
-   /* productFlavors.all { flavor ->
+    productFlavors.all { flavor ->
         flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
     }
     //开发时注释掉，上线打开
@@ -86,8 +86,8 @@ android {
                 output.outputFile = new File(outputFile.parent, fileName)
             }
         }
-    }
-    buildToolsVersion '25.0.2'*/
+    }*/
+//    buildToolsVersion '25.0.2'
 }
 
 repositories {
@@ -147,7 +147,7 @@ dependencies {
 
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.android.support:appcompat-v7:25.3.1'
-   // compile 'com.squareup.okhttp:okhttp:2.6.0'
+    // compile 'com.squareup.okhttp:okhttp:2.6.0'
     compile 'com.squareup.okhttp3:okhttp:3.8.1'
     compile 'com.android.support:design:25.3.1'
     compile 'com.aliyun.dpa:oss-android-sdk:1.4.0'

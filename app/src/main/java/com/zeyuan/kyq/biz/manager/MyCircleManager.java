@@ -18,6 +18,7 @@ import com.zeyuan.kyq.utils.SharePrefUtil;
 import com.zeyuan.kyq.utils.UserinfoData;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -65,54 +66,47 @@ public class MyCircleManager {
 
         }
         //更新数据
-        Factory.post(new HttpResponseInterface() {
+        Factory.postPhp(new HttpResponseInterface() {
             @Override
             public Map getParamInfo(int tag) {
-                return null;
+                Map<String, String> map = new HashMap<>();
+                if (tag == Const.PApi_EGetMycircle2){
+                    map.put(Contants.InfoID, UserinfoData.getInfoID(context));
+                    String StepID = UserinfoData.getStepID(context);
+                    String CancerID = UserinfoData.getCancerID(context);
+                    String CureConfID = MapDataUtils.getAllCureconfID(StepID);
+                    if(Const.NO_STEP.equals(UserinfoData.getIsHaveStep(context))){
+                        map.put(Const.ISHAVESTEP, "0");
+                    }else {
+                        if (!TextUtils.isEmpty(StepID)) {
+                            map.put(Contants.StepID, StepID);
+                        }
+                        map.put(Contants.CureConfID, TextUtils.isEmpty(CureConfID)?"0":CureConfID);
+                        map.put(Const.ISHAVESTEP, "1");
+                    }
+                    if (!TextUtils.isEmpty(CancerID)) {
+                        map.put(Contants.CancerID, CancerID);
+                    }
+                    String ProvinceID;
+                    String CityID = UserinfoData.getCityID(context);
+                    if("0".equals(CityID)) {
+                        ProvinceID = "0";
+                    }else {
+                        ProvinceID = CityID.substring(0,2)+"0000";
+                    }
+                    UserinfoData.saveProvinceID(context, ProvinceID);
+                    map.put(CityID, CityID);
+                    map.put(Contants.ProvinceID, ProvinceID);
+                    map.put("page", "0");
+                    map.put("pagesize", "5");
+                }
+                return map;
             }
 
             @Override
             public byte[] getPostParams(int flag) {
                 String[] args = null;
-                if (flag == Const.EGetMycircle) {
-                    String temp;
-                    String StepID = UserinfoData.getStepID(context);
-                    String CancerID = UserinfoData.getCancerID(context);
-                    String CureConfID = MapDataUtils.getAllCureconfID(StepID);
-                    String ProvinceID;
-                    String CityID = UserinfoData.getCityID(context);
-                    temp = Contants.InfoID + ",,," + UserinfoData.getInfoID(context);
-                    if (Const.NO_STEP.equals(UserinfoData.getIsHaveStep(context))) {
-                        temp += ",,," + Const.ISHAVESTEP + ",,," + "0";
-                    } else {
-                        if (!TextUtils.isEmpty(StepID)) {
-                            temp += ",,," + Contants.StepID + ",,," + StepID;
-                        }
-                        if (!TextUtils.isEmpty(CureConfID)) {
-                            temp += ",,," + Contants.CureConfID + ",,," + CureConfID;
-                        } else {
-                            temp += ",,," + Contants.CureConfID + ",,," + "0";
-                        }
-                        temp += ",,," + Const.ISHAVESTEP + ",,," + "1";
-                    }
-                    if (!TextUtils.isEmpty(CancerID)) {
-                        temp += ",,," + Contants.CancerID + ",,," + CancerID;
-                    }
-                    if ("0".equals(CityID)) {
-                        ProvinceID = "0";
-                        temp += ",,," + Contants.CityID + ",,," + CityID;
-                        temp += ",,," + Contants.ProvinceID + ",,," + ProvinceID;
-                    } else {
-                        ProvinceID = CityID.substring(0, 2) + "0000";
-                        temp += ",,," + Contants.CityID + ",,," + CityID;
-                        temp += ",,," + Contants.ProvinceID + ",,," + ProvinceID;
-                    }
-                    UserinfoData.saveProvinceID(context, ProvinceID);
-                    temp += ",,,page,,," + "0";
-                    temp += ",,,pagesize,,," + "2";
-                    //args = new String[]{};
-                    args = temp.split(",,,");
-                }
+
                 return HttpSecretUtils.getParamString(args);
             }
 
@@ -151,7 +145,7 @@ public class MyCircleManager {
             public void showError(int flag) {
 
             }
-        }, Const.EGetMycircle);
+        }, Const.PApi_EGetMycircle2);
 
 
     }

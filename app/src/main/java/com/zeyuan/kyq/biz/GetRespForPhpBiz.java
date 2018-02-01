@@ -33,6 +33,7 @@ import com.zeyuan.kyq.bean.EffectiveBean;
 import com.zeyuan.kyq.bean.ForumInfoBean;
 import com.zeyuan.kyq.bean.MedicalRecordDetailBean;
 import com.zeyuan.kyq.bean.MsgBean;
+import com.zeyuan.kyq.bean.MyCircleBean;
 import com.zeyuan.kyq.bean.PhpUserInfoBean;
 import com.zeyuan.kyq.bean.PostForumBean;
 import com.zeyuan.kyq.bean.RecommendUserBean;
@@ -352,6 +353,9 @@ public class GetRespForPhpBiz {
             case Const.PApi_viewPcomment:
                 url = Const.p_Api_viewPcomment;
                 break;
+            case Const.PApi_EGetMycircle2:
+                url = Const.p_Api_EGetMycircle2;
+                break;
 
         }
         LogCustom.i(Const.TAG.ZY_HTTP, "请求地址：" + url);
@@ -618,6 +622,9 @@ public class GetRespForPhpBiz {
                     break;
                 case Const.PApi_viewPcomment:
                     o = mGson.fromJson(response, CommentListBean.class);
+                    break;
+                case Const.PApi_EGetMycircle2:
+                    o = mGson.fromJson(response, MyCircleBean.class);
                     break;
             }
         } catch (com.google.gson.JsonParseException e) {

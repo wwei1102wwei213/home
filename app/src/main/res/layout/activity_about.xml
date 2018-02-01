@@ -154,7 +154,12 @@
             <TextView
                 style="@style/about_textview_style1"
                 android:layout_marginTop="@dimen/margin8"
-                android:text="联系邮箱：lan@kaqcn.com" />
+                android:text="联系邮箱：9042365@qq.com" />
+
+            <TextView
+                style="@style/about_textview_style1"
+                android:layout_marginTop="@dimen/margin8"
+                android:text="微信客服号：kaqkefu" />
 
 
             <View style="@style/empty_layout" />
@@ -166,7 +171,7 @@
         style="@style/about_content_textstyle"
         android:layout_gravity="center"
         android:layout_marginBottom="@dimen/little_margin"
-        android:text="Copyright ©  2015-2017  抗癌圈  版权所有"
+        android:text="Copyright ©  2015-2018  抗癌圈  版权所有"
         android:textColor="@color/text_color3"
         android:textSize="@dimen/front12" />
 </LinearLayout>

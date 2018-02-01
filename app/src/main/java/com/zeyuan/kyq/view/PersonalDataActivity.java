@@ -10,9 +10,11 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.v4.content.FileProvider;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -453,8 +455,30 @@ public class PersonalDataActivity extends BaseActivity implements View.OnClickLi
      */
     private void fromTP() {
         try {
-            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            startActivityForResult(intent, PHOTOHRAPH);
+            //创建一个file，用来存储拍照后的照片
+            File outputfile = new File(this.getExternalCacheDir(),"output.png");
+            try {
+                if (outputfile.exists()){
+                    outputfile.delete();//删除
+                }
+                outputfile.createNewFile();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            Uri imageuri ;
+            if (Build.VERSION.SDK_INT >= 24){
+                imageuri = FileProvider.getUriForFile(this,
+                        "com.zeyuan.kyq.fileprovider", //可以是任意字符串
+                        outputfile);
+            }else{
+                imageuri = Uri.fromFile(outputfile);
+            }
+            //启动相机程序
+            Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
+            intent.putExtra(MediaStore.EXTRA_OUTPUT,imageuri);
+            startActivityForResult(intent,PHOTOHRAPH);
+            /*Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            startActivityForResult(intent, PHOTOHRAPH);*/
         }catch (Exception e){
             ExceptionUtils.ExceptionToUM(e, this, "PersonalDataActivity");
         }
@@ -486,7 +510,17 @@ public class PersonalDataActivity extends BaseActivity implements View.OnClickLi
      */
     public void startPhotoZoom(Uri uri) {
         try {
-
+            //设置裁剪之后的图片路径文件
+            File cutfile = new File(Environment.getExternalStorageDirectory().getPath(),
+                    "cutcamera.png"); //随便命名一个
+            if (cutfile.exists()){ //如果已经存在，则先删除,这里应该是上传到服务器，然后再删除本地的，没服务器，只能这样了
+                cutfile.delete();
+            }
+            cutfile.createNewFile();
+            //初始化 uri
+            Uri imageUri = uri; //返回来的 uri
+            Uri outputUri = Uri.fromFile(cutfile); //真实的 uri
+            //初始化 uri
             tempUri = uri;
             Intent intent = new Intent("com.android.camera.action.CROP");
             intent.setDataAndType(uri, IMAGE_UNSPECIFIED);
@@ -515,6 +549,130 @@ public class PersonalDataActivity extends BaseActivity implements View.OnClickLi
         }
     }
 
+    /**
+     * 图片裁剪
+     * @param uri
+     * @return
+     */
+
+    private void CutForPhoto(Uri uri) {
+        try {
+            //直接裁剪
+            Intent intent = new Intent("com.android.camera.action.CROP");
+            //设置裁剪之后的图片路径文件
+            File cutfile = new File(Environment.getExternalStorageDirectory().getPath(),
+                    "temp_cut_camera.png"); //随便命名一个
+            if (cutfile.exists()){ //如果已经存在，则先删除,这里应该是上传到服务器，然后再删除本地的，没服务器，只能这样了
+                cutfile.delete();
+            }
+            cutfile.createNewFile();
+//初始化 uri
+            Uri imageUri = uri; //返回来的 uri
+            Uri outputUri = null; //真实的 uri
+
+            outputUri = Uri.fromFile(cutfile);
+            tempUri = outputUri;
+
+            // crop为true是设置在开启的intent中设置显示的view可以剪裁
+            intent.putExtra("crop",true);
+            // aspectX,aspectY 是宽高的比例，这里设置正方形
+            intent.putExtra("aspectX",1);
+            intent.putExtra("aspectY",1);
+            //设置要裁剪的宽高
+            intent.putExtra("outputX", 600); //200dp
+            intent.putExtra("outputY",600);
+            intent.putExtra("scale",true);
+            //如果图片过大，会导致oom，这里设置为false
+            intent.putExtra("return-data",false);
+            if (imageUri != null) {
+                intent.setDataAndType(imageUri, "image/*");
+            }
+            if (outputUri != null) {
+                intent.putExtra(MediaStore.EXTRA_OUTPUT, outputUri);
+            }
+            intent.putExtra("noFaceDetection", true);
+            //压缩图片
+            intent.putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString());
+            ComponentName componentName = intent.resolveActivity(getPackageManager());
+            if (componentName != null) {
+                startActivityForResult(intent, PHOTORESOULT);
+            } else {
+                Toast.makeText(this, "无法连接到系统裁剪功能", Toast.LENGTH_SHORT).show();
+            }
+//            return intent;
+        } catch (Exception e) {
+            Toast.makeText(this, "无法连接到系统裁剪功能", Toast.LENGTH_SHORT).show();
+//            e.printStackTrace();
+        }
+//        return null;
+    }
+
+    /**
+     * 拍照之后，启动裁剪
+     * @param camerapath 路径
+     * @param imgname img 的名字
+     * @return
+     */
+    private void CutForCamera(String camerapath,String imgname) {
+        try {
+
+            //设置裁剪之后的图片路径文件
+            File cutfile = new File(Environment.getExternalStorageDirectory().getPath(),
+                    "temp_cut_camera.png"); //随便命名一个
+            if (cutfile.exists()){ //如果已经存在，则先删除,这里应该是上传到服务器，然后再删除本地的，没服务器，只能这样了
+                cutfile.delete();
+            }
+            cutfile.createNewFile();
+            //初始化 uri
+            Uri imageUri = null; //返回来的 uri
+            Uri outputUri = null; //真实的 uri
+            Intent intent = new Intent("com.android.camera.action.CROP");
+            //拍照留下的图片
+            File camerafile = new File(camerapath,imgname);
+            if (Build.VERSION.SDK_INT >= 24) {
+                intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                imageUri = FileProvider.getUriForFile(this,
+                        "com.zeyuan.kyq.fileprovider",
+                        camerafile);
+            } else {
+                imageUri = Uri.fromFile(camerafile);
+            }
+            outputUri = Uri.fromFile(cutfile);
+            //把这个 uri 提供出去，就可以解析成 bitmap了
+            tempUri = outputUri;
+            // crop为true是设置在开启的intent中设置显示的view可以剪裁
+            intent.putExtra("crop",true);
+            // aspectX,aspectY 是宽高的比例，这里设置正方形
+            intent.putExtra("aspectX",1);
+            intent.putExtra("aspectY",1);
+            //设置要裁剪的宽高
+            intent.putExtra("outputX", 600);
+            intent.putExtra("outputY",600);
+            intent.putExtra("scale",true);
+            //如果图片过大，会导致oom，这里设置为false
+            intent.putExtra("return-data",false);
+            if (imageUri != null) {
+                intent.setDataAndType(imageUri, "image/*");
+            }
+            if (outputUri != null) {
+                intent.putExtra(MediaStore.EXTRA_OUTPUT, outputUri);
+            }
+            intent.putExtra("noFaceDetection", true);
+            //压缩图片
+            intent.putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString());
+            ComponentName componentName = intent.resolveActivity(getPackageManager());
+            if (componentName != null) {
+                startActivityForResult(intent, PHOTORESOULT);
+            } else {
+                Toast.makeText(this, "无法连接到系统裁剪功能", Toast.LENGTH_SHORT).show();
+            }
+//            return intent;
+        } catch (Exception e) {
+            Toast.makeText(this, "无法连接到系统裁剪功能", Toast.LENGTH_SHORT).show();
+        }
+//        return null;
+    }
+
 
     /***
      * 隐式意图参数回传处理
@@ -534,7 +692,7 @@ public class PersonalDataActivity extends BaseActivity implements View.OnClickLi
             // 拍照
             if (requestCode == PHOTOHRAPH) {
                 try {
-                    Uri uri = data.getData();
+                    /*Uri uri = data.getData();
                     //设置文件保存路径这里放在跟目录下
                     Bitmap cameraPhoto = data.getExtras().getParcelable("data");//从流中得到图片
                     FileOutputStream foss = null;
@@ -553,8 +711,10 @@ public class PersonalDataActivity extends BaseActivity implements View.OnClickLi
                                 e.printStackTrace();
                             }
                         }
-                    }
-                    startPhotoZoom(Uri.fromFile(tempFile));
+                    }*/
+                    String path = this.getExternalCacheDir().getPath();
+                    String name = "output.png";
+                    CutForCamera(path, name);
                 }catch (Exception e){
                     ExceptionUtils.ExceptionSend(e,"requestCode");
                 }
@@ -564,7 +724,7 @@ public class PersonalDataActivity extends BaseActivity implements View.OnClickLi
                 return;
             // 读取相册缩放图片
             if (requestCode == PHOTOZOOM) {
-                startPhotoZoom(data.getData());
+                CutForPhoto(data.getData());
             }
             // 处理结果
             if (requestCode == PHOTORESOULT) {
@@ -688,7 +848,7 @@ public class PersonalDataActivity extends BaseActivity implements View.OnClickLi
     private String getPhotoFileName() {
         Date date = new Date(System.currentTimeMillis());
         SimpleDateFormat dateFormat = new SimpleDateFormat("'IMG'_yyyyMMdd_HHmmss");
-        return dateFormat.format(date) + ".jpg";
+        return dateFormat.format(date) + ".png";
     }
 
     private boolean isMain(){

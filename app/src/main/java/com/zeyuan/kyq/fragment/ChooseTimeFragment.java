@@ -58,7 +58,7 @@ public class ChooseTimeFragment extends DialogFragment {
         initView(rootView);
         dialog.setContentView(rootView);
         Window window = dialog.getWindow();
-        window.getDecorView().setPadding(0, 0, 0, 0);
+//        window.getDecorView().setPadding(0, 0, 0, 0);
         WindowManager.LayoutParams lp = window.getAttributes();
         lp.width = WindowManager.LayoutParams.MATCH_PARENT;
         lp.height = WindowManager.LayoutParams.WRAP_CONTENT;

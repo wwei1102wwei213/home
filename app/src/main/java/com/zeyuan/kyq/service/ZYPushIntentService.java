@@ -16,8 +16,10 @@ import com.zeyuan.kyq.Entity.MessageItem;
 import com.zeyuan.kyq.Entity.PushNewEntity;
 import com.zeyuan.kyq.R;
 import com.zeyuan.kyq.application.ZYApplication;
+import com.zeyuan.kyq.utils.Const;
 import com.zeyuan.kyq.utils.ExceptionUtils;
 import com.zeyuan.kyq.utils.LogCustom;
+import com.zeyuan.kyq.utils.UserinfoData;
 import com.zeyuan.kyq.view.MessageDetailActivity;
 
 import org.android.agoo.common.AgooConstants;
@@ -71,6 +73,11 @@ public class ZYPushIntentService extends UmengMessageService {
                         if ("0".equals(jump)||"8".equals(jump)){
                             entity.setRead(1);
                         }else {
+                            if ("17".equals(jump)){
+                                LogCustom.e(TAG, "ZYPushIntentService 17");
+                                UserinfoData.saveHomeAnswerHint(getApplicationContext(), "red");
+                                sendBroadcast(new Intent(Const.FLAG_HOME_HINT));
+                            }
                             entity.setRead(0);
                         }
                     }

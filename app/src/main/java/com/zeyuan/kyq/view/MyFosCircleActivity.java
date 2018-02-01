@@ -92,7 +92,7 @@ public class MyFosCircleActivity extends BaseActivity implements FindCircleDetai
             data = new ArrayList();
             initList();
             if(data.size()==0){
-                Factory.post(this,Const.EGetMycircle);
+                Factory.postPhp(this,Const.PApi_EGetMycircle2);
             }else {
                 initListView();
             }
@@ -159,9 +159,37 @@ public class MyFosCircleActivity extends BaseActivity implements FindCircleDetai
 
     @Override
     public Map getParamInfo(int tag) {
-
         Map<String, String> map = new HashMap<>();
-
+        if (tag == Const.PApi_EGetMycircle2){
+            map.put(Contants.InfoID, UserinfoData.getInfoID(this));
+            String StepID = UserinfoData.getStepID(this);
+            String CancerID = UserinfoData.getCancerID(this);
+            String CureConfID = MapDataUtils.getAllCureconfID(StepID);
+            if(Const.NO_STEP.equals(UserinfoData.getIsHaveStep(this))){
+                map.put(Const.ISHAVESTEP, "0");
+            }else {
+                if (!TextUtils.isEmpty(StepID)) {
+                    map.put(Contants.StepID, StepID);
+                }
+                map.put(Contants.CureConfID, TextUtils.isEmpty(CureConfID)?"0":CureConfID);
+                map.put(Const.ISHAVESTEP, "1");
+            }
+            if (!TextUtils.isEmpty(CancerID)) {
+                map.put(Contants.CancerID, CancerID);
+            }
+            String ProvinceID;
+            String CityID = UserinfoData.getCityID(this);
+            if("0".equals(CityID)) {
+                ProvinceID = "0";
+            }else {
+                ProvinceID = CityID.substring(0,2)+"0000";
+            }
+            UserinfoData.saveProvinceID(this, ProvinceID);
+            map.put(CityID, CityID);
+            map.put(Contants.ProvinceID, ProvinceID);
+            map.put("page", "0");
+            map.put("pagesize", "5");
+        }
         return map;
     }
 
@@ -181,47 +209,6 @@ public class MyFosCircleActivity extends BaseActivity implements FindCircleDetai
                     Contants.followOrcancel, followOrcancel,
                     "type", type
             };
-        }else if(flag == Const.EGetMycircle){
-            String temp = "";
-            String StepID = UserinfoData.getStepID(this);
-            String CancerID = UserinfoData.getCancerID(this);
-            String CureConfID = MapDataUtils.getAllCureconfID(StepID);
-            String ProvinceID;
-            String CityID = UserinfoData.getCityID(this);
-            temp = Contants.InfoID +",,,"+ UserinfoData.getInfoID(this);
-            if(Const.NO_STEP.equals(UserinfoData.getIsHaveStep(this))){
-                temp += ",,,"+Const.ISHAVESTEP+",,,"+"0";
-            }else {
-                if (!TextUtils.isEmpty(StepID)) {
-                    temp += ",,,"+Contants.StepID+",,,"+StepID;
-                }
-                if (!TextUtils.isEmpty(CureConfID)) {
-                    temp += ",,,"+Contants.CureConfID+",,,"+CureConfID;
-                }else{
-                    temp += ",,,"+Contants.CureConfID+",,,"+"0";
-                }
-                temp += ",,,"+Const.ISHAVESTEP+",,,"+"1";
-            }
-
-            if (!TextUtils.isEmpty(CancerID)) {
-                temp += ",,,"+Contants.CancerID+",,,"+CancerID;
-            }
-            if("0".equals(CityID)) {
-                ProvinceID = "0";
-                temp += ",,,"+Contants.CityID+",,,"+CityID;
-                temp += ",,,"+Contants.ProvinceID+",,,"+ProvinceID;
-            }else {
-                ProvinceID = CityID.substring(0,2)+"0000";
-                temp += ",,,"+Contants.CityID+",,,"+CityID;
-                temp += ",,,"+Contants.ProvinceID+",,,"+ProvinceID;
-            }
-            UserinfoData.saveProvinceID(this,ProvinceID);
-
-
-            temp += ",,,page,,,"+0;
-            temp += ",,,pagesize,,,"+5;
-            args = new String[]{};
-            args = temp.split(",,,");
         }
         return HttpSecretUtils.getParamString(args);
     }
@@ -241,7 +228,7 @@ public class MyFosCircleActivity extends BaseActivity implements FindCircleDetai
                         Toast.makeText(this, "取消关注成功", Toast.LENGTH_SHORT).show();
                     }
                 }
-            }else if(tag == Const.EGetMycircle){
+            }else if(tag == Const.PApi_EGetMycircle2){
                 MyCircleBean bean = (MyCircleBean)t;
                 if(Const.RESULT.equals(bean.getIResult())){
                     lists = bean.getFollowCircleNum();

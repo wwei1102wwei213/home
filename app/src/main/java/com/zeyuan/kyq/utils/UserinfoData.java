@@ -578,6 +578,13 @@ public class UserinfoData {
         return avatarUrl;
     }
 
+    public static void saveHomeAnswerHint(Context context, String data) {
+        SharePrefUtil.saveString(context, Const.HomeAnswerHint, data);
+    }
+
+    public static String getHomeAnswerHint(Context context) {
+        return SharePrefUtil.getString(context, Const.HomeAnswerHint, "");
+    }
 
     public static void saveUserData(Context context, PatientDetailBean patientDetailBean) {
         UserinfoData.saveInfoname(context, patientDetailBean.getInfoName());

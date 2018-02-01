@@ -11,7 +11,7 @@ import android.util.Log;
  */
 public class LogCustom{
 //1打开，-1关闭
-    private static final int FLAG = 1;
+    private static final int FLAG = -1;
 
 
     public static void i(String TAG, String mes) {

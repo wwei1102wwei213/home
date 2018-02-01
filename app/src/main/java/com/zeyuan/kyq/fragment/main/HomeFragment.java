@@ -1179,6 +1179,10 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
             //用户没有阶段变成有阶段之后的操作
             fl_add.removeAllViews();
             adapter.notifyDataSetChanged();
+        } else if (flag==11111){
+            if (adapter!=null){
+                adapter.notifyDataSetChanged();
+            }
         }
     }
 
@@ -1187,7 +1191,13 @@ public class HomeFragment extends BaseZyFragment implements HomeTabRecyclerAdapt
 
     }
 
-
+    public void setHintRed(){
+        if (adapter2!=null&&adapter1!=null&&adapter!=null){
+            adapter1.notifyDataSetChanged();
+            adapter2.notifyDataSetChanged();
+            adapter.notifyDataSetChanged();
+        }
+    }
 
     private void setBannerChange() {
         mVp.setCurrentItem(bannerIndex);

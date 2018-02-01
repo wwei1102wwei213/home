@@ -8,7 +8,7 @@ import android.util.Log;
  * 打印管理类
  */
 public final class LogUtil {
-    private static final int FLAG = 1;
+    private static final int FLAG = -1;
 
 
     public static void i(String TAG, String mes) {

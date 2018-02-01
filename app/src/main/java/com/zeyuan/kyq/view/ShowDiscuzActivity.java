@@ -684,7 +684,7 @@ public class ShowDiscuzActivity extends BaseActivity implements MyWebChromeClien
 
     public void takePhoto5(final ValueCallback<Uri[]> uploadMsg) {
         try {
-            new AlertView("上传头像方式", null, "取消", null,
+            new AlertView(null, null, "取消", null,
                     new String[]{"拍照", "从相册中选择"},
                     this, AlertView.Style.ActionSheet, new OnItemClickListener() {
                 @Override

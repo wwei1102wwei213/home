@@ -1,14 +1,26 @@
 package com.zeyuan.kyq.view;
 
 
+import android.Manifest;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.KeyEvent;
@@ -118,9 +130,29 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
             InKeSdkPluginAPI.register(inkeCallback, YK_APP_ID, 1, 0);
             //登入统计
             Factory.postPhp(this, Const.PUserLoginAdd);
-
+            initReceiver();
+//            checkPermissionSdcard();
+            toCheckPermission();
         } catch (Exception e) {
             ExceptionUtils.ExceptionToUM(e, this, TAG);
+        }
+    }
+
+    private void checkPermissionSdcard(){
+
+    }
+
+    private HintBroadcastReceiver receiver;
+    private void initReceiver() {
+        try {
+            receiver = new HintBroadcastReceiver();
+            IntentFilter filter = new IntentFilter();
+            filter.setPriority(997);
+            filter.addAction(Const.FLAG_HOME_HINT);
+            registerReceiver(receiver, filter);
+            this.registerReceiver(receiver, filter);
+        } catch (Exception e){
+            ExceptionUtils.ExceptionSend(e, "initReceiver");
         }
     }
 
@@ -488,6 +520,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
             PointManager.getInstance().clearOnPointNumChangedListener();
             ClickStatisticsManager.getInstance().saveEventData(this);
             IntegrationManager.getInstance().clearOnIntegrationChangedListener();
+            this.unregisterReceiver(receiver);
         } catch (Exception e) {
             ExceptionUtils.ExceptionSend(e, "Main onDestroy");
         }
@@ -745,9 +778,76 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         }
     }
 
+    // 要申请的权限
+    private String[] permissions = {Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA};
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == 321) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                if (grantResults[0] != PackageManager.PERMISSION_GRANTED||grantResults[1] != PackageManager.PERMISSION_GRANTED) {
+                    // 判断用户是否 点击了不再提醒。(检测该权限是否还可以申请)
+                    boolean b = shouldShowRequestPermissionRationale(permissions[0]);
+                    boolean c = shouldShowRequestPermissionRationale(permissions[1]);
+                    if (!b||!c) {
+                        // 用户还是想用我的 APP 的
+                        // 提示用户去应用设置界面手动开启权限
+                        showDialogTipUserGoToAppSettting();
+                    }
+                }
+            }
+        }
+    }
+
+    public void toCheckPermission(){
+        // 版本判断。当手机系统大于 23 时，才有必要去判断权限是否获取
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            // 检查该权限是否已经获取
+            int i = ContextCompat.checkSelfPermission(this, permissions[0]);
+            int j = ContextCompat.checkSelfPermission(this, permissions[1]);
+            // 权限是否已经 授权 GRANTED---授权  DINIED---拒绝
+            if (i != PackageManager.PERMISSION_GRANTED || j != PackageManager.PERMISSION_GRANTED) {
+                // 如果没有授予该权限，就去提示用户请求
+                startRequestPermission();
+            }
+        }
+    }
+
+    private AlertDialog dialog;
+    // 提示用户去应用设置界面手动开启权限
+
+    private void showDialogTipUserGoToAppSettting() {
+
+        dialog = new AlertDialog.Builder(this)
+                .setTitle("功能权限未开启")
+                .setMessage("请在-应用设置-权限-中，允许手机存储和相册功能，若权限未开启会影响头像更新、病历发布等部分相关功能的使用！")
+                .setPositiveButton("立即开启", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // 跳转到应用设置界面
+                        goToAppSetting();
+                    }
+                })
+                .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                }).setCancelable(false).show();
+    }
+
+    // 跳转到当前应用的设置界面
+    private void goToAppSetting() {
+        Intent intent = new Intent();
+        intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+        Uri uri = Uri.fromParts("package", getPackageName(), null);
+        intent.setData(uri);
+        startActivityForResult(intent, 123);
+    }
+
+    // 开始提交请求权限
+    private void startRequestPermission() {
+        ActivityCompat.requestPermissions(this, permissions, 321);
     }
 
 
@@ -895,6 +995,17 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         Factory.postPhp(this, Const.PCateinkeorder);
     }
 
+    private void setHomeHintRed(){
+        try {
+            UserinfoData.saveHomeAnswerHint(this, "red");
+            if (homeFragment!=null){
+                homeFragment.setHintRed();
+            }
+        } catch (Exception e){
+            ExceptionUtils.ExceptionSend(e, "setHomeHintRed");
+        }
+    }
+
     //分享所需的回调
     private class ShareBaseUiListener implements IUiListener {
         @Override
@@ -910,6 +1021,21 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
 
         @Override
         public void onCancel() {
+        }
+    }
+
+    class HintBroadcastReceiver extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (intent == null) return;
+            LogCustom.e(TAG, "HintBroadcastReceiver 17");
+            String action = intent.getAction();
+            if (TextUtils.isEmpty(action)) return;
+            if (Const.FLAG_HOME_HINT.equals(action)){
+                LogCustom.e(TAG, "HintBroadcastReceiver action");
+                setHomeHintRed();
+            }
         }
     }
 

@@ -2,6 +2,7 @@ package com.zeyuan.kyq.view;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -225,16 +226,37 @@ public class SplashActivity extends BaseActivity implements ViewSwitcher.ViewFac
     }
 
     private void toNext(){
-//        Factory.post(this, Const.EGetPatientDetail);
-        UserinfoData.saveInfoID(this, "9810");
+
         String infoID = UserinfoData.getInfoID(this);
-        String isHaveCreateInfo = UserinfoData.getIsHaveCreateInfo(this);
-        if(!TextUtils.isEmpty(infoID)/*&&"1".equals(isHaveCreateInfo)*/){
-            startActivity(new Intent(SplashActivity.this, MainActivity.class));
+        if(!TextUtils.isEmpty(infoID)){
+            if ("9810".equals(infoID)){
+                if (!getState()){
+                    startActivity(new Intent(SplashActivity.this, GuideActivity.class));
+                    setState();
+                } else {
+                    startActivity(new Intent(SplashActivity.this, MainActivity.class));
+                }
+            } else {
+                startActivity(new Intent(SplashActivity.this, MainActivity.class));
+            }
         }else{
             startActivity(new Intent(SplashActivity.this, GuideActivity.class));
         }
         finish();
+    }
+
+    public void setState(){
+        SharedPreferences sp = getSharedPreferences("save_himi", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putBoolean("isLogin", true);
+        editor.commit();
+    }
+    /***获取状态***/
+    public boolean getState()
+    {
+        SharedPreferences sp = getSharedPreferences("save_himi", Context.MODE_PRIVATE);
+        boolean b = sp.getBoolean("isLogin", false);
+        return b;
     }
 
     private static final int NETWORK_IS_OK = 1;

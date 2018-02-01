@@ -167,7 +167,7 @@ public class CircleFindFragment extends BaseZyFragment implements HttpResponseIn
             //获取快速入口
             Factory.postPhp(this, Const.PApi_getCircleShortcut);
         } else {
-            Factory.post(this, Const.EGetMycircle);
+            Factory.postPhp(this, Const.PApi_EGetMycircle2);
             LogCustom.d("zyh","在CircleFindFragment里调用EGetMycircle");
         }
 
@@ -190,6 +190,35 @@ public class CircleFindFragment extends BaseZyFragment implements HttpResponseIn
             map.put("pagesize", "15");
         } else if (tag == Const.PApi_getCircleShortcut) {
             map.put(Contants.InfoID, UserinfoData.getInfoID(context));
+        } else if (tag == Const.PApi_EGetMycircle2){
+            map.put(Contants.InfoID, UserinfoData.getInfoID(context));
+            String StepID = UserinfoData.getStepID(context);
+            String CancerID = UserinfoData.getCancerID(context);
+            String CureConfID = MapDataUtils.getAllCureconfID(StepID);
+            if(Const.NO_STEP.equals(UserinfoData.getIsHaveStep(context))){
+                map.put(Const.ISHAVESTEP, "0");
+            }else {
+                if (!TextUtils.isEmpty(StepID)) {
+                    map.put(Contants.StepID, StepID);
+                }
+                map.put(Contants.CureConfID, TextUtils.isEmpty(CureConfID)?"0":CureConfID);
+                map.put(Const.ISHAVESTEP, "1");
+            }
+            if (!TextUtils.isEmpty(CancerID)) {
+                map.put(Contants.CancerID, CancerID);
+            }
+            String ProvinceID;
+            String CityID = UserinfoData.getCityID(context);
+            if("0".equals(CityID)) {
+                ProvinceID = "0";
+            }else {
+                ProvinceID = CityID.substring(0,2)+"0000";
+            }
+            UserinfoData.saveProvinceID(context, ProvinceID);
+            map.put(CityID, CityID);
+            map.put(Contants.ProvinceID, ProvinceID);
+            map.put("page", "0");
+            map.put("pagesize", "5");
         }
         return map;
     }
@@ -197,51 +226,13 @@ public class CircleFindFragment extends BaseZyFragment implements HttpResponseIn
     @Override
     public byte[] getPostParams(int flag) {
         String[] args = null;
-        if (flag == Const.EGetMycircle) {
-            String temp;
-            String StepID = UserinfoData.getStepID(context);
-            String CancerID = UserinfoData.getCancerID(context);
-            String CureConfID = MapDataUtils.getAllCureconfID(StepID);
-            String ProvinceID;
-            String CityID = UserinfoData.getCityID(context);
-            temp = Contants.InfoID + ",,," + UserinfoData.getInfoID(getActivity());
-            if (Const.NO_STEP.equals(UserinfoData.getIsHaveStep(getActivity()))) {
-                temp += ",,," + Const.ISHAVESTEP + ",,," + "0";
-            } else {
-                if (!TextUtils.isEmpty(StepID)) {
-                    temp += ",,," + Contants.StepID + ",,," + StepID;
-                }
-                if (!TextUtils.isEmpty(CureConfID)) {
-                    temp += ",,," + Contants.CureConfID + ",,," + CureConfID;
-                } else {
-                    temp += ",,," + Contants.CureConfID + ",,," + "0";
-                }
-                temp += ",,," + Const.ISHAVESTEP + ",,," + "1";
-            }
-            if (!TextUtils.isEmpty(CancerID)) {
-                temp += ",,," + Contants.CancerID + ",,," + CancerID;
-            }
-            if ("0".equals(CityID)) {
-                ProvinceID = "0";
-                temp += ",,," + Contants.CityID + ",,," + CityID;
-                temp += ",,," + Contants.ProvinceID + ",,," + ProvinceID;
-            } else {
-                ProvinceID = CityID.substring(0, 2) + "0000";
-                temp += ",,," + Contants.CityID + ",,," + CityID;
-                temp += ",,," + Contants.ProvinceID + ",,," + ProvinceID;
-            }
-            UserinfoData.saveProvinceID(getActivity(), ProvinceID);
-            temp += ",,,page,,," + "0";
-            temp += ",,,pagesize,,," + "2";
-            //args = new String[]{};
-            args = temp.split(",,,");
-        }
+
         return HttpSecretUtils.getParamString(args);
     }
 
     @Override
     public void toActivity(Object response, int flag) {
-        if (flag == Const.EGetMycircle) {
+        if (flag == Const.PApi_EGetMycircle2) {
             try {
                 showUI();
                 MyCircleBean bean = (MyCircleBean) response;
@@ -426,7 +417,7 @@ public class CircleFindFragment extends BaseZyFragment implements HttpResponseIn
 
     @Override
     public void showError(int flag) {
-        if (flag == Const.EGetMycircle) {
+        if (flag == Const.PApi_EGetMycircle2) {
             showUI();
             if (callback != null) {
                 //圈子数据获取失败，通知父fragment进行下一步操作

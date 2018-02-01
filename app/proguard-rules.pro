@@ -224,6 +224,7 @@
     -keep class com.zeyuan.kyq.http.bean.** { *; }
     -keep class com.zeyuan.kyq.app.** { *; }
     -keep class com.zeyuan.kyq.adapter.** { *; }
+    -keep class com.zeyuan.kyq.adapter.nww.** { *; }
     -keep class com.zeyuan.kyq.biz.** { *; }
     -keep class com.zeyuan.kyq.view.** { *; }
     -keep class com.zeyuan.kyq.biz.forcallback.** { *; }
@@ -251,6 +252,9 @@
     -dontwarn com.meelive.ingkee.sdk.**
     -keep class com.loopj.android.http.**{ *; }
     -keep class com.meelive.ingkee.sdk.**{ *; }
+
+    -dontwarn com.paradoxie.**
+    -keep class com.paradoxie.autoscrolltextview.**{ *; }
 
     # http client
     -keep class org.apache.http.** {*; }

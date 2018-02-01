@@ -18,6 +18,7 @@ import com.zeyuan.kyq.biz.manager.ClickStatisticsManager;
 import com.zeyuan.kyq.utils.Const;
 import com.zeyuan.kyq.utils.ExceptionUtils;
 import com.zeyuan.kyq.utils.UiUtils;
+import com.zeyuan.kyq.utils.UserinfoData;
 import com.zeyuan.kyq.view.AllMenuActivity;
 import com.zeyuan.kyq.widget.CircleImageView;
 
@@ -70,6 +71,7 @@ public class HomeMenuGvAdapter extends BaseAdapter{
             vh.v_num = convertView.findViewById(R.id.v_num);
             vh.tv_title = (TextView) convertView.findViewById(R.id.menu_tv_1);
             vh.tv_num = (TextView) convertView.findViewById(R.id.tv_num);
+            vh.v_answer_hint =  convertView.findViewById(R.id.v_answer_hint);
             vh.v = convertView;
             convertView.setTag(vh);
         } else {
@@ -100,11 +102,19 @@ public class HomeMenuGvAdapter extends BaseAdapter{
                 vh.v.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+
                         try {
                             UiUtils.toMenuJump(context, entity, callBack, true, activity);
                             ClickStatisticsManager.getInstance().addClickEvent(Const.CLICK_EVENT_2, entity.getId());
                         } catch (Exception e){
                             ExceptionUtils.ExceptionSend(e, "");
+                        }
+                        if ("35".equals(entity.getId())){
+                            UserinfoData.saveHomeAnswerHint(context, "");
+                            notifyDataSetChanged();
+                            if (callBack!=null){
+                                callBack.dataCallBack(null, 11111, null, null);
+                            }
                         }
                     }
                 });
@@ -113,12 +123,28 @@ public class HomeMenuGvAdapter extends BaseAdapter{
                 }else {
                     vh.v_hot.setVisibility(View.GONE);
                 }
-                if ("35".equals(entity.getId())&&entity.getCount()!=0){
+                if ("35".equals(entity.getId())){
+                    vh.v_num.setVisibility(View.VISIBLE);
+                    if (TextUtils.isEmpty(UserinfoData.getHomeAnswerHint(context))){
+                        vh.v_answer_hint.setVisibility(View.GONE);
+                    } else {
+                        vh.v_answer_hint.setVisibility(View.VISIBLE);
+                    }
+                    if (entity.getCount()>0){
+                        vh.tv_num.setVisibility(View.VISIBLE);
+                        vh.tv_num.setText("新问"+entity.getCount());
+                    } else {
+                        vh.tv_num.setVisibility(View.GONE);
+                    }
+                }else {
+                    vh.v_num.setVisibility(View.GONE);
+                }
+                /*if ("35".equals(entity.getId())&&entity.getCount()!=0){
                     vh.v_num.setVisibility(View.VISIBLE);
                     vh.tv_num.setText("新问"+entity.getCount());
                 }else {
                     vh.v_num.setVisibility(View.GONE);
-                }
+                }*/
             }
         } catch (Exception e){
             ExceptionUtils.ExceptionSend(e, "");
@@ -130,11 +156,14 @@ public class HomeMenuGvAdapter extends BaseAdapter{
         if (list==null) list = new ArrayList<>();
         this.list = list;
         notifyDataSetChanged();
+        if (callBack!=null){
+            callBack.dataCallBack(null, 11111, null, null);
+        }
     }
 
     class ViewHolder{
         TextView tv_title,tv_num;
         CircleImageView civ;
-        View v_num, v_hot, v;
+        View v_num, v_hot, v, v_answer_hint;
     }
 }

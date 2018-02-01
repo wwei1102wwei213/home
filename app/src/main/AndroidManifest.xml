@@ -545,11 +545,8 @@
         <meta-data
             android:name="UMENG_CHANNEL"
             android:value="zeyuan" />
-        <!--
-            <meta-data android:name="UMENG_CHANNEL"
-            android:value="${UMENG_CHANNEL_VALUE}">
-            </meta-data>
-        -->
+           <!-- <meta-data android:name="UMENG_CHANNEL"
+            android:value="${UMENG_CHANNEL_VALUE}"></meta-data>-->
         <meta-data
             android:name="UMENG_MESSAGE_SECRET"
             android:value="e63de9e7d9a6f9b5061d490ffb082926" />
@@ -666,6 +663,18 @@
             android:screenOrientation="portrait"
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="adjustResize|stateHidden" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.zeyuan.kyq.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <!--提供共享路径-->
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
+
     </application>
 
 </manifest>

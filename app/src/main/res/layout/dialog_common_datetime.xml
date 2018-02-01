@@ -3,7 +3,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_alignParentBottom="true">
+    android:layout_alignParentBottom="true"
+    android:layout_gravity="bottom">
     <RelativeLayout
         android:id="@+id/ll_top_choose_time"
         android:layout_width="match_parent"
@@ -30,6 +31,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="@dimen/margin15"
             android:layout_centerVertical="true"
+            android:gravity="center"
             />
         <Button
             android:id="@+id/btn_time_choose_now"
@@ -42,18 +44,19 @@
             android:layout_marginRight="@dimen/margin15"
             android:layout_centerVertical="true"
             android:visibility="gone"
+            android:gravity="center"
             />
     </RelativeLayout>
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
+        android:gravity="center"
         android:layout_below="@id/ll_top_choose_time"
         android:orientation="horizontal" >
         <com.zeyuan.kyq.widget.ZYDatePicker
             android:id="@+id/zydate_picker"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="245dp"/>
 
     </LinearLayout>
 

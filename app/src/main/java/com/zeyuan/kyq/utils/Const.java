@@ -445,6 +445,9 @@ public final class Const {
     //全部评价
     public static final int PApi_viewPcomment = 141;
     public static final String p_Api_viewPcomment = P_IP_PORT_2 + "viewPcomment";
+    //新圈子
+    public static final int PApi_EGetMycircle2 = 142;
+    public static final String p_Api_EGetMycircle2 = P_IP_PORT_BBS + "GetMycircle2.php";
 
 
 /*********************************网络模块相关字段***end*******************************************/
@@ -645,6 +648,7 @@ public final class Const {
     public static final String InfoCenterID = "InfoCenterID";
     public static final String CareListType = "CareListType";
     public static final String HomeRecordTime = "HomeRecordTime";
+    public static final String HomeAnswerHint = "kaq_Home_Answer_Hint";
     public static final String TypeID = "TypeID";//好友列表页的参数或帖子列表类型
     public static final String CircleID = "CircleID";//圈子ID
     public static final int SELECT_OTHER_FRAGMENT = 98;
@@ -747,6 +751,8 @@ public final class Const {
 
     //服务中心字段
     public static final String FLAG_SERVICE_CENTER = "Flag_Service_Center";
+
+    public static final String FLAG_HOME_HINT = "Service_recevice_home_hit";
 
     //fragment常量字段
     public static final String CHOOSETIME = "chooseTIME";
