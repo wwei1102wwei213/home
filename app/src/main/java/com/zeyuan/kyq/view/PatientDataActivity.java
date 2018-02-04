@@ -271,9 +271,9 @@ public class PatientDataActivity extends BaseActivity implements View.OnClickLis
             case R.id.v_discover_time://确诊时间
                 if (mEntity != null) {
                     if (timeFragment == null) {
-                        timeFragment = ChooseTimeFragment.getInstance(this);
+                        timeFragment = ChooseTimeFragment.getInstance(this, this);
                     }
-                    timeFragment.show(getFragmentManager(), ChooseTimeFragment.type);
+                    timeFragment.show();
                 }
                 break;
             case R.id.v_physical_status://体能现状

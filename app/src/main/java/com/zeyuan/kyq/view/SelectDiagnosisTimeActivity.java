@@ -101,10 +101,10 @@ public class SelectDiagnosisTimeActivity extends BaseActivity implements View.On
                     tv_diagnosis_time.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.text_blue));
                     editInfoEntity.setDiscoverTime(DataUtils.showTimeMillsForTimeStr(time) + "");
                 }
-            });
+            }, this);
         }
-        if (timeFragment.getDialog() == null || !timeFragment.getDialog().isShowing())
-            timeFragment.show(getFragmentManager(), ChooseTimeFragment.type);
+
+            timeFragment.show();
     }
 
     @Override

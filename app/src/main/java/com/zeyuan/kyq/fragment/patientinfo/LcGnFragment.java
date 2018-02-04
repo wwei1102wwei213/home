@@ -206,9 +206,9 @@ public class LcGnFragment extends PatientInfoFragment implements View.OnClickLis
                 }
                 case R.id.ll_info_diagnose_time:{
                     if(fragment==null){
-                        fragment = ChooseTimeFragment.getInstance(this);
+                        fragment = ChooseTimeFragment.getInstance(this, getActivity());
                     }
-                    fragment.show(getFragmentManager(),ChooseTimeFragment.type);
+                    fragment.show();
 
                     break;
                 }

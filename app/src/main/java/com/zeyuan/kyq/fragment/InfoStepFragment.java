@@ -153,9 +153,9 @@ public class InfoStepFragment extends DialogFragment implements View.OnClickList
                 }
                 case R.id.ll_info_step_time: {
                     if(mChooseTime==null){
-                        mChooseTime = ChooseTimeFragment.getInstance(this);
+                        mChooseTime = ChooseTimeFragment.getInstance(this, getActivity());
                     }
-                    mChooseTime.show(getActivity().getFragmentManager(), ChooseTimeFragment.type);
+                    mChooseTime.show();
                     break;
                 }
                 case R.id.btn_info_step_finish: {

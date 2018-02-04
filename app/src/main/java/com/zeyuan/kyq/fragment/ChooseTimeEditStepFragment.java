@@ -3,20 +3,15 @@ package com.zeyuan.kyq.fragment;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Toast;
 
 import com.zeyuan.kyq.R;
 import com.zeyuan.kyq.biz.forcallback.ChooseTimeNewInterface;
 import com.zeyuan.kyq.utils.Const;
-import com.zeyuan.kyq.utils.DataUtils;
-import com.zeyuan.kyq.utils.ExceptionUtils;
-import com.zeyuan.kyq.widget.ZYDatePicker;
 
 /**
  * Created by Administrator on 2017/2/9.
@@ -100,7 +95,7 @@ public class ChooseTimeEditStepFragment extends DialogFragment {
     }
 
     private void initView(View v){
-        final ZYDatePicker dp = (ZYDatePicker)v.findViewById(R.id.zydate_picker);
+        /*final ZYDatePicker dp = (ZYDatePicker)v.findViewById(R.id.zydate_picker);
         v.findViewById(R.id.btn_time_choose).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -136,7 +131,7 @@ public class ChooseTimeEditStepFragment extends DialogFragment {
             });
         }else {
             now.setVisibility(View.GONE);
-        }
+        }*/
     }
 
     @Override

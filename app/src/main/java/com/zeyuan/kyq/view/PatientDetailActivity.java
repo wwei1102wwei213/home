@@ -439,9 +439,9 @@ public class PatientDetailActivity extends BaseActivity implements View.OnClickL
                 }
                 case R.id.cancer_time: {
                     if(fragment==null){
-                        fragment = ChooseTimeFragment.getInstance(this);
+                        fragment = ChooseTimeFragment.getInstance(this, this);
                     }
-                    fragment.show(getFragmentManager(),ChooseTimeFragment.type);
+                    fragment.show();
                     break;
                 }
                 case R.id.location: {

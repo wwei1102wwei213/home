@@ -1,8 +1,7 @@
 package com.zeyuan.kyq.fragment;
 
 import android.app.Dialog;
-import android.app.DialogFragment;
-import android.os.Bundle;
+import android.content.Context;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -13,10 +12,14 @@ import android.widget.Toast;
 
 import com.zeyuan.kyq.R;
 import com.zeyuan.kyq.biz.forcallback.ChooseTimeInterface;
-import com.zeyuan.kyq.utils.Const;
 import com.zeyuan.kyq.utils.DataUtils;
 import com.zeyuan.kyq.utils.ExceptionUtils;
-import com.zeyuan.kyq.widget.ZYDatePicker;
+import com.zeyuan.kyq.widget.wheelview.Common;
+import com.zeyuan.kyq.widget.wheelview.WheelView;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 /**
  * Created by Administrator on 2016/4/29.
@@ -25,64 +28,127 @@ import com.zeyuan.kyq.widget.ZYDatePicker;
  *
  * @author wwei
  */
-public class ChooseTimeFragment extends DialogFragment {
+public class ChooseTimeFragment extends Dialog {
+
 
     public static final String type = "ChooseTimeFragment";
 
-    public static ChooseTimeFragment instance;
+    public static ChooseTimeFragment getInstance(ChooseTimeInterface callback, Context context){
+        ChooseTimeFragment fragment = new ChooseTimeFragment(context, callback);
+        return fragment;
+    }
+
+    public ChooseTimeFragment(Context context) {
+        super(context, R.style.ActionSheetDialogStyle);
+        init();
+    }
+
+    public ChooseTimeFragment(Context context, ChooseTimeInterface callback) {
+        super(context, R.style.ActionSheetDialogStyle);
+        setCallback(callback);
+        this.context = context;
+        init();
+    }
+
+    public ChooseTimeFragment(Context context, int themeResId) {
+        super(context, themeResId);
+        init();
+    }
+
     private ChooseTimeInterface callback;
+    private Context context;
 
-    public static ChooseTimeFragment getInstance(ChooseTimeInterface callback){
-        Bundle bundle = new Bundle();
-        bundle.putSerializable(Const.CHOOSETIME,callback);
-        instance = new ChooseTimeFragment();
-        instance.setArguments(bundle);
-        return instance;
+    public void setCallback(ChooseTimeInterface callback) {
+        this.callback = callback;
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if(getArguments()!=null){
-            Bundle bundle = getArguments();
-            callback = (ChooseTimeInterface)bundle.getSerializable(Const.CHOOSETIME);
-        }
-    }
+    public void init () {
+        //获取当前Activity所在的窗体
+        Window dialogWindow = this.getWindow();
+        //设置Dialog从窗体底部弹出
+        dialogWindow.setGravity( Gravity.BOTTOM);
+        //获得窗体的属性
+        WindowManager.LayoutParams lp = dialogWindow.getAttributes();
+        dialogWindow.getDecorView().setPadding(0, 0, 0, 0); //消除边距
 
-    @Override
-    public Dialog onCreateDialog(Bundle savedInstanceState) {
-
-        Dialog dialog = new Dialog(getActivity(), R.style.dialog);
-        dialog.setCancelable(false);
-        View rootView = LayoutInflater.from(getActivity()).inflate(R.layout.dialog_common_datetime, null);
-        initView(rootView);
-        dialog.setContentView(rootView);
-        Window window = dialog.getWindow();
-//        window.getDecorView().setPadding(0, 0, 0, 0);
-        WindowManager.LayoutParams lp = window.getAttributes();
-        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;   //设置宽度充满屏幕
         lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
-        lp.gravity = Gravity.BOTTOM;
-        window.setAttributes(lp);
-        window.setWindowAnimations(R.style.mystyle);
-        dialog.setCanceledOnTouchOutside(true);
-        return dialog;
+        lp.y = 0;//设置Dialog距离底部的距离
+//       将属性设置给窗体
+        dialogWindow.setAttributes(lp);
+        initView();
     }
 
-    private void initView(View v){
-        final ZYDatePicker dp = (ZYDatePicker)v.findViewById(R.id.zydate_picker);
-        v.findViewById(R.id.btn_time_choose).setOnClickListener(new View.OnClickListener() {
+    private void initView(){
+        View outerView1 = LayoutInflater.from(context).inflate(R.layout.dialog_common_datetime, null);
+        //日期滚轮
+        final WheelView wv1 = (WheelView) outerView1.findViewById(R.id.wv1);
+        //小时滚轮
+        final WheelView wv2 = (WheelView) outerView1.findViewById(R.id.wv2);
+        //分钟滚轮
+        final WheelView wv3 = (WheelView) outerView1.findViewById(R.id.wv3);
+
+        // 格式化当前时间，并转换为年月日整型数据
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        String[] split = sdf.format(new Date()).split("-");
+        int currentYear = Integer.parseInt(split[0]);
+        int currentMonth = Integer.parseInt(split[1]);
+        int currentDay = Integer.parseInt(split[2]);
+        wv1.setItems(Common.getYearData(currentYear),0);
+        wv2.setItems(Common.getMonthData(),currentMonth-1);
+        wv3.setItems(Common.setDays(Common.getLastDay(currentYear, currentMonth)),currentDay-1);
+
+        //联动逻辑效果
+        wv1.setOnItemSelectedListener(new WheelView.OnItemSelectedListener() {
             @Override
-            public void onClick(View v) {
-                String tempmonth = dp.getMonth();
+            public void onItemSelected(int index,String item) {
+                try {
+                    int selectYear = Integer.valueOf(wv1.getSelectedItem());
+                    int selectMonth = Integer.valueOf(wv2.getSelectedItem());
+                    int selectDay = Integer.valueOf(wv3.getSelectedItem());
+                    int lastDay = Common.getLastDay(selectYear, selectMonth);
+                    if (selectDay > lastDay) {
+                        wv3.setItems(Common.setDays(lastDay), lastDay - 1);
+                    } else {
+                        wv3.setItems(Common.setDays(lastDay), selectDay - 1);
+                    }
+                } catch (Exception e){
+                    ExceptionUtils.ExceptionSend(e, "");
+                }
+            }
+        });
+        wv2.setOnItemSelectedListener(new WheelView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(int index,String item) {
+                try {
+                    int selectYear = Integer.valueOf(wv1.getSelectedItem());
+                    int selectMonth = Integer.valueOf(wv2.getSelectedItem());
+                    int selectDay = Integer.valueOf(wv3.getSelectedItem());
+                    int lastDay = Common.getLastDay(selectYear, selectMonth);
+                    if (selectDay > lastDay) {
+                        wv3.setItems(Common.setDays(lastDay), lastDay - 1);
+                    } else {
+                        wv3.setItems(Common.setDays(lastDay), selectDay - 1);
+                    }
+                } catch (Exception e){
+                    ExceptionUtils.ExceptionSend(e, "");
+                }
+            }
+        });
+
+        //点击确定
+        outerView1.findViewById(R.id.btn_time_choose).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                String tempmonth = wv2.getSelectedItem();
                 tempmonth = Integer.valueOf(tempmonth) < 10 ? "0" + tempmonth : tempmonth;
-                String tempday = dp.getDay();
+                String tempday = wv3.getSelectedItem();
                 tempday = Integer.valueOf(tempday) < 10 ? "0" + tempday : tempday;
-                String choosetime = dp.getYear() + "-" + tempmonth + "-" + tempday;
+                String choosetime = wv1.getSelectedItem() + "-" + tempmonth + "-" + tempday;
                 try {
                     long temp = Long.parseLong(DataUtils.showTimeToLoadTime(choosetime)+"000");
                     if(temp>System.currentTimeMillis()){
-                        Toast.makeText(getActivity(),"不能选择未来时间",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context,"不能选择未来时间",Toast.LENGTH_SHORT).show();
                     }else {
                         if(!TextUtils.isEmpty(choosetime)){
                             callback.timeCallBack(choosetime);
@@ -94,11 +160,8 @@ public class ChooseTimeFragment extends DialogFragment {
                 }
             }
         });
+        setContentView(outerView1);
     }
 
-    @Override
-    public void onPause() {
-        dismiss();
-        super.onPause();
-    }
+
 }

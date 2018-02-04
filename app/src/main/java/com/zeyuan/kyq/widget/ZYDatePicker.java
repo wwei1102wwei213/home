@@ -2,16 +2,7 @@ package com.zeyuan.kyq.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.LinearLayout;
-
-import com.zeyuan.kyq.R;
-
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Locale;
 
 
 /**
@@ -22,7 +13,7 @@ import java.util.Locale;
  * UpdateAuthor：
  * UpdateDate：
  */
-public class ZYDatePicker extends LinearLayout implements WheelView.OnSelectListener {
+public class ZYDatePicker extends LinearLayout  {
 
     public ZYDatePicker(Context context) {
         this(context, null);
@@ -37,24 +28,24 @@ public class ZYDatePicker extends LinearLayout implements WheelView.OnSelectList
      *
      * @return
      */
-    public String getYear() {
+   /* public String getYear() {
         return mWheelYear.getSelectedText();
     }
 
-    /**
+    *//**
      * 获取选择的月
      *
      * @return
-     */
+     *//*
     public String getMonth() {
         return mWheelMonth.getSelectedText();
     }
 
-    /**
+    *//**
      * 获取选择的日
      *
      * @return
-     */
+     *//*
     public String getDay() {
         return mWheelDay.getSelectedText();
     }
@@ -94,12 +85,12 @@ public class ZYDatePicker extends LinearLayout implements WheelView.OnSelectList
 
     }
 
-    /**
+    *//**
      * 年范围在：1900~今年
      *
      * @param currentYear
      * @return
-     */
+     *//*
     private ArrayList<String> getYearData(int currentYear) {
         ArrayList<String> list = new ArrayList<>();
         for (int i = currentYear; i >= 1900; i--) {
@@ -116,12 +107,12 @@ public class ZYDatePicker extends LinearLayout implements WheelView.OnSelectList
         return list;
     }
 
-    /**
+    *//**
      * 日范围在1~lastDay
      *
      * @param lastDay
      * @return
-     */
+     *//*
     private ArrayList<String> getDayData(int lastDay) {
         //ignore condition
         ArrayList<String> list = new ArrayList<>();
@@ -131,23 +122,23 @@ public class ZYDatePicker extends LinearLayout implements WheelView.OnSelectList
         return list;
     }
 
-    /**
+    *//**
      * 判断是否闰年
      *
      * @param year
      * @return
-     */
+     *//*
     private boolean isLeapYear(int year) {
         return (year % 100 == 0 && year % 400 == 0) || (year % 100 != 0 && year % 4 == 0);
     }
 
-    /**
+    *//**
      * 获取特定年月对应的天数
      *
      * @param year
      * @param month
      * @return
-     */
+     *//*
     private int getLastDay(int year, int month) {
         if (month == 2) {
             // 2月闰年的话返回29，防止28
@@ -191,6 +182,6 @@ public class ZYDatePicker extends LinearLayout implements WheelView.OnSelectList
     public void selecting(View view, int id, String text) {
 
     }
-
+*/
 
 }

@@ -150,10 +150,9 @@ public class SelectCurrentCaseActivity extends BaseActivity implements View.OnCl
                     tv_case_start_date.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.text_blue));
                     editInfoEntity.setCureStartTime(DataUtils.showTimeMillsForTimeStr(time) + "");
                 }
-            });
+            }, this);
         }
-        if (timeFragment.getDialog() == null || !timeFragment.getDialog().isShowing())
-            timeFragment.show(getFragmentManager(), ChooseTimeFragment.type);
+        timeFragment.show();
     }
 
     private void getEffectiveNum() {

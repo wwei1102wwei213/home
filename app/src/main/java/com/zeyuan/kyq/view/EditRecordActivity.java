@@ -810,8 +810,8 @@ public class EditRecordActivity extends BaseActivity implements AdapterView.OnIt
                     tv_record_time.setText(TextUtils.isEmpty(time) ? "" : time);
                     RecordTime = DataUtils.showTimeToLoadTime(time);
                 }
-            });
-            fragment.show(getFragmentManager(), ChooseTimeFragment.type);
+            }, this);
+            fragment.show();
         } catch (Exception e) {
             ExceptionUtils.ExceptionToUM(e, this, "EditRecordActivity");
         }

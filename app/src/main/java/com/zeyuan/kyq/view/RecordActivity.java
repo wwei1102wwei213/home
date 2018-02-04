@@ -676,8 +676,8 @@ public class RecordActivity extends BaseActivity implements AdapterView.OnItemCl
                 tv_record_time.setText(TextUtils.isEmpty(time)?"":time);
                 RecordTime = DataUtils.showTimeToLoadTime(time);
             }
-        });
-        fragment.show(getFragmentManager(),ChooseTimeFragment.type);
+        }, this);
+        fragment.show();
     }
 
     private void toSaveData(){

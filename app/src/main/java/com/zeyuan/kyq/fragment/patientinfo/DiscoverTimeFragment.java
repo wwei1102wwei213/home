@@ -74,9 +74,9 @@ public class DiscoverTimeFragment extends PatientInfoFragment implements View.On
                 case R.id.time:
 //                    showTimePicker();
                     if(fragment==null){
-                        fragment = ChooseTimeFragment.getInstance(this);
+                        fragment = ChooseTimeFragment.getInstance(this, getActivity());
                     }
-                    fragment.show(getFragmentManager(),ChooseTimeFragment.type);
+                    fragment.show();
                     break;
                 default:
                     throw new RuntimeException();

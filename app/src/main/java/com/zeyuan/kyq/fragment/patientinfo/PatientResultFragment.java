@@ -115,9 +115,9 @@ public class PatientResultFragment extends PatientInfoFragment implements View.O
                 case R.id.ll_info_step_time: {
                     try {
                         if(fragment==null){
-                            fragment = ChooseTimeFragment.getInstance(this);
+                            fragment = ChooseTimeFragment.getInstance(this, getActivity());
                         }
-                        fragment.show(getFragmentManager(),ChooseTimeFragment.type);
+                        fragment.show();
                     }catch (Exception e){
 
                     }
