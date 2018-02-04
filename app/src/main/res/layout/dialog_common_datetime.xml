@@ -54,6 +54,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_below="@id/ll_top_choose_time"
+        android:background="@color/white"
         android:orientation="horizontal" >
         <!--<com.zeyuan.kyq.widget.ZYDatePicker
             android:id="@+id/zydate_picker"
@@ -65,12 +66,16 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            app:textColorOuter="@color/text_color999"
+            app:textColorCenter="@color/light_green"
             app:wheelGravity="center">
         </com.zeyuan.kyq.widget.wheelview.WheelView>
         <com.zeyuan.kyq.widget.wheelview.WheelView
             android:id="@+id/wv2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            app:textColorOuter="@color/text_color999"
+            app:textColorCenter="@color/light_green"
             android:layout_weight="1"
             app:wheelGravity="center">
         </com.zeyuan.kyq.widget.wheelview.WheelView>
@@ -79,6 +84,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            app:textColorOuter="@color/text_color999"
+            app:textColorCenter="@color/light_green"
             app:wheelGravity="center">
         </com.zeyuan.kyq.widget.wheelview.WheelView>
     </LinearLayout>

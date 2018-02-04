@@ -15,7 +15,6 @@ import com.zeyuan.kyq.biz.Factory;
 import com.zeyuan.kyq.biz.HttpResponseInterface;
 import com.zeyuan.kyq.biz.forcallback.ChooseTimeNewInterface;
 import com.zeyuan.kyq.biz.forcallback.EditBackInterface;
-import com.zeyuan.kyq.fragment.ChooseTimeEditStepFragment;
 import com.zeyuan.kyq.fragment.ChooseTimeFragment;
 import com.zeyuan.kyq.fragment.CustomEditFragment;
 import com.zeyuan.kyq.fragment.dialog.CureTypeDialog;
@@ -116,26 +115,26 @@ public class AddStepNewActivity extends BaseActivity implements HttpResponseInte
         v_start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ChooseTimeEditStepFragment fragment = ChooseTimeEditStepFragment.getInstance(new ChooseTimeNewInterface() {
+                ChooseTimeFragment fragment = ChooseTimeFragment.getInstance(new ChooseTimeNewInterface() {
                     @Override
                     public void onTimeCallBack(String time, int ViewTag, int selection) {
                         tv_start.setText(DataUtils.getStartTime(Integer.valueOf(time)));
                     }
-                },false,0,0,"0");
-                fragment.show(AddStepNewActivity.this.getFragmentManager(), ChooseTimeFragment.type);
+                },AddStepNewActivity.this ,false,0,0,"0");
+                fragment.show();
             }
         });
 
         v_end.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ChooseTimeEditStepFragment fragment = ChooseTimeEditStepFragment.getInstance(new ChooseTimeNewInterface() {
+                ChooseTimeFragment fragment = ChooseTimeFragment.getInstance(new ChooseTimeNewInterface() {
                     @Override
                     public void onTimeCallBack(String time, int ViewTag, int selection) {
                         tv_end.setText(DataUtils.getEndTime(Integer.valueOf(time)));
                     }
-                },true,0,0,"0");
-                fragment.show(AddStepNewActivity.this.getFragmentManager(), ChooseTimeFragment.type);
+                },AddStepNewActivity.this,true,0,0,"0");
+                fragment.show();
             }
         });
 

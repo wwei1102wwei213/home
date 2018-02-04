@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.zeyuan.kyq.R;
 import com.zeyuan.kyq.biz.forcallback.ChooseTimeInterface;
+import com.zeyuan.kyq.biz.forcallback.ChooseTimeNewInterface;
 import com.zeyuan.kyq.utils.DataUtils;
 import com.zeyuan.kyq.utils.ExceptionUtils;
 import com.zeyuan.kyq.widget.wheelview.Common;
@@ -32,9 +33,19 @@ public class ChooseTimeFragment extends Dialog {
 
 
     public static final String type = "ChooseTimeFragment";
+    private int chooseType = 1;
+    private int ViewTag;
+    private int selection;
+    private boolean isEnd = false;
+    private String oldTime;
 
     public static ChooseTimeFragment getInstance(ChooseTimeInterface callback, Context context){
         ChooseTimeFragment fragment = new ChooseTimeFragment(context, callback);
+        return fragment;
+    }
+
+    public static ChooseTimeFragment getInstance(ChooseTimeNewInterface callback, Context context , boolean isEnd,int ViewTag,int selection,String oldTime){
+        ChooseTimeFragment fragment = new ChooseTimeFragment(context, callback, isEnd, ViewTag, selection, oldTime);
         return fragment;
     }
 
@@ -50,6 +61,18 @@ public class ChooseTimeFragment extends Dialog {
         init();
     }
 
+    public ChooseTimeFragment(Context context, ChooseTimeNewInterface callback,  boolean isEnd,int ViewTag,int selection,String oldTime) {
+        super(context, R.style.ActionSheetDialogStyle);
+        this.callback2 = callback;
+        this.context = context;
+        this.isEnd = isEnd;
+        this.ViewTag = ViewTag;
+        this.selection = selection;
+        this.oldTime = oldTime;
+        this.chooseType = 2;
+        init();
+    }
+
     public ChooseTimeFragment(Context context, int themeResId) {
         super(context, themeResId);
         init();
@@ -57,6 +80,7 @@ public class ChooseTimeFragment extends Dialog {
 
     private ChooseTimeInterface callback;
     private Context context;
+    private ChooseTimeNewInterface callback2;
 
     public void setCallback(ChooseTimeInterface callback) {
         this.callback = callback;
@@ -151,7 +175,16 @@ public class ChooseTimeFragment extends Dialog {
                         Toast.makeText(context,"不能选择未来时间",Toast.LENGTH_SHORT).show();
                     }else {
                         if(!TextUtils.isEmpty(choosetime)){
-                            callback.timeCallBack(choosetime);
+                            try {
+                                if (chooseType==2){
+                                    callback2.onTimeCallBack((temp/1000)+"",ViewTag,selection);
+                                } else {
+                                    callback.timeCallBack(choosetime);
+                                }
+                            } catch (Exception e){
+
+                            }
+
                         }
                         dismiss();
                     }
@@ -160,6 +193,25 @@ public class ChooseTimeFragment extends Dialog {
                 }
             }
         });
+        try {
+            View now = outerView1.findViewById(R.id.btn_time_choose_now);
+            if (isEnd){
+                now.setVisibility(View.VISIBLE);
+                now.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        callback2.onTimeCallBack("0", ViewTag, selection);
+                        dismiss();
+                    }
+                });
+            }else {
+                now.setVisibility(View.GONE);
+            }
+        } catch (Exception e){
+
+        }
+
+
         setContentView(outerView1);
     }
 

@@ -20,7 +20,7 @@ import com.zeyuan.kyq.biz.Factory;
 import com.zeyuan.kyq.biz.HttpResponseInterface;
 import com.zeyuan.kyq.biz.forcallback.ChooseTimeNewInterface;
 import com.zeyuan.kyq.biz.forcallback.EditBackInterface;
-import com.zeyuan.kyq.fragment.ChooseTimeEditStepFragment;
+import com.zeyuan.kyq.fragment.ChooseTimeFragment;
 import com.zeyuan.kyq.fragment.CustomEditFragment;
 import com.zeyuan.kyq.fragment.dialog.CureTypeDialog;
 import com.zeyuan.kyq.fragment.dialog.DialogFragmentListener;
@@ -328,12 +328,12 @@ public class EditStepNewAdapter extends BaseAdapter implements ChooseTimeNewInte
         View delete;
     }
 
-    private ChooseTimeEditStepFragment fragment;
+
     private int TIME_POSITION = -1;
     private void setShowTime(int position,int flag,boolean isEnd,String oldTime){
         try {
-            ChooseTimeEditStepFragment  fragment = ChooseTimeEditStepFragment.getInstance(this,isEnd,flag,position,oldTime);
-            fragment.show(((BaseActivity)context).getFragmentManager(),ChooseTimeEditStepFragment.type);
+            ChooseTimeFragment fragment = ChooseTimeFragment.getInstance(this,context,isEnd,flag,position,oldTime);
+            fragment.show();
         }catch (Exception e){
             ExceptionUtils.ExceptionSend(e,"setShowTime");
         }

@@ -75,7 +75,7 @@ public class WheelView extends View {
     List<String> items;
 
     // 显示几个条目
-    int itemsVisible = 7;
+    int itemsVisible = 5;
     float textSizeCenter = 18;
     float textSizeOuter = 13;
     int textColorOuter = 0xffbbbbbb;
@@ -137,7 +137,7 @@ public class WheelView extends View {
         textColorOuter = attribute.getColor(R.styleable.WheelView_textColorOuter, textColorOuter);
         textSizeCenter = attribute.getDimension(R.styleable.WheelView_textSizeCenter, Common.dip2px(context,18));
         textSizeOuter = attribute.getDimension(R.styleable.WheelView_textSizeOuter, Common.dip2px(context,13));
-        lineSpaceingDimens = attribute.getDimension(R.styleable.WheelView_lineSpaceingDimens, Common.dip2px(context,6));
+        lineSpaceingDimens = attribute.getDimension(R.styleable.WheelView_lineSpaceingDimens, Common.dip2px(context,15));
         wheelGravity = attribute.getInt(R.styleable.WheelView_wheelGravity, wheelGravity);
 
         attribute.recycle();
