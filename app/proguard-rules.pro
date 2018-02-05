@@ -242,6 +242,7 @@
     -keep class com.zeyuan.kyq.entity.** { *; }
     -keep class com.zeyuan.kyq.widget.** { *; }
     -keep class com.zeyuan.kyq.widget.CustomView.** { *; }
+    -keep class com.zeyuan.kyq.widget.wheelview.** { *; }
     -keep class com.zeyuan.kyq.R.** { *; }
 
     #映客混淆

@@ -11,11 +11,11 @@ android {
         applicationId "com.zeyuan.kyq"
         minSdkVersion 15
         targetSdkVersion 23
-        versionCode 32
-        versionName "3.0.2"
+        versionCode 33
+        versionName "3.0.3"
         multiDexEnabled true
         //开发时注释掉，上线打开
-//        manifestPlaceholders = [UMENG_CHANNEL_VALUE: "channel_name"]
+        manifestPlaceholders = [UMENG_CHANNEL_VALUE: "channel_name"]
     }
     sourceSets
             {
@@ -59,7 +59,7 @@ android {
 
     }
     //渠道Flavors，我这里写了一些常用的，开发时注释掉，上线打开
-    /*productFlavors {
+    productFlavors {
         zeyuan {}
         yingyongbao {}
         xiaomi {}
@@ -86,7 +86,7 @@ android {
                 output.outputFile = new File(outputFile.parent, fileName)
             }
         }
-    }*/
+    }
 //    buildToolsVersion '25.0.2'
 //    buildToolsVersion '25.0.0'
 }
@@ -147,7 +147,7 @@ dependencies {
 
 
     compile 'com.squareup.picasso:picasso:2.5.2'
-    compile 'com.android.support:appcompat-v7:23.3.1'
+    compile 'com.android.support:appcompat-v7:25.3.1'
     // compile 'com.squareup.okhttp:okhttp:2.6.0'
     compile 'com.squareup.okhttp3:okhttp:3.8.1'
     compile 'com.android.support:design:25.3.1'
@@ -155,8 +155,8 @@ dependencies {
     compile 'com.android.support:support-v4:25.3.1'
     compile 'com.commit451:PhotoView:1.2.4'
     compile 'com.github.bumptech.glide:glide:3.8.0'
-    compile 'com.android.support:recyclerview-v7:23.3.1'
-    compile 'com.android.support:cardview-v7:23.1.1'
+    compile 'com.android.support:recyclerview-v7:25.3.1'
+    compile 'com.android.support:cardview-v7:25.3.1'
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'com.readystatesoftware.systembartint:systembartint:1.0.4'
     compile 'com.android.support:multidex:1.0.1'

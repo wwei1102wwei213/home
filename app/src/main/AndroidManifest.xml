@@ -542,11 +542,11 @@
         <meta-data
             android:name="UMENG_APPKEY"
             android:value="56fa439267e58e50ce00069c" />
-        <meta-data
+        <!--<meta-data
             android:name="UMENG_CHANNEL"
-            android:value="zeyuan" />
-           <!-- <meta-data android:name="UMENG_CHANNEL"
-            android:value="${UMENG_CHANNEL_VALUE}"></meta-data>-->
+            android:value="zeyuan" />-->
+         <meta-data android:name="UMENG_CHANNEL"
+         android:value="${UMENG_CHANNEL_VALUE}"></meta-data>
         <meta-data
             android:name="UMENG_MESSAGE_SECRET"
             android:value="e63de9e7d9a6f9b5061d490ffb082926" />
