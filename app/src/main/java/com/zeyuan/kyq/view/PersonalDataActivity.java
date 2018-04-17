@@ -4,17 +4,11 @@ import android.app.DialogFragment;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.ProgressDialog;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
-import android.provider.MediaStore;
-import android.support.v4.content.FileProvider;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,6 +31,7 @@ import com.zeyuan.kyq.app.BaseActivity;
 import com.zeyuan.kyq.bean.PhpUserInfoBean;
 import com.zeyuan.kyq.biz.Factory;
 import com.zeyuan.kyq.biz.HttpResponseInterface;
+import com.zeyuan.kyq.biz.TakePhotoBiz;
 import com.zeyuan.kyq.fragment.dialog.CityDialog;
 import com.zeyuan.kyq.fragment.dialog.DialogFragmentListener;
 import com.zeyuan.kyq.fragment.dialog.DigitDialog;
@@ -50,11 +45,8 @@ import com.zeyuan.kyq.utils.PhotoUtils;
 import com.zeyuan.kyq.utils.UserinfoData;
 import com.zeyuan.kyq.widget.CircleImageView;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -70,12 +62,22 @@ import java.util.Map;
 public class PersonalDataActivity extends BaseActivity implements View.OnClickListener,HttpResponseInterface
         ,OnDismissListener,DialogFragmentListener{
 
+    private TakePhotoBiz biz;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setStatusBarTranslucent();
         setContentView(R.layout.activity_personal_data);
         initStatusBar();
+        biz = new TakePhotoBiz(this, new TakePhotoBiz.TakePhotoListener() {
+            @Override
+            public void onTakePhotoListener(Uri uri, Bitmap bmp, File resultFile) {
+                civ.setImageBitmap(bmp);
+                tempUri = uri;
+                tempFile = resultFile;
+            }
+        });
         initView();
         initData();
     }
@@ -182,7 +184,7 @@ public class PersonalDataActivity extends BaseActivity implements View.OnClickLi
                 finish();
                 break;
             case R.id.v_head:
-                takePhoto();
+                biz.takePhoto();
                 break;
             case R.id.v_name:
                 showInputName();
@@ -415,265 +417,7 @@ public class PersonalDataActivity extends BaseActivity implements View.OnClickLi
         }
     }
 
-
-    /**
-     * 拍照用到的
-     */
-    public static final int PHOTOHRAPH = 1;// 拍照
-    public static final int PHOTOZOOM = 2; // 缩放
-    public static final int PHOTORESOULT = 3;// 结果
-    public static final int NONE = 0;
-    public static final String IMAGE_UNSPECIFIED = "image/*";
-    /**
-     * 弹出底下的dialog
-     */
-    public void takePhoto() {
-        try {
-            new AlertView("上传头像方式", null, "取消", null,
-                    new String[]{"拍照", "从相册中选择"},
-                    this, AlertView.Style.ActionSheet, new OnItemClickListener() {
-                @Override
-                public void onItemClick(Object o, int position) {
-                    switch (position) {
-                        case 0:
-                            fromTP();
-                            break;
-                        case 1:
-                            fromPic();
-                            break;
-                    }
-                }
-            }).setCancelable(true).show();
-        }catch (Exception e){
-            ExceptionUtils.ExceptionToUM(e, this, "PersonalDataActivity");
-        }
-    }
-
-
-    /**
-     * 从拍照中获取图片
-     */
-    private void fromTP() {
-        try {
-            //创建一个file，用来存储拍照后的照片
-            File outputfile = new File(this.getExternalCacheDir(),"output.png");
-            try {
-                if (outputfile.exists()){
-                    outputfile.delete();//删除
-                }
-                outputfile.createNewFile();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            Uri imageuri ;
-            if (Build.VERSION.SDK_INT >= 24){
-                imageuri = FileProvider.getUriForFile(this,
-                        "com.zeyuan.kyq.fileprovider", //可以是任意字符串
-                        outputfile);
-            }else{
-                imageuri = Uri.fromFile(outputfile);
-            }
-            //启动相机程序
-            Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-            intent.putExtra(MediaStore.EXTRA_OUTPUT,imageuri);
-            startActivityForResult(intent,PHOTOHRAPH);
-            /*Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            startActivityForResult(intent, PHOTOHRAPH);*/
-        }catch (Exception e){
-            ExceptionUtils.ExceptionToUM(e, this, "PersonalDataActivity");
-        }
-    }
-
-    /**
-     * 从相册中获取图片
-     */
-    private void fromPic() {
-        try {
-            Intent intent = new Intent(Intent.ACTION_PICK, null);
-            intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, IMAGE_UNSPECIFIED);
-            ComponentName componentName = intent.resolveActivity(getPackageManager());
-            if (componentName != null) {
-                startActivityForResult(intent, PHOTOZOOM);
-            } else {
-                Toast.makeText(this, "无法连接到相册", Toast.LENGTH_SHORT).show();
-            }
-        }catch (Exception e){
-            ExceptionUtils.ExceptionToUM(e, this, "PersonalDataActivity");
-        }
-    }
-
     private Uri tempUri = null;
-    /***
-     * 开启系统图库及裁剪功能
-     *
-     * @param uri
-     */
-    public void startPhotoZoom(Uri uri) {
-        try {
-            //设置裁剪之后的图片路径文件
-            File cutfile = new File(Environment.getExternalStorageDirectory().getPath(),
-                    "cutcamera.png"); //随便命名一个
-            if (cutfile.exists()){ //如果已经存在，则先删除,这里应该是上传到服务器，然后再删除本地的，没服务器，只能这样了
-                cutfile.delete();
-            }
-            cutfile.createNewFile();
-            //初始化 uri
-            Uri imageUri = uri; //返回来的 uri
-            Uri outputUri = Uri.fromFile(cutfile); //真实的 uri
-            //初始化 uri
-            tempUri = uri;
-            Intent intent = new Intent("com.android.camera.action.CROP");
-            intent.setDataAndType(uri, IMAGE_UNSPECIFIED);
-            intent.putExtra("crop", "true");
-            // aspectX aspectY 是宽高的比例
-            intent.putExtra("aspectX", 1);
-            intent.putExtra("aspectY", 1);
-            // outputX outputY 是裁剪图片宽高
-            intent.putExtra("outputX", 600);
-            intent.putExtra("outputY", 600);
-
-            intent.putExtra("scale", true);
-            intent.putExtra("return-data", false);
-            intent.putExtra(MediaStore.EXTRA_OUTPUT, uri);
-            intent.putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString());
-//不启用人脸识别
-            intent.putExtra("noFaceDetection", false);
-            ComponentName componentName = intent.resolveActivity(getPackageManager());
-            if (componentName != null) {
-                startActivityForResult(intent, PHOTORESOULT);
-            } else {
-                Toast.makeText(this, "无法连接到系统裁剪功能", Toast.LENGTH_SHORT).show();
-            }
-        }catch (Exception e){
-            ExceptionUtils.ExceptionToUM(e, this, "PersonalDataActivity");
-        }
-    }
-
-    /**
-     * 图片裁剪
-     * @param uri
-     * @return
-     */
-
-    private void CutForPhoto(Uri uri) {
-        try {
-            //直接裁剪
-            Intent intent = new Intent("com.android.camera.action.CROP");
-            //设置裁剪之后的图片路径文件
-            File cutfile = new File(Environment.getExternalStorageDirectory().getPath(),
-                    "temp_cut_camera.png"); //随便命名一个
-            if (cutfile.exists()){ //如果已经存在，则先删除,这里应该是上传到服务器，然后再删除本地的，没服务器，只能这样了
-                cutfile.delete();
-            }
-            cutfile.createNewFile();
-//初始化 uri
-            Uri imageUri = uri; //返回来的 uri
-            Uri outputUri = null; //真实的 uri
-
-            outputUri = Uri.fromFile(cutfile);
-            tempUri = outputUri;
-
-            // crop为true是设置在开启的intent中设置显示的view可以剪裁
-            intent.putExtra("crop",true);
-            // aspectX,aspectY 是宽高的比例，这里设置正方形
-            intent.putExtra("aspectX",1);
-            intent.putExtra("aspectY",1);
-            //设置要裁剪的宽高
-            intent.putExtra("outputX", 600); //200dp
-            intent.putExtra("outputY",600);
-            intent.putExtra("scale",true);
-            //如果图片过大，会导致oom，这里设置为false
-            intent.putExtra("return-data",false);
-            if (imageUri != null) {
-                intent.setDataAndType(imageUri, "image/*");
-            }
-            if (outputUri != null) {
-                intent.putExtra(MediaStore.EXTRA_OUTPUT, outputUri);
-            }
-            intent.putExtra("noFaceDetection", true);
-            //压缩图片
-            intent.putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString());
-            ComponentName componentName = intent.resolveActivity(getPackageManager());
-            if (componentName != null) {
-                startActivityForResult(intent, PHOTORESOULT);
-            } else {
-                Toast.makeText(this, "无法连接到系统裁剪功能", Toast.LENGTH_SHORT).show();
-            }
-//            return intent;
-        } catch (Exception e) {
-            Toast.makeText(this, "无法连接到系统裁剪功能", Toast.LENGTH_SHORT).show();
-//            e.printStackTrace();
-        }
-//        return null;
-    }
-
-    /**
-     * 拍照之后，启动裁剪
-     * @param camerapath 路径
-     * @param imgname img 的名字
-     * @return
-     */
-    private void CutForCamera(String camerapath,String imgname) {
-        try {
-
-            //设置裁剪之后的图片路径文件
-            File cutfile = new File(Environment.getExternalStorageDirectory().getPath(),
-                    "temp_cut_camera.png"); //随便命名一个
-            if (cutfile.exists()){ //如果已经存在，则先删除,这里应该是上传到服务器，然后再删除本地的，没服务器，只能这样了
-                cutfile.delete();
-            }
-            cutfile.createNewFile();
-            //初始化 uri
-            Uri imageUri = null; //返回来的 uri
-            Uri outputUri = null; //真实的 uri
-            Intent intent = new Intent("com.android.camera.action.CROP");
-            //拍照留下的图片
-            File camerafile = new File(camerapath,imgname);
-            if (Build.VERSION.SDK_INT >= 24) {
-                intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                imageUri = FileProvider.getUriForFile(this,
-                        "com.zeyuan.kyq.fileprovider",
-                        camerafile);
-            } else {
-                imageUri = Uri.fromFile(camerafile);
-            }
-            outputUri = Uri.fromFile(cutfile);
-            //把这个 uri 提供出去，就可以解析成 bitmap了
-            tempUri = outputUri;
-            // crop为true是设置在开启的intent中设置显示的view可以剪裁
-            intent.putExtra("crop",true);
-            // aspectX,aspectY 是宽高的比例，这里设置正方形
-            intent.putExtra("aspectX",1);
-            intent.putExtra("aspectY",1);
-            //设置要裁剪的宽高
-            intent.putExtra("outputX", 600);
-            intent.putExtra("outputY",600);
-            intent.putExtra("scale",true);
-            //如果图片过大，会导致oom，这里设置为false
-            intent.putExtra("return-data",false);
-            if (imageUri != null) {
-                intent.setDataAndType(imageUri, "image/*");
-            }
-            if (outputUri != null) {
-                intent.putExtra(MediaStore.EXTRA_OUTPUT, outputUri);
-            }
-            intent.putExtra("noFaceDetection", true);
-            //压缩图片
-            intent.putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString());
-            ComponentName componentName = intent.resolveActivity(getPackageManager());
-            if (componentName != null) {
-                startActivityForResult(intent, PHOTORESOULT);
-            } else {
-                Toast.makeText(this, "无法连接到系统裁剪功能", Toast.LENGTH_SHORT).show();
-            }
-//            return intent;
-        } catch (Exception e) {
-            Toast.makeText(this, "无法连接到系统裁剪功能", Toast.LENGTH_SHORT).show();
-        }
-//        return null;
-    }
-
-
     /***
      * 隐式意图参数回传处理
      *
@@ -683,91 +427,7 @@ public class PersonalDataActivity extends BaseActivity implements View.OnClickLi
      */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-
-        try {
-            if (resultCode == NONE) {
-                Toast.makeText(this, R.string.choose_no_photo, Toast.LENGTH_SHORT).show();
-                return;
-            }
-            // 拍照
-            if (requestCode == PHOTOHRAPH) {
-                try {
-                    /*Uri uri = data.getData();
-                    //设置文件保存路径这里放在跟目录下
-                    Bitmap cameraPhoto = data.getExtras().getParcelable("data");//从流中得到图片
-                    FileOutputStream foss = null;
-                    tempFile = new File(Environment.getExternalStorageDirectory(),
-                            getPhotoFileName());
-                    try {
-                        foss = new FileOutputStream(tempFile);
-                        cameraPhoto.compress(Bitmap.CompressFormat.JPEG, 100, foss);
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
-                    } finally {
-                        if (foss != null) {
-                            try {
-                                foss.close();
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }*/
-                    String path = this.getExternalCacheDir().getPath();
-                    String name = "output.png";
-                    CutForCamera(path, name);
-                }catch (Exception e){
-                    ExceptionUtils.ExceptionSend(e,"requestCode");
-                }
-            }
-
-            if (data == null)
-                return;
-            // 读取相册缩放图片
-            if (requestCode == PHOTOZOOM) {
-                CutForPhoto(data.getData());
-            }
-            // 处理结果
-            if (requestCode == PHOTORESOULT) {
-                try {
-                    Uri reUrl = data.getData();
-                    if (reUrl == null&&tempUri!=null){
-                        reUrl = tempUri;
-                        tempUri = null;
-                    }
-                    Bitmap photo = BitmapFactory.decodeStream(this.getContentResolver().openInputStream(reUrl));
-                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                    int options = 100;
-                    photo.compress(Bitmap.CompressFormat.JPEG, options, baos);
-                    FileOutputStream fos = null;
-                    tempFile = new File(Environment.getExternalStorageDirectory(),
-                            getPhotoFileName());
-                    try {
-                        fos = new FileOutputStream(tempFile);
-                        fos.write(baos.toByteArray());
-                        fos.flush();
-                        fos.close();
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    } finally {
-                        if (fos != null) {
-                            try {
-                                fos.close();
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }
-                    civ.setImageBitmap(photo);
-
-                }catch (Exception e){
-                    ExceptionUtils.ExceptionSend(e,"photoResult");
-                }
-            }
-        }catch (Exception e){
-            ExceptionUtils.ExceptionToUM(e, this, "PersonalDataActivity");
-        }
+        biz.handleActivityResult(requestCode, resultCode, data);
     }
 
     private File tempFile;//处理图片临时文件
@@ -860,4 +520,9 @@ public class PersonalDataActivity extends BaseActivity implements View.OnClickLi
         return false;
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        biz.clear();
+    }
 }
